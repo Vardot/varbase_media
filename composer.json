@@ -1,0 +1,31 @@
+{
+  "name": "drupal/varbase_media",
+  "description": "Manages type of media contents and entity browsers in the site.",
+  "type": "drupal-module",
+  "homepage": "https://www.drupal.org/project/varbase_media",
+  "license": "GPL-2.0-or-later",
+  "minimum-stability": "dev",
+  "authors": [
+    {
+      "name": "Vardot",
+      "homepage": "https://www.drupal.org/vardot",
+      "role": "Maintainer"
+    }
+  ],
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/varbase_media",
+    "source": "http://cgit.drupalcode.org/varbase_media"
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://packages.drupal.org/8"
+    }
+  ],
+  "require": {},
+  "extra": {
+    "branch-alias": {
+      "dev-8.x-5.x": "8.5.x-dev"
+    }
+  }
+}
