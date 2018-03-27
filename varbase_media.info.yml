@@ -5,7 +5,6 @@ package: Varbase
 dependencies:
   - advanced_text_formatter
   - blazy
-  - content_translation
   - crop
   - dropzonejs_eb_widget
   - ds
@@ -16,7 +15,6 @@ dependencies:
   - file
   - focal_point
   - image
-  - language
   - media_entity
   - media_entity_document
   - media_entity_image
