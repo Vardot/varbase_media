@@ -19,7 +19,7 @@ function varbase_media_install() {
     $config_path = $module_path . 'language.content_settings.media.document.yml';
     $config_content = file_get_contents($config_path);
     $config_data = (array) Yaml::parse($config_content);
-    $config_factory = \Drupal::configFactory()->getEditable('language.content_settings.media.document.page');
+    $config_factory = \Drupal::configFactory()->getEditable('language.content_settings.media.document');
     $config_factory->setData($config_data)->save(TRUE);
 
     $config_path = $module_path . 'language.content_settings.media.image.yml';
