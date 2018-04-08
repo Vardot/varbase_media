@@ -2,7 +2,7 @@ langcode: en
 status: true
 dependencies:
   module:
-    - media_entity
+    - media
 id: media.medium
 label: 'Medium (1/2 of width)'
 targetEntityType: media

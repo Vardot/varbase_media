@@ -2,7 +2,7 @@ langcode: en
 status: true
 dependencies:
   module:
-    - media_entity
+    - media
 id: media.s10_traditional
 label: 'Size 10 traditional 4:3'
 targetEntityType: media

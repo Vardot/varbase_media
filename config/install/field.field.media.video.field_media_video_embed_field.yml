@@ -3,7 +3,7 @@ status: true
 dependencies:
   config:
     - field.storage.media.field_media_video_embed_field
-    - media_entity.bundle.video
+    - media.type.video
   module:
     - video_embed_field
 id: media.video.field_media_video_embed_field
@@ -12,10 +12,13 @@ entity_type: media
 bundle: video
 label: 'Video URL'
 description: ''
-required: true
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  allowed_providers: {  }
+  allowed_providers:
+    youtube: '0'
+    vimeo: '0'
+    youtube_playlist: '0'
 field_type: video_embed_field

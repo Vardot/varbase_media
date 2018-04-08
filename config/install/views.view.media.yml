@@ -2,11 +2,11 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.media.field_image
+    - field.storage.media.field_media_image
     - image.style.thumbnail
   module:
     - image
-    - media_entity
+    - media
     - user
 id: media
 label: Media
@@ -248,10 +248,10 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        field_image:
-          id: field_image
-          table: media__field_image
-          field: field_image
+        field_media_image:
+          id: field_media_image
+          table: media__field_media_image
+          field: field_media_image
           relationship: none
           group_type: group
           admin_label: ''
@@ -259,7 +259,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<b>Alt:</b> {{ field_image__alt }} <br />\n<b>Title:</b> {{ field_image__title }}"
+            text: "<b>Alt:</b> {{ field_media_image__alt }} <br />\n<b>Title:</b> {{ field_media_image__title }}"
             make_link: false
             path: ''
             absolute: false
@@ -831,7 +831,7 @@ display:
       arguments: {  }
       display_extenders: {  }
     cache_metadata:
-      max-age: 0
+      max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
@@ -839,7 +839,7 @@ display:
         - url.query_args
         - user.permissions
       tags:
-        - 'config:field.storage.media.field_image'
+        - 'config:field.storage.media.field_media_image'
   media_page_list:
     display_plugin: page
     id: media_page_list
@@ -859,7 +859,7 @@ display:
         menu_name: main
       display_description: ''
     cache_metadata:
-      max-age: 0
+      max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
@@ -867,4 +867,4 @@ display:
         - url.query_args
         - user.permissions
       tags:
-        - 'config:field.storage.media.field_image'
+        - 'config:field.storage.media.field_media_image'

@@ -2,7 +2,7 @@ langcode: en
 status: true
 dependencies:
   module:
-    - media_entity
+    - media
 id: media.se2e_traditional
 label: 'Size Edge-to-Edge traditional 4:3'
 targetEntityType: media

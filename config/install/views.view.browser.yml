@@ -3,16 +3,16 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.media.browser_teaser
-    - media_entity.bundle.image
+    - media.type.image
   module:
     - entity_browser
-    - media_entity
+    - media
     - user
     - views_infinite_scroll
 id: browser
 label: Browser
 module: views
-description: 'Browser view to select media content form the library of images, media, documents in the site'
+description: 'Browser view to select media content form the library of images, media, files in the site'
 tag: ''
 base_table: media_field_data
 base_field: mid
@@ -354,9 +354,8 @@ display:
       arguments: {  }
       display_extenders: {  }
     cache_metadata:
-      max-age: 0
+      max-age: -1
       contexts:
-        - 'languages:language_content'
         - 'languages:language_interface'
         - url
         - url.query_args
@@ -364,9 +363,9 @@ display:
         - 'url.query_args:sort_order'
         - user.permissions
       tags:
-        - 'config:core.entity_view_display.media.document.browser_teaser'
-        - 'config:core.entity_view_display.media.document.default'
-        - 'config:core.entity_view_display.media.document.field_preview'
+        - 'config:core.entity_view_display.media.file.browser_teaser'
+        - 'config:core.entity_view_display.media.file.default'
+        - 'config:core.entity_view_display.media.file.field_preview'
         - 'config:core.entity_view_display.media.image.browser_teaser'
         - 'config:core.entity_view_display.media.image.default'
         - 'config:core.entity_view_display.media.image.field_preview'
@@ -771,9 +770,9 @@ display:
         - 'url.query_args:sort_order'
         - user.permissions
       tags:
-        - 'config:core.entity_view_display.media.document.browser_teaser'
-        - 'config:core.entity_view_display.media.document.default'
-        - 'config:core.entity_view_display.media.document.field_preview'
+        - 'config:core.entity_view_display.media.file.browser_teaser'
+        - 'config:core.entity_view_display.media.file.default'
+        - 'config:core.entity_view_display.media.file.field_preview'
         - 'config:core.entity_view_display.media.image.browser_teaser'
         - 'config:core.entity_view_display.media.image.default'
         - 'config:core.entity_view_display.media.image.field_preview'
@@ -1191,9 +1190,9 @@ display:
         - 'url.query_args:sort_order'
         - user.permissions
       tags:
-        - 'config:core.entity_view_display.media.document.browser_teaser'
-        - 'config:core.entity_view_display.media.document.default'
-        - 'config:core.entity_view_display.media.document.field_preview'
+        - 'config:core.entity_view_display.media.file.browser_teaser'
+        - 'config:core.entity_view_display.media.file.default'
+        - 'config:core.entity_view_display.media.file.field_preview'
         - 'config:core.entity_view_display.media.image.browser_teaser'
         - 'config:core.entity_view_display.media.image.default'
         - 'config:core.entity_view_display.media.image.field_preview'
@@ -1611,9 +1610,9 @@ display:
         - 'url.query_args:sort_order'
         - user.permissions
       tags:
-        - 'config:core.entity_view_display.media.document.browser_teaser'
-        - 'config:core.entity_view_display.media.document.default'
-        - 'config:core.entity_view_display.media.document.field_preview'
+        - 'config:core.entity_view_display.media.file.browser_teaser'
+        - 'config:core.entity_view_display.media.file.default'
+        - 'config:core.entity_view_display.media.file.field_preview'
         - 'config:core.entity_view_display.media.image.browser_teaser'
         - 'config:core.entity_view_display.media.image.default'
         - 'config:core.entity_view_display.media.image.field_preview'

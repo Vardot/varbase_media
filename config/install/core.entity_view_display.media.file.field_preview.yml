@@ -3,18 +3,18 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.media.field_preview
-    - field.field.media.document.field_document_file
+    - field.field.media.file.field_media_file
     - image.style.field_preview
-    - media_entity.bundle.document
+    - media.type.file
   module:
     - file
     - image
-id: media.document.field_preview
+id: media.file.field_preview
 targetEntityType: media
-bundle: document
+bundle: file
 mode: field_preview
 content:
-  field_document_file:
+  field_media_file:
     weight: 2
     label: hidden
     settings: {  }

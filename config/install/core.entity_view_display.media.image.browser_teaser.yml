@@ -3,9 +3,9 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.media.browser_teaser
-    - field.field.media.image.field_image
+    - field.field.media.image.field_media_image
     - image.style.d3_traditional
-    - media_entity.bundle.image
+    - media.type.image
   module:
     - image
 id: media.image.browser_teaser
@@ -13,7 +13,7 @@ targetEntityType: media
 bundle: image
 mode: browser_teaser
 content:
-  field_image:
+  field_media_image:
     weight: 0
     label: hidden
     settings:

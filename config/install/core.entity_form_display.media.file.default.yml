@@ -2,56 +2,64 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.media.document.field_document_file
-    - media_entity.bundle.document
+    - field.field.media.file.field_media_file
+    - media.type.file
   module:
     - file
     - path
-id: media.document.default
+id: media.file.default
 targetEntityType: media
-bundle: document
+bundle: file
 mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 4
+    weight: 3
+    region: content
     settings: {  }
     third_party_settings: {  }
+  field_media_file:
+    type: file_generic
+    weight: 0
     region: content
-  field_document_file:
-    weight: 1
     settings:
       progress_indicator: throbber
     third_party_settings: {  }
-    type: file_generic
-    region: content
   langcode:
     type: language_select
     weight: 2
-    settings: {  }
-    third_party_settings: {  }
     region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
   name:
     type: string_textfield
-    weight: 0
+    weight: 1
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    region: content
   path:
     type: path
-    weight: 30
+    weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 5
+    region: content
+    third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 3
+    weight: 2
     settings:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
-    third_party_settings: {  }
     region: content
+    third_party_settings: {  }
 hidden: {  }

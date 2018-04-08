@@ -2,16 +2,16 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.media.document.field_document_file
+    - field.field.media.file.field_media_file
     - image.style.thumbnail
-    - media_entity.bundle.document
+    - media.type.file
   module:
     - file
     - image
     - user
-id: media.document.default
+id: media.file.default
 targetEntityType: media
-bundle: document
+bundle: file
 mode: default
 content:
   created:
@@ -24,7 +24,7 @@ content:
       timezone: ''
     third_party_settings: {  }
     region: content
-  field_document_file:
+  field_media_file:
     weight: 2
     label: hidden
     settings: {  }

@@ -3,9 +3,9 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.media.field_preview
-    - field.field.media.image.field_image
+    - field.field.media.image.field_media_image
     - image.style.field_preview
-    - media_entity.bundle.image
+    - media.type.image
   module:
     - image
 id: media.image.field_preview
@@ -13,7 +13,7 @@ targetEntityType: media
 bundle: image
 mode: field_preview
 content:
-  field_image:
+  field_media_image:
     weight: 0
     label: hidden
     settings:

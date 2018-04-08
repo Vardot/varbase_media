@@ -3,9 +3,9 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.media.s3_square
-    - field.field.media.image.field_image
+    - field.field.media.image.field_media_image
     - image.style.d3_square
-    - media_entity.bundle.image
+    - media.type.image
   module:
     - image
 id: media.image.s3_square
@@ -13,7 +13,7 @@ targetEntityType: media
 bundle: image
 mode: s3_square
 content:
-  field_image:
+  field_media_image:
     weight: 0
     label: hidden
     settings:

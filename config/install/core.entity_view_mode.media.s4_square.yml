@@ -2,7 +2,7 @@ langcode: en
 status: true
 dependencies:
   module:
-    - media_entity
+    - media
 id: media.s4_square
 label: 'Size 4 square 1:1'
 targetEntityType: media
