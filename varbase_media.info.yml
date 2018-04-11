@@ -3,6 +3,7 @@ description: 'Manages type of media contents and entity browsers in the site.'
 type: module
 package: Varbase
 dependencies:
+  - varbase_core
   - advanced_text_formatter
   - blazy
   - crop
@@ -23,7 +24,6 @@ dependencies:
   - responsive_image
   - system
   - user
-  - varbase_core
   - video_embed_field
   - video_embed_media
   - views
