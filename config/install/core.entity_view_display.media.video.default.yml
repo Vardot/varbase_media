@@ -4,6 +4,7 @@ dependencies:
   config:
     - field.field.media.video.field_media_video_embed_field
     - field.field.media.video.field_media_video_file
+    - field.field.media.video.field_source
     - media.type.video
   module:
     - ds
@@ -48,6 +49,7 @@ content:
             classes: {  }
 hidden:
   created: true
+  field_source: true
   langcode: true
   name: true
   thumbnail: true

@@ -103,3 +103,74 @@ function varbase_media_form_entity_embed_dialog_alter(&$form, FormStateInterface
     }
   }
 }
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function varbase_media_form_alter(array &$form, FormStateInterface $form_state, $form_id) {
+  if ($form_id == 'media_video_add_form'
+   || $form_id == 'media_video_edit_form') {
+
+    $form['field_media_video_file']['#states'] = [
+     'visible' => [
+       [':input[name="field_source"]' => ['value' => 'upload']],
+     ],
+     'required' => [
+       [':input[name="field_source"]' => ['value' => 'upload']],
+     ],
+    ];
+
+    $form['field_media_video_embed_field']['#states'] = [
+     'visible' => [
+       [':input[name="field_source"]' => ['value' => 'embed']],
+     ],
+     'required' => [
+       [':input[name="field_source"]' => ['value' => 'embed']],
+     ],
+    ];
+
+    $form['#validate'][] = '_varbase_media_validate_media_video_form_validate';
+  }
+}
+
+/**
+ * Validate media video form.
+ */
+function _varbase_media_validate_media_video_form_validate(array &$form, FormStateInterface $form_state) {
+
+  $field_source = $form_state->getValue('field_source');
+
+  if (isset($field_source)
+    && isset($field_source[0])
+    && isset($field_source[0]['value'])
+    && !empty($field_source[0]['value'])) {
+
+    if ($field_source[0]['value'] == 'embed') {
+      $field_media_video_embed_field = $form_state->getValue('field_media_video_embed_field');
+
+      if (isset($field_media_video_embed_field)
+        && isset($field_media_video_embed_field[0])
+        && isset($field_media_video_embed_field[0]['value'])
+        && empty($field_media_video_embed_field[0]['value'])) {
+
+        $form_state->setErrorByName('field_media_video_embed_field', t('Please fill in a link for a video!'));
+      }
+
+      $form_state->setValue('field_media_video_file', array());
+
+    }
+    elseif ($field_source[0]['value'] == 'upload') {
+      $field_media_video_file = $form_state->getValue('field_media_video_file');
+
+      if (isset($field_media_video_file)
+        && isset($field_media_video_file[0])
+        && isset($field_media_video_file[0]['fids'])
+        && count($field_media_video_file[0]['fids']) == 0) {
+
+        $form_state->setErrorByName('field_media_video_file', t('Please upload a video file!'));
+      }
+
+      $form_state->setValue('field_media_video_embed_field', array());
+    }
+  }
+}
