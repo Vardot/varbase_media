@@ -5,6 +5,7 @@ dependencies:
     - core.entity_view_mode.media.s12_square
     - field.field.media.video.field_media_video_embed_field
     - field.field.media.video.field_media_video_file
+    - field.field.media.video.field_source
     - media.type.video
   module:
     - video_embed_field
@@ -27,6 +28,7 @@ content:
 hidden:
   created: true
   field_media_video_file: true
+  field_source: true
   langcode: true
   name: true
   thumbnail: true

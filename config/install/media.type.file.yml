@@ -8,7 +8,7 @@ third_party_settings:
     image_field: _none
 id: file
 label: File
-description: 'Use local files for reusable media. a written information like PDF, Document.'
+description: 'Use local files for reusable written information like PDF, Document.'
 source: file
 queue_thumbnail_downloads: false
 new_revision: true

@@ -21,10 +21,17 @@ content:
     label: hidden
     settings:
       responsive: true
-      width: 854
-      height: 480
+      width: 1200
+      height: 675
       autoplay: false
-    third_party_settings: {  }
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
     region: content
   field_media_video_file:
     type: file_video
@@ -35,7 +42,7 @@ content:
       controls: true
       multiple_file_display_type: tags
       width: 1200
-      height: 880
+      height: 675
       autoplay: false
       loop: false
       muted: false

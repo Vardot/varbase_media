@@ -8,7 +8,7 @@ third_party_settings:
     image_field: _none
 id: video
 label: Video
-description: 'A locally hosted video file. Or a Video file is a moving visual recording. It could be a YouTube, Vimeo, Facebook, or other Video sharing services.'
+description: 'Use local video file, Or a link to a YouTube, Vimeo, Facebook, or other Video sharing services.'
 source: video_file
 queue_thumbnail_downloads: false
 new_revision: true

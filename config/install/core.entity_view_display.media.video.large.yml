@@ -2,7 +2,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.media.s10_standard
+    - core.entity_view_mode.media.large
     - field.field.media.video.field_media_video_embed_field
     - field.field.media.video.field_media_video_file
     - field.field.media.video.field_source
@@ -11,20 +11,20 @@ dependencies:
     - ds
     - file
     - video_embed_field
-id: media.video.s10_standard
+id: media.video.large
 targetEntityType: media
 bundle: video
-mode: s10_standard
+mode: large
 content:
   field_media_video_embed_field:
     type: video_embed_field_video
     weight: 0
     label: hidden
     settings:
-      width: 1000
-      height: 563
+      responsive: true
+      width: 1200
+      height: 900
       autoplay: false
-      responsive: false
     third_party_settings:
       ds:
         ft:
@@ -40,10 +40,10 @@ content:
     region: content
     label: hidden
     settings:
-      multiple_file_display_type: sources
-      width: 1000
-      height: 563
-      controls: false
+      controls: true
+      multiple_file_display_type: tags
+      width: 1200
+      height: 900
       autoplay: false
       loop: false
       muted: false

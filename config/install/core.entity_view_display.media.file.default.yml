@@ -8,26 +8,16 @@ dependencies:
   module:
     - file
     - image
-    - user
 id: media.file.default
 targetEntityType: media
 bundle: file
 mode: default
 content:
-  created:
-    label: hidden
-    type: timestamp
-    weight: 3
-    settings:
-      date_format: medium
-      custom_date_format: ''
-      timezone: ''
-    third_party_settings: {  }
-    region: content
   field_media_file:
     weight: 2
     label: hidden
-    settings: {  }
+    settings:
+      use_description_as_link_text: true
     third_party_settings: {  }
     type: file_default
     region: content
@@ -48,12 +38,7 @@ content:
       image_link: ''
     third_party_settings: {  }
     region: content
-  uid:
-    label: hidden
-    type: author
-    weight: 4
-    settings: {  }
-    third_party_settings: {  }
-    region: content
 hidden:
+  created: true
   langcode: true
+  uid: true

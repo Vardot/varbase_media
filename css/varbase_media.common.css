@@ -77,3 +77,7 @@ figure.align-left figcaption {
   display: table-caption;
   caption-side: bottom;
 }
+.media--type-video video {
+  width: 100% !important;
+  height: auto !important;
+}

@@ -19,7 +19,7 @@ third_party_settings:
         - field_media_video_embed_field
         - field_media_video_file
       parent_name: ''
-      weight: 1
+      weight: 0
       format_type: fieldset
       format_settings:
         label: Video
@@ -34,12 +34,6 @@ targetEntityType: media
 bundle: video
 mode: default
 content:
-  created:
-    type: datetime_timestamp
-    weight: 9
-    settings: {  }
-    third_party_settings: {  }
-    region: content
   field_media_video_embed_field:
     type: video_embed_field_textfield
     weight: 3
@@ -59,16 +53,9 @@ content:
     third_party_settings: {  }
     type: options_buttons
     region: content
-  langcode:
-    type: language_select
-    weight: 6
-    region: content
-    settings:
-      include_locked: true
-    third_party_settings: {  }
   name:
     type: string_textfield
-    weight: 0
+    weight: 1
     settings:
       size: 60
       placeholder: ''
@@ -76,7 +63,7 @@ content:
     region: content
   path:
     type: path
-    weight: 7
+    weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -84,16 +71,10 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 5
+    weight: 2
     region: content
     third_party_settings: {  }
-  uid:
-    type: entity_reference_autocomplete
-    weight: 8
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    region: content
-hidden: {  }
+hidden:
+  created: true
+  langcode: true
+  uid: true
