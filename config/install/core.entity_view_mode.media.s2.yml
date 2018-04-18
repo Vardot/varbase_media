@@ -1,9 +1,0 @@
-langcode: en
-status: true
-dependencies:
-  module:
-    - media
-id: media.s2
-label: 'Size 2 auto'
-targetEntityType: media
-cache: true

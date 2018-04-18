@@ -4,7 +4,7 @@ dependencies:
   config:
     - core.entity_view_mode.media.browser_teaser
     - field.field.media.file.field_media_file
-    - image.style.d3_traditional
+    - image.style.d03_traditional
     - media.type.file
   module:
     - ds
@@ -27,7 +27,7 @@ content:
     weight: 0
     label: hidden
     settings:
-      image_style: d3_traditional
+      image_style: d03_traditional
       image_link: ''
     third_party_settings:
       ds:

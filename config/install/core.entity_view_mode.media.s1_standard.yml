@@ -1,9 +1,0 @@
-langcode: en
-status: true
-dependencies:
-  module:
-    - media
-id: media.s1_standard
-label: 'Size 1 standard 16:9'
-targetEntityType: media
-cache: true

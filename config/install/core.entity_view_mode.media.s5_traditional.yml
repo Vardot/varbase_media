@@ -1,9 +1,0 @@
-langcode: en
-status: true
-dependencies:
-  module:
-    - media
-id: media.s5_traditional
-label: 'Size 5 traditional 4:3'
-targetEntityType: media
-cache: true

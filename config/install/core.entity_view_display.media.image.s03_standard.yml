@@ -1,0 +1,30 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.s03_standard
+    - field.field.media.image.field_media_image
+    - media.type.image
+    - responsive_image.styles.d03_standard
+  module:
+    - responsive_image
+id: media.image.s03_standard
+targetEntityType: media
+bundle: image
+mode: s03_standard
+content:
+  field_media_image:
+    weight: 0
+    label: hidden
+    settings:
+      responsive_image_style: d03_standard
+      image_link: ''
+    third_party_settings: {  }
+    type: responsive_image
+    region: content
+hidden:
+  created: true
+  langcode: true
+  name: true
+  thumbnail: true
+  uid: true

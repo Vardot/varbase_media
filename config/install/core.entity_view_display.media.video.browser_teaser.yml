@@ -6,7 +6,7 @@ dependencies:
     - field.field.media.video.field_media_video_embed_field
     - field.field.media.video.field_media_video_file
     - field.field.media.video.field_source
-    - image.style.d3_traditional
+    - image.style.d03_traditional
     - media.type.video
   module:
     - ds
@@ -22,7 +22,7 @@ content:
     weight: 0
     label: hidden
     settings:
-      image_style: d3_traditional
+      image_style: d03_traditional
       link_image_to: ''
     third_party_settings:
       ds:
@@ -47,7 +47,7 @@ content:
     region: content
     label: hidden
     settings:
-      image_style: d3_traditional
+      image_style: d03_traditional
       image_link: ''
     third_party_settings:
       ds:

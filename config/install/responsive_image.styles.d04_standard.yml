@@ -1,0 +1,23 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.d04_standard
+    - image.style.d08_standard
+  theme:
+    - bootstrap
+id: d04_standard
+label: 'Display 4 responsive standard 16:9'
+image_style_mappings:
+  -
+    breakpoint_id: bootstrap.screen-xs-max
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: d08_standard
+  -
+    breakpoint_id: bootstrap.screen-sm-min
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: d04_standard
+breakpoint_group: bootstrap
+fallback_image_style: d04_standard

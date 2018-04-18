@@ -4,7 +4,7 @@ dependencies:
   config:
     - image.style.d10
     - image.style.d12
-    - image.style.d8
+    - image.style.d08
   theme:
     - bootstrap
 id: d12
@@ -14,7 +14,7 @@ image_style_mappings:
     breakpoint_id: bootstrap.screen-xs-max
     multiplier: 1x
     image_mapping_type: image_style
-    image_mapping: d8
+    image_mapping: d08
   -
     breakpoint_id: bootstrap.screen-sm-min
     multiplier: 1x
@@ -26,4 +26,4 @@ image_style_mappings:
     image_mapping_type: image_style
     image_mapping: d12
 breakpoint_group: bootstrap
-fallback_image_style: d8
+fallback_image_style: d08

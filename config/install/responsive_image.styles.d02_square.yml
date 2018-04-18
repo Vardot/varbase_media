@@ -1,0 +1,23 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.d02_square
+    - image.style.d04_square
+  theme:
+    - bootstrap
+id: d02_square
+label: 'Display 2 responsive square 1:1'
+image_style_mappings:
+  -
+    breakpoint_id: bootstrap.screen-xs-max
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: d04_square
+  -
+    breakpoint_id: bootstrap.screen-sm-min
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: d02_square
+breakpoint_group: bootstrap
+fallback_image_style: d02_square

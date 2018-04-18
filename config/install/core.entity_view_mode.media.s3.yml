@@ -1,9 +1,0 @@
-langcode: en
-status: true
-dependencies:
-  module:
-    - media
-id: media.s3
-label: 'Size 3 auto'
-targetEntityType: media
-cache: true

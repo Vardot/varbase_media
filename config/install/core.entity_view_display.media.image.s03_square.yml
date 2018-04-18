@@ -1,0 +1,30 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.s03_square
+    - field.field.media.image.field_media_image
+    - image.style.d03_square
+    - media.type.image
+  module:
+    - image
+id: media.image.s03_square
+targetEntityType: media
+bundle: image
+mode: s03_square
+content:
+  field_media_image:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: d03_square
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+hidden:
+  created: true
+  langcode: true
+  name: true
+  thumbnail: true
+  uid: true

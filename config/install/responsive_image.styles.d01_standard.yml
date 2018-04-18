@@ -1,0 +1,23 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.d01_standard
+    - image.style.d03_standard
+  theme:
+    - bootstrap
+id: d01_standard
+label: 'Display 1 responsive standard 16:9'
+image_style_mappings:
+  -
+    breakpoint_id: bootstrap.screen-xs-max
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: d03_standard
+  -
+    breakpoint_id: bootstrap.screen-sm-min
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: d01_standard
+breakpoint_group: bootstrap
+fallback_image_style: d01_standard

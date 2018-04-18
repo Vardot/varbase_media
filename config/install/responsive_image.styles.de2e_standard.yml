@@ -5,15 +5,15 @@ dependencies:
     - image.style.d10_standard
     - image.style.d11_standard
     - image.style.d12_standard
-    - image.style.d1_standard
-    - image.style.d2_standard
-    - image.style.d3_standard
-    - image.style.d4_standard
-    - image.style.d5_standard
-    - image.style.d6_standard
-    - image.style.d7_standard
-    - image.style.d8_standard
-    - image.style.d9_standard
+    - image.style.d01_standard
+    - image.style.d02_standard
+    - image.style.d03_standard
+    - image.style.d04_standard
+    - image.style.d05_standard
+    - image.style.d06_standard
+    - image.style.d07_standard
+    - image.style.d08_standard
+    - image.style.d09_standard
     - image.style.de2e_standard
 id: de2e_standard
 label: 'Display Edge-to-Edge responsive standard 16:9'
@@ -28,15 +28,15 @@ image_style_mappings:
         - d10_standard
         - d11_standard
         - d12_standard
-        - d1_standard
-        - d2_standard
-        - d3_standard
-        - d4_standard
-        - d5_standard
-        - d6_standard
-        - d7_standard
-        - d8_standard
-        - d9_standard
+        - d01_standard
+        - d02_standard
+        - d03_standard
+        - d04_standard
+        - d05_standard
+        - d06_standard
+        - d07_standard
+        - d08_standard
+        - d09_standard
         - de2e_standard
 breakpoint_group: responsive_image
 fallback_image_style: de2e_standard
