@@ -3,9 +3,6 @@ status: true
 dependencies:
   config:
     - image.style.d01
-    - image.style.d10
-    - image.style.d11
-    - image.style.d12
     - image.style.d02
     - image.style.d03
     - image.style.d04
@@ -14,6 +11,9 @@ dependencies:
     - image.style.d07
     - image.style.d08
     - image.style.d09
+    - image.style.d10
+    - image.style.d11
+    - image.style.d12
     - image.style.de2e
 id: de2e
 label: 'Display Edge-to-Edge responsive auto'

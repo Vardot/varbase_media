@@ -2,9 +2,9 @@ langcode: en
 status: true
 dependencies:
   config:
+    - image.style.d08_traditional
     - image.style.d10_traditional
     - image.style.d12_traditional
-    - image.style.d08_traditional
   theme:
     - bootstrap
 id: d12_traditional

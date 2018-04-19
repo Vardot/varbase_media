@@ -2,57 +2,23 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.media.video.field_media_video_embed_field
     - field.field.media.video.field_media_video_file
-    - field.field.media.video.field_source
     - media.type.video
   module:
-    - field_group
     - file
     - path
-    - video_embed_field
-third_party_settings:
-  field_group:
-    group_video:
-      children:
-        - field_source
-        - field_media_video_embed_field
-        - field_media_video_file
-      parent_name: ''
-      weight: 0
-      format_type: fieldset
-      format_settings:
-        label: Video
-        description: ''
-        id: ''
-        classes: ''
-        required_fields: false
-      label: Video
-      region: content
 id: media.video.default
 targetEntityType: media
 bundle: video
 mode: default
 content:
-  field_media_video_embed_field:
-    type: video_embed_field_textfield
-    weight: 3
-    settings: {  }
-    third_party_settings: {  }
-    region: content
   field_media_video_file:
     type: file_generic
-    weight: 4
+    weight: 0
     region: content
     settings:
       progress_indicator: throbber
     third_party_settings: {  }
-  field_source:
-    weight: 2
-    settings: {  }
-    third_party_settings: {  }
-    type: options_buttons
-    region: content
   name:
     type: string_textfield
     weight: 1

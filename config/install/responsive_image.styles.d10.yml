@@ -2,8 +2,8 @@ langcode: en
 status: true
 dependencies:
   config:
-    - image.style.d10
     - image.style.d08
+    - image.style.d10
   theme:
     - bootstrap
 id: d10

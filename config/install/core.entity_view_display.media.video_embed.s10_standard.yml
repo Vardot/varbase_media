@@ -1,0 +1,39 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.s10_standard
+    - field.field.media.video_embed.field_media_video_embed_field
+    - media.type.video_embed
+  module:
+    - ds
+    - video_embed_field
+id: media.video_embed.s10_standard
+targetEntityType: media
+bundle: video_embed
+mode: s10_standard
+content:
+  field_media_video_embed_field:
+    weight: 0
+    label: hidden
+    settings:
+      width: 1000
+      height: 563
+      autoplay: false
+      responsive: false
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    type: video_embed_field_video
+    region: content
+hidden:
+  created: true
+  langcode: true
+  name: true
+  thumbnail: true
+  uid: true

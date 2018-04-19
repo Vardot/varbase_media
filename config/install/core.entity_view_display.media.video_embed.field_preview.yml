@@ -1,0 +1,45 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.field_preview
+    - field.field.media.video_embed.field_media_video_embed_field
+    - image.style.field_preview
+    - media.type.video_embed
+  module:
+    - ds
+    - video_embed_field
+id: media.video_embed.field_preview
+targetEntityType: media
+bundle: video_embed
+mode: field_preview
+content:
+  field_media_video_embed_field:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: field_preview
+      link_image_to: ''
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    type: video_embed_field_thumbnail
+    region: content
+  name:
+    type: string
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+hidden:
+  created: true
+  langcode: true
+  thumbnail: true
+  uid: true

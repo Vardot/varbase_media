@@ -3,36 +3,17 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.media.field_preview
-    - field.field.media.video.field_media_video_embed_field
     - field.field.media.video.field_media_video_file
-    - field.field.media.video.field_source
     - image.style.field_preview
     - media.type.video
   module:
     - ds
     - image
-    - video_embed_field
 id: media.video.field_preview
 targetEntityType: media
 bundle: video
 mode: field_preview
 content:
-  field_media_video_embed_field:
-    type: video_embed_field_thumbnail
-    weight: 0
-    label: hidden
-    settings:
-      image_style: field_preview
-      link_image_to: ''
-    third_party_settings:
-      ds:
-        ft:
-          id: default
-          settings:
-            lb: ''
-            lb-col: false
-            classes: {  }
-    region: content
   name:
     type: string
     weight: 2
@@ -60,6 +41,5 @@ content:
 hidden:
   created: true
   field_media_video_file: true
-  field_source: true
   langcode: true
   uid: true

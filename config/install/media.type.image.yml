@@ -9,10 +9,10 @@ third_party_settings:
     image_field: _none
 id: image
 label: Image
-description: 'Use local images for reusable media with visual.'
+description: ''
 source: image
 queue_thumbnail_downloads: false
-new_revision: true
+new_revision: false
 source_configuration:
   source_field: field_media_image
 field_map: {  }
