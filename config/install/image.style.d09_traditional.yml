@@ -4,7 +4,7 @@ dependencies:
   module:
     - focal_point
 name: d09_traditional
-label: 'Display 9 (900xTraditional 4:3)'
+label: 'Display 09 (900xTraditional 4:3)'
 effects:
   0a3b7697-8c95-4104-beeb-4b7147409bcd:
     uuid: 0a3b7697-8c95-4104-beeb-4b7147409bcd

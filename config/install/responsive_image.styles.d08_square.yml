@@ -6,7 +6,7 @@ dependencies:
   theme:
     - bootstrap
 id: d08_square
-label: 'Display 8 responsive square 1:1'
+label: 'Display 08 responsive square 1:1'
 image_style_mappings: {  }
 breakpoint_group: bootstrap
 fallback_image_style: d08_square

@@ -7,7 +7,7 @@ dependencies:
   theme:
     - bootstrap
 id: d03_square
-label: 'Display 3 responsive square 1:1'
+label: 'Display 03 responsive square 1:1'
 image_style_mappings:
   -
     breakpoint_id: bootstrap.screen-xs-max

@@ -7,7 +7,7 @@ dependencies:
   theme:
     - bootstrap
 id: d02_traditional
-label: 'Display 2 responsive traditional 4:3'
+label: 'Display 02 responsive traditional 4:3'
 image_style_mappings:
   -
     breakpoint_id: bootstrap.screen-xs-max

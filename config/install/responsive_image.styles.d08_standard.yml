@@ -6,7 +6,7 @@ dependencies:
   theme:
     - bootstrap
 id: d08_standard
-label: 'Display 8 responsive standard 16:9'
+label: 'Display 08 responsive standard 16:9'
 image_style_mappings: {  }
 breakpoint_group: bootstrap
 fallback_image_style: d08_standard

@@ -6,7 +6,7 @@ dependencies:
   theme:
     - bootstrap
 id: d08
-label: 'Display 8 responsive auto'
+label: 'Display 08 responsive auto'
 image_style_mappings: {  }
 breakpoint_group: bootstrap
 fallback_image_style: d08

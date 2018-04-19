@@ -7,7 +7,7 @@ dependencies:
   theme:
     - bootstrap
 id: d06_standard
-label: 'Display 6 responsive standard 16:9'
+label: 'Display 06 responsive standard 16:9'
 image_style_mappings:
   -
     breakpoint_id: bootstrap.screen-xs-max

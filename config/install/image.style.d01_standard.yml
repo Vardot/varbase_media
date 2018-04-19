@@ -4,7 +4,7 @@ dependencies:
   module:
     - focal_point
 name: d01_standard
-label: 'Display 1 (100xStandard 16:9)'
+label: 'Display 01 (100xStandard 16:9)'
 effects:
   9fd3bf58-7906-416e-b85e-c24b6d3539d7:
     uuid: 9fd3bf58-7906-416e-b85e-c24b6d3539d7

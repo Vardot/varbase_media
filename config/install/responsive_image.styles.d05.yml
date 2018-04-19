@@ -7,7 +7,7 @@ dependencies:
   theme:
     - bootstrap
 id: d05
-label: 'Display 5 responsive auto'
+label: 'Display 05 responsive auto'
 image_style_mappings:
   -
     breakpoint_id: bootstrap.screen-xs-max
