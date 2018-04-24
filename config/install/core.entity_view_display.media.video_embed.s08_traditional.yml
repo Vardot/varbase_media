@@ -3,16 +3,35 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.media.s08_traditional
+    - field.field.media.video_embed.field_media_cover_image
     - field.field.media.video_embed.field_media_video_embed_field
+    - image.style.d08_traditional
     - media.type.video_embed
   module:
     - ds
+    - image
     - video_embed_field
 id: media.video_embed.s08_traditional
 targetEntityType: media
 bundle: video_embed
 mode: s08_traditional
 content:
+  field_media_cover_image:
+    type: image
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      image_style: d08_traditional
+      image_link: ''
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
   field_media_video_embed_field:
     weight: 0
     label: hidden

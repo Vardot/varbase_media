@@ -41,7 +41,7 @@ widgets:
       clientside_resize: false
       resize_width: null
       resize_height: null
-      resize_quality: 1
+      resize_quality: !!float 1
       resize_method: contain
       thumbnail_method: contain
       submit_text: 'Select  an image'

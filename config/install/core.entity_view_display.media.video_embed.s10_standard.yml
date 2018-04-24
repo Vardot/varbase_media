@@ -3,16 +3,35 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.media.s10_standard
+    - field.field.media.video_embed.field_media_cover_image
     - field.field.media.video_embed.field_media_video_embed_field
     - media.type.video_embed
+    - responsive_image.styles.d10_standard
   module:
     - ds
+    - responsive_image
     - video_embed_field
 id: media.video_embed.s10_standard
 targetEntityType: media
 bundle: video_embed
 mode: s10_standard
 content:
+  field_media_cover_image:
+    type: responsive_image
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      responsive_image_style: d10_standard
+      image_link: ''
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
   field_media_video_embed_field:
     weight: 0
     label: hidden

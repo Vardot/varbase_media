@@ -3,16 +3,51 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.media.s08_standard
+    - field.field.media.video.field_media_cover_image
     - field.field.media.video.field_media_video_file
+    - image.style.d08_standard
     - media.type.video
+  module:
+    - ds
+    - file
+    - image
 id: media.video.s08_standard
 targetEntityType: media
 bundle: video
 mode: s08_standard
-content: {  }
+content:
+  field_media_cover_image:
+    type: image
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      image_style: d08_standard
+      image_link: ''
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+  field_media_video_file:
+    type: file_video
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      muted: false
+      width: 640
+      height: 480
+      controls: true
+      autoplay: false
+      loop: false
+      multiple_file_display_type: tags
+    third_party_settings: {  }
 hidden:
   created: true
-  field_media_video_file: true
   langcode: true
   name: true
   thumbnail: true

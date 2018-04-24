@@ -1,0 +1,46 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_form_mode.media.browser_teaser
+    - field.field.media.video.field_media_cover_image
+    - field.field.media.video.field_media_video_file
+    - image.style.d03_traditional
+    - media.type.video
+  module:
+    - file
+    - image
+id: media.video.browser_teaser
+targetEntityType: media
+bundle: video
+mode: browser_teaser
+content:
+  field_media_cover_image:
+    type: image_image
+    weight: 1
+    region: content
+    settings:
+      preview_image_style: d03_traditional
+      progress_indicator: throbber
+    third_party_settings: {  }
+  field_media_video_file:
+    type: file_generic
+    weight: 0
+    region: content
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+hidden:
+  created: true
+  langcode: true
+  path: true
+  status: true
+  uid: true

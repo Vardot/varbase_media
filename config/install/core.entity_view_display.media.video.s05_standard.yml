@@ -3,19 +3,38 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.media.s05_standard
+    - field.field.media.video.field_media_cover_image
     - field.field.media.video.field_media_video_file
     - media.type.video
+    - responsive_image.styles.d05_standard
   module:
     - ds
     - file
+    - responsive_image
 id: media.video.s05_standard
 targetEntityType: media
 bundle: video
 mode: s05_standard
 content:
+  field_media_cover_image:
+    type: responsive_image
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      responsive_image_style: d05_standard
+      image_link: ''
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
   field_media_video_file:
     type: file_video
-    weight: 1
+    weight: 0
     region: content
     label: hidden
     settings:
