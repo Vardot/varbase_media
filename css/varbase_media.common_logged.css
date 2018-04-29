@@ -78,10 +78,12 @@ body .form-wrapper.field--widget-entity-browser-entity-reference .entities-list 
 body .form-wrapper.field--widget-entity-browser-entity-reference .entities-list .item-container:hover .field--name-name {
   display: block;
 }
-body .form-wrapper.field--widget-entity-browser-entity-reference .entities-list .item-container:hover input {
+body .form-wrapper.field--widget-entity-browser-entity-reference .entities-list .item-container:hover input,
+body .form-wrapper.field--widget-entity-browser-entity-reference .entities-list .item-container:hover button {
   display: block;
 }
-body .form-wrapper.field--widget-entity-browser-entity-reference .entities-list .item-container input {
+body .form-wrapper.field--widget-entity-browser-entity-reference .entities-list .item-container input,
+body .form-wrapper.field--widget-entity-browser-entity-reference .entities-list .item-container button {
   position: absolute;
   top: 0;
   display: none;
@@ -96,7 +98,8 @@ body .form-wrapper.field--widget-entity-browser-entity-reference .entities-list 
   cursor: pointer;
   opacity: 1;
 }
-body .form-wrapper.field--widget-entity-browser-entity-reference .entities-list .item-container input[id*="-edit-button"] {
+body .form-wrapper.field--widget-entity-browser-entity-reference .entities-list .item-container input[id*="-edit-button"],
+body .form-wrapper.field--widget-entity-browser-entity-reference .entities-list .item-container button[id*="-edit-button"] {
   background-image: url("../images/pencil-square-o.svg");
   background-repeat: no-repeat;
   background-position: left top;
@@ -106,7 +109,8 @@ body .form-wrapper.field--widget-entity-browser-entity-reference .entities-list 
   -webkit-filter: invert(100%) !important;
   filter: invert(100%) !important;
 }
-body .form-wrapper.field--widget-entity-browser-entity-reference .entities-list .item-container input[id*="-remove-button"] {
+body .form-wrapper.field--widget-entity-browser-entity-reference .entities-list .item-container input[id*="-remove-button"],
+body .form-wrapper.field--widget-entity-browser-entity-reference .entities-list .item-container button[id*="-remove-button"] {
   background-image: url("../images/times-circle-o.svg");
   background-repeat: no-repeat;
   background-position: left top;
@@ -167,31 +171,35 @@ a.entity-browser-handle.entity-browser-iframe {
 a.entity-browser-handle.entity-browser-iframe:hover {
   text-decoration: none;
 }
-[dir="rtl"] form.media-image-edit-form > .field--type-image.field--widget-image-image > div > div > .image-widget > .image-preview {
-  float: left;
-}
-form.media-image-edit-form > .field--type-image.field--widget-image-image > div > div > .image-widget > .image-preview {
+form.media-image-edit-form > .field--type-image .field--widget-image-image > div > div > .image-widget > .image-preview {
   float: right;
 }
-form.media-image-edit-form > .field--type-image.field--widget-image-image > div > div > .image-widget > .image-widget-data {
+form.media-image-edit-form > .field--type-image .field--widget-image-image > div > div > .image-widget > .image-widget-data {
   float: none;
 }
-form.media-image-edit-form > .field--type-image.field--widget-image-image > div > div > .image-widget > .image-widget-data > .file-size,
-form.media-image-edit-form > .field--type-image.field--widget-image-image > div > div > label,
-form.media-image-edit-form > .field--type-image.field--widget-image-image > div > div > .image-widget:after {
+form.media-image-edit-form > .field--type-image .field--widget-image-image > div > div > .image-widget:after {
   display: none;
 }
-form.media-image-edit-form > .field--type-image.field--widget-image-image > div > div > .image-widget > .image-widget-data > .file {
+form.media-image-edit-form > .field--type-image .field--widget-image-image > div > div > .image-widget > .file {
   display: none;
   float: right;
 }
-[dir="rtl"] form.media-image-edit-form > .field--type-image.field--widget-image-image > div > div > .image-widget > .image-widget-data > .button {
-  float: left;
-  margin-left: 4%;
+form.media-image-edit-form > .field--type-image .field--widget-image-image > div > div > .image-widget > .file-size {
+  display: none;
 }
-form.media-image-edit-form > .field--type-image.field--widget-image-image > div > div > .image-widget > .image-widget-data > .button {
+form.media-image-edit-form > .field--type-image .field--widget-image-image > div > div > .image-widget > .button {
   float: right;
   margin-right: 4%;
+}
+form.media-image-edit-form > .field--type-image .field--widget-image-image > div > div > .image-widget > label {
+  display: none;
+}
+[dir="rtl"] form.media-image-edit-form > .field--type-image .field--widget-image-image > div > div > .image-widget .image-preview {
+  float: left;
+}
+[dir="rtl"] form.media-image-edit-form > .field--type-image .field--widget-image-image > div > div > .image-widget > .button {
+  float: left;
+  margin-left: 4%;
 }
 form.media-form .form-item-field-source {
   float: left;

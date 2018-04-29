@@ -14,7 +14,7 @@ display: modal
 display_configuration:
   width: '750'
   height: '550'
-  link_text: 'Select an image'
+  link_text: 'Add image(s)'
   auto_open: false
 selection_display: no_display
 selection_display_configuration: {  }
@@ -25,7 +25,7 @@ widgets:
     settings:
       view: browser
       view_display: image_browser
-      submit_text: 'Select an image'
+      submit_text: 'Add image(s)'
       auto_select: false
     uuid: c9e40862-4975-43fc-9e06-64c1bc53e9a4
     weight: -10
@@ -41,10 +41,10 @@ widgets:
       clientside_resize: false
       resize_width: null
       resize_height: null
-      resize_quality: 1
+      resize_quality: !!float 1
       resize_method: contain
       thumbnail_method: contain
-      submit_text: 'Select an image'
+      submit_text: 'Add image(s)'
       auto_select: false
       form_mode: default
     uuid: 1ddfc2ef-3937-42ee-8ac8-0e79892b3127

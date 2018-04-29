@@ -2,27 +2,34 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_form_mode.media.browser_teaser
-    - field.field.media.image.field_media_image
+    - core.entity_form_mode.media.entity_browser
+    - field.field.media.video.field_media_cover_image
+    - field.field.media.video.field_media_video_file
     - image.style.field_preview
-    - media.type.image
+    - media.type.video
   module:
-    - focal_point
-id: media.image.browser_teaser
+    - file
+    - image
+id: media.video.entity_browser
 targetEntityType: media
-bundle: image
-mode: browser_teaser
+bundle: video
+mode: entity_browser
 content:
-  field_media_image:
-    weight: 0
+  field_media_cover_image:
+    weight: 2
     settings:
       preview_image_style: field_preview
       progress_indicator: throbber
-      preview_link: true
-      offsets: '50,50'
     third_party_settings: {  }
-    type: image_focal_point
+    type: image_image
     region: content
+  field_media_video_file:
+    type: file_generic
+    weight: 0
+    region: content
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
   name:
     type: string_textfield
     weight: 1

@@ -3,7 +3,7 @@ status: true
 dependencies:
   module:
     - media
-id: media.browser_teaser
-label: 'Entity Browser Preview'
+id: media.entity_browser
+label: 'Entity Browser'
 targetEntityType: media
 cache: true

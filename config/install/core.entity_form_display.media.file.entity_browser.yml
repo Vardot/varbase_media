@@ -2,15 +2,15 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_form_mode.media.browser_teaser
+    - core.entity_form_mode.media.entity_browser
     - field.field.media.file.field_media_file
     - media.type.file
   module:
     - file
-id: media.file.browser_teaser
+id: media.file.entity_browser
 targetEntityType: media
 bundle: file
-mode: browser_teaser
+mode: entity_browser
 content:
   field_media_file:
     type: file_generic

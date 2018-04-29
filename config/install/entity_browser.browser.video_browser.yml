@@ -45,7 +45,7 @@ widgets:
     settings:
       entity_type: media
       bundle: video_embed
-      form_mode: browser_teaser
+      form_mode: entity_browser
       submit_text: 'Save Video'
     uuid: 7425afbd-688f-4e22-99a3-389381717fff
     weight: -8

@@ -147,12 +147,14 @@ body {
               display: block;
             }
 
-            input {
+            input,
+            button {
               display: block;
             }
           }
 
-          input {
+          input,
+          button {
             position: absolute;
             top: 0;
             display: none;
@@ -169,7 +171,8 @@ body {
             opacity: 1;
           }
 
-          input[id*="-edit-button"] {
+          input[id*="-edit-button"],
+          button[id*="-edit-button"] {
             background-image: url("../images/pencil-square-o.svg");
             background-repeat: no-repeat;
             background-position: left top;
@@ -180,7 +183,8 @@ body {
             filter: invert(100%) !important;
           }
 
-          input[id*="-remove-button"] {
+          input[id*="-remove-button"],
+          button[id*="-remove-button"]{
             background-image: url("../images/times-circle-o.svg");
             background-repeat: no-repeat;
             background-position: left top;
@@ -280,36 +284,67 @@ a.entity-browser-handle {
 }
 
 // Edit image field form style.
-[dir="rtl"] form.media-image-edit-form > .field--type-image.field--widget-image-image > div > div > .image-widget > .image-preview {
-  float: left;
+form.media-image-edit-form {
+  & > .field--type-image {
+    & .field--widget-image-image {
+      & > div {
+        & > div {
+          & > .image-widget {
+            & > .image-preview {
+              float: right;
+            }
+            
+            & > .image-widget-data { 
+              float: none;
+            }
+            
+            &:after {
+              display: none;
+            }
+            
+            & > .file {
+              display: none;
+              float: right;
+            }
+            
+            & > .file-size {
+              display: none;
+            }
+            
+            & > .button {
+              float: right;
+              margin-right: 4%;
+            }
+            
+            & > label {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
-form.media-image-edit-form > .field--type-image.field--widget-image-image > div > div > .image-widget > .image-preview {
-  float: right;
-}
-
-form.media-image-edit-form > .field--type-image.field--widget-image-image > div > div > .image-widget > .image-widget-data {
-  float: none;
-}
-
-form.media-image-edit-form > .field--type-image.field--widget-image-image > div > div > .image-widget > .image-widget-data > .file-size , form.media-image-edit-form > .field--type-image.field--widget-image-image > div > div > label ,
-form.media-image-edit-form > .field--type-image.field--widget-image-image > div > div > .image-widget:after {
-  display: none;
-}
-
-form.media-image-edit-form > .field--type-image.field--widget-image-image > div > div > .image-widget > .image-widget-data > .file {
-  display: none;
-  float: right;
-}
-
-[dir="rtl"] form.media-image-edit-form > .field--type-image.field--widget-image-image > div > div > .image-widget > .image-widget-data > .button {
-  float: left;
-  margin-left: 4%;
-}
-
-form.media-image-edit-form > .field--type-image.field--widget-image-image > div > div > .image-widget > .image-widget-data > .button {
-  float: right;
-  margin-right: 4%;
+[dir="rtl"] form.media-image-edit-form {
+  & > .field--type-image {
+    & .field--widget-image-image {
+      & > div {
+        & > div {
+          & > .image-widget {
+            & .image-preview {
+              float: left;
+            }
+            
+            & > .button {
+              float: left;
+              margin-left: 4%;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 // Style the filed source filed.
