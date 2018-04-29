@@ -3,6 +3,7 @@ status: false
 dependencies:
   config:
     - core.entity_view_mode.media.s01
+    - field.field.media.video.field_media_cover_image
     - field.field.media.video.field_media_video_file
     - media.type.video
   module:
@@ -36,6 +37,7 @@ content:
             classes: {  }
 hidden:
   created: true
+  field_media_cover_image: true
   langcode: true
   name: true
   thumbnail: true

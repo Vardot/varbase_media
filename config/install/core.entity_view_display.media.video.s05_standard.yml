@@ -6,10 +6,9 @@ dependencies:
     - field.field.media.video.field_media_cover_image
     - field.field.media.video.field_media_video_file
     - media.type.video
-    - responsive_image.styles.d05_standard
+    - responsive_image.styles.d04_standard
   module:
     - ds
-    - file
     - responsive_image
 id: media.video.s05_standard
 targetEntityType: media
@@ -32,19 +31,14 @@ content:
             lb: ''
             lb-col: false
             classes: {  }
-  field_media_video_file:
-    type: file_video
+  thumbnail:
+    type: responsive_image
     weight: 0
     region: content
     label: hidden
     settings:
-      controls: true
-      multiple_file_display_type: tags
-      width: 500
-      height: 282
-      autoplay: false
-      loop: false
-      muted: false
+      responsive_image_style: d04_standard
+      image_link: ''
     third_party_settings:
       ds:
         ft:
@@ -55,7 +49,7 @@ content:
             classes: {  }
 hidden:
   created: true
+  field_media_video_file: true
   langcode: true
   name: true
-  thumbnail: true
   uid: true

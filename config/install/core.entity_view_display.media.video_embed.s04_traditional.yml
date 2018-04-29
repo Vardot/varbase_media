@@ -10,7 +10,6 @@ dependencies:
   module:
     - ds
     - responsive_image
-    - video_embed_field
 id: media.video_embed.s04_traditional
 targetEntityType: media
 bundle: video_embed
@@ -32,14 +31,14 @@ content:
             lb: ''
             lb-col: false
             classes: {  }
-  field_media_video_embed_field:
+  thumbnail:
+    type: responsive_image
     weight: 0
+    region: content
     label: hidden
     settings:
-      width: 400
-      height: 300
-      autoplay: false
-      responsive: false
+      responsive_image_style: d04_traditional
+      image_link: ''
     third_party_settings:
       ds:
         ft:
@@ -48,11 +47,9 @@ content:
             lb: ''
             lb-col: false
             classes: {  }
-    type: video_embed_field_video
-    region: content
 hidden:
   created: true
+  field_media_video_embed_field: true
   langcode: true
   name: true
-  thumbnail: true
   uid: true

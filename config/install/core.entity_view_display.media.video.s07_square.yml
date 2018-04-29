@@ -3,6 +3,7 @@ status: false
 dependencies:
   config:
     - core.entity_view_mode.media.s07_square
+    - field.field.media.video.field_media_cover_image
     - field.field.media.video.field_media_video_file
     - media.type.video
 id: media.video.s07_square
@@ -12,6 +13,7 @@ mode: s07_square
 content: {  }
 hidden:
   created: true
+  field_media_cover_image: true
   field_media_video_file: true
   langcode: true
   name: true
