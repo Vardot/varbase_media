@@ -1,0 +1,61 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.s08
+    - field.field.media.video_embed.field_media_cover_image
+    - field.field.media.video_embed.field_media_video_embed_field
+    - image.style.d09
+    - media.type.video_embed
+    - responsive_image.styles.d09
+  module:
+    - ds
+    - responsive_image
+    - video_embed_field
+id: media.video_embed.s08
+targetEntityType: media
+bundle: video_embed
+mode: s08
+content:
+  field_media_cover_image:
+    weight: 1
+    label: hidden
+    settings:
+      responsive_image_style: d09
+      image_link: ''
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    type: responsive_image
+    region: content
+  field_media_video_embed_field:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: d09
+      link_image_to: ''
+      responsive: true
+      width: 854
+      height: 480
+      autoplay: false
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    type: video_embed_field_lazyload
+    region: content
+hidden:
+  created: true
+  langcode: true
+  name: true
+  thumbnail: true
+  uid: true

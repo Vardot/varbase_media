@@ -1,5 +1,5 @@
 langcode: en
-status: false
+status: true
 dependencies:
   config:
     - core.entity_view_mode.media.se2e_square

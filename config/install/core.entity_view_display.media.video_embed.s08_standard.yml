@@ -20,7 +20,7 @@ content:
     type: image
     weight: 1
     region: content
-    label: above
+    label: hidden
     settings:
       image_style: d08_standard
       image_link: ''
@@ -36,6 +36,8 @@ content:
     weight: 0
     label: hidden
     settings:
+      image_style: d08_standard
+      link_image_to: ''
       width: 800
       height: 450
       autoplay: false
@@ -48,7 +50,7 @@ content:
             lb: ''
             lb-col: false
             classes: {  }
-    type: video_embed_field_video
+    type: video_embed_field_lazyload
     region: content
 hidden:
   created: true

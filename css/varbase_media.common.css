@@ -81,3 +81,23 @@ figure.align-left figcaption {
   width: 100% !important;
   height: auto !important;
 }
+.field--name-field-media-cover-image {
+  position: absolute;
+  top: 0;
+  z-index: 4;
+}
+.field--name-field-media-cover-image:after {
+  content: url(../images/play.svg);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -36px;
+  margin-top: -36px;
+  height: 72px;
+  width: 72px;
+  font-size: 15%;
+  cursor: pointer;
+}
+.field--name-field-media-cover-image:hover:after {
+  opacity: 0.75;
+}

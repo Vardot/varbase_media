@@ -5,6 +5,7 @@ dependencies:
     - core.entity_view_mode.media.s12_traditional
     - field.field.media.video_embed.field_media_cover_image
     - field.field.media.video_embed.field_media_video_embed_field
+    - image.style.d12_traditional
     - media.type.video_embed
     - responsive_image.styles.d12_traditional
   module:
@@ -36,6 +37,8 @@ content:
     weight: 0
     label: hidden
     settings:
+      image_style: d12_traditional
+      link_image_to: ''
       autoplay: true
       width: 1200
       height: 900
@@ -48,7 +51,7 @@ content:
             lb: ''
             lb-col: false
             classes: {  }
-    type: video_embed_field_video
+    type: video_embed_field_lazyload
     region: content
 hidden:
   created: true

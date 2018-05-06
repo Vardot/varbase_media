@@ -1,21 +1,55 @@
 langcode: en
-status: false
+status: true
 dependencies:
   config:
     - core.entity_view_mode.media.s04_square
     - field.field.media.video.field_media_cover_image
     - field.field.media.video.field_media_video_file
     - media.type.video
+    - responsive_image.styles.d04_square
+  module:
+    - ds
+    - responsive_image
 id: media.video.s04_square
 targetEntityType: media
 bundle: video
 mode: s04_square
-content: {  }
+content:
+  field_media_cover_image:
+    type: responsive_image
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      responsive_image_style: d04_square
+      image_link: ''
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+  thumbnail:
+    type: responsive_image
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      responsive_image_style: d04_square
+      image_link: ''
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
 hidden:
   created: true
-  field_media_cover_image: true
   field_media_video_file: true
   langcode: true
   name: true
-  thumbnail: true
   uid: true
