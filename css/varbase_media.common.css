@@ -81,12 +81,14 @@ figure.align-left figcaption {
   width: 100% !important;
   height: auto !important;
 }
-.field--name-field-media-cover-image {
+.media--view-mode- .field--name-field-media-cover-image {
   position: absolute;
   top: 0;
-  z-index: 4;
+  right: 0;
+  left: 0;
+  bottom: 0;
 }
-.field--name-field-media-cover-image:after {
+.media--view-mode- .field--name-field-media-cover-image:after {
   content: url(../images/play.svg);
   position: absolute;
   top: 50%;
@@ -98,6 +100,6 @@ figure.align-left figcaption {
   font-size: 15%;
   cursor: pointer;
 }
-.field--name-field-media-cover-image:hover:after {
+.media--view-mode- .field--name-field-media-cover-image:hover:after {
   opacity: 0.75;
 }

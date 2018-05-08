@@ -115,7 +115,7 @@ figure.align-left {
   }
 }
 
-// Have local video tag style (fiv Video).
+// Have local video tag style (tage Video).
 .media--type-video {
   video {
     width: 100% !important;
@@ -123,25 +123,29 @@ figure.align-left {
   }
 }
 
-.field--name-field-media-cover-image {
-  position: absolute;
-  top: 0;
-  z-index: 4;
-
-  &:after {
-    content: url(../images/play.svg);
+.media--view-mode- {
+  .field--name-field-media-cover-image {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-left: -36px;
-    margin-top: -36px;
-    height: 72px;
-    width: 72px;
-    font-size: 15%;
-    cursor: pointer;
-  }
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
 
-  &:hover:after {
-    opacity: 0.75;
+    &:after {
+      content: url(../images/play.svg);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-left: -36px;
+      margin-top: -36px;
+      height: 72px;
+      width: 72px;
+      font-size: 15%;
+      cursor: pointer;
+    }
+
+    &:hover:after {
+      opacity: 0.75;
+    }
   }
 }
