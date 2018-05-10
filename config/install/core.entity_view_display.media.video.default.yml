@@ -3,6 +3,7 @@ status: true
 dependencies:
   config:
     - field.field.media.video.field_media_cover_image
+    - field.field.media.video.field_media_in_library
     - field.field.media.video.field_media_video_file
     - media.type.video
     - responsive_image.styles.d12_standard
@@ -30,6 +31,16 @@ content:
             lb-col: false
             classes: {  }
     type: responsive_image
+    region: content
+  field_media_in_library:
+    weight: 3
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
     region: content
   field_media_video_file:
     type: file_video

@@ -6,7 +6,7 @@ dependencies:
     - views.view.browser
   module:
     - dropzonejs_eb_widget
-    - entity_browser_entity_form
+    - entity_browser_generic_embed
     - media
     - views
 name: video_browser
@@ -41,16 +41,6 @@ widgets:
     weight: -9
     label: Upload
     id: dropzonejs_media_entity
-  7425afbd-688f-4e22-99a3-389381717fff:
-    settings:
-      entity_type: media
-      bundle: video_embed
-      form_mode: entity_browser
-      submit_text: 'Save Video'
-    uuid: 7425afbd-688f-4e22-99a3-389381717fff
-    weight: -8
-    label: Embed
-    id: entity_form
   253f86d3-665e-4e0e-b180-7be4266cc618:
     settings:
       view: browser
@@ -61,3 +51,11 @@ widgets:
     weight: -10
     label: Library
     id: view
+  ed821f5d-dd9e-4132-b89a-54d97a36cd4e:
+    settings:
+      submit_text: 'Select Video'
+      form_mode: media_browser
+    uuid: ed821f5d-dd9e-4132-b89a-54d97a36cd4e
+    weight: 4
+    label: Embed
+    id: embed_code

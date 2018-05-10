@@ -1,0 +1,54 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.browser_teaser
+    - field.field.media.instagram.field_media_in_library
+    - field.field.media.instagram.field_media_instagram
+    - media.type.instagram
+    - responsive_image.styles.d03_traditional
+  module:
+    - ds
+    - responsive_image
+id: media.instagram.browser_teaser
+targetEntityType: media
+bundle: instagram
+mode: browser_teaser
+content:
+  name:
+    type: string
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+  thumbnail:
+    type: responsive_image
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      responsive_image_style: d03_traditional
+      image_link: ''
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+hidden:
+  created: true
+  field_media_in_library: true
+  field_media_instagram: true
+  langcode: true
+  uid: true

@@ -6,6 +6,7 @@ dependencies:
     - views.view.browser
   module:
     - dropzonejs_eb_widget
+    - entity_browser_generic_embed
     - media
     - views
 name: editor_media_browser
@@ -48,6 +49,14 @@ widgets:
       auto_select: false
       form_mode: default
     uuid: de21079a-e999-45ca-bd49-46f77bb9bb1d
-    weight: 3
+    weight: -9
     label: Upload
     id: dropzonejs_media_entity
+  0f828fb5-d820-46c1-9260-d706fe92b367:
+    settings:
+      submit_text: 'Select media'
+      form_mode: media_browser
+    uuid: 0f828fb5-d820-46c1-9260-d706fe92b367
+    weight: -8
+    label: Embed
+    id: embed_code

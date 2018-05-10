@@ -2,28 +2,14 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.media.video.field_media_cover_image
-    - field.field.media.video.field_media_in_library
-    - field.field.media.video.field_media_video_file
-    - image.style.de2e_standard
-    - media.type.video
-  module:
-    - file
-    - image
-    - path
-id: media.video.default
+    - field.field.media.tweet.field_media_in_library
+    - field.field.media.tweet.field_media_twitter
+    - media.type.tweet
+id: media.tweet.default
 targetEntityType: media
-bundle: video
+bundle: tweet
 mode: default
 content:
-  field_media_cover_image:
-    weight: 1
-    settings:
-      preview_image_style: de2e_standard
-      progress_indicator: throbber
-    third_party_settings: {  }
-    type: image_image
-    region: content
   field_media_in_library:
     weight: 3
     settings:
@@ -31,24 +17,24 @@ content:
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
-  field_media_video_file:
-    type: file_generic
+  field_media_twitter:
     weight: 0
-    region: content
-    settings:
-      progress_indicator: throbber
-    third_party_settings: {  }
-  name:
-    type: string_textfield
-    weight: 2
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+    type: string_textfield
     region: content
-  path:
-    type: path
-    weight: 5
+  name:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  preview:
+    weight: 1
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -62,4 +48,5 @@ content:
 hidden:
   created: true
   langcode: true
+  path: true
   uid: true

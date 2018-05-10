@@ -23,7 +23,9 @@
     }
   ],
   "require": {
-    "drupal/varbase_core": "5.*"
+    "drupal/varbase_core": "5.*",
+    "vardot/entity_browser_generic_embed": "dev-8.x-1.x",
+    "vardot/entity_browser_generic_embed_modules": "dev-8.x-1.x"
   },
   "extra": {
     "branch-alias": {
