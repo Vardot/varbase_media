@@ -7,18 +7,11 @@ dependencies:
     - media.type.file
   module:
     - file
-    - path
 id: media.file.default
 targetEntityType: media
 bundle: file
 mode: default
 content:
-  created:
-    type: datetime_timestamp
-    weight: 6
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   field_media_file:
     type: file_generic
     weight: 0
@@ -41,12 +34,6 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  path:
-    type: path
-    weight: 4
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   status:
     type: boolean_checkbox
     settings:
@@ -54,14 +41,8 @@ content:
     weight: 3
     region: content
     third_party_settings: {  }
-  uid:
-    type: entity_reference_autocomplete
-    weight: 5
-    region: content
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
 hidden:
+  created: true
   langcode: true
+  path: true
+  uid: true

@@ -6,7 +6,7 @@ dependencies:
     - field.field.media.video.field_media_cover_image
     - field.field.media.video.field_media_in_library
     - field.field.media.video.field_media_video_file
-    - image.style.field_preview
+    - image.style.d03_traditional
     - media.type.video
   module:
     - file
@@ -19,7 +19,7 @@ content:
   field_media_cover_image:
     weight: 2
     settings:
-      preview_image_style: field_preview
+      preview_image_style: d03_traditional
       progress_indicator: throbber
     third_party_settings: {  }
     type: image_image
@@ -46,9 +46,15 @@ content:
       placeholder: ''
     third_party_settings: {  }
     region: content
+  status:
+    type: boolean_checkbox
+    weight: 4
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
 hidden:
   created: true
   langcode: true
   path: true
-  status: true
   uid: true

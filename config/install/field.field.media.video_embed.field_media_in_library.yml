@@ -8,7 +8,7 @@ id: media.video_embed.field_media_in_library
 field_name: field_media_in_library
 entity_type: media
 bundle: video_embed
-label: 'Save to library'
+label: 'Save to Library'
 description: ''
 required: false
 translatable: true
