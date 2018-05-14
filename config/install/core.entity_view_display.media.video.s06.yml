@@ -4,6 +4,7 @@ dependencies:
   config:
     - core.entity_view_mode.media.s06
     - field.field.media.video.field_media_cover_image
+    - field.field.media.video.field_media_in_library
     - field.field.media.video.field_media_video_file
     - media.type.video
     - responsive_image.styles.d06
@@ -55,6 +56,7 @@ content:
             classes: {  }
 hidden:
   created: true
+  field_media_in_library: true
   langcode: true
   name: true
   thumbnail: true

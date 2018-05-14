@@ -84,9 +84,7 @@ figure.align-left figcaption {
 .media--view-mode- .field--name-field-media-cover-image {
   position: absolute;
   top: 0;
-  right: 0;
   left: 0;
-  bottom: 0;
 }
 .media--view-mode- .field--name-field-media-cover-image:after {
   content: url(../images/play.svg);
@@ -102,4 +100,8 @@ figure.align-left figcaption {
 }
 .media--view-mode- .field--name-field-media-cover-image:hover:after {
   opacity: 0.75;
+}
+[dir="rtl"] .media--view-mode- .field--name-field-media-cover-image {
+  left: auto;
+  right: 0;
 }

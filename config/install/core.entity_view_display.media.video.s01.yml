@@ -4,29 +4,42 @@ dependencies:
   config:
     - core.entity_view_mode.media.s01
     - field.field.media.video.field_media_cover_image
+    - field.field.media.video.field_media_in_library
     - field.field.media.video.field_media_video_file
     - media.type.video
+    - responsive_image.styles.d01
   module:
     - ds
-    - file
+    - responsive_image
 id: media.video.s01
 targetEntityType: media
 bundle: video
 mode: s01
 content:
-  field_media_video_file:
-    type: file_video
+  field_media_cover_image:
+    type: responsive_image
     weight: 1
     region: content
     label: hidden
     settings:
-      multiple_file_display_type: sources
-      width: 100
-      height: 75
-      controls: false
-      autoplay: false
-      loop: false
-      muted: false
+      responsive_image_style: d01
+      image_link: ''
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+  thumbnail:
+    type: responsive_image
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      responsive_image_style: d01
+      image_link: ''
     third_party_settings:
       ds:
         ft:
@@ -37,8 +50,8 @@ content:
             classes: {  }
 hidden:
   created: true
-  field_media_cover_image: true
+  field_media_in_library: true
+  field_media_video_file: true
   langcode: true
   name: true
-  thumbnail: true
   uid: true

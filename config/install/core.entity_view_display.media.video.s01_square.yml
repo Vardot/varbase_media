@@ -4,6 +4,7 @@ dependencies:
   config:
     - core.entity_view_mode.media.s01_square
     - field.field.media.video.field_media_cover_image
+    - field.field.media.video.field_media_in_library
     - field.field.media.video.field_media_video_file
     - media.type.video
     - responsive_image.styles.d01_square
@@ -49,6 +50,7 @@ content:
             classes: {  }
 hidden:
   created: true
+  field_media_in_library: true
   field_media_video_file: true
   langcode: true
   name: true

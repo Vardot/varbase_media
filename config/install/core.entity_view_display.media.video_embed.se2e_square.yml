@@ -4,6 +4,7 @@ dependencies:
   config:
     - core.entity_view_mode.media.se2e_square
     - field.field.media.video_embed.field_media_cover_image
+    - field.field.media.video_embed.field_media_in_library
     - field.field.media.video_embed.field_media_video_embed_field
     - media.type.video_embed
     - responsive_image.styles.default
@@ -52,6 +53,7 @@ content:
     region: content
 hidden:
   created: true
+  field_media_in_library: true
   langcode: true
   name: true
   thumbnail: true

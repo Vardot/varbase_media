@@ -17,7 +17,7 @@ bundle: video
 mode: default
 content:
   field_media_cover_image:
-    weight: 2
+    weight: 1
     label: hidden
     settings:
       responsive_image_style: d12_standard
@@ -32,19 +32,9 @@ content:
             classes: {  }
     type: responsive_image
     region: content
-  field_media_in_library:
-    weight: 3
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    type: boolean
-    region: content
   field_media_video_file:
     type: file_video
-    weight: 1
+    weight: 0
     region: content
     label: hidden
     settings:
@@ -65,6 +55,7 @@ content:
             classes: {  }
 hidden:
   created: true
+  field_media_in_library: true
   langcode: true
   name: true
   thumbnail: true
