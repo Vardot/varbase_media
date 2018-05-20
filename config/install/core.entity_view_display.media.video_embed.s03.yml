@@ -4,12 +4,33 @@ dependencies:
   config:
     - core.entity_view_mode.media.s03
     - field.field.media.video_embed.field_media_cover_image
+    - field.field.media.video_embed.field_media_in_library
     - field.field.media.video_embed.field_media_video_embed_field
     - media.type.video_embed
     - responsive_image.styles.d03
   module:
     - ds
     - responsive_image
+third_party_settings:
+  ds:
+    layout:
+      id: ds_1col
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        wrappers:
+          ds_content: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+        classes:
+          layout_class: {  }
+    regions:
+      ds_content:
+        - thumbnail
+        - field_media_cover_image
 id: media.video_embed.s03
 targetEntityType: media
 bundle: video_embed
@@ -24,17 +45,38 @@ content:
     third_party_settings:
       ds:
         ft:
-          id: default
+          id: expert
           settings:
             lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow: true
+            ow-el: ''
+            ow-cl: 'media-cover-image video-player-icon'
+            ow-at: ''
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fis-def-at: false
+            fi: false
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            fi-def-at: false
+            suffix: ''
+            lbw: false
             lb-col: false
-            classes: {  }
     type: responsive_image
-    region: content
+    region: ds_content
   thumbnail:
     type: responsive_image
     weight: 0
-    region: content
+    region: ds_content
     label: hidden
     settings:
       responsive_image_style: d03
@@ -42,13 +84,35 @@ content:
     third_party_settings:
       ds:
         ft:
-          id: default
+          id: expert
           settings:
             lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow: true
+            ow-el: ''
+            ow-cl: 'media-cover-image video-player-icon'
+            ow-at: ''
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fis-def-at: false
+            fi: false
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            fi-def-at: false
+            suffix: ''
+            lbw: false
             lb-col: false
-            classes: {  }
 hidden:
   created: true
+  field_media_in_library: true
   field_media_video_embed_field: true
   langcode: true
   name: true

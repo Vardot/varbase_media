@@ -4,6 +4,7 @@ dependencies:
   config:
     - core.entity_view_mode.media.browser_teaser
     - field.field.media.video_embed.field_media_cover_image
+    - field.field.media.video_embed.field_media_in_library
     - field.field.media.video_embed.field_media_video_embed_field
     - image.style.d03_traditional
     - media.type.video_embed
@@ -11,6 +12,27 @@ dependencies:
     - ds
     - image
     - video_embed_field
+third_party_settings:
+  ds:
+    layout:
+      id: ds_1col
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        wrappers:
+          ds_content: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+        classes:
+          layout_class: {  }
+    regions:
+      ds_content:
+        - field_media_video_embed_field
+        - field_media_cover_image
+        - name
 id: media.video_embed.browser_teaser
 targetEntityType: media
 bundle: video_embed
@@ -19,7 +41,7 @@ content:
   field_media_cover_image:
     type: image
     weight: 1
-    region: content
+    region: ds_content
     label: hidden
     settings:
       image_style: d03_traditional
@@ -27,11 +49,32 @@ content:
     third_party_settings:
       ds:
         ft:
-          id: default
+          id: expert
           settings:
             lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow: true
+            ow-el: ''
+            ow-cl: 'media-cover-image video-player-icon'
+            ow-at: ''
+            ow-def-at: true
+            ow-def-cl: true
+            fis: true
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fis-def-at: true
+            fi: true
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            fi-def-at: true
+            suffix: ''
+            lbw: false
             lb-col: false
-            classes: {  }
   field_media_video_embed_field:
     weight: 0
     label: hidden
@@ -47,17 +90,18 @@ content:
             lb-col: false
             classes: {  }
     type: video_embed_field_thumbnail
-    region: content
+    region: ds_content
   name:
     type: string
     weight: 2
-    region: content
+    region: ds_content
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
 hidden:
   created: true
+  field_media_in_library: true
   langcode: true
   thumbnail: true
   uid: true

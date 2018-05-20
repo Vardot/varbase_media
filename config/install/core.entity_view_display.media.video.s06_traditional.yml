@@ -4,6 +4,7 @@ dependencies:
   config:
     - core.entity_view_mode.media.s06_traditional
     - field.field.media.video.field_media_cover_image
+    - field.field.media.video.field_media_in_library
     - field.field.media.video.field_media_video_file
     - media.type.video
     - responsive_image.styles.d06_traditional
@@ -11,6 +12,26 @@ dependencies:
     - ds
     - file
     - responsive_image
+third_party_settings:
+  ds:
+    layout:
+      id: ds_1col
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        wrappers:
+          ds_content: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+        classes:
+          layout_class: {  }
+    regions:
+      ds_content:
+        - field_media_video_file
+        - field_media_cover_image
 id: media.video.s06_traditional
 targetEntityType: media
 bundle: video
@@ -19,7 +40,7 @@ content:
   field_media_cover_image:
     type: responsive_image
     weight: 1
-    region: content
+    region: ds_content
     label: hidden
     settings:
       responsive_image_style: d06_traditional
@@ -27,15 +48,36 @@ content:
     third_party_settings:
       ds:
         ft:
-          id: default
+          id: expert
           settings:
             lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow: true
+            ow-el: ''
+            ow-cl: 'media-cover-image video-player-icon js-video-player-icon'
+            ow-at: ''
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fis-def-at: false
+            fi: false
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            fi-def-at: false
+            suffix: ''
+            lbw: false
             lb-col: false
-            classes: {  }
   field_media_video_file:
     type: file_video
     weight: 0
-    region: content
+    region: ds_content
     label: hidden
     settings:
       controls: true
@@ -48,13 +90,35 @@ content:
     third_party_settings:
       ds:
         ft:
-          id: default
+          id: expert
           settings:
             lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow: true
+            ow-el: ''
+            ow-cl: 'embed-responsive embed-responsive-4by3'
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi: true
+            fi-el: ''
+            fi-cl: embed-responsive-item
+            fi-at: ''
+            suffix: ''
+            lbw: false
             lb-col: false
-            classes: {  }
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi-def-at: false
 hidden:
   created: true
+  field_media_in_library: true
   langcode: true
   name: true
   thumbnail: true

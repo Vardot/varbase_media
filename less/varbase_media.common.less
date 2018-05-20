@@ -115,20 +115,17 @@ figure.align-left {
   }
 }
 
-// Have local video tag style (tage Video).
-.media--type-video {
-  video {
-    width: 100% !important;
-    height: auto !important;
-  }
-}
-
-.media--view-mode- {
-  .field--name-field-media-cover-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-
+.media-cover-image {
+  top: 0;
+  left: 0;
+  
+  &.video-player-icon {
+    position: relative;
+    
+      &.js-video-player-icon {
+        position: absolute;
+      }
+    
     &:after {
       content: url(../images/play.svg);
       position: absolute;
@@ -141,15 +138,13 @@ figure.align-left {
       font-size: 15%;
       cursor: pointer;
     }
-
+    
     &:hover:after {
       opacity: 0.75;
     }
   }
 }
-[dir="rtl"] .media--view-mode- {
-  .field--name-field-media-cover-image {
-    left: auto;
-    right: 0;
-  }
+[dir="rtl"] .media-cover-image {
+  left: auto;
+  right: 0;
 }

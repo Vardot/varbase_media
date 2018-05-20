@@ -77,16 +77,17 @@ figure.align-left figcaption {
   display: table-caption;
   caption-side: bottom;
 }
-.media--type-video video {
-  width: 100% !important;
-  height: auto !important;
-}
-.media--view-mode- .field--name-field-media-cover-image {
-  position: absolute;
+.media-cover-image {
   top: 0;
   left: 0;
 }
-.media--view-mode- .field--name-field-media-cover-image:after {
+.media-cover-image.video-player-icon {
+  position: relative;
+}
+.media-cover-image.video-player-icon.js-video-player-icon {
+  position: absolute;
+}
+.media-cover-image.video-player-icon:after {
   content: url(../images/play.svg);
   position: absolute;
   top: 50%;
@@ -98,10 +99,10 @@ figure.align-left figcaption {
   font-size: 15%;
   cursor: pointer;
 }
-.media--view-mode- .field--name-field-media-cover-image:hover:after {
+.media-cover-image.video-player-icon:hover:after {
   opacity: 0.75;
 }
-[dir="rtl"] .media--view-mode- .field--name-field-media-cover-image {
+[dir="rtl"] .media-cover-image {
   left: auto;
   right: 0;
 }

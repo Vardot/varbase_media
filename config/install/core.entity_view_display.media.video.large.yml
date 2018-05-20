@@ -4,6 +4,7 @@ dependencies:
   config:
     - core.entity_view_mode.media.large
     - field.field.media.video.field_media_cover_image
+    - field.field.media.video.field_media_in_library
     - field.field.media.video.field_media_video_file
     - media.type.video
     - responsive_image.styles.d12_standard
@@ -11,6 +12,26 @@ dependencies:
     - ds
     - file
     - responsive_image
+third_party_settings:
+  ds:
+    layout:
+      id: ds_1col
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        wrappers:
+          ds_content: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+        classes:
+          layout_class: {  }
+    regions:
+      ds_content:
+        - field_media_video_file
+        - field_media_cover_image
 id: media.video.large
 targetEntityType: media
 bundle: video
@@ -19,7 +40,7 @@ content:
   field_media_cover_image:
     type: responsive_image
     weight: 1
-    region: content
+    region: ds_content
     label: hidden
     settings:
       responsive_image_style: d12_standard
@@ -35,7 +56,7 @@ content:
   field_media_video_file:
     type: file_video
     weight: 0
-    region: content
+    region: ds_content
     label: hidden
     settings:
       controls: true
@@ -55,6 +76,7 @@ content:
             classes: {  }
 hidden:
   created: true
+  field_media_in_library: true
   langcode: true
   name: true
   thumbnail: true

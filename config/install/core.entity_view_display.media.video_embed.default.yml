@@ -6,11 +6,31 @@ dependencies:
     - field.field.media.video_embed.field_media_in_library
     - field.field.media.video_embed.field_media_video_embed_field
     - media.type.video_embed
-    - responsive_image.styles.default
+    - responsive_image.styles.de2e_standard
   module:
     - ds
     - responsive_image
     - video_embed_field
+third_party_settings:
+  ds:
+    layout:
+      id: ds_1col
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        wrappers:
+          ds_content: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+        classes:
+          layout_class: {  }
+    regions:
+      ds_content:
+        - field_media_video_embed_field
+        - field_media_cover_image
 id: media.video_embed.default
 targetEntityType: media
 bundle: video_embed
@@ -20,28 +40,16 @@ content:
     weight: 1
     label: hidden
     settings:
-      responsive_image_style: default
+      responsive_image_style: de2e_standard
       image_link: ''
     third_party_settings:
       ds:
         ft:
-          id: default
+          id: reset
           settings:
             lb: ''
-            lb-col: false
-            classes: {  }
     type: responsive_image
-    region: content
-  field_media_in_library:
-    weight: 2
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    type: boolean
-    region: content
+    region: ds_content
   field_media_video_embed_field:
     weight: 0
     label: hidden
@@ -53,15 +61,37 @@ content:
     third_party_settings:
       ds:
         ft:
-          id: default
+          id: expert
           settings:
             lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow: true
+            ow-el: ''
+            ow-cl: 'media-cover-image video-player-icon js-video-player-icon'
+            ow-at: ''
+            ow-def-at: true
+            ow-def-cl: true
+            fis: true
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fis-def-at: true
+            fi: true
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lbw: false
             lb-col: false
-            classes: {  }
+            fi-def-at: false
     type: video_embed_field_video
-    region: content
+    region: ds_content
 hidden:
   created: true
+  field_media_in_library: true
   langcode: true
   name: true
   thumbnail: true

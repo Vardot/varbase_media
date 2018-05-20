@@ -4,6 +4,7 @@ dependencies:
   config:
     - core.entity_view_mode.media.s04_traditional
     - field.field.media.video.field_media_cover_image
+    - field.field.media.video.field_media_in_library
     - field.field.media.video.field_media_video_file
     - media.type.video
     - responsive_image.styles.d04_traditional
@@ -26,11 +27,32 @@ content:
     third_party_settings:
       ds:
         ft:
-          id: default
+          id: expert
           settings:
             lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow: true
+            ow-el: ''
+            ow-cl: 'media-cover-image video-player-icon'
+            ow-at: ''
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fis-def-at: false
+            fi: false
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            fi-def-at: false
+            suffix: ''
+            lbw: false
             lb-col: false
-            classes: {  }
   thumbnail:
     type: responsive_image
     weight: 0
@@ -42,13 +64,35 @@ content:
     third_party_settings:
       ds:
         ft:
-          id: default
+          id: expert
           settings:
             lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow: true
+            ow-el: ''
+            ow-cl: 'media-cover-image video-player-icon'
+            ow-at: ''
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fis-def-at: false
+            fi: false
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            fi-def-at: false
+            suffix: ''
+            lbw: false
             lb-col: false
-            classes: {  }
 hidden:
   created: true
+  field_media_in_library: true
   field_media_video_file: true
   langcode: true
   name: true
