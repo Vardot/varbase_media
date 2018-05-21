@@ -3,7 +3,7 @@ status: true
 dependencies:
   config:
     - media.type.image
-    - views.view.media_browser
+    - views.view.media_browsers
   module:
     - dropzonejs_eb_widget
     - media
@@ -23,7 +23,7 @@ widget_selector_configuration: {  }
 widgets:
   c9e40862-4975-43fc-9e06-64c1bc53e9a4:
     settings:
-      view: media_browser
+      view: media_browsers
       view_display: image_browser
       submit_text: 'Select image(s)'
       auto_select: false

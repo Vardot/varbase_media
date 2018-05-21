@@ -3,7 +3,7 @@ status: true
 dependencies:
   config:
     - media.type.video
-    - views.view.media_browser
+    - views.view.media_browsers
   module:
     - dropzonejs_eb_widget
     - entity_browser_generic_embed
@@ -43,7 +43,7 @@ widgets:
     id: dropzonejs_media_entity
   253f86d3-665e-4e0e-b180-7be4266cc618:
     settings:
-      view: media_browser
+      view: media_browsers
       view_display: video_browser
       submit_text: 'Select video(s)'
       auto_select: false

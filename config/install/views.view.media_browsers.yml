@@ -12,7 +12,7 @@ dependencies:
     - media
     - user
     - views_infinite_scroll
-id: media_browser
+id: media_browsers
 label: 'Media Entity Browsers'
 module: views
 description: 'Browser view to select media content form the library of images, media, files in the site'
