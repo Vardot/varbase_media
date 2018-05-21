@@ -3,7 +3,7 @@ status: true
 dependencies:
   config:
     - media.type.video
-    - media_browser
+    - views.view.media_browser
   module:
     - dropzonejs_eb_widget
     - entity_browser_generic_embed
