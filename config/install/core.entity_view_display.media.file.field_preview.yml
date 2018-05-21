@@ -4,23 +4,16 @@ dependencies:
   config:
     - core.entity_view_mode.media.field_preview
     - field.field.media.file.field_media_file
+    - field.field.media.file.field_media_in_library
     - image.style.field_preview
     - media.type.file
   module:
-    - file
     - image
 id: media.file.field_preview
 targetEntityType: media
 bundle: file
 mode: field_preview
 content:
-  field_media_file:
-    weight: 2
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    type: file_url_plain
-    region: content
   name:
     label: hidden
     type: string
@@ -40,5 +33,7 @@ content:
     region: content
 hidden:
   created: true
+  field_media_file: true
+  field_media_in_library: true
   langcode: true
   uid: true

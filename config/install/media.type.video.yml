@@ -8,7 +8,7 @@ third_party_settings:
     image_field: _none
 id: video
 label: 'Video (local)'
-description: ''
+description: 'Locally hosted videos.'
 source: video_file
 queue_thumbnail_downloads: false
 new_revision: false

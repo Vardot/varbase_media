@@ -7,12 +7,13 @@ dependencies:
     - media.type.video
     - media.type.video_embed
   module:
+    - better_exposed_filters
     - entity_browser
     - media
     - user
     - views_infinite_scroll
-id: browser
-label: Browser
+id: media_browser
+label: 'Media Entity Browsers'
 module: views
 description: 'Browser view to select media content form the library of images, media, files in the site'
 tag: ''
@@ -365,11 +366,12 @@ display:
         - 'url.query_args:sort_order'
         - user.permissions
       tags:
-        - 'config:core.entity_view_display.media.file.browser_teaser'
         - 'config:core.entity_view_display.media.file.default'
+        - 'config:core.entity_view_display.media.image.default'
+        - 'config:core.entity_view_display.media.video.default'
+        - 'config:core.entity_view_display.media.file.browser_teaser'
         - 'config:core.entity_view_display.media.file.field_preview'
         - 'config:core.entity_view_display.media.image.browser_teaser'
-        - 'config:core.entity_view_display.media.image.default'
         - 'config:core.entity_view_display.media.image.field_preview'
         - 'config:core.entity_view_display.media.image.large'
         - 'config:core.entity_view_display.media.image.medium'
@@ -445,7 +447,6 @@ display:
         - 'config:core.entity_view_display.media.tweet.original'
         - 'config:core.entity_view_display.media.tweet.small'
         - 'config:core.entity_view_display.media.video.browser_teaser'
-        - 'config:core.entity_view_display.media.video.default'
         - 'config:core.entity_view_display.media.video.field_preview'
         - 'config:core.entity_view_display.media.video.large'
         - 'config:core.entity_view_display.media.video.medium'
@@ -571,7 +572,8 @@ display:
     position: 2
     display_options:
       use_ajax: true
-      display_extenders: {  }
+      display_extenders:
+        metatag_display_extender: {  }
       display_description: ''
       fields:
         entity_browser_select:
@@ -630,7 +632,7 @@ display:
           field: rendered_entity
           relationship: none
           group_type: group
-          admin_label: 'Media: Browser Teaser'
+          admin_label: 'Media: Entity Browser Preview'
           label: ''
           exclude: false
           alter:
@@ -914,7 +916,7 @@ display:
         type: none
         options: {  }
       exposed_form:
-        type: basic
+        type: bef
         options:
           submit_button: Search
           reset_button: true
@@ -923,6 +925,39 @@ display:
           expose_sort_order: true
           sort_asc_label: Asc
           sort_desc_label: Desc
+          input_required: false
+          text_input_required: 'Select any filter and click on Apply to see results'
+          bef:
+            general:
+              allow_secondary: false
+              secondary_label: 'Advanced options'
+              autosubmit: false
+              autosubmit_exclude_textfield: true
+              autosubmit_hide: false
+            sort:
+              bef_format: default
+              advanced:
+                collapsible: false
+                collapsible_label: 'Sort options'
+                combine: true
+                combine_rewrite: ''
+                reset: false
+                reset_label: ''
+                is_secondary: false
+            name:
+              bef_format: default
+              more_options:
+                is_secondary: false
+                placeholder_text: ''
+            bundle:
+              bef_format: default
+              more_options:
+                bef_select_all_none: false
+                bef_collapsible: false
+                is_secondary: false
+                rewrite:
+                  filter_rewrite_values: ''
+          text_input_required_format: full_html
     cache_metadata:
       max-age: -1
       contexts:
@@ -1199,7 +1234,7 @@ display:
           field: rendered_entity
           relationship: none
           group_type: group
-          admin_label: 'Media: Image Browser Teaser'
+          admin_label: 'Media: Entity Browser Preview'
           label: ''
           exclude: false
           alter:
@@ -1600,7 +1635,8 @@ display:
     position: 3
     display_options:
       use_ajax: true
-      display_extenders: {  }
+      display_extenders:
+        metatag_display_extender: {  }
       display_description: ''
       fields:
         entity_browser_select:
@@ -1659,7 +1695,7 @@ display:
           field: rendered_entity
           relationship: none
           group_type: group
-          admin_label: 'Media: Image Browser Teaser'
+          admin_label: 'Media: Entity Browser Preview'
           label: ''
           exclude: false
           alter:
@@ -1911,7 +1947,7 @@ display:
         type: none
         options: {  }
       exposed_form:
-        type: basic
+        type: bef
         options:
           submit_button: Search
           reset_button: true
@@ -1920,6 +1956,31 @@ display:
           expose_sort_order: true
           sort_asc_label: Asc
           sort_desc_label: Desc
+          input_required: false
+          text_input_required: 'Select any filter and click on Apply to see results'
+          bef:
+            general:
+              allow_secondary: false
+              secondary_label: 'Advanced options'
+              autosubmit: false
+              autosubmit_exclude_textfield: false
+              autosubmit_hide: false
+            sort:
+              bef_format: default
+              advanced:
+                collapsible: false
+                collapsible_label: 'Sort options'
+                combine: true
+                combine_rewrite: ''
+                reset: false
+                reset_label: ''
+                is_secondary: false
+            name:
+              bef_format: default
+              more_options:
+                is_secondary: false
+                placeholder_text: ''
+          text_input_required_format: full_html
     cache_metadata:
       max-age: -1
       contexts:
@@ -2196,7 +2257,7 @@ display:
           field: rendered_entity
           relationship: none
           group_type: group
-          admin_label: 'Media: Video Browser Teaser'
+          admin_label: 'Media: Entity Browser Preview'
           label: ''
           exclude: false
           alter:
@@ -2338,10 +2399,10 @@ display:
             video_embed: video_embed
             video: video
           group: 1
-          exposed: false
+          exposed: true
           expose:
             operator_id: bundle_op
-            label: Type
+            label: 'Media type'
             description: ''
             use_operator: false
             operator: bundle_op
@@ -2357,7 +2418,7 @@ display:
               seo_admin: '0'
               site_admin: '0'
               administrator: '0'
-            reduce: false
+            reduce: true
           is_grouped: false
           group_info:
             label: ''
@@ -2409,6 +2470,47 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: boolean
+        bundle_1:
+          id: bundle_1
+          table: media_field_data
+          field: bundle
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: in
+          value:
+            video_embed: video_embed
+            video: video
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: media
+          entity_field: bundle
+          plugin_id: bundle
       filter_groups:
         operator: AND
         groups:
@@ -2416,7 +2518,7 @@ display:
       access:
         type: perm
         options:
-          perm: 'access image_browser entity browser pages'
+          perm: 'access video_browser entity browser pages'
       css_class: video-browser
       pager:
         type: full
@@ -2455,7 +2557,7 @@ display:
         type: none
         options: {  }
       exposed_form:
-        type: basic
+        type: bef
         options:
           submit_button: Search
           reset_button: true
@@ -2464,6 +2566,31 @@ display:
           expose_sort_order: true
           sort_asc_label: Asc
           sort_desc_label: Desc
+          input_required: false
+          text_input_required: 'Select any filter and click on Apply to see results'
+          bef:
+            general:
+              allow_secondary: false
+              secondary_label: 'Advanced options'
+              autosubmit: false
+              autosubmit_exclude_textfield: false
+              autosubmit_hide: false
+            sort:
+              bef_format: default
+              advanced:
+                collapsible: false
+                collapsible_label: 'Sort options'
+                combine: true
+                combine_rewrite: ''
+                reset: false
+                reset_label: ''
+                is_secondary: false
+            name:
+              bef_format: default
+              more_options:
+                is_secondary: false
+                placeholder_text: ''
+          text_input_required_format: full_html
     cache_metadata:
       max-age: -1
       contexts:

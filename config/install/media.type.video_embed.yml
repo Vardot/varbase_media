@@ -6,10 +6,10 @@ dependencies:
     - video_embed_media
 third_party_settings:
   crop:
-    image_field: null
+    image_field: _none
 id: video_embed
 label: 'Video (embed)'
-description: ''
+description: 'A video hosted by YouTube, Vimeo, or some other provider.'
 source: video_embed_field
 queue_thumbnail_downloads: false
 new_revision: false

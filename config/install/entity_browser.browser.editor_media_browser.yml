@@ -3,7 +3,7 @@ status: true
 dependencies:
   config:
     - media.type.image
-    - views.view.browser
+    - views.view.media_browser
   module:
     - dropzonejs_eb_widget
     - entity_browser_generic_embed
@@ -24,7 +24,7 @@ widget_selector_configuration: {  }
 widgets:
   0ce5dbdc-76cf-4c4e-a020-03328ef20f1c:
     settings:
-      view: browser
+      view: media_browser
       view_display: editor_media_browser
       submit_text: 'Select media'
       auto_select: false
@@ -45,7 +45,7 @@ widgets:
       resize_quality: !!float 1
       resize_method: contain
       thumbnail_method: contain
-      submit_text: 'Select  an image'
+      submit_text: 'Select media'
       auto_select: false
       form_mode: default
     uuid: de21079a-e999-45ca-bd49-46f77bb9bb1d
@@ -54,7 +54,7 @@ widgets:
     id: dropzonejs_media_entity
   0f828fb5-d820-46c1-9260-d706fe92b367:
     settings:
-      submit_text: 'Select media'
+      submit_text: 'Embed media'
       form_mode: media_browser
     uuid: 0f828fb5-d820-46c1-9260-d706fe92b367
     weight: -8

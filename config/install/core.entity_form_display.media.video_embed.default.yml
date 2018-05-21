@@ -16,7 +16,7 @@ bundle: video_embed
 mode: default
 content:
   field_media_cover_image:
-    weight: 3
+    weight: 2
     settings:
       preview_image_style: d03_traditional
       progress_indicator: throbber
@@ -38,7 +38,7 @@ content:
     region: content
   name:
     type: string_textfield
-    weight: 2
+    weight: 3
     region: content
     settings:
       size: 60
