@@ -2,19 +2,18 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.media.field_media_in_library
-    - media.type.image
-id: media.image.field_media_in_library
-field_name: field_media_in_library
+    - media.type.video
+id: media.video.status
+field_name: status
 entity_type: media
-bundle: image
-label: 'Save to Library'
+bundle: video
+label: Published
 description: ''
 required: false
 translatable: false
 default_value:
   -
-    value: 0
+    value: 1
 default_value_callback: ''
 settings:
   on_label: 'On'

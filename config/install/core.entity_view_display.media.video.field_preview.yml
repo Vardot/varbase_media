@@ -55,25 +55,25 @@ content:
             lbw-el: ''
             lbw-cl: ''
             lbw-at: ''
-            ow: true
             ow-el: ''
-            ow-cl: 'media-cover-image video-player-icon'
+            ow-cl: ''
             ow-at: ''
-            ow-def-at: true
-            ow-def-cl: true
-            fis: true
             fis-el: ''
             fis-cl: ''
             fis-at: ''
-            fis-def-at: true
-            fi: true
             fi-el: ''
             fi-cl: ''
             fi-at: ''
-            fi-def-at: true
             suffix: ''
             lbw: false
             lb-col: false
+            ow: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi: false
+            fi-def-at: false
   name:
     type: string
     weight: 2
@@ -93,32 +93,11 @@ content:
     third_party_settings:
       ds:
         ft:
-          id: expert
+          id: default
           settings:
             lb: ''
-            prefix: ''
-            lbw-el: ''
-            lbw-cl: ''
-            lbw-at: ''
-            ow: true
-            ow-el: ''
-            ow-cl: 'media-cover-image video-player-icon'
-            ow-at: ''
-            ow-def-at: true
-            ow-def-cl: true
-            fis: true
-            fis-el: ''
-            fis-cl: ''
-            fis-at: ''
-            fis-def-at: true
-            fi: true
-            fi-el: ''
-            fi-cl: ''
-            fi-at: ''
-            fi-def-at: true
-            suffix: ''
-            lbw: false
             lb-col: false
+            classes: {  }
 hidden:
   created: true
   field_media_in_library: true

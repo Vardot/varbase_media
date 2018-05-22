@@ -32,10 +32,19 @@ widgets:
     weight: -10
     label: Library
     id: view
-  de21079a-e999-45ca-bd49-46f77bb9bb1d:
+  0f828fb5-d820-46c1-9260-d706fe92b367:
     settings:
+      submit_text: 'Embed media'
+      form_mode: media_browser
+    uuid: 0f828fb5-d820-46c1-9260-d706fe92b367
+    weight: -8
+    label: Embed
+    id: embed_code
+  422803d7-21aa-471b-8d65-335f345c4e30:
+    settings:
+      form_mode: entity_browser
       media_type: image
-      upload_location: 'public://[date:custom:Y]-[date:custom:m]'
+      upload_location: 'public://images/[date:custom:Y]-[date:custom:m]'
       dropzone_description: 'Drop image files here to upload them'
       max_filesize: 32M
       extensions: 'jpg jpeg gif png'
@@ -46,17 +55,7 @@ widgets:
       resize_method: contain
       thumbnail_method: contain
       submit_text: 'Select media'
-      auto_select: false
-      form_mode: default
-    uuid: de21079a-e999-45ca-bd49-46f77bb9bb1d
+    uuid: 422803d7-21aa-471b-8d65-335f345c4e30
     weight: -9
     label: Upload
-    id: dropzonejs_media_entity
-  0f828fb5-d820-46c1-9260-d706fe92b367:
-    settings:
-      submit_text: 'Embed media'
-      form_mode: media_browser
-    uuid: 0f828fb5-d820-46c1-9260-d706fe92b367
-    weight: -8
-    label: Embed
-    id: embed_code
+    id: dropzonejs_media_entity_inline_entity_form

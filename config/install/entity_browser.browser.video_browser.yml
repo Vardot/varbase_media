@@ -22,25 +22,6 @@ selection_display_configuration: {  }
 widget_selector: tabs
 widget_selector_configuration: {  }
 widgets:
-  7daf18df-0073-4ec0-bc16-9c7e240b25c4:
-    settings:
-      media_type: video
-      upload_location: 'public://[date:custom:Y]-[date:custom:m]'
-      dropzone_description: 'Drop video file here to upload it'
-      max_filesize: 128M
-      extensions: mp4
-      clientside_resize: false
-      resize_width: null
-      resize_height: null
-      resize_quality: !!float 1
-      resize_method: contain
-      thumbnail_method: contain
-      submit_text: 'Select video(s)'
-      auto_select: false
-    uuid: 7daf18df-0073-4ec0-bc16-9c7e240b25c4
-    weight: -9
-    label: Upload
-    id: dropzonejs_media_entity
   253f86d3-665e-4e0e-b180-7be4266cc618:
     settings:
       view: media_browsers
@@ -59,3 +40,22 @@ widgets:
     weight: 4
     label: Embed
     id: embed_code
+  ad7800f0-c930-4f86-905d-7dd893b2945f:
+    settings:
+      form_mode: entity_browser
+      media_type: video
+      upload_location: 'public://videos/[date:custom:Y]-[date:custom:m]'
+      dropzone_description: 'Drop video file here to upload it'
+      max_filesize: 128M
+      extensions: 'mp4 webm ogg'
+      clientside_resize: false
+      resize_width: null
+      resize_height: null
+      resize_quality: !!float 1
+      resize_method: contain
+      thumbnail_method: contain
+      submit_text: 'Select video(s)'
+    uuid: ad7800f0-c930-4f86-905d-7dd893b2945f
+    weight: 4
+    label: Upload
+    id: dropzonejs_media_entity_inline_entity_form

@@ -11,7 +11,6 @@ dependencies:
   module:
     - ds
     - image
-    - video_embed_field
 third_party_settings:
   ds:
     layout:
@@ -30,7 +29,7 @@ third_party_settings:
           layout_class: {  }
     regions:
       ds_content:
-        - field_media_video_embed_field
+        - thumbnail
         - field_media_cover_image
         - name
 id: media.video_embed.field_preview
@@ -49,69 +48,11 @@ content:
     third_party_settings:
       ds:
         ft:
-          id: expert
+          id: default
           settings:
             lb: ''
-            prefix: ''
-            lbw-el: ''
-            lbw-cl: ''
-            lbw-at: ''
-            ow: true
-            ow-el: ''
-            ow-cl: 'media-cover-image video-player-icon'
-            ow-at: ''
-            ow-def-at: true
-            ow-def-cl: true
-            fis: true
-            fis-el: ''
-            fis-cl: ''
-            fis-at: ''
-            fis-def-at: true
-            fi: true
-            fi-el: ''
-            fi-cl: ''
-            fi-at: ''
-            fi-def-at: true
-            suffix: ''
-            lbw: false
             lb-col: false
-  field_media_video_embed_field:
-    weight: 0
-    label: hidden
-    settings:
-      image_style: field_preview
-      link_image_to: ''
-    third_party_settings:
-      ds:
-        ft:
-          id: expert
-          settings:
-            lb: ''
-            prefix: ''
-            lbw-el: ''
-            lbw-cl: ''
-            lbw-at: ''
-            ow: true
-            ow-el: ''
-            ow-cl: 'media-cover-image video-player-icon'
-            ow-at: ''
-            ow-def-at: true
-            ow-def-cl: true
-            fis: true
-            fis-el: ''
-            fis-cl: ''
-            fis-at: ''
-            fis-def-at: true
-            fi: true
-            fi-el: ''
-            fi-cl: ''
-            fi-at: ''
-            fi-def-at: true
-            suffix: ''
-            lbw: false
-            lb-col: false
-    type: video_embed_field_thumbnail
-    region: ds_content
+            classes: {  }
   name:
     type: string
     weight: 2
@@ -120,9 +61,25 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
+  thumbnail:
+    type: image
+    weight: 0
+    region: ds_content
+    label: hidden
+    settings:
+      image_style: field_preview
+      image_link: ''
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
 hidden:
   created: true
   field_media_in_library: true
+  field_media_video_embed_field: true
   langcode: true
-  thumbnail: true
   uid: true

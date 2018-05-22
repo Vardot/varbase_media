@@ -366,12 +366,11 @@ display:
         - 'url.query_args:sort_order'
         - user.permissions
       tags:
-        - 'config:core.entity_view_display.media.file.default'
-        - 'config:core.entity_view_display.media.image.default'
-        - 'config:core.entity_view_display.media.video.default'
         - 'config:core.entity_view_display.media.file.browser_teaser'
+        - 'config:core.entity_view_display.media.file.default'
         - 'config:core.entity_view_display.media.file.field_preview'
         - 'config:core.entity_view_display.media.image.browser_teaser'
+        - 'config:core.entity_view_display.media.image.default'
         - 'config:core.entity_view_display.media.image.field_preview'
         - 'config:core.entity_view_display.media.image.large'
         - 'config:core.entity_view_display.media.image.medium'
@@ -447,6 +446,7 @@ display:
         - 'config:core.entity_view_display.media.tweet.original'
         - 'config:core.entity_view_display.media.tweet.small'
         - 'config:core.entity_view_display.media.video.browser_teaser'
+        - 'config:core.entity_view_display.media.video.default'
         - 'config:core.entity_view_display.media.video.field_preview'
         - 'config:core.entity_view_display.media.video.large'
         - 'config:core.entity_view_display.media.video.medium'
@@ -1371,8 +1371,8 @@ display:
       access:
         type: perm
         options:
-          perm: 'access image_browser entity browser pages'
-      css_class: image-browser
+          perm: 'create media'
+      css_class: general-media-browser
       pager:
         type: full
         options:
@@ -1404,13 +1404,13 @@ display:
           admin_label: ''
           empty: true
           tokenize: false
-          content: 'There are no media to display.'
+          content: 'There are no media items to display. Add new media content'
           plugin_id: text_custom
       cache:
         type: none
         options: {  }
       exposed_form:
-        type: basic
+        type: bef
         options:
           submit_button: Search
           reset_button: true
@@ -1419,6 +1419,31 @@ display:
           expose_sort_order: true
           sort_asc_label: Asc
           sort_desc_label: Desc
+          input_required: false
+          text_input_required: 'Select any filter and click on Apply to see results'
+          bef:
+            general:
+              allow_secondary: false
+              secondary_label: 'Advanced options'
+              autosubmit: false
+              autosubmit_exclude_textfield: false
+              autosubmit_hide: false
+            sort:
+              bef_format: default
+              advanced:
+                collapsible: false
+                collapsible_label: 'Sort options'
+                combine: false
+                combine_rewrite: ''
+                reset: false
+                reset_label: ''
+                is_secondary: false
+            name:
+              bef_format: default
+              more_options:
+                is_secondary: false
+                placeholder_text: ''
+          text_input_required_format: full_html
     cache_metadata:
       max-age: -1
       contexts:
@@ -2402,7 +2427,7 @@ display:
           exposed: true
           expose:
             operator_id: bundle_op
-            label: 'Media type'
+            label: Type
             description: ''
             use_operator: false
             operator: bundle_op
@@ -2419,6 +2444,47 @@ display:
               site_admin: '0'
               administrator: '0'
             reduce: true
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: media
+          entity_field: bundle
+          plugin_id: bundle
+        bundle_1:
+          id: bundle_1
+          table: media_field_data
+          field: bundle
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: in
+          value:
+            video_embed: video_embed
+            video: video
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
           is_grouped: false
           group_info:
             label: ''
@@ -2470,47 +2536,6 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: boolean
-        bundle_1:
-          id: bundle_1
-          table: media_field_data
-          field: bundle
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: in
-          value:
-            video_embed: video_embed
-            video: video
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          entity_type: media
-          entity_field: bundle
-          plugin_id: bundle
       filter_groups:
         operator: AND
         groups:
@@ -2551,7 +2576,7 @@ display:
           admin_label: ''
           empty: true
           tokenize: false
-          content: 'There are no images to display. Upload images from your computer.'
+          content: 'There are no videos to display. Upload videos from your computer.'
           plugin_id: text_custom
       cache:
         type: none
@@ -2572,8 +2597,8 @@ display:
             general:
               allow_secondary: false
               secondary_label: 'Advanced options'
-              autosubmit: false
-              autosubmit_exclude_textfield: false
+              autosubmit: true
+              autosubmit_exclude_textfield: true
               autosubmit_hide: false
             sort:
               bef_format: default
@@ -2590,6 +2615,14 @@ display:
               more_options:
                 is_secondary: false
                 placeholder_text: ''
+            bundle:
+              bef_format: default
+              more_options:
+                bef_select_all_none: false
+                bef_collapsible: false
+                is_secondary: false
+                rewrite:
+                  filter_rewrite_values: ''
           text_input_required_format: full_html
     cache_metadata:
       max-age: -1

@@ -13,12 +13,12 @@ bundle: video
 label: 'Video file'
 description: ''
 required: true
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
   file_directory: 'videos/[date:custom:Y]-[date:custom:m]'
-  file_extensions: mp4
+  file_extensions: 'mp4 webm ogg'
   max_filesize: ''
   description_field: false
   handler: 'default:file'
