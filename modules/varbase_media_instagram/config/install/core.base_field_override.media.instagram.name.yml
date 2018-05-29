@@ -2,17 +2,18 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.media.field_media_instagram
     - media.type.instagram
-id: media.instagram.field_media_instagram
-field_name: field_media_instagram
+id: media.instagram.name
+field_name: name
 entity_type: media
 bundle: instagram
-label: Instagram
+label: Name
 description: ''
 required: true
 translatable: false
-default_value: {  }
+default_value:
+  -
+    value: ''
 default_value_callback: ''
 settings: {  }
 field_type: string

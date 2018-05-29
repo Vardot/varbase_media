@@ -6,7 +6,14 @@ version: 8.x-5.x-dev
 core: 8.x
 project: varbase_media
 dependencies:
-  - varbase_media
-  - media_entity_instagram
+  - content_translation
+  - crop
+  - ds
   - entity_browser_instagram_embed
-
+  - field
+  - image
+  - language
+  - media
+  - media_entity_instagram
+  - path
+  - varbase_media

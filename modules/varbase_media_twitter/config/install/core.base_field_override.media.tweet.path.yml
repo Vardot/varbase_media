@@ -2,17 +2,18 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.media.field_media_twitter
     - media.type.tweet
-id: media.tweet.field_media_twitter
-field_name: field_media_twitter
+  module:
+    - path
+id: media.tweet.path
+field_name: path
 entity_type: media
 bundle: tweet
-label: 'Tweet URL'
+label: 'URL alias'
 description: ''
-required: true
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
 settings: {  }
-field_type: string
+field_type: path

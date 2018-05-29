@@ -1,0 +1,31 @@
+.video-player-icon {
+  position: relative;
+}
+.video-player-icon.js-video-player-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0;
+  margin: 0;
+}
+.video-player-icon:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -36px;
+  margin-top: -36px;
+  background: url(../../images/play.svg) no-repeat center center;
+  height: 72px;
+  width: 72px;
+  max-height: 55%;
+  font-size: 15%;
+  cursor: pointer;
+}
+.video-player-icon:hover:after {
+  opacity: 0.75;
+}
+[dir="rtl"] .video-player-icon.js-video-player-icon {
+  right: 0;
+  left: auto;
+}

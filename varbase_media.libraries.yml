@@ -5,6 +5,10 @@ common:
       css/varbase_media.common.css: { every_page: 1 }
   dependencies:
     - system/base
+    - core/drupal
+    - core/drupalSettings
+    - core/jquery
+    - core/jquery.once
 common_logged:
   version: VERSION
   css:
@@ -12,3 +16,30 @@ common_logged:
       css/varbase_media.common_logged.css: { every_page: 1 }
   dependencies:
     - system/base
+    - core/drupal
+    - core/drupalSettings
+    - core/jquery
+    - core/jquery.once
+varbase_video_player:
+  version: VERSION
+  css:
+    theme:
+      css/theme/varbase-video-player.theme.css: { }
+  js:
+    js/varbase-video-player.js: { }
+  dependencies:
+    - system/base
+    - core/drupal
+    - core/drupalSettings
+    - core/jquery
+    - core/jquery.once
+    - varbase_media/youtube_player
+    - varbase_media/vimeo
+youtube_player:
+  version: VERSION
+  js:
+    //youtube.com/player_api: { type: external, minified: true }
+vimeo_player:
+  version: 2.6.1
+  js:
+    //cdn.rawgit.com/vimeo/player.js/v2.6.1/dist/player.min.js: { type: external, minified: true }

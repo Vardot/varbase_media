@@ -2,10 +2,14 @@ langcode: en
 status: true
 dependencies:
   module:
+    - crop
     - media_entity_instagram
+third_party_settings:
+  crop:
+    image_field: null
 id: instagram
 label: Instagram
-description: ''
+description: 'Instagram posts.'
 source: instagram
 queue_thumbnail_downloads: false
 new_revision: false

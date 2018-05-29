@@ -77,34 +77,3 @@ figure.align-left figcaption {
   display: table-caption;
   caption-side: bottom;
 }
-.media-cover-image {
-  top: 0;
-  left: 0;
-}
-.media-cover-image.video-player-icon {
-  position: relative;
-}
-.media-cover-image.video-player-icon.js-video-player-icon {
-  position: absolute;
-}
-.media-cover-image.video-player-icon:after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-left: -36px;
-  margin-top: -36px;
-  background: url(../images/play.svg) no-repeat center center;
-  height: 72px;
-  width: 72px;
-  max-height: 55%;
-  font-size: 15%;
-  cursor: pointer;
-}
-.media-cover-image.video-player-icon:hover:after {
-  opacity: 0.75;
-}
-[dir="rtl"] .media-cover-image {
-  left: auto;
-  right: 0;
-}

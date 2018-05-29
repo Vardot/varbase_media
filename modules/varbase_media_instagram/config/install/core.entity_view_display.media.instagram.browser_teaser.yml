@@ -5,11 +5,11 @@ dependencies:
     - core.entity_view_mode.media.browser_teaser
     - field.field.media.instagram.field_media_in_library
     - field.field.media.instagram.field_media_instagram
+    - image.style.d03_traditional
     - media.type.instagram
-    - responsive_image.styles.d03_traditional
   module:
     - ds
-    - responsive_image
+    - image
 id: media.instagram.browser_teaser
 targetEntityType: media
 bundle: instagram
@@ -31,12 +31,12 @@ content:
             lb-col: false
             classes: {  }
   thumbnail:
-    type: responsive_image
+    type: image
     weight: 0
     region: content
     label: hidden
     settings:
-      responsive_image_style: d03_traditional
+      image_style: d03_traditional
       image_link: ''
     third_party_settings:
       ds:

@@ -47,7 +47,7 @@ widgets:
       upload_location: 'public://videos/[date:custom:Y]-[date:custom:m]'
       dropzone_description: 'Drop video file here to upload it'
       max_filesize: 128M
-      extensions: 'mp4 webm ogg'
+      extensions: 'mp4 webm ogv'
       clientside_resize: false
       resize_width: null
       resize_height: null

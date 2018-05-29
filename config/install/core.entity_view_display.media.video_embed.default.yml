@@ -54,6 +54,8 @@ content:
     weight: 0
     label: hidden
     settings:
+      image_style: ''
+      link_image_to: ''
       responsive: true
       width: 854
       height: 480
@@ -76,18 +78,18 @@ content:
             ow-def-cl: true
             fis: true
             fis-el: ''
-            fis-cl: ''
+            fis-cl: embed-responsive-item
             fis-at: ''
             fis-def-at: true
-            fi: true
             fi-el: ''
             fi-cl: ''
             fi-at: ''
             suffix: ''
             lbw: false
             lb-col: false
+            fi: false
             fi-def-at: false
-    type: video_embed_field_video
+    type: video_embed_field_lazyload
     region: ds_content
 hidden:
   created: true
