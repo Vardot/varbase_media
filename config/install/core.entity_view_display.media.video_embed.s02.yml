@@ -7,9 +7,8 @@ dependencies:
     - field.field.media.video_embed.field_media_in_library
     - field.field.media.video_embed.field_media_video_embed_field
     - media.type.video_embed
-    - responsive_image.styles.d02
+    - responsive_image.styles.d02_standard
   module:
-    - blazy
     - ds
     - responsive_image
 third_party_settings:
@@ -41,7 +40,7 @@ content:
     weight: 1
     label: hidden
     settings:
-      responsive_image_style: d02
+      responsive_image_style: d02_standard
       image_link: ''
     third_party_settings:
       ds:
@@ -55,57 +54,33 @@ content:
             lbw-at: ''
             ow: true
             ow-el: ''
-            ow-cl: 'media-cover-image video-player-icon'
+            ow-cl: media-cover-image
             ow-at: ''
-            ow-def-at: false
-            ow-def-cl: false
-            fis: false
+            ow-def-at: true
+            ow-def-cl: true
             fis-el: ''
             fis-cl: ''
             fis-at: ''
-            fis-def-at: false
-            fi: false
             fi-el: ''
             fi-cl: ''
             fi-at: ''
-            fi-def-at: false
             suffix: ''
             lbw: false
             lb-col: false
+            fis: false
+            fis-def-at: false
+            fi: false
+            fi-def-at: false
     type: responsive_image
     region: ds_content
   thumbnail:
-    type: blazy
+    type: responsive_image
     weight: 0
     region: ds_content
     label: hidden
     settings:
-      responsive_image_style: d02
-      iframe_lazy: true
-      icon: ''
-      layout: ''
-      thumbnail_style: ''
-      view_mode: ''
-      cache: 0
-      current_view_mode: ''
-      optionset: default
-      skin: ''
-      style: ''
-      background: false
-      box_caption: ''
-      box_caption_custom: ''
-      box_style: ''
-      box_media_style: ''
-      breakpoints: {  }
-      caption: {  }
-      image_style: ''
-      media_switch: ''
-      ratio: ''
-      sizes: ''
-      grid: 0
-      grid_header: ''
-      grid_medium: 0
-      grid_small: 0
+      responsive_image_style: d02_standard
+      image_link: ''
     third_party_settings:
       ds:
         ft:
@@ -118,23 +93,23 @@ content:
             lbw-at: ''
             ow: true
             ow-el: ''
-            ow-cl: 'media-cover-image video-player-icon'
+            ow-cl: media-cover-image
             ow-at: ''
-            ow-def-at: false
-            ow-def-cl: false
-            fis: false
+            ow-def-at: true
+            ow-def-cl: true
             fis-el: ''
             fis-cl: ''
             fis-at: ''
-            fis-def-at: false
-            fi: false
             fi-el: ''
             fi-cl: ''
             fi-at: ''
-            fi-def-at: false
             suffix: ''
             lbw: false
             lb-col: false
+            fis: false
+            fis-def-at: false
+            fi: false
+            fi-def-at: false
 hidden:
   created: true
   field_media_in_library: true

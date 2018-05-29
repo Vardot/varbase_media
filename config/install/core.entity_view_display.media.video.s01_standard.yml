@@ -58,21 +58,21 @@ content:
             ow-el: ''
             ow-cl: 'media-cover-image video-player-icon'
             ow-at: ''
-            ow-def-at: false
-            ow-def-cl: false
-            fis: false
+            ow-def-at: true
+            ow-def-cl: true
             fis-el: ''
             fis-cl: ''
             fis-at: ''
-            fis-def-at: false
-            fi: false
             fi-el: ''
             fi-cl: ''
             fi-at: ''
-            fi-def-at: false
             suffix: ''
             lbw: false
             lb-col: false
+            fis: false
+            fis-def-at: false
+            fi: false
+            fi-def-at: false
   thumbnail:
     type: responsive_image
     weight: 0
@@ -97,18 +97,18 @@ content:
             ow-at: ''
             ow-def-at: true
             ow-def-cl: true
-            fis: true
             fis-el: ''
             fis-cl: ''
             fis-at: ''
-            fis-def-at: true
-            fi: true
             fi-el: ''
             fi-cl: ''
             fi-at: ''
             suffix: ''
             lbw: false
             lb-col: false
+            fis: false
+            fis-def-at: false
+            fi: false
             fi-def-at: false
 hidden:
   created: true

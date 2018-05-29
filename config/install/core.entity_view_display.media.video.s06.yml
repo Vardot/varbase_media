@@ -7,10 +7,9 @@ dependencies:
     - field.field.media.video.field_media_in_library
     - field.field.media.video.field_media_video_file
     - media.type.video
-    - responsive_image.styles.d06
+    - responsive_image.styles.d06_standard
   module:
     - ds
-    - file
     - responsive_image
 third_party_settings:
   ds:
@@ -30,7 +29,7 @@ third_party_settings:
           layout_class: {  }
     regions:
       ds_content:
-        - field_media_video_file
+        - thumbnail
         - field_media_cover_image
 id: media.video.s06
 targetEntityType: media
@@ -43,7 +42,7 @@ content:
     region: ds_content
     label: hidden
     settings:
-      responsive_image_style: d06
+      responsive_image_style: d06_standard
       image_link: ''
     third_party_settings:
       ds:
@@ -57,36 +56,31 @@ content:
             lbw-at: ''
             ow: true
             ow-el: ''
-            ow-cl: 'media-cover-image video-player-icon js-video-player-icon'
+            ow-cl: media-cover-image
             ow-at: ''
-            ow-def-at: false
-            ow-def-cl: false
-            fis: false
+            ow-def-at: true
+            ow-def-cl: true
             fis-el: ''
             fis-cl: ''
             fis-at: ''
-            fis-def-at: false
-            fi: false
             fi-el: ''
             fi-cl: ''
             fi-at: ''
-            fi-def-at: false
             suffix: ''
             lbw: false
             lb-col: false
-  field_media_video_file:
-    type: file_video
+            fis: false
+            fis-def-at: false
+            fi: false
+            fi-def-at: false
+  thumbnail:
+    type: responsive_image
     weight: 0
     region: ds_content
     label: hidden
     settings:
-      controls: true
-      multiple_file_display_type: tags
-      width: 600
-      height: 338
-      autoplay: false
-      loop: false
-      muted: false
+      responsive_image_style: d06_standard
+      image_link: ''
     third_party_settings:
       ds:
         ft:
@@ -99,27 +93,27 @@ content:
             lbw-at: ''
             ow: true
             ow-el: ''
-            ow-cl: 'embed-responsive embed-responsive-16by9'
+            ow-cl: media-cover-image
             ow-at: ''
+            ow-def-at: true
+            ow-def-cl: true
             fis-el: ''
             fis-cl: ''
             fis-at: ''
-            fi: true
             fi-el: ''
-            fi-cl: embed-responsive-item
+            fi-cl: ''
             fi-at: ''
             suffix: ''
             lbw: false
             lb-col: false
-            ow-def-at: false
-            ow-def-cl: false
             fis: false
             fis-def-at: false
+            fi: false
             fi-def-at: false
 hidden:
   created: true
   field_media_in_library: true
+  field_media_video_file: true
   langcode: true
   name: true
-  thumbnail: true
   uid: true

@@ -7,7 +7,7 @@ dependencies:
     - field.field.media.video.field_media_in_library
     - field.field.media.video.field_media_video_file
     - media.type.video
-    - responsive_image.styles.d01
+    - responsive_image.styles.d01_standard
   module:
     - ds
     - responsive_image
@@ -42,23 +42,7 @@ content:
     region: ds_content
     label: hidden
     settings:
-      responsive_image_style: d01
-      image_link: ''
-    third_party_settings:
-      ds:
-        ft:
-          id: default
-          settings:
-            lb: ''
-            lb-col: false
-            classes: {  }
-  thumbnail:
-    type: responsive_image
-    weight: 0
-    region: ds_content
-    label: hidden
-    settings:
-      responsive_image_style: d01
+      responsive_image_style: d01_standard
       image_link: ''
     third_party_settings:
       ds:
@@ -72,23 +56,60 @@ content:
             lbw-at: ''
             ow: true
             ow-el: ''
-            ow-cl: 'media-cover-image video-player-icon'
+            ow-cl: media-cover-image
             ow-at: ''
-            ow-def-at: false
-            ow-def-cl: false
-            fis: false
+            ow-def-at: true
+            ow-def-cl: true
             fis-el: ''
             fis-cl: ''
             fis-at: ''
-            fis-def-at: false
-            fi: false
             fi-el: ''
             fi-cl: ''
             fi-at: ''
-            fi-def-at: false
             suffix: ''
             lbw: false
             lb-col: false
+            fis: false
+            fis-def-at: false
+            fi: false
+            fi-def-at: false
+  thumbnail:
+    type: responsive_image
+    weight: 0
+    region: ds_content
+    label: hidden
+    settings:
+      responsive_image_style: d01_standard
+      image_link: ''
+    third_party_settings:
+      ds:
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow: true
+            ow-el: ''
+            ow-cl: media-cover-image
+            ow-at: ''
+            ow-def-at: true
+            ow-def-cl: true
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            fis: false
+            fis-def-at: false
+            fi: false
+            fi-def-at: false
 hidden:
   created: true
   field_media_in_library: true

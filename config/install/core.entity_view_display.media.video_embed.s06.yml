@@ -6,13 +6,11 @@ dependencies:
     - field.field.media.video_embed.field_media_cover_image
     - field.field.media.video_embed.field_media_in_library
     - field.field.media.video_embed.field_media_video_embed_field
-    - image.style.d06
     - media.type.video_embed
-    - responsive_image.styles.d06
+    - responsive_image.styles.d06_standard
   module:
     - ds
     - responsive_image
-    - video_embed_field
 third_party_settings:
   ds:
     layout:
@@ -31,7 +29,7 @@ third_party_settings:
           layout_class: {  }
     regions:
       ds_content:
-        - field_media_video_embed_field
+        - thumbnail
         - field_media_cover_image
 id: media.video_embed.s06
 targetEntityType: media
@@ -42,7 +40,7 @@ content:
     weight: 1
     label: hidden
     settings:
-      responsive_image_style: d06
+      responsive_image_style: d06_standard
       image_link: ''
     third_party_settings:
       ds:
@@ -56,49 +54,66 @@ content:
             lbw-at: ''
             ow: true
             ow-el: ''
-            ow-cl: 'media-cover-image video-player-icon js-video-player-icon'
+            ow-cl: media-cover-image
             ow-at: ''
-            ow-def-at: false
-            ow-def-cl: false
-            fis: false
+            ow-def-at: true
+            ow-def-cl: true
             fis-el: ''
             fis-cl: ''
             fis-at: ''
-            fis-def-at: false
-            fi: false
             fi-el: ''
             fi-cl: ''
             fi-at: ''
-            fi-def-at: false
             suffix: ''
             lbw: false
             lb-col: false
+            fis: false
+            fis-def-at: false
+            fi: false
+            fi-def-at: false
     type: responsive_image
     region: ds_content
-  field_media_video_embed_field:
+  thumbnail:
+    type: responsive_image
     weight: 0
+    region: ds_content
     label: hidden
     settings:
-      image_style: d06
-      link_image_to: ''
-      responsive: true
-      width: 854
-      height: 480
-      autoplay: false
+      responsive_image_style: d06_standard
+      image_link: ''
     third_party_settings:
       ds:
         ft:
-          id: default
+          id: expert
           settings:
             lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow: true
+            ow-el: ''
+            ow-cl: media-cover-image
+            ow-at: ''
+            ow-def-at: true
+            ow-def-cl: true
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lbw: false
             lb-col: false
-            classes: {  }
-    type: video_embed_field_lazyload
-    region: ds_content
+            fis: false
+            fis-def-at: false
+            fi: false
+            fi-def-at: false
 hidden:
   created: true
   field_media_in_library: true
+  field_media_video_embed_field: true
   langcode: true
   name: true
-  thumbnail: true
   uid: true

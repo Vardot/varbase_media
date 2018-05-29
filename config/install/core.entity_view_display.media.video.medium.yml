@@ -48,11 +48,32 @@ content:
     third_party_settings:
       ds:
         ft:
-          id: default
+          id: expert
           settings:
             lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow: true
+            ow-el: ''
+            ow-cl: 'media-cover-image video-player-icon js-video-player-icon'
+            ow-at: ''
+            ow-def-at: true
+            ow-def-cl: true
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lbw: false
             lb-col: false
-            classes: {  }
+            fis: false
+            fis-def-at: false
+            fi: false
+            fi-def-at: false
   field_media_video_file:
     type: file_video
     weight: 0
@@ -69,11 +90,32 @@ content:
     third_party_settings:
       ds:
         ft:
-          id: default
+          id: expert
           settings:
             lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow: true
+            ow-el: ''
+            ow-cl: 'varbase-video-player embed-responsive embed-responsive-16by9'
+            ow-at: ''
+            ow-def-at: true
+            ow-def-cl: true
+            fis: true
+            fis-el: ''
+            fis-cl: embed-responsive-item
+            fis-at: ''
+            fis-def-at: true
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lbw: false
             lb-col: false
-            classes: {  }
+            fi: false
+            fi-def-at: false
 hidden:
   created: true
   field_media_in_library: true
