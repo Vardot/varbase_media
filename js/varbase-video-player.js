@@ -27,8 +27,6 @@
           ev.preventDefault();
         }
         
-
-
         // Vimeo.
         if ($(this).closest('.field--name-field-video').find('iframe[src*="vimeo.com"]').length > 0) {
           var closestVimoIframe = $(this).closest('.field--name-field-video').find('iframe[src*="vimeo.com"]').get(0);
