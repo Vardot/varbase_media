@@ -5,8 +5,8 @@
   position: absolute;
   top: 0;
   left: 0;
-  padding: 0;
   margin: 0;
+  cursor: pointer;
 }
 .video-player-icon:after {
   content: "";
@@ -28,4 +28,8 @@
 [dir="rtl"] .video-player-icon.js-video-player-icon {
   right: 0;
   left: auto;
+}
+.media--type-video-embed,
+.media--type-video {
+  position: relative;
 }

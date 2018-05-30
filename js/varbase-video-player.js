@@ -9,7 +9,7 @@
     Drupal.behaviors.varbaseVideoPlayer = {
       attach: function (context, settings) {
 
-      $('.js-video-player-icon').on("click", function(ev) {
+        $('.js-video-player-icon').on("click", function(ev) {
         $(this).fadeOut(500);
 
         // Locally hosted Video.
@@ -22,9 +22,12 @@
           var closestYoutubeIframe = $(this).closest('.field--name-field-video').find('.media--type-video-embed iframe[src*="youtube.com"]');
           var youtubeURL = String(closestYoutubeIframe.get(0).src); 
           youtubeURL = youtubeURL.replace(/autoplay=0/gi, "autoplay=1");
+          youtubeURL = youtubeURL.replace(/controls=0/gi, "controls=1");
           closestYoutubeIframe.get(0).src = youtubeURL;
           ev.preventDefault();
         }
+        
+
 
         // Vimeo.
         if ($(this).closest('.field--name-field-video').find('iframe[src*="vimeo.com"]').length > 0) {
