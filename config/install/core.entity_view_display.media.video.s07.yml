@@ -56,7 +56,7 @@ content:
             lbw-at: ''
             ow: true
             ow-el: ''
-            ow-cl: media-cover-image
+            ow-cl: 'media-cover-image video-player-icon'
             ow-at: ''
             ow-def-at: true
             ow-def-cl: true
@@ -93,7 +93,7 @@ content:
             lbw-at: ''
             ow: true
             ow-el: ''
-            ow-cl: media-cover-image
+            ow-cl: 'media-cover-image video-player-icon'
             ow-at: ''
             ow-def-at: true
             ow-def-cl: true

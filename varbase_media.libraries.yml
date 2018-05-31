@@ -34,7 +34,7 @@ varbase_video_player:
     - core/jquery
     - core/jquery.once
     - varbase_media/youtube_player
-    - varbase_media/vimeo
+    - varbase_media/vimeo_player
 youtube_player:
   version: VERSION
   js:
