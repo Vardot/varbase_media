@@ -11,6 +11,8 @@ use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 use Drupal\field\Entity\FieldStorageConfig;
 use Drupal\ds\Ds;
+use Drupal\entity_browser_generic_embed\OverrideHelper as Override;
+use Drupal\varbase_media\Plugin\media\Source\Video;
 
 /**
  * Implements hook_page_attachments().
@@ -138,4 +140,20 @@ function varbase_media_entity_view_alter(array &$build, EntityInterface $entity,
 
     }
   }
+}
+
+/**
+ * Implements hook_media_source_info_alter().
+ */
+function varbase_media_media_source_info_alter(array &$sources) {
+  $sources['video_embed_field']['input_match'] = [
+    'field_types' => [
+      'string',
+      'string_long',
+      'video_embed_field',
+    ],
+  ];
+  $sources['video_embed_field']['preview'] = TRUE;
+
+  Override::pluginClass($sources['video_embed_field'], Video::class);
 }

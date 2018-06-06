@@ -1,0 +1,33 @@
+{
+  "name": "vardot/entity_browser_generic_embed",
+  "description": "Entity Browser Generic Embed",
+  "type": "drupal-module",
+  "homepage": "https://github.com/Vardot/entity_browser_generic_embed",
+  "license": "GPL-2.0-or-later",
+  "minimum-stability": "dev",
+  "authors": [
+    {
+      "name": "Vardot",
+      "homepage": "https://www.drupal.org/vardot",
+      "role": "Maintainer"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/Vardot/entity_browser_generic_embed",
+    "source": "https://github.com/Vardot/entity_browser_generic_embed/issues"
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://packages.drupal.org/8"
+    }
+  ],
+  "require": {
+    "drupal/entity_browser": "^2.0-alpha2"
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-8.x-1.x": "8.1.x-dev"
+    }
+  }
+}

@@ -15,7 +15,6 @@ dependencies:
   - entity_browser_enhanced
   - entity_browser_entity_form
   - entity_browser_generic_embed
-  - entity_browser_video_embed
   - entity_embed
   - file
   - focal_point
