@@ -3,6 +3,7 @@ status: true
 dependencies:
   config:
     - field.field.media.file.field_media_file
+    - field.field.media.file.field_media_in_library
     - image.style.thumbnail
     - media.type.file
   module:
@@ -40,5 +41,6 @@ content:
     region: content
 hidden:
   created: true
+  field_media_in_library: true
   langcode: true
   uid: true

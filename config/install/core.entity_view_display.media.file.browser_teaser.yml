@@ -4,6 +4,7 @@ dependencies:
   config:
     - core.entity_view_mode.media.browser_teaser
     - field.field.media.file.field_media_file
+    - field.field.media.file.field_media_in_library
     - image.style.d03_traditional
     - media.type.file
   module:
@@ -41,5 +42,6 @@ content:
 hidden:
   created: true
   field_media_file: true
+  field_media_in_library: true
   langcode: true
   uid: true
