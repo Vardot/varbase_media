@@ -49,4 +49,5 @@ hidden:
   created: true
   langcode: true
   path: true
+  translation: true
   uid: true

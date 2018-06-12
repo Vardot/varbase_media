@@ -7,7 +7,7 @@ dependencies:
     - field.field.media.video.field_media_in_library
     - field.field.media.video.field_media_video_file
     - media.type.video
-    - responsive_image.styles.d09_standard
+    - responsive_image.styles.d08_standard
   module:
     - ds
     - file
@@ -43,7 +43,7 @@ content:
     region: ds_content
     label: hidden
     settings:
-      responsive_image_style: d09_standard
+      responsive_image_style: d08_standard
       image_link: ''
     third_party_settings:
       ds:

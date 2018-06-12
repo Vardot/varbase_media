@@ -20,6 +20,17 @@ common_logged:
     - core/drupalSettings
     - core/jquery
     - core/jquery.once
+    - varbase_media/auto_fill_media_data
+auto_fill_media_data:
+  version: VERSION
+  js:
+    js/auto-fill-media-data.js: { }
+  dependencies:
+    - system/base
+    - core/drupal
+    - core/drupalSettings
+    - core/jquery
+    - core/jquery.once
 varbase_video_player:
   version: VERSION
   css:

@@ -2,17 +2,8 @@ langcode: en
 status: true
 dependencies:
   config:
-    - image.style.d01
-    - image.style.d02
-    - image.style.d03
-    - image.style.d04
-    - image.style.d05
-    - image.style.d06
-    - image.style.d07
     - image.style.d08
-    - image.style.d09
     - image.style.d10
-    - image.style.d11
     - image.style.d12
     - image.style.de2e
     - image.style.default
@@ -26,18 +17,9 @@ image_style_mappings:
     image_mapping:
       sizes: 100vw
       sizes_image_styles:
-        - d01
-        - d10
-        - d11
-        - d12
-        - d02
-        - d03
-        - d04
-        - d05
-        - d06
-        - d07
         - d08
-        - d09
+        - d10
+        - d12
         - de2e
 breakpoint_group: responsive_image
 fallback_image_style: default

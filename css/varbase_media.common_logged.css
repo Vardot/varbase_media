@@ -210,3 +210,6 @@ form.media-form .form-item-field-source {
   margin-left: 1.5rem;
   margin-right: auto;
 }
+[class^="entity-browser-"] .field--name-revision-log-message {
+  display: none;
+}

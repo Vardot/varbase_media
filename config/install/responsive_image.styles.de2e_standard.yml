@@ -2,17 +2,8 @@ langcode: en
 status: true
 dependencies:
   config:
-    - image.style.d01_standard
-    - image.style.d02_standard
-    - image.style.d03_standard
-    - image.style.d04_standard
-    - image.style.d05_standard
-    - image.style.d06_standard
-    - image.style.d07_standard
     - image.style.d08_standard
-    - image.style.d09_standard
     - image.style.d10_standard
-    - image.style.d11_standard
     - image.style.d12_standard
     - image.style.de2e_standard
 id: de2e_standard
@@ -25,18 +16,9 @@ image_style_mappings:
     image_mapping:
       sizes: 100vw
       sizes_image_styles:
-        - d10_standard
-        - d11_standard
-        - d12_standard
-        - d01_standard
-        - d02_standard
-        - d03_standard
-        - d04_standard
-        - d05_standard
-        - d06_standard
-        - d07_standard
         - d08_standard
-        - d09_standard
+        - d10_standard
+        - d12_standard
         - de2e_standard
 breakpoint_group: responsive_image
 fallback_image_style: de2e_standard

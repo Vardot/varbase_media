@@ -9,10 +9,12 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\editor\Entity\Editor;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use Drupal\Core\Entity\Display\EntityFormDisplayInterface;
 use Drupal\field\Entity\FieldStorageConfig;
 use Drupal\ds\Ds;
 use Drupal\entity_browser_generic_embed\OverrideHelper as Override;
 use Drupal\varbase_media\Plugin\media\Source\Video;
+
 
 /**
  * Implements hook_page_attachments().
@@ -107,6 +109,10 @@ function varbase_media_form_entity_embed_dialog_alter(&$form, FormStateInterface
         $entity->save();
         break;
     }
+
+    if (isset($form['revision_log_message'])) {
+      $form['revision_log_message']['#access'] = false;
+    }
   }
 }
 
@@ -128,10 +134,8 @@ function varbase_media_entity_view_alter(array &$build, EntityInterface $entity,
         if (isset($build['thumbnail'])) {
           $build['thumbnail']['#access'] = FALSE;
         }
-
-        if ($display != 'field_preview') {
-          $build['field_media_cover_image']['#attached']['library'][] = 'varbase_media/varbase_video_player';
-        }
+        
+        $build['field_media_cover_image']['#attached']['library'][] = 'varbase_media/varbase_video_player';
       }
     }
 
@@ -144,7 +148,7 @@ function varbase_media_entity_view_alter(array &$build, EntityInterface $entity,
     // Attach the varbase media video library for video file field.
     if (isset($build['field_media_video_file'])) {
       $build['field_media_video_file']['#attached']['library'][] = 'varbase_media/varbase_video_player';
-    } 
+    }
   }
 }
 
@@ -162,4 +166,27 @@ function varbase_media_media_source_info_alter(array &$sources) {
   $sources['video_embed_field']['preview'] = TRUE;
 
   Override::pluginClass($sources['video_embed_field'], Video::class);
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function varbase_media_form_alter(&$form, &$form_state, $form_id) {
+  if ($form_state->getFormObject() instanceof \Drupal\Core\Entity\EntityFormInterface) {
+    $entity_type = $form_state->getFormObject()->getEntity()->getEntityTypeId();
+
+    // Only for media entity type.
+    if ($entity_type == 'media') {
+      // No revision information or revision log message.
+      if (isset($form['revision_information'])) {
+        $form['revision_information']['#access'] = FALSE;
+      }
+    }
+  }
+
+  if ($form_id == 'entity_browser_image_browser_form'
+      || $form_id == 'entity_browser_media_browser_form'
+      || $form_id == 'entity_browser_editor_media_browser_form') {
+    $form['#attached']['library'][] = 'varbase_media/auto_fill_media_data';
+  }
 }

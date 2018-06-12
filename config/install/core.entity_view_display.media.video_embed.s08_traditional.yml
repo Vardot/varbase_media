@@ -6,11 +6,11 @@ dependencies:
     - field.field.media.video_embed.field_media_cover_image
     - field.field.media.video_embed.field_media_in_library
     - field.field.media.video_embed.field_media_video_embed_field
-    - image.style.d08_traditional
     - media.type.video_embed
+    - responsive_image.styles.d08_traditional
   module:
     - ds
-    - image
+    - responsive_image
     - video_embed_field
 third_party_settings:
   ds:
@@ -38,12 +38,12 @@ bundle: video_embed
 mode: s08_traditional
 content:
   field_media_cover_image:
-    type: image
+    type: responsive_image
     weight: 1
     region: ds_content
     label: hidden
     settings:
-      image_style: d08_traditional
+      responsive_image_style: d08_traditional
       image_link: ''
     third_party_settings:
       ds:

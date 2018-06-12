@@ -6,10 +6,10 @@ dependencies:
     - field.field.media.video_embed.field_media_cover_image
     - field.field.media.video_embed.field_media_in_library
     - field.field.media.video_embed.field_media_video_embed_field
-    - image.style.d03_traditional
+    - image.style.field_preview
     - media.type.video_embed
   module:
-    - image
+    - focal_point
     - video_embed_field
 id: media.video_embed.entity_browser
 targetEntityType: media
@@ -19,10 +19,12 @@ content:
   field_media_cover_image:
     weight: 2
     settings:
-      preview_image_style: d03_traditional
+      preview_image_style: field_preview
+      preview_link: true
+      offsets: '50,50'
       progress_indicator: throbber
     third_party_settings: {  }
-    type: image_image
+    type: image_focal_point
     region: content
   field_media_in_library:
     type: boolean_checkbox
