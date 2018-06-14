@@ -1,6 +1,6 @@
 /**
  * @file
- * Behaviors Varbase Auto Fill Meida data scripts.
+ * Behaviors Varbase Auto Fill Media data scripts.
  */
 
 (function ($, _, Drupal, drupalSettings) {

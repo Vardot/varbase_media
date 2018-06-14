@@ -35,7 +35,7 @@ widgets:
   ed821f5d-dd9e-4132-b89a-54d97a36cd4e:
     settings:
       submit_text: 'Embed media'
-      form_mode: media_browser
+      form_mode: entity_browser
     uuid: ed821f5d-dd9e-4132-b89a-54d97a36cd4e
     weight: 4
     label: Embed

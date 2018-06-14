@@ -154,8 +154,10 @@ abstract class EntityFormProxy extends WidgetBase {
   public function submit(array &$element, array &$form, FormStateInterface $form_state) {
     // IEF will take care of creating the entity upon submission. All we need to
     // do is send it upstream to Entity Browser.
-    $entity = $form['widget']['entity']['#entity'];
-    $this->selectEntities([$entity], $form_state);
+    if (isset($form['widget']['entity']['#entity'])) {
+      $entity = $form['widget']['entity']['#entity'];
+      $this->selectEntities([$entity], $form_state);
+    }
   }
 
   /**
