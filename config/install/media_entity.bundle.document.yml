@@ -6,7 +6,7 @@ dependencies:
     - media_entity_document
 third_party_settings:
   crop:
-    image_field: field_document_file
+    image_field: _none
 id: document
 label: Document
 description: 'A Document file is written information like PDF,  Document.'
