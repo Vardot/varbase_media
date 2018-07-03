@@ -2,7 +2,10 @@ langcode: en
 status: true
 dependencies:
   config:
+    - media.type.file
     - media.type.image
+    - media.type.video
+    - media.type.video_embed
   module:
     - entity_embed
     - media
@@ -12,7 +15,10 @@ type_id: entity
 type_settings:
   entity_type: media
   bundles:
+    - file
     - image
+    - video_embed
+    - video
   display_plugins:
     - 'view_mode:media.large'
     - 'view_mode:media.medium'

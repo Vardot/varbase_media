@@ -14,6 +14,9 @@ use Drupal\field\Entity\FieldStorageConfig;
 use Drupal\ds\Ds;
 use Drupal\entity_browser_generic_embed\OverrideHelper as Override;
 use Drupal\varbase_media\Plugin\media\Source\Video;
+use Drupal\Component\Utility\Html;
+use Drupal\Component\Serialization\Json;
+use Drupal\Component\Utility\UrlHelper;
 
 
 /**
@@ -34,11 +37,14 @@ function varbase_media_page_attachments(array &$page) {
  */
 function varbase_media_ckeditor_css_alter(array &$css, Editor $editor) {
 
+  // Varbase media path.
+  $varbase_media_path = Drupal::service('module_handler')->getModule('varbase_media')->getPath();
+  
   // Attached the varbase media common style.
-  $css[] = drupal_get_path('module', 'varbase_media') . '/css/varbase_media.common.css';
+  $css[] = $varbase_media_path . '/css/varbase_media.common.css';
 
   // Attached the varbase media common logged in users style.
-  $css[] = drupal_get_path('module', 'varbase_media') . '/css/varbase_media.common_logged.css';
+  $css[] = $varbase_media_path . '/css/varbase_media.common_logged.css';
 }
 
 /**
@@ -66,7 +72,7 @@ function varbase_media_form_entity_embed_dialog_alter(&$form, FormStateInterface
           '#title' => t('Alternative text'),
           '#type' => 'textfield',
           '#required' => TRUE ,
-          '#default_value' => $entity->field_image->alt,
+          '#default_value' => $entity->field_media_image->alt,
           '#description' => t('This text will be used by screen readers, search engines, or when the image cannot be loaded.'),
         ];
 
@@ -74,22 +80,21 @@ function varbase_media_form_entity_embed_dialog_alter(&$form, FormStateInterface
         $form['attributes']['title'] = [
           '#title' => t('Title'),
           '#type' => 'textfield',
-          '#default_value' => $entity->field_image->title,
+          '#default_value' => $entity->field_media_image->title,
           '#description' => t('The title is used as a tool tip when the user hovers the mouse over the image.'),
         ];
 
         // Render the Embed entity.
         $form['entity'] = [
           '#type' => 'item',
-          '#markup' => \Drupal::service('renderer')->renderRoot(entity_view($entity, 's3')),
+          '#markup' => \Drupal::service('renderer')->renderRoot(entity_view($entity, 's03')),
         ];
 
-        // Change the "data align" field from rado buttons to Select list.
+        // Change the "data align" field from radio buttons to Select list.
         $form['attributes']['data-align']['#type'] = 'select';
         $form['attributes']['data-align']['#wrapper_attributes'] = '';
-        $form['attributes']['data-align'] += [
-          '#description' => t('Choose the positioning of the image.'),
-        ];
+        $form['attributes']['data-align']['#description'] = t('Choose the positioning of the image.');
+        $form['attributes']['data-align']['#weight'] = -10;
 
         // Add description for the caption field.
         $form['attributes']['data-caption'] += [
@@ -98,22 +103,73 @@ function varbase_media_form_entity_embed_dialog_alter(&$form, FormStateInterface
 
         // Adding the updated alt text to the media entity.
         if (isset($entity_element['alt'])) {
-          $entity->field_image->alt = $entity_element['alt'];
+          $entity->field_media_image->alt = $entity_element['alt'];
         }
 
         // Adding the updated title text to the media entity.
         if (isset($entity_element['title'])) {
-          $entity->field_image->title = $entity_element['title'];
+          $entity->field_media_image->title = $entity_element['title'];
+        }
+
+        if (isset($form['attributes']['data-entity-embed-display-settings'])) {
+          $form['attributes']['data-entity-embed-display-settings']['link_url']['#description'] = t('Start typing the title of a piece of content to select it. You can also enter an <br /> internal path such as /node/add or an external URL such as http://example.com.');
         }
 
         $entity->save();
         break;
+
+      case "video":
+      case "video_embed":
+        // Render the Embed entity.
+        $form['entity'] = [
+          '#type' => 'item',
+          '#markup' => \Drupal::service('renderer')->renderRoot(entity_view($entity, 's06')),
+        ];
+
+        if (isset($form['attributes']['data-align'])) {
+          unset($form['attributes']['data-align']);
+        }
+
+        if (isset($form['attributes']['data-entity-embed-display-settings'])) {
+          unset($form['attributes']['data-entity-embed-display-settings']);
+        }
+
+        if (isset($form['attributes']['data-caption'])) {
+          unset($form['attributes']['data-caption']);
+        }
+
+        if (isset($form['attributes']['data-entity-embed-display'])) {
+          $form['attributes']['data-entity-embed-display']['#access'] = FALSE;
+          $form['attributes']['data-entity-embed-display']['#default_value'] = 'view_mode:media.original';
+        }
+
+      break;
+      default :
+        if (isset($form['attributes']['data-entity-embed-display-settings'])) {
+          unset($form['attributes']['data-entity-embed-display-settings']);
+        }
     }
 
     if (isset($form['revision_log_message'])) {
       $form['revision_log_message']['#access'] = false;
     }
   }
+}
+
+/**
+ * Implements hook_theme_registry_alter().
+ */
+function varbase_media_theme_registry_alter(&$theme_registry) {
+  // Varbase media path.
+  $varbase_media_path = Drupal::service('module_handler')->getModule('varbase_media')->getPath();
+  $theme_registry['entity_embed_container']['path'] = $varbase_media_path . '/templates';
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function varbase_media_preprocess_entity_embed_container(&$variables) {
+  $variables['url'] = isset($variables['element']['#context']['data-entity-embed-display-settings']['link_url']) ? UrlHelper::filterBadProtocol($variables['element']['#context']['data-entity-embed-display-settings']['link_url']) : '';
 }
 
 /**
