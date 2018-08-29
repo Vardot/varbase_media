@@ -17,7 +17,10 @@ use Drupal\varbase_media\Plugin\media\Source\Video;
 use Drupal\Component\Utility\Html;
 use Drupal\Component\Serialization\Json;
 use Drupal\Component\Utility\UrlHelper;
-
+use Drupal\Core\Render\BubbleableMetadata;
+use Drupal\Core\Datetime\Entity\DateFormat;
+use Drupal\Core\Language\LanguageInterface;
+use Drupal\image\Entity\ImageStyle;
 
 /**
  * Implements hook_page_attachments().
