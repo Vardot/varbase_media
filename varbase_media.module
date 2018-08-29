@@ -246,3 +246,130 @@ function varbase_media_form_alter(&$form, &$form_state, $form_id) {
     $form['#attached']['library'][] = 'varbase_media/auto_fill_media_data';
   }
 }
+
+/**
+ * Implements hook_token_info_alter().
+ */
+function varbase_media_token_info_alter(&$data) {
+
+  $data['tokens']['media']['social_large'] = [
+    'name' => t('Social Large'),
+    'description' => t("Social Large (1200x630) image for the selected media type."),
+    'module' => 'media',
+    'type' => 'url',
+  ];
+
+  $data['tokens']['media']['social_medium'] = [
+    'name' => t('Social Medium'),
+    'description' => t("Social Medium (600x315) image for the selected media type."),
+    'module' => 'media',
+    'type' => 'url',
+  ];
+
+  $data['tokens']['media']['social_small'] = [
+    'name' => t('Social Small'),
+    'description' => t("Social Small (280x150) image for the selected media type."),
+    'module' => 'media',
+    'type' => 'url',
+  ];
+}
+
+/**
+ * Implements hook_tokens().
+ */
+function varbase_media_tokens($type, $tokens, array $data, array $options, BubbleableMetadata $bubbleable_metadata) {
+
+  $url_options = ['absolute' => TRUE];
+  if (isset($options['langcode'])) {
+    $url_options['language'] = \Drupal::languageManager()->getLanguage($options['langcode']);
+    $langcode = $options['langcode'];
+  }
+  else {
+    $langcode = LanguageInterface::LANGCODE_DEFAULT;
+  }
+
+  $replacements = [];
+  if ($type === 'media' && !empty($data['media'])) {
+    /** @var \Drupal\media\MediaInterface $media_entity */
+    $media_entity = \Drupal::service('entity.repository')->getTranslationFromContext($data['media'], $langcode, ['operation' => 'media_entity_tokens']);
+
+    foreach ($tokens as $token_name => $original) {
+      switch ($token_name) {
+
+        // Social Large (1200x630) image for the selected media type.
+        case 'social_large':
+          $replacements[$original] = _varbase_media_image_url($media_entity, 'social_large');
+        break;
+
+        // Social Medium (600x315) image for the selected media type.
+        case 'social_medium':
+          $replacements[$original] = _varbase_media_image_url($media_entity, 'social_medium');
+        break;
+
+        // Social Small (280x150) image for the selected media type.
+        case 'social_small':
+          $replacements[$original] = _varbase_media_image_url($media_entity, 'social_small');
+        break;
+      }
+    }
+  }
+
+  return $replacements;
+}
+
+/**
+ * Get the URL with image style for a selected media entity.
+ * 
+ */
+function _varbase_media_image_url($media_entity, $style_name = NULL) {
+
+  $image_field_name = _varbase_media_default_image_field_name($media_entity);
+
+  if ($img_entity = $media_entity->get($image_field_name)->first()) {
+    if ($file_entity = $img_entity->get('entity')->getTarget()) {
+      if (!empty($style_name)) {
+        return ImageStyle::load($style_name)
+          ->buildUrl($file_entity->get('uri')
+          ->first()
+          ->getString());
+      }
+      else {
+        return file_create_url($file_entity->get('uri')->getString());
+      }
+    }
+  }
+
+  return NULL;
+}
+
+/**
+ * Get the default image field name for this media entity. 
+ */
+function _varbase_media_default_image_field_name($media_entity) {
+
+  $media_bundle = $media_entity->bundle();
+
+  switch ($media_bundle) {
+    case "image":
+        return 'field_media_image';
+    break;
+    case "video":
+      if ($img_entity = $media_entity->get('field_media_cover_image')->first()) {
+        return 'field_media_cover_image';
+      }
+      elseif ($img_entity = $media_entity->get('field_media_video_file')->first()) {
+        return 'thumbnail';
+      }
+    break;
+    case "video_embed":
+      if ($img_entity = $media_entity->get('field_media_cover_image')->first()) {
+        return 'field_media_cover_image';
+      }
+      elseif ($img_entity = $media_entity->get('field_media_video_embed_field')->first()) {
+        return 'thumbnail';
+      }
+    break;
+  }
+
+  return 'thumbnail';
+}
