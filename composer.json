@@ -35,7 +35,7 @@
     "npm-asset/dropzone": "^4.3.0",
     "npm-asset/blazy": "^1.8.2",
     "npm-asset/slick-carousel": "^1.8.1",
-    "drupal/entity_browser": "2.0-alpha3",
+    "drupal/entity_browser": "2.0",
     "drupal/entity_browser_enhanced": "^1.0-rc3",
     "drupal/dropzonejs": "^2.0-alpha3",
     "drupal/entity_embed": "1.0-beta2",
