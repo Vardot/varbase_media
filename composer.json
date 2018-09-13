@@ -62,14 +62,6 @@
       "bower-asset",
       "npm-asset"
     ],
-    "drupal-libraries": {
-      "library-directory": "docroot/libraries",
-      "libraries": [
-          {"name": "dropzone","package": "npm-asset/dropzone"},
-          {"name": "blazy", "package": "npm-asset/blazy"},
-          {"name": "slick", "package": "npm-asset/slick-carousel"}
-      ]
-    },
     "enable-patching": true,
     "composer-exit-on-patch-failure": true,
     "patches": {
