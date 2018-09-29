@@ -10,6 +10,7 @@ dependencies:
   - drupal:file
   - drupal:image
   - drupal:media
+  - drupal:responsive_image
   - blazy:blazy
   - crop:crop
   - dropzonejs:dropzonejs_eb_widget
@@ -20,7 +21,6 @@ dependencies:
   - varbase_media:entity_browser_generic_embed
   - entity_embed:entity_embed
   - focal_point:focal_point
-  - responsive_image:responsive_image
   - video_embed_field:video_embed_field
   - video_embed_field:video_embed_media
   - views_infinite_scroll:views_infinite_scroll
