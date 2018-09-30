@@ -10,6 +10,7 @@ dependencies:
   - drupal:file
   - drupal:image
   - drupal:media
+  - drupal:media_library
   - drupal:responsive_image
   - blazy:blazy
   - crop:crop
