@@ -8,7 +8,7 @@ third_party_settings:
     image_field: _none
 id: file
 label: File
-description: 'A locally hosted file or document, such as a PDF.'
+description: 'Use local files for reusable media.'
 source: file
 queue_thumbnail_downloads: false
 new_revision: false

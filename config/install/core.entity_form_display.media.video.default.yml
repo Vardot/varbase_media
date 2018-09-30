@@ -16,37 +16,37 @@ bundle: video
 mode: default
 content:
   field_media_cover_image:
-    weight: 1
+    type: image_focal_point
+    weight: 2
+    region: content
     settings:
       preview_image_style: field_preview
       preview_link: true
       offsets: '50,50'
       progress_indicator: throbber
     third_party_settings: {  }
-    type: image_focal_point
-    region: content
   field_media_in_library:
+    type: boolean_checkbox
     weight: 3
+    region: content
     settings:
       display_label: true
     third_party_settings: {  }
-    type: boolean_checkbox
-    region: content
   field_media_video_file:
-    type: file_generic
     weight: 0
-    region: content
     settings:
       progress_indicator: throbber
     third_party_settings: {  }
+    type: file_generic
+    region: content
   name:
     type: string_textfield
-    weight: 2
+    weight: 1
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    region: content
   status:
     type: boolean_checkbox
     settings:

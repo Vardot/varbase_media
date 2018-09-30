@@ -12,14 +12,14 @@ bundle: instagram
 mode: entity_browser
 content:
   field_media_in_library:
-    weight: 3
+    weight: 2
     settings:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
   field_media_instagram:
-    weight: 1
+    weight: 0
     settings:
       size: 60
       placeholder: ''
@@ -28,7 +28,7 @@ content:
     region: content
   name:
     type: string_textfield
-    weight: 2
+    weight: 1
     region: content
     settings:
       size: 60
@@ -43,7 +43,7 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 4
+    weight: 3
     region: content
     third_party_settings: {  }
 hidden:

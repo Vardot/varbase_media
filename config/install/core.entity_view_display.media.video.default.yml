@@ -37,7 +37,9 @@ bundle: video
 mode: default
 content:
   field_media_cover_image:
+    type: responsive_image
     weight: 1
+    region: ds_content
     label: hidden
     settings:
       responsive_image_style: de2e_standard
@@ -71,18 +73,15 @@ content:
             fis-def-at: false
             fi: false
             fi-def-at: false
-    type: responsive_image
-    region: ds_content
   field_media_video_file:
     type: file_video
     weight: 0
-    region: ds_content
-    label: hidden
+    label: visually_hidden
     settings:
       controls: true
       multiple_file_display_type: tags
-      width: 1200
-      height: 675
+      width: 1600
+      height: 900
       autoplay: false
       loop: false
       muted: false
@@ -98,7 +97,7 @@ content:
             lbw-at: ''
             ow: true
             ow-el: ''
-            ow-cl: 'varbase-video-player embed-responsive embed-responsive-16by9'
+            ow-cl: 'media-cover-image video-player-icon js-video-player-icon'
             ow-at: ''
             ow-def-at: true
             ow-def-cl: true
@@ -115,6 +114,7 @@ content:
             fis-def-at: false
             fi: false
             fi-def-at: false
+    region: ds_content
 hidden:
   created: true
   field_media_in_library: true

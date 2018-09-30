@@ -9,7 +9,7 @@ third_party_settings:
     image_field: _none
 id: image
 label: Image
-description: 'Locally hosted images.'
+description: 'Use local images for reusable media.'
 source: image
 queue_thumbnail_downloads: false
 new_revision: false

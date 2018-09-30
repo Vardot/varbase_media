@@ -4,43 +4,25 @@ dependencies:
   config:
     - field.field.media.file.field_media_file
     - field.field.media.file.field_media_in_library
-    - image.style.thumbnail
     - media.type.file
   module:
     - file
-    - image
 id: media.file.default
 targetEntityType: media
 bundle: file
 mode: default
 content:
   field_media_file:
-    weight: 2
-    label: hidden
-    settings:
-      use_description_as_link_text: true
+    label: visually_hidden
+    settings: {  }
     third_party_settings: {  }
     type: file_default
-    region: content
-  name:
-    label: hidden
-    type: string
-    weight: 0
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    region: content
-  thumbnail:
-    type: image
     weight: 1
-    label: hidden
-    settings:
-      image_style: thumbnail
-      image_link: ''
-    third_party_settings: {  }
     region: content
 hidden:
   created: true
   field_media_in_library: true
   langcode: true
+  name: true
+  thumbnail: true
   uid: true

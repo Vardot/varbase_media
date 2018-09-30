@@ -31,6 +31,7 @@
   left: auto;
 }
 .media--type-video-embed,
+.media--type-remote-video,
 .media--type-video {
   position: relative;
 }

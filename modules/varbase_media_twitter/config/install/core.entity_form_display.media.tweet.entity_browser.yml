@@ -19,7 +19,7 @@ content:
     type: boolean_checkbox
     region: content
   field_media_twitter:
-    weight: 1
+    weight: 0
     settings:
       size: 60
       placeholder: ''
@@ -35,7 +35,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   preview:
-    weight: 0
+    weight: 1
     region: content
     settings: {  }
     third_party_settings: {  }

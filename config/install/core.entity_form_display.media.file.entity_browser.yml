@@ -27,6 +27,13 @@ content:
     settings:
       display_label: true
     third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 7
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
   name:
     type: string_textfield
     weight: 1
@@ -44,6 +51,5 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
-  langcode: true
   path: true
   uid: true

@@ -13,7 +13,8 @@ use Drupal\Core\Entity\Display\EntityFormDisplayInterface;
 use Drupal\field\Entity\FieldStorageConfig;
 use Drupal\ds\Ds;
 use Drupal\entity_browser_generic_embed\OverrideHelper as Override;
-use Drupal\varbase_media\Plugin\media\Source\Video;
+use Drupal\media\Plugin\media\Source;
+use Drupal\varbase_media\Plugin\media\Source\RemoteEmbed;
 use Drupal\Component\Utility\Html;
 use Drupal\Component\Serialization\Json;
 use Drupal\Component\Utility\UrlHelper;
@@ -122,7 +123,7 @@ function varbase_media_form_entity_embed_dialog_alter(&$form, FormStateInterface
         break;
 
       case "video":
-      case "video_embed":
+      case "remote_video":
         // Render the Embed entity.
         $form['entity'] = [
           '#type' => 'item',
@@ -199,9 +200,12 @@ function varbase_media_entity_view_alter(array &$build, EntityInterface $entity,
     }
 
     // Attach the varbase media video library for video embed field.
-    if (isset($build['field_media_video_embed_field'])
-      && isset($build['field_media_video_embed_field'][0])) {
-      $build['field_media_video_embed_field'][0]['#attached']['library'][] = 'varbase_media/varbase_video_player';
+    if (isset($build['field_media_oembed_video_field'])
+      && isset($build['field_media_oembed_video_field'][0])) {
+      
+      echo "<pre>";
+      die(' con');
+      $build['field_media_oembed_video_field'][0]['#attached']['library'][] = 'varbase_media/varbase_video_player';
     }
 
     // Attach the varbase media video library for video file field.
@@ -224,7 +228,7 @@ function varbase_media_media_source_info_alter(array &$sources) {
   ];
   $sources['video_embed_field']['preview'] = TRUE;
 
-  Override::pluginClass($sources['video_embed_field'], Video::class);
+  Override::pluginClass($sources['video_embed_field'], RemoteEmbed::class);
 }
 
 /**
@@ -364,11 +368,11 @@ function _varbase_media_default_image_field_name($media_entity) {
         return 'thumbnail';
       }
     break;
-    case "video_embed":
+    case "remote_video":
       if ($img_entity = $media_entity->get('field_media_cover_image')->first()) {
         return 'field_media_cover_image';
       }
-      elseif ($img_entity = $media_entity->get('field_media_video_embed_field')->first()) {
+      elseif ($img_entity = $media_entity->get('field_media_oembed_video')->first()) {
         return 'thumbnail';
       }
     break;

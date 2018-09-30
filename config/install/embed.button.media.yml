@@ -4,8 +4,8 @@ dependencies:
   config:
     - media.type.file
     - media.type.image
+    - media.type.remote_video
     - media.type.video
-    - media.type.video_embed
   module:
     - entity_embed
     - media
@@ -17,7 +17,7 @@ type_settings:
   bundles:
     - file
     - image
-    - video_embed
+    - remote_video
     - video
   display_plugins:
     - 'view_mode:media.large'
