@@ -22,7 +22,6 @@ use Drupal\Core\Datetime\Entity\DateFormat;
 use Drupal\Core\Language\LanguageInterface;
 use Drupal\image\Entity\ImageStyle;
 
-
 /**
  * Implements hook_page_attachments().
  */

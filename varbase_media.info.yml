@@ -6,21 +6,21 @@ version: 8.x-5.x-dev
 core: 8.x
 project: varbase_media
 dependencies:
-  - varbase_core
-  - blazy
-  - crop
-  - dropzonejs_eb_widget
-  - embed
-  - entity_browser
-  - entity_browser_enhanced
-  - entity_browser_entity_form
-  - entity_browser_generic_embed
-  - entity_embed
-  - file
-  - focal_point
-  - image
-  - media
-  - responsive_image
-  - video_embed_field
-  - video_embed_media
-  - views_infinite_scroll
+  - varbase_core:varbase_core
+  - drupal:file
+  - drupal:image
+  - drupal:media
+  - drupal:responsive_image
+  - blazy:blazy
+  - crop:crop
+  - dropzonejs:dropzonejs_eb_widget
+  - embed:embed
+  - entity_browser:entity_browser
+  - entity_browser_enhanced:entity_browser_enhanced
+  - entity_browser:entity_browser_entity_form
+  - varbase_media:entity_browser_generic_embed
+  - entity_embed:entity_embed
+  - focal_point:focal_point
+  - video_embed_field:video_embed_field
+  - video_embed_field:video_embed_media
+  - views_infinite_scroll:views_infinite_scroll
