@@ -23,18 +23,9 @@ content:
       multiple_file_display_type: tags
     third_party_settings: {  }
     region: content
-  field_media_in_library:
-    weight: 1
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    type: boolean
-    region: content
 hidden:
   created: true
+  field_media_in_library: true
   langcode: true
   name: true
   thumbnail: true

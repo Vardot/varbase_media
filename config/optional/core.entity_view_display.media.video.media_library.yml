@@ -11,18 +11,6 @@ dependencies:
   module:
     - ds
     - image
-third_party_settings:
-  ds:
-    layout:
-      id: layout_onecol
-      library: layout_discovery/onecol
-      disable_css: false
-      entity_classes: all_classes
-      settings: {  }
-    regions:
-      content:
-        - thumbnail
-        - field_media_cover_image
 id: media.video.media_library
 targetEntityType: media
 bundle: video
