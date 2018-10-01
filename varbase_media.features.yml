@@ -1,2 +1,4 @@
 bundle: varbase
+excluded:
+  - views.view.media_library
 required: true
