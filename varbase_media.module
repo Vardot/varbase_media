@@ -14,7 +14,7 @@ use Drupal\field\Entity\FieldStorageConfig;
 use Drupal\ds\Ds;
 use Drupal\entity_browser_generic_embed\OverrideHelper as Override;
 use Drupal\media\Plugin\media\Source;
-use Drupal\varbase_media\Plugin\media\Source\RemoteEmbed;
+use Drupal\varbase_media\Plugin\media\Source\RemoteVideo;
 use Drupal\Component\Utility\Html;
 use Drupal\Component\Serialization\Json;
 use Drupal\Component\Utility\UrlHelper;
@@ -219,16 +219,17 @@ function varbase_media_entity_view_alter(array &$build, EntityInterface $entity,
  * Implements hook_media_source_info_alter().
  */
 function varbase_media_media_source_info_alter(array &$sources) {
-  $sources['video_embed_field']['input_match'] = [
+  $sources['oembed']['input_match'] = [
+    'constraint' => 'oembed_resource',
     'field_types' => [
+      'link',
       'string',
       'string_long',
-      'video_embed_field',
     ],
   ];
-  $sources['video_embed_field']['preview'] = TRUE;
+  $sources['oembed']['preview'] = TRUE;
 
-  Override::pluginClass($sources['video_embed_field'], RemoteEmbed::class);
+  Override::pluginClass($sources['oembed'], RemoteVideo::class);
 }
 
 /**
