@@ -228,7 +228,6 @@ function entity_browser_generic_embed_preprocess_image_style(array &$variables) 
   }
 }
 
-
 /**
  * Implements hook_form_FORM_ID_alter().
  */
@@ -243,8 +242,6 @@ function entity_browser_generic_embed_form_entity_embed_dialog_alter(array &$for
     }
   }
 }
-
-
 
 /**
  * Implements hook_ajax_render_alter().

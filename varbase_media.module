@@ -13,8 +13,11 @@ use Drupal\Core\Entity\Display\EntityFormDisplayInterface;
 use Drupal\field\Entity\FieldStorageConfig;
 use Drupal\ds\Ds;
 use Drupal\entity_browser_generic_embed\OverrideHelper as Override;
-use Drupal\media\Plugin\media\Source;
-use Drupal\varbase_media\Plugin\media\Source\RemoteVideo;
+use Drupal\varbase_media\Plugin\media\Source\VarbaseMediaFile;
+use Drupal\varbase_media\Plugin\media\Source\VarbaseMediaImage;
+use Drupal\varbase_media\Plugin\media\Source\VarbaseMediaAudioFile;
+use Drupal\varbase_media\Plugin\media\Source\VarbaseMediaVideoFile;
+use Drupal\varbase_media\Plugin\media\Source\VarbaseMediaRemoteVideo;
 use Drupal\Component\Utility\Html;
 use Drupal\Component\Serialization\Json;
 use Drupal\Component\Utility\UrlHelper;
@@ -219,17 +222,54 @@ function varbase_media_entity_view_alter(array &$build, EntityInterface $entity,
  * Implements hook_media_source_info_alter().
  */
 function varbase_media_media_source_info_alter(array &$sources) {
+
+  // File.
+  $sources['file']['input_match'] = [
+    'constraint' => 'file',
+    'field_types' => [
+      'file',
+    ],
+  ];
+  Override::pluginClass($sources['file'], VarbaseMediaFile::class);
+
+  // Image.
+  $sources['image']['input_match'] = [
+    'constraint' => 'image',
+    'field_types' => [
+      'image',
+    ],
+  ];
+  Override::pluginClass($sources['image'], VarbaseMediaImage::class);
+
+  // Audio file.
+  $sources['audio_file']['input_match'] = [
+    'constraint' => 'file',
+    'field_types' => [
+      'file',
+    ],
+  ];
+  Override::pluginClass($sources['audio_file'], VarbaseMediaAudioFile::class);
+
+  // Video file.
+  $sources['video_file']['input_match'] = [
+    'constraint' => 'file',
+    'field_types' => [
+      'file',
+    ],
+  ];
+  Override::pluginClass($sources['video_file'], VarbaseMediaVideoFile::class);
+
+  // Remote Video.
   $sources['oembed']['input_match'] = [
     'constraint' => 'oembed_resource',
     'field_types' => [
-      'link',
       'string',
-      'string_long',
     ],
   ];
   $sources['oembed']['preview'] = TRUE;
 
-  Override::pluginClass($sources['oembed'], RemoteVideo::class);
+  Override::pluginClass($sources['oembed'], VarbaseMediaRemoteVideo::class);
+
 }
 
 /**
