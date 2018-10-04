@@ -396,11 +396,13 @@ function _varbase_media_image_url($media_entity, $style_name = NULL) {
 function _varbase_media_default_image_field_name($media_entity) {
 
   // Media entities with a valied field media image data it will come first.
-  if ($img_entity = $media_entity->get('field_media_image')->first()) {
+  if (isset($media_entity->field_media_image)
+      && $img_entity = $media_entity->get('field_media_image')->first()) {
     return 'field_media_image';
   }
   // Media entities with a valied field media cover image data it will be used.
-  elseif ($img_entity = $media_entity->get('field_media_cover_image')->first()) {
+  elseif (isset($media_entity->field_media_cover_image)
+      && $img_entity = $media_entity->get('field_media_cover_image')->first()) {
     return 'field_media_cover_image';
   }
   // Media entities without field image or cover image, will get the thumbnail.
