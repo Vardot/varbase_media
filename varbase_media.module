@@ -266,7 +266,7 @@ function varbase_media_media_source_info_alter(array &$sources) {
       'string',
     ],
   ];
-  $sources['oembed']['preview'] = TRUE;
+//  $sources['oembed']['preview'] = TRUE;
 
   Override::pluginClass($sources['oembed'], VarbaseMediaRemoteVideo::class);
 
