@@ -17,11 +17,19 @@ class VarbaseMediaRemoteVideo extends DrupalCoreOEmbed implements InputMatchInte
   public function appliesTo($value, MediaTypeInterface $bundle) {
     $value = $this->toString($value);
 
-    return isset($value)
-      ? (bool) $this->resourceFetcher->fetchResource($value)
-      : FALSE;
-  }
+    try {
+      $resource_url = $this->urlResolver->getResourceUrl($value);
+      return isset($value)
+        ? (bool) $this->resourceFetcher->fetchResource($resource_url)
+        : FALSE;
+    }
+    catch (ResourceException $e) {
+      $this->messenger->addError($e->getMessage());
+      return FALSE;
+    }
 
+  }
+  
   /**
    * Safely converts a value to a string.
    *

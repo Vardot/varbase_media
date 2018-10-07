@@ -2,6 +2,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - media.type.audio
     - media.type.file
     - media.type.image
     - media.type.remote_video
@@ -15,6 +16,7 @@ type_id: entity
 type_settings:
   entity_type: media
   bundles:
+    - audio
     - file
     - image
     - remote_video

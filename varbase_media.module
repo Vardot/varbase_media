@@ -203,12 +203,10 @@ function varbase_media_entity_view_alter(array &$build, EntityInterface $entity,
     }
 
     // Attach the varbase media video library for video embed field.
-    if (isset($build['field_media_oembed_video_field'])
-      && isset($build['field_media_oembed_video_field'][0])) {
-      
-      echo "<pre>";
-      die(' con');
-      $build['field_media_oembed_video_field'][0]['#attached']['library'][] = 'varbase_media/varbase_video_player';
+    if (isset($build['field_media_oembed_video'])
+      && isset($build['field_media_oembed_video'][0])) {
+
+      $build['field_media_oembed_video'][0]['#attached']['library'][] = 'varbase_media/varbase_video_player';
     }
 
     // Attach the varbase media video library for video file field.
@@ -224,6 +222,7 @@ function varbase_media_entity_view_alter(array &$build, EntityInterface $entity,
 function varbase_media_media_source_info_alter(array &$sources) {
 
   // File.
+  // ---------------------------------------------------------------------------
   $sources['file']['input_match'] = [
     'constraint' => 'file',
     'field_types' => [
@@ -233,6 +232,7 @@ function varbase_media_media_source_info_alter(array &$sources) {
   Override::pluginClass($sources['file'], VarbaseMediaFile::class);
 
   // Image.
+  // ---------------------------------------------------------------------------
   $sources['image']['input_match'] = [
     'constraint' => 'image',
     'field_types' => [
@@ -242,6 +242,7 @@ function varbase_media_media_source_info_alter(array &$sources) {
   Override::pluginClass($sources['image'], VarbaseMediaImage::class);
 
   // Audio file.
+  // ---------------------------------------------------------------------------
   $sources['audio_file']['input_match'] = [
     'constraint' => 'file',
     'field_types' => [
@@ -251,6 +252,7 @@ function varbase_media_media_source_info_alter(array &$sources) {
   Override::pluginClass($sources['audio_file'], VarbaseMediaAudioFile::class);
 
   // Video file.
+  // ---------------------------------------------------------------------------
   $sources['video_file']['input_match'] = [
     'constraint' => 'file',
     'field_types' => [
@@ -260,16 +262,16 @@ function varbase_media_media_source_info_alter(array &$sources) {
   Override::pluginClass($sources['video_file'], VarbaseMediaVideoFile::class);
 
   // Remote Video.
-  $sources['oembed']['input_match'] = [
+  // ---------------------------------------------------------------------------
+  $sources['oembed:video']['input_match'] = [
     'constraint' => 'oembed_resource',
     'field_types' => [
       'string',
     ],
   ];
-//  $sources['oembed']['preview'] = TRUE;
-
-  Override::pluginClass($sources['oembed'], VarbaseMediaRemoteVideo::class);
-
+//  $sources['oembed:video']['preview'] = TRUE;
+  Override::pluginClass($sources['oembed:video'], VarbaseMediaRemoteVideo::class);
+  
 }
 
 /**
