@@ -223,43 +223,43 @@ function varbase_media_media_source_info_alter(array &$sources) {
 
   // File.
   // ---------------------------------------------------------------------------
-  $sources['file']['input_match'] = [
-    'constraint' => 'file',
-    'field_types' => [
-      'file',
-    ],
-  ];
-  Override::pluginClass($sources['file'], VarbaseMediaFile::class);
+  //  $sources['file']['input_match'] = [
+  //    'constraint' => 'file',
+  //    'field_types' => [
+  //      'file',
+  //    ],
+  //  ];
+  //  Override::pluginClass($sources['file'], VarbaseMediaFile::class);
 
   // Image.
   // ---------------------------------------------------------------------------
-  $sources['image']['input_match'] = [
-    'constraint' => 'image',
-    'field_types' => [
-      'image',
-    ],
-  ];
-  Override::pluginClass($sources['image'], VarbaseMediaImage::class);
+  //  $sources['image']['input_match'] = [
+  //    'constraint' => 'image',
+  //    'field_types' => [
+  //      'image',
+  //    ],
+  //  ];
+  //  Override::pluginClass($sources['image'], VarbaseMediaImage::class);
 
   // Audio file.
   // ---------------------------------------------------------------------------
-  $sources['audio_file']['input_match'] = [
-    'constraint' => 'file',
-    'field_types' => [
-      'file',
-    ],
-  ];
-  Override::pluginClass($sources['audio_file'], VarbaseMediaAudioFile::class);
+  //  $sources['audio_file']['input_match'] = [
+  //    'constraint' => 'file',
+  //    'field_types' => [
+  //      'file',
+  //    ],
+  //  ];
+  //  Override::pluginClass($sources['audio_file'], VarbaseMediaAudioFile::class);
 
   // Video file.
   // ---------------------------------------------------------------------------
-  $sources['video_file']['input_match'] = [
-    'constraint' => 'file',
-    'field_types' => [
-      'file',
-    ],
-  ];
-  Override::pluginClass($sources['video_file'], VarbaseMediaVideoFile::class);
+  //  $sources['video_file']['input_match'] = [
+  //    'constraint' => 'file',
+  //    'field_types' => [
+  //      'file',
+  //    ],
+  //  ];
+  //  Override::pluginClass($sources['video_file'], VarbaseMediaVideoFile::class);
 
   // Remote Video.
   // ---------------------------------------------------------------------------
@@ -269,7 +269,7 @@ function varbase_media_media_source_info_alter(array &$sources) {
       'string',
     ],
   ];
-//  $sources['oembed:video']['preview'] = TRUE;
+  $sources['oembed:video']['preview'] = TRUE;
   Override::pluginClass($sources['oembed:video'], VarbaseMediaRemoteVideo::class);
   
 }

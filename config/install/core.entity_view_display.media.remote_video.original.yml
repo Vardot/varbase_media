@@ -2,12 +2,12 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.media.se2e_4_1
+    - core.entity_view_mode.media.original
     - field.field.media.remote_video.field_media_cover_image
     - field.field.media.remote_video.field_media_in_library
     - field.field.media.remote_video.field_media_oembed_video
     - media.type.remote_video
-    - responsive_image.styles.de2e_4_1
+    - responsive_image.styles.de2e_standard
   module:
     - ds
     - media
@@ -32,10 +32,10 @@ third_party_settings:
       ds_content:
         - field_media_oembed_video
         - field_media_cover_image
-id: media.remote_video.se2e_4_1
+id: media.remote_video.original
 targetEntityType: media
 bundle: remote_video
-mode: se2e_4_1
+mode: original
 content:
   field_media_cover_image:
     type: responsive_image
@@ -43,7 +43,7 @@ content:
     region: ds_content
     label: hidden
     settings:
-      responsive_image_style: de2e_4_1
+      responsive_image_style: de2e_standard
       image_link: ''
     third_party_settings:
       ds:
@@ -77,11 +77,10 @@ content:
   field_media_oembed_video:
     type: oembed
     weight: 0
-    region: ds_content
     label: hidden
     settings:
       max_width: 1600
-      max_height: 400
+      max_height: 900
     third_party_settings:
       ds:
         ft:
@@ -94,7 +93,7 @@ content:
             lbw-at: ''
             ow: true
             ow-el: ''
-            ow-cl: 'varbase-video-player embed-responsive embed-responsive-21by9'
+            ow-cl: 'varbase-video-player embed-responsive embed-responsive-16by9'
             ow-at: ''
             ow-def-at: true
             ow-def-cl: true
@@ -111,6 +110,7 @@ content:
             fis-def-at: false
             fi: false
             fi-def-at: false
+    region: ds_content
 hidden:
   created: true
   field_media_in_library: true

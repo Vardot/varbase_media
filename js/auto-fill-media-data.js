@@ -16,13 +16,13 @@
 
       // When we do change the media name.
       $("input[name='name[0][value]']").keyup(function () {
-        // And the default alt was empty
+        // And the default alt was empty.
         if (default_alt == '') {
           // Then copy then value of the media name
           $("input[name='field_media_image[0][alt]']").val(this.value);
         }
 
-        // And the default alt was empty
+        // And the default alt was empty.
         if (default_title == '') {
           // Then copy then value of the media name
           $("input[name='field_media_image[0][title]']").val(this.value);

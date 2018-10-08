@@ -76,7 +76,7 @@ content:
   field_media_video_file:
     type: file_video
     weight: 0
-    label: visually_hidden
+    label: hidden
     settings:
       controls: true
       multiple_file_display_type: tags
@@ -97,7 +97,7 @@ content:
             lbw-at: ''
             ow: true
             ow-el: ''
-            ow-cl: 'media-cover-image video-player-icon js-video-player-icon'
+            ow-cl: 'varbase-video-player embed-responsive embed-responsive-16by9'
             ow-at: ''
             ow-def-at: true
             ow-def-cl: true
