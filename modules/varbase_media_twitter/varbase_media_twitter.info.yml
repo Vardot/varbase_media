@@ -6,14 +6,6 @@ version: 8.x-6.x-dev
 core: 8.x
 project: varbase_media
 dependencies:
-  - crop
-  - ds
-  - field
-  - image
-  - media
-  - media_entity_twitter
-  - 'media_entity_twitter:media_entity_twitter'
-  - path
-  - varbase_media
-  - 'varbase_media:entity_browser_generic_embed'
-  - 'varbase_media:varbase_media'
+  - varbase_media:varbase_media
+  - media_entity_twitter:media_entity_twitter
+  - varbase_media:entity_browser_generic_embed
