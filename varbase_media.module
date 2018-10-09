@@ -266,12 +266,14 @@ function varbase_media_media_source_info_alter(array &$sources) {
   $sources['oembed:video']['input_match'] = [
     'constraint' => 'oembed_resource',
     'field_types' => [
+      'link',
       'string',
+      'string_long',
     ],
   ];
   $sources['oembed:video']['preview'] = TRUE;
   Override::pluginClass($sources['oembed:video'], VarbaseMediaRemoteVideo::class);
-  
+
 }
 
 /**

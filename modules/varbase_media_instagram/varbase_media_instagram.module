@@ -2,33 +2,33 @@
 
 /**
  * @file
- * Support for tweets as media entities.
+ * Support for instagram posts as media entities.
  */
 
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\entity_browser_generic_embed\OverrideHelper as Override;
-use Drupal\varbase_media_twitter\Plugin\media\Source\VarbaseMediaTwitter;
+use Drupal\varbase_media_instagram\Plugin\media\Source\VarbaseMediaInstagram;
 
 /**
  * Implements hook_media_source_info_alter().
  */
-function varbase_media_twitter_media_source_info_alter(array &$sources) {
-  $sources['twitter']['input_match'] = [
-    'constraint' => 'TweetEmbedCode',
+function varbase_media_instagram_media_source_info_alter(array &$sources) {
+  $sources['instagram']['input_match'] = [
+    'constraint' => 'InstagramEmbedCode',
     'field_types' => [
       'string',
       'string_long',
     ],
   ];
-  $sources['twitter']['preview'] = TRUE;
+  $sources['instagram']['preview'] = TRUE;
 
-  Override::pluginClass($sources['twitter'], VarbaseMediaTwitter::class);
+  Override::pluginClass($sources['instagram'], VarbaseMediaInstagram::class);
 }
 
 /**
  * Implements hook_form_FORM_ID_alter().
  */
-function varbase_media_twitter_form_entity_embed_dialog_alter(&$form, FormStateInterface $form_state, $form_id) {
+function varbase_media_instagram_form_entity_embed_dialog_alter(&$form, FormStateInterface $form_state, $form_id) {
   // Only at the embed step.
   if ($form_state->get('step') == 'embed') {
 
@@ -42,7 +42,7 @@ function varbase_media_twitter_form_entity_embed_dialog_alter(&$form, FormStateI
     $bundle_type = $entity->bundle();
     $values = $form_state->getValues();
 
-    if ($bundle_type == "tweet") { 
+    if ($bundle_type == "instagram") {
         // Render the Embed entity.
         $form['entity'] = [
           '#type' => 'item',

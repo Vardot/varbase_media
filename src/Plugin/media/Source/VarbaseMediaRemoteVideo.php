@@ -5,6 +5,7 @@ namespace Drupal\varbase_media\Plugin\media\Source;
 use Drupal\media\MediaTypeInterface;
 use Drupal\entity_browser_generic_embed\InputMatchInterface;
 use Drupal\media\Plugin\media\Source\OEmbed as DrupalCoreOEmbed;
+use Drupal\media\Plugin\Validation\Constraint\OEmbedResourceConstraint;
 
 /**
  * Input-matching version of the Varbase Media Remote Video media source.
@@ -15,21 +16,43 @@ class VarbaseMediaRemoteVideo extends DrupalCoreOEmbed implements InputMatchInte
    * {@inheritdoc}
    */
   public function appliesTo($value, MediaTypeInterface $bundle) {
-    $value = $this->toString($value);
+    $url = $this->toString($value);
 
+    $constraint = new OEmbedResourceConstraint();
+
+    // Ensure that the URL matches a provider.
     try {
-      $resource_url = $this->urlResolver->getResourceUrl($value);
-      return isset($value)
-        ? (bool) $this->resourceFetcher->fetchResource($resource_url)
-        : FALSE;
+      $provider = $this->urlResolver->getProviderByUrl($url);
     }
     catch (ResourceException $e) {
-      $this->messenger->addError($e->getMessage());
+      $this->handleException($e, $constraint->unknownProviderMessage);
+      return FALSE;
+    }
+    catch (ProviderException $e) {
+      $this->handleException($e, $constraint->providerErrorMessage);
       return FALSE;
     }
 
+    // Ensure that the provider is allowed.
+    if (!in_array($provider->getName(), $this->getProviders(), TRUE)) {
+      return FALSE;
+    }
+
+    try {
+      $endpoints = $provider->getEndpoints();
+      $resource_url = reset($endpoints)->buildResourceUrl($url);
+      $this->resourceFetcher->fetchResource($resource_url);
+
+      return TRUE;
+    }
+    catch (ResourceException $e) {
+      $this->handleException($e, $constraint->invalidResourceMessage);
+    }
+
+    return FALSE;
+
   }
-  
+
   /**
    * Safely converts a value to a string.
    *
