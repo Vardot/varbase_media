@@ -5,7 +5,9 @@ dependencies:
     - media.type.audio
     - media.type.file
     - media.type.image
+    - media.type.instagram
     - media.type.remote_video
+    - media.type.tweet
     - media.type.video
   module:
     - entity_embed
@@ -19,7 +21,9 @@ type_settings:
     - audio
     - file
     - image
+    - instagram
     - remote_video
+    - tweet
     - video
   display_plugins:
     - 'view_mode:media.large'
