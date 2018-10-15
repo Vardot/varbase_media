@@ -33,6 +33,7 @@ class EmbedCode extends EntityFormProxy {
         'method' => 'html',
         'callback' => [static::class, 'ajax'],
       ],
+      "#description" => $this->getEmbedDescription($form_state),
     ];
 
     return $form;
@@ -50,6 +51,93 @@ class EmbedCode extends EntityFormProxy {
     else {
       $form_state->setError($form['widget'], $this->t('You must enter a URL or embed code.'));
     }
+  }
+
+  /**
+   * Get Embed Description
+   * 
+   * @param FormStateInterface $form_state
+   * @return String
+   */
+  function getEmbedDescription(FormStateInterface $form_state) {
+    // Embed Description.
+    $embedDescription = "<h5>" . $this->t("You can embed any of the following media by pasting a single complete URL:") . "</h5>";
+    $embedDescription .= "<ul>";
+
+    // Get list of media types.
+    $mediaTypes = \Drupal::service('entity.manager')->getStorage('media_type')->loadMultiple();
+
+    // List of media files Sources, which we do not want to show at embed.
+    $mediaFileSources = ['Drupal\media\Plugin\media\Source\File',
+      'Drupal\media\Plugin\media\Source\Image',
+      'Drupal\media\Plugin\media\Source\AudioFile',
+      'Drupal\media\Plugin\media\Source\VideoFile',
+    ];
+
+    // Get list of allowed media type bundles.
+    $allowedBundles = $this->getAllowedBundles($form_state);
+
+    // If the target have  a list of allowd bundles.
+    if (isset($allowedBundles) && is_array($allowedBundles) && count($allowedBundles) > 0) {
+
+      foreach ($mediaTypes as $mediaType) {
+        $mediaTypeSource = get_class($mediaType->getSource());
+
+        if (isset($mediaTypeSource) && !in_array($mediaTypeSource, $mediaFileSources)) {
+
+          if (in_array($mediaType->id(), $allowedBundles)) {
+            $embedDescription .= "<li>";
+            $embedDescription .= $mediaType->label();
+
+            $source_configuration = $mediaType->getPluginCollections();
+
+            if (isset($source_configuration['source_configuration'])) {
+              $configuration = $source_configuration['source_configuration']->getConfiguration();
+
+              if (isset($configuration['providers'])
+                  && is_array($configuration['providers'])
+                  && count($configuration['providers']) > 0) {
+
+                $embedDescription .= " (" . implode(', ', $configuration['providers']) . ")";
+              }
+            }
+
+            $embedDescription .= "</li>";
+          }
+        }
+      }
+    }
+    else {
+
+      foreach ($mediaTypes as $mediaType) {
+        $mediaTypeSource = get_class($mediaType->getSource());
+
+        if (isset($mediaTypeSource) && !in_array($mediaTypeSource, $mediaFileSources)) {
+
+          $embedDescription .= "<li>";
+          $embedDescription .= $mediaType->label();
+
+          $source_configuration = $mediaType->getPluginCollections();
+
+          if (isset($source_configuration['source_configuration'])) {
+            $configuration = $source_configuration['source_configuration']->getConfiguration();
+
+            if (isset($configuration['providers'])
+                && is_array($configuration['providers'])
+                && count($configuration['providers']) > 0) {
+
+              $embedDescription .= " (" . implode(', ', $configuration['providers']) . ")";
+            }
+          }
+
+          $embedDescription .= "</li>";
+        }
+      }
+    }
+
+    $embedDescription .= "</ul>";
+
+    return \Drupal\Core\Field\FieldFilteredMarkup::create($embedDescription);
   }
 
 }
