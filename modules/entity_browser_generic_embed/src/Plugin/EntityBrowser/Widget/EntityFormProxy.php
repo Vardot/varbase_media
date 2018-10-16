@@ -86,7 +86,7 @@ abstract class EntityFormProxy extends WidgetBase {
     }
 
     $form['entity'] = [
-      '#prefix' => '<div id="entity">',
+      '#prefix' => '<div id="entity" class="entity-browser-generic-embed">',
       '#suffix' => '</div>',
       '#weight' => 99,
     ];

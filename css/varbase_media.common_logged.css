@@ -157,6 +157,12 @@ body .form-wrapper.field--widget-entity-browser-entity-reference .entities-list 
   float: left;
   width: 70%;
 }
+.entity-browser-form .entity-browser-generic-embed .varbase-video-player,
+.entity-browser-form .entity-browser-generic-embed div[data-drupal-selector*="edit-preview"] {
+  float: left;
+  margin-right: 30px;
+  width: 42%;
+}
 a.entity-browser-handle.entity-browser-iframe {
   margin: 15px 0;
   padding: 15px;
