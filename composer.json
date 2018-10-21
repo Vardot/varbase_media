@@ -48,7 +48,7 @@
     "drupal/focal_point": "1.0-beta6",
     "drupal/imagemagick": "^2.3",
     "drupal/imageapi_optimize": "^2.0-alpha4",
-    "drupal/blazy": "1.0-rc2",
+    "drupal/blazy": "^1.0-rc3",
     "drupal/slick": "1.0",
     "drupal/slick_views": "^1.0-rc2",
     "drupal/slick_media": "^2.0-alpha2"
@@ -71,10 +71,6 @@
       "drupal/slick": {
         "Issue #2948735: Adding the alt attribute to the slick thumbnails":
         "https://www.drupal.org/files/issues/2018-04-02/adding-the-alt-attribute-to-the-slick-thumbnails-2948735-3_0.patch"
-      },
-      "drupal/blazy": {
-        "Issue #2881849: Integrate with core Media 8.4":
-        "https://www.drupal.org/files/issues/2881849-8.patch"
       },
       "drupal/entity_embed": {
         "Issue #2832504: Send the CKEditor instance ID to the embed.preview route.":
