@@ -23,7 +23,7 @@
     }
   ],
   "require": {
-    "drupal/varbase_core": "4.*"
+    "drupal/varbase_core": "~4"
   },
   "extra": {
     "branch-alias": {
