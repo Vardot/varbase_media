@@ -66,6 +66,8 @@
       "npm-asset"
     ],
     "installer-paths": {
+      "modules/contrib/{$name}": ["type:drupal-module"],
+      "themes/contrib/{$name}": ["type:drupal-theme"],
       "libraries/slick": ["npm-asset/slick-carousel"],
       "libraries/{$name}": [
         "type:drupal-library",
