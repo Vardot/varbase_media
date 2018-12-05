@@ -32,7 +32,7 @@
     "cweagans/composer-patches": "~1",
     "drupal/drupal-library-installer-plugin": "^0.3",
     "drupal/varbase_core": "~5",
-    "npm-asset/dropzone": "~4.",
+    "npm-asset/dropzone": "~4",
     "npm-asset/blazy": "~1",
     "npm-asset/slick-carousel": "~1",
     "drupal/ds": "~3",
@@ -66,7 +66,7 @@
       "npm-asset"
     ],
     "installer-paths": {
-      "libraries/slick": ["npm-asset/slick-carousel"],
+      "docroot/libraries/slick": ["npm-asset/slick-carousel"],
       "libraries/{$name}": [
         "type:drupal-library",
         "type:bower-asset",
