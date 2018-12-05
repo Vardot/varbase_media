@@ -6,12 +6,21 @@ version: 8.x-5.x-dev
 core: 8.x
 project: varbase_media
 dependencies:
-  - varbase_core:varbase_core
+  - drupal:user
+  - drupal:block
+  - drupal:node
+  - drupal:taxonomy
+  - drupal:block_content
+  - drupal:views
+  - drupal:path
   - drupal:file
   - drupal:image
   - drupal:media
+  - drupal:breakpoint
   - drupal:responsive_image
-  - blazy:blazy
+  - ds:ds
+  - ds:ds_extras
+  - better_exposed_filters:better_exposed_filters
   - crop:crop
   - dropzonejs:dropzonejs_eb_widget
   - embed:embed
