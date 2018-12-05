@@ -59,14 +59,14 @@
   },
   "extra": {
     "branch-alias": {
-      "dev-8.x-6.x": "8.6.x-dev"
+      "dev-8.x-5.x": "8.5.x-dev"
     },
     "installer-types": [
       "bower-asset",
       "npm-asset"
     ],
     "installer-paths": {
-      "docroot/libraries/slick": ["npm-asset/slick-carousel"],
+      "libraries/slick": ["npm-asset/slick-carousel"],
       "libraries/{$name}": [
         "type:drupal-library",
         "type:bower-asset",
