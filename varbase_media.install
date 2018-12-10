@@ -51,7 +51,7 @@ function varbase_media_install() {
   // ---------------------------------------------------------------------------
 
   // Configure widgets for entity browser enhanced behaviours.
-  $config_path = $optional_install_path . 'entity_browser_enhanced.widgets.yml';
+  $config_path = $optional_install_path . '/' . 'entity_browser_enhanced.widgets.yml';
   $config_content = file_get_contents($config_path);
   $config_data = (array) Yaml::parse($config_content);
   $config_factory = \Drupal::configFactory()->getEditable('entity_browser_enhanced.widgets');
