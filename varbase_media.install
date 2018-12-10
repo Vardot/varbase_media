@@ -50,33 +50,11 @@ function varbase_media_install() {
   }
   // ---------------------------------------------------------------------------
 
-  // Activate configurations to work with enable_multilingual.
-  if (\Drupal::moduleHandler()->moduleExists('varbase_internationalization')) {
-    $module_path_config_optional = $module_path . '/config/optional/';
- 
-    $config_path = $module_path_config_optional . 'language.content_settings.media.file.yml';
-    $config_content = file_get_contents($config_path);
-    $config_data = (array) Yaml::parse($config_content);
-    $config_factory = \Drupal::configFactory()->getEditable('language.content_settings.media.file');
-    $config_factory->setData($config_data)->save(TRUE);
+  // Configure widgets for entity browser enhanced behaviours.
+  $config_path = $optional_install_path . 'entity_browser_enhanced.widgets.yml';
+  $config_content = file_get_contents($config_path);
+  $config_data = (array) Yaml::parse($config_content);
+  $config_factory = \Drupal::configFactory()->getEditable('entity_browser_enhanced.widgets');
+  $config_factory->setData($config_data)->save(TRUE);
 
-    $config_path = $module_path_config_optional . 'language.content_settings.media.image.yml';
-    $config_content = file_get_contents($config_path);
-    $config_data = (array) Yaml::parse($config_content);
-    $config_factory = \Drupal::configFactory()->getEditable('language.content_settings.media.image');
-    $config_factory->setData($config_data)->save(TRUE);
-
-    $config_path = $module_path_config_optional . 'language.content_settings.media.video.yml';
-    $config_content = file_get_contents($config_path);
-    $config_data = (array) Yaml::parse($config_content);
-    $config_factory = \Drupal::configFactory()->getEditable('language.content_settings.media.video');
-    $config_factory->setData($config_data)->save(TRUE);
-
-    $config_path = $module_path_config_optional . 'language.content_settings.media.remote_video.yml';
-    $config_content = file_get_contents($config_path);
-    $config_data = (array) Yaml::parse($config_content);
-    $config_factory = \Drupal::configFactory()->getEditable('language.content_settings.media.remote_video');
-    $config_factory->setData($config_data)->save(TRUE);
-
-  }
 }
