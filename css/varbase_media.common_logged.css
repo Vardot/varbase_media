@@ -53,6 +53,14 @@
 }
 body .form-wrapper.field--widget-entity-browser-entity-reference .entities-list .item-container {
   position: relative;
+  text-align: center;
+  vertical-align: middle;
+  width: 150px;
+  height: 150px;
+  background: #000;
+}
+body .form-wrapper.field--widget-entity-browser-entity-reference .entities-list .item-container .contextual-region {
+  position: initial;
 }
 body .form-wrapper.field--widget-entity-browser-entity-reference .entities-list .item-container .field--name-name {
   display: none;
@@ -67,13 +75,6 @@ body .form-wrapper.field--widget-entity-browser-entity-reference .entities-list 
   font-size: 9px;
   color: #fff;
   word-break: break-all;
-}
-body .form-wrapper.field--widget-entity-browser-entity-reference .entities-list .item-container {
-  text-align: center;
-  vertical-align: middle;
-  width: 150px;
-  height: 150px;
-  background: #000;
 }
 body .form-wrapper.field--widget-entity-browser-entity-reference .entities-list .item-container:hover .field--name-name {
   display: block;
