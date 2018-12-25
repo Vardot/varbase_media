@@ -31,9 +31,9 @@
     "oomphinc/composer-installers-extender": "~1.0",
     "cweagans/composer-patches": "~1.0",
     "drupal/drupal-library-installer-plugin": "^0.3",
-    "npm-asset/dropzone": "^4.3.0",
-    "npm-asset/blazy": "^1.8.2",
-    "npm-asset/slick-carousel": "^1.8.1",
+    "npm-asset/dropzone": "~4.0",
+    "npm-asset/blazy": "~1.0",
+    "npm-asset/slick-carousel": "~1.0",
     "drupal/ds": "~3.0",
     "drupal/better_exposed_filters": "~3.0",
     "drupal/views_infinite_scroll": "~1.0",
@@ -51,7 +51,7 @@
     "drupal/imagemagick": "~2.0",
     "drupal/imageapi_optimize": "~2.0",
     "drupal/blazy": "~1.0",
-    "drupal/slick": "1.0",
+    "drupal/slick": "~1.0",
     "drupal/slick_views": "~1.0",
     "drupal/slick_media": "~2.0",
     "drupal/bootstrap": "~3.0"
@@ -85,10 +85,6 @@
       "drupal/focal_point": {
         "Issue #2916562: Broken image preview":
         "https://www.drupal.org/files/issues/2916562-16.patch"
-      },
-      "drupal/slick": {
-        "Issue #2948735: Adding the alt attribute to the slick thumbnails":
-        "https://www.drupal.org/files/issues/2018-04-02/adding-the-alt-attribute-to-the-slick-thumbnails-2948735-3_0.patch"
       },
       "drupal/entity_embed": {
         "Issue #2832504: Send the CKEditor instance ID to the embed.preview route.":
