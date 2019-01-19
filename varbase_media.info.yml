@@ -36,3 +36,6 @@ dependencies:
   - entity_embed:entity_embed
   - focal_point:focal_point
   - views_infinite_scroll:views_infinite_scroll
+install:
+  - views_bulk_operations
+  - views_bulk_edit

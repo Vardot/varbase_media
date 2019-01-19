@@ -7,9 +7,11 @@ dependencies:
     module:
       - media_library
   module:
+    - better_exposed_filters
     - media
     - media_library
     - user
+    - views_bulk_operations
 id: media_library
 label: 'Media library'
 module: views
@@ -57,17 +59,17 @@ display:
           offset: 0
           id: 0
           total_pages: null
+          tags:
+            previous: ‹‹
+            next: ››
           expose:
-            items_per_page: false
-            items_per_page_label: 'Items per page'
-            items_per_page_options: '5, 10, 25, 50'
+            items_per_page: true
+            items_per_page_label: Items
+            items_per_page_options: '5, 10, 25, 50, 100'
             items_per_page_options_all: false
             items_per_page_options_all_label: '- All -'
             offset: false
             offset_label: Offset
-          tags:
-            previous: ‹‹
-            next: ››
       style:
         type: default
         options:
@@ -82,10 +84,10 @@ display:
           separator: ''
           hide_empty: false
       fields:
-        media_bulk_form:
-          id: media_bulk_form
-          table: media
-          field: media_bulk_form
+        views_bulk_operations_bulk_form:
+          id: views_bulk_operations_bulk_form
+          table: views
+          field: views_bulk_operations_bulk_form
           relationship: none
           group_type: group
           admin_label: ''
@@ -119,7 +121,7 @@ display:
             preserve_tags: ''
             html: false
           element_type: ''
-          element_class: js-click-to-select-checkbox
+          element_class: ''
           element_label_type: ''
           element_label_class: ''
           element_label_colon: false
@@ -130,11 +132,40 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
+          batch: true
+          batch_size: 50
+          form_step: true
+          buttons: false
+          clear_on_exposed: 0
           action_title: Action
-          include_exclude: exclude
-          selected_actions: {  }
-          entity_type: media
-          plugin_id: bulk_form
+          selected_actions:
+            'entity:break_lock:media': 'entity:break_lock:media'
+            views_bulk_edit: views_bulk_edit
+            views_bulk_operations_delete_entity: views_bulk_operations_delete_entity
+            pathauto_update_alias: pathauto_update_alias
+            'entity:unpublish_action:media': 'entity:unpublish_action:media'
+            'entity:delete_action:media': 'entity:delete_action:media'
+            'entity:save_action:media': 'entity:save_action:media'
+            'entity:publish_action:media': 'entity:publish_action:media'
+          preconfiguration:
+            'entity:break_lock:media':
+              label_override: ''
+            views_bulk_edit:
+              label_override: ''
+              get_bundles_from_results: 1
+            views_bulk_operations_delete_entity:
+              label_override: ''
+            pathauto_update_alias:
+              label_override: ''
+            'entity:unpublish_action:media':
+              label_override: ''
+            'entity:delete_action:media':
+              label_override: ''
+            'entity:save_action:media':
+              label_override: ''
+            'entity:publish_action:media':
+              label_override: ''
+          plugin_id: views_bulk_operations_bulk_form
         rendered_entity:
           id: rendered_entity
           table: media
@@ -388,14 +419,227 @@ display:
         - url.query_args
         - 'url.query_args:sort_by'
         - user.permissions
-      tags: {  }
+      tags:
+        - 'config:core.entity_view_display.media.audio.browser_teaser'
+        - 'config:core.entity_view_display.media.audio.default'
+        - 'config:core.entity_view_display.media.audio.field_preview'
+        - 'config:core.entity_view_display.media.audio.media_library'
+        - 'config:core.entity_view_display.media.file.browser_teaser'
+        - 'config:core.entity_view_display.media.file.default'
+        - 'config:core.entity_view_display.media.file.field_preview'
+        - 'config:core.entity_view_display.media.file.media_library'
+        - 'config:core.entity_view_display.media.image.browser_teaser'
+        - 'config:core.entity_view_display.media.image.default'
+        - 'config:core.entity_view_display.media.image.field_preview'
+        - 'config:core.entity_view_display.media.image.large'
+        - 'config:core.entity_view_display.media.image.media_library'
+        - 'config:core.entity_view_display.media.image.medium'
+        - 'config:core.entity_view_display.media.image.original'
+        - 'config:core.entity_view_display.media.image.s01'
+        - 'config:core.entity_view_display.media.image.s01_square'
+        - 'config:core.entity_view_display.media.image.s01_standard'
+        - 'config:core.entity_view_display.media.image.s01_traditional'
+        - 'config:core.entity_view_display.media.image.s02'
+        - 'config:core.entity_view_display.media.image.s02_square'
+        - 'config:core.entity_view_display.media.image.s02_standard'
+        - 'config:core.entity_view_display.media.image.s02_traditional'
+        - 'config:core.entity_view_display.media.image.s03'
+        - 'config:core.entity_view_display.media.image.s03_square'
+        - 'config:core.entity_view_display.media.image.s03_standard'
+        - 'config:core.entity_view_display.media.image.s03_traditional'
+        - 'config:core.entity_view_display.media.image.s04'
+        - 'config:core.entity_view_display.media.image.s04_square'
+        - 'config:core.entity_view_display.media.image.s04_standard'
+        - 'config:core.entity_view_display.media.image.s04_traditional'
+        - 'config:core.entity_view_display.media.image.s05'
+        - 'config:core.entity_view_display.media.image.s05_square'
+        - 'config:core.entity_view_display.media.image.s05_standard'
+        - 'config:core.entity_view_display.media.image.s05_traditional'
+        - 'config:core.entity_view_display.media.image.s06'
+        - 'config:core.entity_view_display.media.image.s06_square'
+        - 'config:core.entity_view_display.media.image.s06_standard'
+        - 'config:core.entity_view_display.media.image.s06_traditional'
+        - 'config:core.entity_view_display.media.image.s07'
+        - 'config:core.entity_view_display.media.image.s07_square'
+        - 'config:core.entity_view_display.media.image.s07_standard'
+        - 'config:core.entity_view_display.media.image.s07_traditional'
+        - 'config:core.entity_view_display.media.image.s08'
+        - 'config:core.entity_view_display.media.image.s08_square'
+        - 'config:core.entity_view_display.media.image.s08_standard'
+        - 'config:core.entity_view_display.media.image.s08_traditional'
+        - 'config:core.entity_view_display.media.image.s09'
+        - 'config:core.entity_view_display.media.image.s09_square'
+        - 'config:core.entity_view_display.media.image.s09_standard'
+        - 'config:core.entity_view_display.media.image.s09_traditional'
+        - 'config:core.entity_view_display.media.image.s10'
+        - 'config:core.entity_view_display.media.image.s10_square'
+        - 'config:core.entity_view_display.media.image.s10_standard'
+        - 'config:core.entity_view_display.media.image.s10_traditional'
+        - 'config:core.entity_view_display.media.image.s11'
+        - 'config:core.entity_view_display.media.image.s11_square'
+        - 'config:core.entity_view_display.media.image.s11_standard'
+        - 'config:core.entity_view_display.media.image.s11_traditional'
+        - 'config:core.entity_view_display.media.image.s12'
+        - 'config:core.entity_view_display.media.image.s12_square'
+        - 'config:core.entity_view_display.media.image.s12_standard'
+        - 'config:core.entity_view_display.media.image.s12_traditional'
+        - 'config:core.entity_view_display.media.image.se2e'
+        - 'config:core.entity_view_display.media.image.se2e_4_1'
+        - 'config:core.entity_view_display.media.image.se2e_square'
+        - 'config:core.entity_view_display.media.image.se2e_standard'
+        - 'config:core.entity_view_display.media.image.se2e_traditional'
+        - 'config:core.entity_view_display.media.image.small'
+        - 'config:core.entity_view_display.media.image.token'
+        - 'config:core.entity_view_display.media.image.varbase_media_hero_slider'
+        - 'config:core.entity_view_display.media.instagram.browser_teaser'
+        - 'config:core.entity_view_display.media.instagram.default'
+        - 'config:core.entity_view_display.media.instagram.field_preview'
+        - 'config:core.entity_view_display.media.instagram.large'
+        - 'config:core.entity_view_display.media.instagram.media_library'
+        - 'config:core.entity_view_display.media.instagram.medium'
+        - 'config:core.entity_view_display.media.instagram.original'
+        - 'config:core.entity_view_display.media.instagram.small'
+        - 'config:core.entity_view_display.media.remote_video.browser_teaser'
+        - 'config:core.entity_view_display.media.remote_video.default'
+        - 'config:core.entity_view_display.media.remote_video.field_preview'
+        - 'config:core.entity_view_display.media.remote_video.full'
+        - 'config:core.entity_view_display.media.remote_video.large'
+        - 'config:core.entity_view_display.media.remote_video.media_library'
+        - 'config:core.entity_view_display.media.remote_video.medium'
+        - 'config:core.entity_view_display.media.remote_video.original'
+        - 'config:core.entity_view_display.media.remote_video.s01'
+        - 'config:core.entity_view_display.media.remote_video.s01_square'
+        - 'config:core.entity_view_display.media.remote_video.s01_standard'
+        - 'config:core.entity_view_display.media.remote_video.s01_traditional'
+        - 'config:core.entity_view_display.media.remote_video.s02'
+        - 'config:core.entity_view_display.media.remote_video.s02_square'
+        - 'config:core.entity_view_display.media.remote_video.s02_standard'
+        - 'config:core.entity_view_display.media.remote_video.s02_traditional'
+        - 'config:core.entity_view_display.media.remote_video.s03'
+        - 'config:core.entity_view_display.media.remote_video.s03_square'
+        - 'config:core.entity_view_display.media.remote_video.s03_standard'
+        - 'config:core.entity_view_display.media.remote_video.s03_traditional'
+        - 'config:core.entity_view_display.media.remote_video.s04'
+        - 'config:core.entity_view_display.media.remote_video.s04_square'
+        - 'config:core.entity_view_display.media.remote_video.s04_standard'
+        - 'config:core.entity_view_display.media.remote_video.s04_traditional'
+        - 'config:core.entity_view_display.media.remote_video.s05'
+        - 'config:core.entity_view_display.media.remote_video.s05_square'
+        - 'config:core.entity_view_display.media.remote_video.s05_standard'
+        - 'config:core.entity_view_display.media.remote_video.s05_traditional'
+        - 'config:core.entity_view_display.media.remote_video.s06'
+        - 'config:core.entity_view_display.media.remote_video.s06_square'
+        - 'config:core.entity_view_display.media.remote_video.s06_standard'
+        - 'config:core.entity_view_display.media.remote_video.s06_traditional'
+        - 'config:core.entity_view_display.media.remote_video.s07'
+        - 'config:core.entity_view_display.media.remote_video.s07_square'
+        - 'config:core.entity_view_display.media.remote_video.s07_standard'
+        - 'config:core.entity_view_display.media.remote_video.s07_traditional'
+        - 'config:core.entity_view_display.media.remote_video.s08'
+        - 'config:core.entity_view_display.media.remote_video.s08_square'
+        - 'config:core.entity_view_display.media.remote_video.s08_standard'
+        - 'config:core.entity_view_display.media.remote_video.s08_traditional'
+        - 'config:core.entity_view_display.media.remote_video.s09'
+        - 'config:core.entity_view_display.media.remote_video.s09_square'
+        - 'config:core.entity_view_display.media.remote_video.s09_standard'
+        - 'config:core.entity_view_display.media.remote_video.s09_traditional'
+        - 'config:core.entity_view_display.media.remote_video.s10'
+        - 'config:core.entity_view_display.media.remote_video.s10_square'
+        - 'config:core.entity_view_display.media.remote_video.s10_standard'
+        - 'config:core.entity_view_display.media.remote_video.s10_traditional'
+        - 'config:core.entity_view_display.media.remote_video.s11'
+        - 'config:core.entity_view_display.media.remote_video.s11_square'
+        - 'config:core.entity_view_display.media.remote_video.s11_standard'
+        - 'config:core.entity_view_display.media.remote_video.s11_traditional'
+        - 'config:core.entity_view_display.media.remote_video.s12'
+        - 'config:core.entity_view_display.media.remote_video.s12_square'
+        - 'config:core.entity_view_display.media.remote_video.s12_standard'
+        - 'config:core.entity_view_display.media.remote_video.s12_traditional'
+        - 'config:core.entity_view_display.media.remote_video.se2e'
+        - 'config:core.entity_view_display.media.remote_video.se2e_4_1'
+        - 'config:core.entity_view_display.media.remote_video.se2e_square'
+        - 'config:core.entity_view_display.media.remote_video.se2e_standard'
+        - 'config:core.entity_view_display.media.remote_video.se2e_traditional'
+        - 'config:core.entity_view_display.media.remote_video.small'
+        - 'config:core.entity_view_display.media.tweet.browser_teaser'
+        - 'config:core.entity_view_display.media.tweet.default'
+        - 'config:core.entity_view_display.media.tweet.field_preview'
+        - 'config:core.entity_view_display.media.tweet.large'
+        - 'config:core.entity_view_display.media.tweet.media_library'
+        - 'config:core.entity_view_display.media.tweet.medium'
+        - 'config:core.entity_view_display.media.tweet.original'
+        - 'config:core.entity_view_display.media.tweet.small'
+        - 'config:core.entity_view_display.media.video.browser_teaser'
+        - 'config:core.entity_view_display.media.video.default'
+        - 'config:core.entity_view_display.media.video.field_preview'
+        - 'config:core.entity_view_display.media.video.full'
+        - 'config:core.entity_view_display.media.video.large'
+        - 'config:core.entity_view_display.media.video.media_library'
+        - 'config:core.entity_view_display.media.video.medium'
+        - 'config:core.entity_view_display.media.video.original'
+        - 'config:core.entity_view_display.media.video.s01'
+        - 'config:core.entity_view_display.media.video.s01_square'
+        - 'config:core.entity_view_display.media.video.s01_standard'
+        - 'config:core.entity_view_display.media.video.s01_traditional'
+        - 'config:core.entity_view_display.media.video.s02'
+        - 'config:core.entity_view_display.media.video.s02_square'
+        - 'config:core.entity_view_display.media.video.s02_standard'
+        - 'config:core.entity_view_display.media.video.s02_traditional'
+        - 'config:core.entity_view_display.media.video.s03'
+        - 'config:core.entity_view_display.media.video.s03_square'
+        - 'config:core.entity_view_display.media.video.s03_standard'
+        - 'config:core.entity_view_display.media.video.s03_traditional'
+        - 'config:core.entity_view_display.media.video.s04'
+        - 'config:core.entity_view_display.media.video.s04_square'
+        - 'config:core.entity_view_display.media.video.s04_standard'
+        - 'config:core.entity_view_display.media.video.s04_traditional'
+        - 'config:core.entity_view_display.media.video.s05'
+        - 'config:core.entity_view_display.media.video.s05_square'
+        - 'config:core.entity_view_display.media.video.s05_standard'
+        - 'config:core.entity_view_display.media.video.s05_traditional'
+        - 'config:core.entity_view_display.media.video.s06'
+        - 'config:core.entity_view_display.media.video.s06_square'
+        - 'config:core.entity_view_display.media.video.s06_standard'
+        - 'config:core.entity_view_display.media.video.s06_traditional'
+        - 'config:core.entity_view_display.media.video.s07'
+        - 'config:core.entity_view_display.media.video.s07_square'
+        - 'config:core.entity_view_display.media.video.s07_standard'
+        - 'config:core.entity_view_display.media.video.s07_traditional'
+        - 'config:core.entity_view_display.media.video.s08'
+        - 'config:core.entity_view_display.media.video.s08_square'
+        - 'config:core.entity_view_display.media.video.s08_standard'
+        - 'config:core.entity_view_display.media.video.s08_traditional'
+        - 'config:core.entity_view_display.media.video.s09'
+        - 'config:core.entity_view_display.media.video.s09_square'
+        - 'config:core.entity_view_display.media.video.s09_standard'
+        - 'config:core.entity_view_display.media.video.s09_traditional'
+        - 'config:core.entity_view_display.media.video.s10'
+        - 'config:core.entity_view_display.media.video.s10_square'
+        - 'config:core.entity_view_display.media.video.s10_standard'
+        - 'config:core.entity_view_display.media.video.s10_traditional'
+        - 'config:core.entity_view_display.media.video.s11'
+        - 'config:core.entity_view_display.media.video.s11_square'
+        - 'config:core.entity_view_display.media.video.s11_standard'
+        - 'config:core.entity_view_display.media.video.s11_traditional'
+        - 'config:core.entity_view_display.media.video.s12'
+        - 'config:core.entity_view_display.media.video.s12_square'
+        - 'config:core.entity_view_display.media.video.s12_standard'
+        - 'config:core.entity_view_display.media.video.s12_traditional'
+        - 'config:core.entity_view_display.media.video.se2e'
+        - 'config:core.entity_view_display.media.video.se2e_4_1'
+        - 'config:core.entity_view_display.media.video.se2e_square'
+        - 'config:core.entity_view_display.media.video.se2e_standard'
+        - 'config:core.entity_view_display.media.video.se2e_traditional'
+        - 'config:core.entity_view_display.media.video.small'
+        - 'config:core.entity_view_display.media.video.varbase_media_hero_slider'
   page:
     display_plugin: page
     id: page
     display_title: Page
     position: 1
     display_options:
-      display_extenders: {  }
+      display_extenders:
+        metatag_display_extender: {  }
       path: admin/content/media
       menu:
         type: tab
@@ -406,6 +650,353 @@ display:
         weight: 5
         context: '0'
         menu_name: admin
+      sorts:
+        created:
+          id: created
+          table: media_field_data
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: DESC
+          exposed: true
+          expose:
+            label: 'Newest first'
+          granularity: second
+          entity_type: media
+          entity_field: created
+          plugin_id: date
+        name:
+          id: name
+          table: media_field_data
+          field: name
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: ASC
+          exposed: true
+          expose:
+            label: 'Name (A-Z)'
+          entity_type: media
+          entity_field: name
+          plugin_id: standard
+        name_1:
+          id: name_1
+          table: media_field_data
+          field: name
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: DESC
+          exposed: true
+          expose:
+            label: 'Name (Z-A)'
+          entity_type: media
+          entity_field: name
+          plugin_id: standard
+      defaults:
+        sorts: false
+        filters: false
+        filter_groups: false
+        exposed_form: false
+      filters:
+        status:
+          id: status
+          table: media_field_data
+          field: status
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: '1'
+          group: 1
+          exposed: true
+          expose:
+            operator_id: ''
+            label: 'Publishing status'
+            description: null
+            use_operator: false
+            operator: status_op
+            identifier: status
+            required: true
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: true
+          group_info:
+            label: Published
+            description: ''
+            identifier: status
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: Published
+                operator: '='
+                value: '1'
+              2:
+                title: Unpublished
+                operator: '='
+                value: '0'
+          plugin_id: boolean
+          entity_type: media
+          entity_field: status
+        name:
+          id: name
+          table: media_field_data
+          field: name
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: contains
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: name_op
+            label: Name
+            description: ''
+            use_operator: false
+            operator: name_op
+            identifier: name
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: media
+          entity_field: name
+          plugin_id: string
+        bundle:
+          id: bundle
+          table: media_field_data
+          field: bundle
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: in
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: bundle_op
+            label: 'Media type'
+            description: ''
+            use_operator: false
+            operator: bundle_op
+            identifier: type
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: 'Media type'
+            description: null
+            identifier: bundle
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1: {  }
+              2: {  }
+              3: {  }
+          entity_type: media
+          entity_field: bundle
+          plugin_id: bundle
+        created:
+          id: created
+          table: media_field_data
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: 'Created date (from)'
+          operator: '>='
+          value:
+            min: ''
+            max: ''
+            value: ''
+            type: date
+          group: 1
+          exposed: true
+          expose:
+            operator_id: created_op
+            label: 'Created date (from)'
+            description: ''
+            use_operator: false
+            operator: created_op
+            identifier: created_from
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              editor: '0'
+              content_admin: '0'
+              seo_admin: '0'
+              site_admin: '0'
+              administrator: '0'
+            placeholder: ''
+            min_placeholder: ''
+            max_placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: media
+          entity_field: created
+          plugin_id: date
+        created_1:
+          id: created_1
+          table: media_field_data
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: 'Created date (to)'
+          operator: '<='
+          value:
+            min: ''
+            max: ''
+            value: ''
+            type: date
+          group: 1
+          exposed: true
+          expose:
+            operator_id: created_1_op
+            label: 'Created date (to)'
+            description: ''
+            use_operator: false
+            operator: created_1_op
+            identifier: created_to
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              editor: '0'
+              content_admin: '0'
+              seo_admin: '0'
+              site_admin: '0'
+              administrator: '0'
+            placeholder: ''
+            min_placeholder: ''
+            max_placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: media
+          entity_field: created
+          plugin_id: date
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      exposed_form:
+        type: bef
+        options:
+          submit_button: 'Apply Filters'
+          reset_button: false
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sort by'
+          expose_sort_order: false
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+          input_required: false
+          text_input_required: 'Select any filter and click on Apply to see results'
+          bef:
+            general:
+              allow_secondary: false
+              secondary_label: 'Advanced options'
+              autosubmit: false
+              autosubmit_exclude_textfield: false
+              autosubmit_hide: false
+            sort:
+              bef_format: default
+              advanced:
+                collapsible: false
+                collapsible_label: 'Sort options'
+                combine: false
+                combine_rewrite: ''
+                reset: false
+                reset_label: ''
+                is_secondary: false
+            status:
+              bef_format: default
+              more_options:
+                bef_select_all_none: false
+                bef_collapsible: false
+                is_secondary: false
+                rewrite:
+                  filter_rewrite_values: ''
+            name:
+              bef_format: default
+              more_options:
+                is_secondary: false
+                placeholder_text: ''
+            bundle:
+              bef_format: default
+              more_options:
+                bef_select_all_none: false
+                bef_collapsible: false
+                is_secondary: false
+                rewrite:
+                  filter_rewrite_values: ''
+            created:
+              bef_format: bef_datepicker
+              more_options:
+                is_secondary: false
+                placeholder_text: ''
+            created_1:
+              bef_format: bef_datepicker
+              more_options:
+                is_secondary: false
+                placeholder_text: ''
+          text_input_required_format: full_html
     cache_metadata:
       max-age: 0
       contexts:
@@ -414,8 +1005,219 @@ display:
         - url.query_args
         - 'url.query_args:sort_by'
         - user.permissions
-      tags: {  }
-  # @todo Lock down access in https://www.drupal.org/node/2983179
+      tags:
+        - 'config:core.entity_view_display.media.audio.browser_teaser'
+        - 'config:core.entity_view_display.media.audio.default'
+        - 'config:core.entity_view_display.media.audio.field_preview'
+        - 'config:core.entity_view_display.media.audio.media_library'
+        - 'config:core.entity_view_display.media.file.browser_teaser'
+        - 'config:core.entity_view_display.media.file.default'
+        - 'config:core.entity_view_display.media.file.field_preview'
+        - 'config:core.entity_view_display.media.file.media_library'
+        - 'config:core.entity_view_display.media.image.browser_teaser'
+        - 'config:core.entity_view_display.media.image.default'
+        - 'config:core.entity_view_display.media.image.field_preview'
+        - 'config:core.entity_view_display.media.image.large'
+        - 'config:core.entity_view_display.media.image.media_library'
+        - 'config:core.entity_view_display.media.image.medium'
+        - 'config:core.entity_view_display.media.image.original'
+        - 'config:core.entity_view_display.media.image.s01'
+        - 'config:core.entity_view_display.media.image.s01_square'
+        - 'config:core.entity_view_display.media.image.s01_standard'
+        - 'config:core.entity_view_display.media.image.s01_traditional'
+        - 'config:core.entity_view_display.media.image.s02'
+        - 'config:core.entity_view_display.media.image.s02_square'
+        - 'config:core.entity_view_display.media.image.s02_standard'
+        - 'config:core.entity_view_display.media.image.s02_traditional'
+        - 'config:core.entity_view_display.media.image.s03'
+        - 'config:core.entity_view_display.media.image.s03_square'
+        - 'config:core.entity_view_display.media.image.s03_standard'
+        - 'config:core.entity_view_display.media.image.s03_traditional'
+        - 'config:core.entity_view_display.media.image.s04'
+        - 'config:core.entity_view_display.media.image.s04_square'
+        - 'config:core.entity_view_display.media.image.s04_standard'
+        - 'config:core.entity_view_display.media.image.s04_traditional'
+        - 'config:core.entity_view_display.media.image.s05'
+        - 'config:core.entity_view_display.media.image.s05_square'
+        - 'config:core.entity_view_display.media.image.s05_standard'
+        - 'config:core.entity_view_display.media.image.s05_traditional'
+        - 'config:core.entity_view_display.media.image.s06'
+        - 'config:core.entity_view_display.media.image.s06_square'
+        - 'config:core.entity_view_display.media.image.s06_standard'
+        - 'config:core.entity_view_display.media.image.s06_traditional'
+        - 'config:core.entity_view_display.media.image.s07'
+        - 'config:core.entity_view_display.media.image.s07_square'
+        - 'config:core.entity_view_display.media.image.s07_standard'
+        - 'config:core.entity_view_display.media.image.s07_traditional'
+        - 'config:core.entity_view_display.media.image.s08'
+        - 'config:core.entity_view_display.media.image.s08_square'
+        - 'config:core.entity_view_display.media.image.s08_standard'
+        - 'config:core.entity_view_display.media.image.s08_traditional'
+        - 'config:core.entity_view_display.media.image.s09'
+        - 'config:core.entity_view_display.media.image.s09_square'
+        - 'config:core.entity_view_display.media.image.s09_standard'
+        - 'config:core.entity_view_display.media.image.s09_traditional'
+        - 'config:core.entity_view_display.media.image.s10'
+        - 'config:core.entity_view_display.media.image.s10_square'
+        - 'config:core.entity_view_display.media.image.s10_standard'
+        - 'config:core.entity_view_display.media.image.s10_traditional'
+        - 'config:core.entity_view_display.media.image.s11'
+        - 'config:core.entity_view_display.media.image.s11_square'
+        - 'config:core.entity_view_display.media.image.s11_standard'
+        - 'config:core.entity_view_display.media.image.s11_traditional'
+        - 'config:core.entity_view_display.media.image.s12'
+        - 'config:core.entity_view_display.media.image.s12_square'
+        - 'config:core.entity_view_display.media.image.s12_standard'
+        - 'config:core.entity_view_display.media.image.s12_traditional'
+        - 'config:core.entity_view_display.media.image.se2e'
+        - 'config:core.entity_view_display.media.image.se2e_4_1'
+        - 'config:core.entity_view_display.media.image.se2e_square'
+        - 'config:core.entity_view_display.media.image.se2e_standard'
+        - 'config:core.entity_view_display.media.image.se2e_traditional'
+        - 'config:core.entity_view_display.media.image.small'
+        - 'config:core.entity_view_display.media.image.token'
+        - 'config:core.entity_view_display.media.image.varbase_media_hero_slider'
+        - 'config:core.entity_view_display.media.instagram.browser_teaser'
+        - 'config:core.entity_view_display.media.instagram.default'
+        - 'config:core.entity_view_display.media.instagram.field_preview'
+        - 'config:core.entity_view_display.media.instagram.large'
+        - 'config:core.entity_view_display.media.instagram.media_library'
+        - 'config:core.entity_view_display.media.instagram.medium'
+        - 'config:core.entity_view_display.media.instagram.original'
+        - 'config:core.entity_view_display.media.instagram.small'
+        - 'config:core.entity_view_display.media.remote_video.browser_teaser'
+        - 'config:core.entity_view_display.media.remote_video.default'
+        - 'config:core.entity_view_display.media.remote_video.field_preview'
+        - 'config:core.entity_view_display.media.remote_video.full'
+        - 'config:core.entity_view_display.media.remote_video.large'
+        - 'config:core.entity_view_display.media.remote_video.media_library'
+        - 'config:core.entity_view_display.media.remote_video.medium'
+        - 'config:core.entity_view_display.media.remote_video.original'
+        - 'config:core.entity_view_display.media.remote_video.s01'
+        - 'config:core.entity_view_display.media.remote_video.s01_square'
+        - 'config:core.entity_view_display.media.remote_video.s01_standard'
+        - 'config:core.entity_view_display.media.remote_video.s01_traditional'
+        - 'config:core.entity_view_display.media.remote_video.s02'
+        - 'config:core.entity_view_display.media.remote_video.s02_square'
+        - 'config:core.entity_view_display.media.remote_video.s02_standard'
+        - 'config:core.entity_view_display.media.remote_video.s02_traditional'
+        - 'config:core.entity_view_display.media.remote_video.s03'
+        - 'config:core.entity_view_display.media.remote_video.s03_square'
+        - 'config:core.entity_view_display.media.remote_video.s03_standard'
+        - 'config:core.entity_view_display.media.remote_video.s03_traditional'
+        - 'config:core.entity_view_display.media.remote_video.s04'
+        - 'config:core.entity_view_display.media.remote_video.s04_square'
+        - 'config:core.entity_view_display.media.remote_video.s04_standard'
+        - 'config:core.entity_view_display.media.remote_video.s04_traditional'
+        - 'config:core.entity_view_display.media.remote_video.s05'
+        - 'config:core.entity_view_display.media.remote_video.s05_square'
+        - 'config:core.entity_view_display.media.remote_video.s05_standard'
+        - 'config:core.entity_view_display.media.remote_video.s05_traditional'
+        - 'config:core.entity_view_display.media.remote_video.s06'
+        - 'config:core.entity_view_display.media.remote_video.s06_square'
+        - 'config:core.entity_view_display.media.remote_video.s06_standard'
+        - 'config:core.entity_view_display.media.remote_video.s06_traditional'
+        - 'config:core.entity_view_display.media.remote_video.s07'
+        - 'config:core.entity_view_display.media.remote_video.s07_square'
+        - 'config:core.entity_view_display.media.remote_video.s07_standard'
+        - 'config:core.entity_view_display.media.remote_video.s07_traditional'
+        - 'config:core.entity_view_display.media.remote_video.s08'
+        - 'config:core.entity_view_display.media.remote_video.s08_square'
+        - 'config:core.entity_view_display.media.remote_video.s08_standard'
+        - 'config:core.entity_view_display.media.remote_video.s08_traditional'
+        - 'config:core.entity_view_display.media.remote_video.s09'
+        - 'config:core.entity_view_display.media.remote_video.s09_square'
+        - 'config:core.entity_view_display.media.remote_video.s09_standard'
+        - 'config:core.entity_view_display.media.remote_video.s09_traditional'
+        - 'config:core.entity_view_display.media.remote_video.s10'
+        - 'config:core.entity_view_display.media.remote_video.s10_square'
+        - 'config:core.entity_view_display.media.remote_video.s10_standard'
+        - 'config:core.entity_view_display.media.remote_video.s10_traditional'
+        - 'config:core.entity_view_display.media.remote_video.s11'
+        - 'config:core.entity_view_display.media.remote_video.s11_square'
+        - 'config:core.entity_view_display.media.remote_video.s11_standard'
+        - 'config:core.entity_view_display.media.remote_video.s11_traditional'
+        - 'config:core.entity_view_display.media.remote_video.s12'
+        - 'config:core.entity_view_display.media.remote_video.s12_square'
+        - 'config:core.entity_view_display.media.remote_video.s12_standard'
+        - 'config:core.entity_view_display.media.remote_video.s12_traditional'
+        - 'config:core.entity_view_display.media.remote_video.se2e'
+        - 'config:core.entity_view_display.media.remote_video.se2e_4_1'
+        - 'config:core.entity_view_display.media.remote_video.se2e_square'
+        - 'config:core.entity_view_display.media.remote_video.se2e_standard'
+        - 'config:core.entity_view_display.media.remote_video.se2e_traditional'
+        - 'config:core.entity_view_display.media.remote_video.small'
+        - 'config:core.entity_view_display.media.tweet.browser_teaser'
+        - 'config:core.entity_view_display.media.tweet.default'
+        - 'config:core.entity_view_display.media.tweet.field_preview'
+        - 'config:core.entity_view_display.media.tweet.large'
+        - 'config:core.entity_view_display.media.tweet.media_library'
+        - 'config:core.entity_view_display.media.tweet.medium'
+        - 'config:core.entity_view_display.media.tweet.original'
+        - 'config:core.entity_view_display.media.tweet.small'
+        - 'config:core.entity_view_display.media.video.browser_teaser'
+        - 'config:core.entity_view_display.media.video.default'
+        - 'config:core.entity_view_display.media.video.field_preview'
+        - 'config:core.entity_view_display.media.video.full'
+        - 'config:core.entity_view_display.media.video.large'
+        - 'config:core.entity_view_display.media.video.media_library'
+        - 'config:core.entity_view_display.media.video.medium'
+        - 'config:core.entity_view_display.media.video.original'
+        - 'config:core.entity_view_display.media.video.s01'
+        - 'config:core.entity_view_display.media.video.s01_square'
+        - 'config:core.entity_view_display.media.video.s01_standard'
+        - 'config:core.entity_view_display.media.video.s01_traditional'
+        - 'config:core.entity_view_display.media.video.s02'
+        - 'config:core.entity_view_display.media.video.s02_square'
+        - 'config:core.entity_view_display.media.video.s02_standard'
+        - 'config:core.entity_view_display.media.video.s02_traditional'
+        - 'config:core.entity_view_display.media.video.s03'
+        - 'config:core.entity_view_display.media.video.s03_square'
+        - 'config:core.entity_view_display.media.video.s03_standard'
+        - 'config:core.entity_view_display.media.video.s03_traditional'
+        - 'config:core.entity_view_display.media.video.s04'
+        - 'config:core.entity_view_display.media.video.s04_square'
+        - 'config:core.entity_view_display.media.video.s04_standard'
+        - 'config:core.entity_view_display.media.video.s04_traditional'
+        - 'config:core.entity_view_display.media.video.s05'
+        - 'config:core.entity_view_display.media.video.s05_square'
+        - 'config:core.entity_view_display.media.video.s05_standard'
+        - 'config:core.entity_view_display.media.video.s05_traditional'
+        - 'config:core.entity_view_display.media.video.s06'
+        - 'config:core.entity_view_display.media.video.s06_square'
+        - 'config:core.entity_view_display.media.video.s06_standard'
+        - 'config:core.entity_view_display.media.video.s06_traditional'
+        - 'config:core.entity_view_display.media.video.s07'
+        - 'config:core.entity_view_display.media.video.s07_square'
+        - 'config:core.entity_view_display.media.video.s07_standard'
+        - 'config:core.entity_view_display.media.video.s07_traditional'
+        - 'config:core.entity_view_display.media.video.s08'
+        - 'config:core.entity_view_display.media.video.s08_square'
+        - 'config:core.entity_view_display.media.video.s08_standard'
+        - 'config:core.entity_view_display.media.video.s08_traditional'
+        - 'config:core.entity_view_display.media.video.s09'
+        - 'config:core.entity_view_display.media.video.s09_square'
+        - 'config:core.entity_view_display.media.video.s09_standard'
+        - 'config:core.entity_view_display.media.video.s09_traditional'
+        - 'config:core.entity_view_display.media.video.s10'
+        - 'config:core.entity_view_display.media.video.s10_square'
+        - 'config:core.entity_view_display.media.video.s10_standard'
+        - 'config:core.entity_view_display.media.video.s10_traditional'
+        - 'config:core.entity_view_display.media.video.s11'
+        - 'config:core.entity_view_display.media.video.s11_square'
+        - 'config:core.entity_view_display.media.video.s11_standard'
+        - 'config:core.entity_view_display.media.video.s11_traditional'
+        - 'config:core.entity_view_display.media.video.s12'
+        - 'config:core.entity_view_display.media.video.s12_square'
+        - 'config:core.entity_view_display.media.video.s12_standard'
+        - 'config:core.entity_view_display.media.video.s12_traditional'
+        - 'config:core.entity_view_display.media.video.se2e'
+        - 'config:core.entity_view_display.media.video.se2e_4_1'
+        - 'config:core.entity_view_display.media.video.se2e_square'
+        - 'config:core.entity_view_display.media.video.se2e_standard'
+        - 'config:core.entity_view_display.media.video.se2e_traditional'
+        - 'config:core.entity_view_display.media.video.small'
+        - 'config:core.entity_view_display.media.video.varbase_media_hero_slider'
   widget:
     display_plugin: page
     id: widget
@@ -425,6 +1227,56 @@ display:
       display_extenders: {  }
       path: admin/content/media-widget
       fields:
+        media_library_select_form:
+          id: media_library_select_form
+          table: media
+          field: media_library_select_form
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: js-click-to-select-checkbox
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          entity_type: media
+          plugin_id: media_library_select_form
         rendered_entity:
           id: rendered_entity
           table: media
@@ -476,56 +1328,6 @@ display:
           view_mode: media_library
           entity_type: media
           plugin_id: rendered_entity
-        media_library_select_form:
-          id: media_library_select_form
-          table: media
-          field: media_library_select_form
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: js-click-to-select-checkbox
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          entity_type: media
-          plugin_id: media_library_select_form
       defaults:
         fields: false
         access: false
@@ -542,4 +1344,216 @@ display:
         - url.query_args
         - 'url.query_args:sort_by'
         - user.permissions
-      tags: {  }
+      tags:
+        - 'config:core.entity_view_display.media.audio.browser_teaser'
+        - 'config:core.entity_view_display.media.audio.default'
+        - 'config:core.entity_view_display.media.audio.field_preview'
+        - 'config:core.entity_view_display.media.audio.media_library'
+        - 'config:core.entity_view_display.media.file.browser_teaser'
+        - 'config:core.entity_view_display.media.file.default'
+        - 'config:core.entity_view_display.media.file.field_preview'
+        - 'config:core.entity_view_display.media.file.media_library'
+        - 'config:core.entity_view_display.media.image.browser_teaser'
+        - 'config:core.entity_view_display.media.image.default'
+        - 'config:core.entity_view_display.media.image.field_preview'
+        - 'config:core.entity_view_display.media.image.large'
+        - 'config:core.entity_view_display.media.image.media_library'
+        - 'config:core.entity_view_display.media.image.medium'
+        - 'config:core.entity_view_display.media.image.original'
+        - 'config:core.entity_view_display.media.image.s01'
+        - 'config:core.entity_view_display.media.image.s01_square'
+        - 'config:core.entity_view_display.media.image.s01_standard'
+        - 'config:core.entity_view_display.media.image.s01_traditional'
+        - 'config:core.entity_view_display.media.image.s02'
+        - 'config:core.entity_view_display.media.image.s02_square'
+        - 'config:core.entity_view_display.media.image.s02_standard'
+        - 'config:core.entity_view_display.media.image.s02_traditional'
+        - 'config:core.entity_view_display.media.image.s03'
+        - 'config:core.entity_view_display.media.image.s03_square'
+        - 'config:core.entity_view_display.media.image.s03_standard'
+        - 'config:core.entity_view_display.media.image.s03_traditional'
+        - 'config:core.entity_view_display.media.image.s04'
+        - 'config:core.entity_view_display.media.image.s04_square'
+        - 'config:core.entity_view_display.media.image.s04_standard'
+        - 'config:core.entity_view_display.media.image.s04_traditional'
+        - 'config:core.entity_view_display.media.image.s05'
+        - 'config:core.entity_view_display.media.image.s05_square'
+        - 'config:core.entity_view_display.media.image.s05_standard'
+        - 'config:core.entity_view_display.media.image.s05_traditional'
+        - 'config:core.entity_view_display.media.image.s06'
+        - 'config:core.entity_view_display.media.image.s06_square'
+        - 'config:core.entity_view_display.media.image.s06_standard'
+        - 'config:core.entity_view_display.media.image.s06_traditional'
+        - 'config:core.entity_view_display.media.image.s07'
+        - 'config:core.entity_view_display.media.image.s07_square'
+        - 'config:core.entity_view_display.media.image.s07_standard'
+        - 'config:core.entity_view_display.media.image.s07_traditional'
+        - 'config:core.entity_view_display.media.image.s08'
+        - 'config:core.entity_view_display.media.image.s08_square'
+        - 'config:core.entity_view_display.media.image.s08_standard'
+        - 'config:core.entity_view_display.media.image.s08_traditional'
+        - 'config:core.entity_view_display.media.image.s09'
+        - 'config:core.entity_view_display.media.image.s09_square'
+        - 'config:core.entity_view_display.media.image.s09_standard'
+        - 'config:core.entity_view_display.media.image.s09_traditional'
+        - 'config:core.entity_view_display.media.image.s10'
+        - 'config:core.entity_view_display.media.image.s10_square'
+        - 'config:core.entity_view_display.media.image.s10_standard'
+        - 'config:core.entity_view_display.media.image.s10_traditional'
+        - 'config:core.entity_view_display.media.image.s11'
+        - 'config:core.entity_view_display.media.image.s11_square'
+        - 'config:core.entity_view_display.media.image.s11_standard'
+        - 'config:core.entity_view_display.media.image.s11_traditional'
+        - 'config:core.entity_view_display.media.image.s12'
+        - 'config:core.entity_view_display.media.image.s12_square'
+        - 'config:core.entity_view_display.media.image.s12_standard'
+        - 'config:core.entity_view_display.media.image.s12_traditional'
+        - 'config:core.entity_view_display.media.image.se2e'
+        - 'config:core.entity_view_display.media.image.se2e_4_1'
+        - 'config:core.entity_view_display.media.image.se2e_square'
+        - 'config:core.entity_view_display.media.image.se2e_standard'
+        - 'config:core.entity_view_display.media.image.se2e_traditional'
+        - 'config:core.entity_view_display.media.image.small'
+        - 'config:core.entity_view_display.media.image.token'
+        - 'config:core.entity_view_display.media.image.varbase_media_hero_slider'
+        - 'config:core.entity_view_display.media.instagram.browser_teaser'
+        - 'config:core.entity_view_display.media.instagram.default'
+        - 'config:core.entity_view_display.media.instagram.field_preview'
+        - 'config:core.entity_view_display.media.instagram.large'
+        - 'config:core.entity_view_display.media.instagram.media_library'
+        - 'config:core.entity_view_display.media.instagram.medium'
+        - 'config:core.entity_view_display.media.instagram.original'
+        - 'config:core.entity_view_display.media.instagram.small'
+        - 'config:core.entity_view_display.media.remote_video.browser_teaser'
+        - 'config:core.entity_view_display.media.remote_video.default'
+        - 'config:core.entity_view_display.media.remote_video.field_preview'
+        - 'config:core.entity_view_display.media.remote_video.full'
+        - 'config:core.entity_view_display.media.remote_video.large'
+        - 'config:core.entity_view_display.media.remote_video.media_library'
+        - 'config:core.entity_view_display.media.remote_video.medium'
+        - 'config:core.entity_view_display.media.remote_video.original'
+        - 'config:core.entity_view_display.media.remote_video.s01'
+        - 'config:core.entity_view_display.media.remote_video.s01_square'
+        - 'config:core.entity_view_display.media.remote_video.s01_standard'
+        - 'config:core.entity_view_display.media.remote_video.s01_traditional'
+        - 'config:core.entity_view_display.media.remote_video.s02'
+        - 'config:core.entity_view_display.media.remote_video.s02_square'
+        - 'config:core.entity_view_display.media.remote_video.s02_standard'
+        - 'config:core.entity_view_display.media.remote_video.s02_traditional'
+        - 'config:core.entity_view_display.media.remote_video.s03'
+        - 'config:core.entity_view_display.media.remote_video.s03_square'
+        - 'config:core.entity_view_display.media.remote_video.s03_standard'
+        - 'config:core.entity_view_display.media.remote_video.s03_traditional'
+        - 'config:core.entity_view_display.media.remote_video.s04'
+        - 'config:core.entity_view_display.media.remote_video.s04_square'
+        - 'config:core.entity_view_display.media.remote_video.s04_standard'
+        - 'config:core.entity_view_display.media.remote_video.s04_traditional'
+        - 'config:core.entity_view_display.media.remote_video.s05'
+        - 'config:core.entity_view_display.media.remote_video.s05_square'
+        - 'config:core.entity_view_display.media.remote_video.s05_standard'
+        - 'config:core.entity_view_display.media.remote_video.s05_traditional'
+        - 'config:core.entity_view_display.media.remote_video.s06'
+        - 'config:core.entity_view_display.media.remote_video.s06_square'
+        - 'config:core.entity_view_display.media.remote_video.s06_standard'
+        - 'config:core.entity_view_display.media.remote_video.s06_traditional'
+        - 'config:core.entity_view_display.media.remote_video.s07'
+        - 'config:core.entity_view_display.media.remote_video.s07_square'
+        - 'config:core.entity_view_display.media.remote_video.s07_standard'
+        - 'config:core.entity_view_display.media.remote_video.s07_traditional'
+        - 'config:core.entity_view_display.media.remote_video.s08'
+        - 'config:core.entity_view_display.media.remote_video.s08_square'
+        - 'config:core.entity_view_display.media.remote_video.s08_standard'
+        - 'config:core.entity_view_display.media.remote_video.s08_traditional'
+        - 'config:core.entity_view_display.media.remote_video.s09'
+        - 'config:core.entity_view_display.media.remote_video.s09_square'
+        - 'config:core.entity_view_display.media.remote_video.s09_standard'
+        - 'config:core.entity_view_display.media.remote_video.s09_traditional'
+        - 'config:core.entity_view_display.media.remote_video.s10'
+        - 'config:core.entity_view_display.media.remote_video.s10_square'
+        - 'config:core.entity_view_display.media.remote_video.s10_standard'
+        - 'config:core.entity_view_display.media.remote_video.s10_traditional'
+        - 'config:core.entity_view_display.media.remote_video.s11'
+        - 'config:core.entity_view_display.media.remote_video.s11_square'
+        - 'config:core.entity_view_display.media.remote_video.s11_standard'
+        - 'config:core.entity_view_display.media.remote_video.s11_traditional'
+        - 'config:core.entity_view_display.media.remote_video.s12'
+        - 'config:core.entity_view_display.media.remote_video.s12_square'
+        - 'config:core.entity_view_display.media.remote_video.s12_standard'
+        - 'config:core.entity_view_display.media.remote_video.s12_traditional'
+        - 'config:core.entity_view_display.media.remote_video.se2e'
+        - 'config:core.entity_view_display.media.remote_video.se2e_4_1'
+        - 'config:core.entity_view_display.media.remote_video.se2e_square'
+        - 'config:core.entity_view_display.media.remote_video.se2e_standard'
+        - 'config:core.entity_view_display.media.remote_video.se2e_traditional'
+        - 'config:core.entity_view_display.media.remote_video.small'
+        - 'config:core.entity_view_display.media.tweet.browser_teaser'
+        - 'config:core.entity_view_display.media.tweet.default'
+        - 'config:core.entity_view_display.media.tweet.field_preview'
+        - 'config:core.entity_view_display.media.tweet.large'
+        - 'config:core.entity_view_display.media.tweet.media_library'
+        - 'config:core.entity_view_display.media.tweet.medium'
+        - 'config:core.entity_view_display.media.tweet.original'
+        - 'config:core.entity_view_display.media.tweet.small'
+        - 'config:core.entity_view_display.media.video.browser_teaser'
+        - 'config:core.entity_view_display.media.video.default'
+        - 'config:core.entity_view_display.media.video.field_preview'
+        - 'config:core.entity_view_display.media.video.full'
+        - 'config:core.entity_view_display.media.video.large'
+        - 'config:core.entity_view_display.media.video.media_library'
+        - 'config:core.entity_view_display.media.video.medium'
+        - 'config:core.entity_view_display.media.video.original'
+        - 'config:core.entity_view_display.media.video.s01'
+        - 'config:core.entity_view_display.media.video.s01_square'
+        - 'config:core.entity_view_display.media.video.s01_standard'
+        - 'config:core.entity_view_display.media.video.s01_traditional'
+        - 'config:core.entity_view_display.media.video.s02'
+        - 'config:core.entity_view_display.media.video.s02_square'
+        - 'config:core.entity_view_display.media.video.s02_standard'
+        - 'config:core.entity_view_display.media.video.s02_traditional'
+        - 'config:core.entity_view_display.media.video.s03'
+        - 'config:core.entity_view_display.media.video.s03_square'
+        - 'config:core.entity_view_display.media.video.s03_standard'
+        - 'config:core.entity_view_display.media.video.s03_traditional'
+        - 'config:core.entity_view_display.media.video.s04'
+        - 'config:core.entity_view_display.media.video.s04_square'
+        - 'config:core.entity_view_display.media.video.s04_standard'
+        - 'config:core.entity_view_display.media.video.s04_traditional'
+        - 'config:core.entity_view_display.media.video.s05'
+        - 'config:core.entity_view_display.media.video.s05_square'
+        - 'config:core.entity_view_display.media.video.s05_standard'
+        - 'config:core.entity_view_display.media.video.s05_traditional'
+        - 'config:core.entity_view_display.media.video.s06'
+        - 'config:core.entity_view_display.media.video.s06_square'
+        - 'config:core.entity_view_display.media.video.s06_standard'
+        - 'config:core.entity_view_display.media.video.s06_traditional'
+        - 'config:core.entity_view_display.media.video.s07'
+        - 'config:core.entity_view_display.media.video.s07_square'
+        - 'config:core.entity_view_display.media.video.s07_standard'
+        - 'config:core.entity_view_display.media.video.s07_traditional'
+        - 'config:core.entity_view_display.media.video.s08'
+        - 'config:core.entity_view_display.media.video.s08_square'
+        - 'config:core.entity_view_display.media.video.s08_standard'
+        - 'config:core.entity_view_display.media.video.s08_traditional'
+        - 'config:core.entity_view_display.media.video.s09'
+        - 'config:core.entity_view_display.media.video.s09_square'
+        - 'config:core.entity_view_display.media.video.s09_standard'
+        - 'config:core.entity_view_display.media.video.s09_traditional'
+        - 'config:core.entity_view_display.media.video.s10'
+        - 'config:core.entity_view_display.media.video.s10_square'
+        - 'config:core.entity_view_display.media.video.s10_standard'
+        - 'config:core.entity_view_display.media.video.s10_traditional'
+        - 'config:core.entity_view_display.media.video.s11'
+        - 'config:core.entity_view_display.media.video.s11_square'
+        - 'config:core.entity_view_display.media.video.s11_standard'
+        - 'config:core.entity_view_display.media.video.s11_traditional'
+        - 'config:core.entity_view_display.media.video.s12'
+        - 'config:core.entity_view_display.media.video.s12_square'
+        - 'config:core.entity_view_display.media.video.s12_standard'
+        - 'config:core.entity_view_display.media.video.s12_traditional'
+        - 'config:core.entity_view_display.media.video.se2e'
+        - 'config:core.entity_view_display.media.video.se2e_4_1'
+        - 'config:core.entity_view_display.media.video.se2e_square'
+        - 'config:core.entity_view_display.media.video.se2e_standard'
+        - 'config:core.entity_view_display.media.video.se2e_traditional'
+        - 'config:core.entity_view_display.media.video.small'
+        - 'config:core.entity_view_display.media.video.varbase_media_hero_slider'
