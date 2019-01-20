@@ -71,4 +71,11 @@ function varbase_media_install() {
   $config_factory = \Drupal::configFactory()->getEditable('entity_browser_enhanced.widgets');
   $config_factory->setData($config_data)->save(TRUE);
 
+  // Ovarride the media liabrary view.
+  $config_path = $optional_install_path . '/' . 'views.view.media_library.yml';
+  $config_content = file_get_contents($config_path);
+  $config_data = (array) Yaml::parse($config_content);
+  $config_factory = \Drupal::configFactory()->getEditable('views.view.media_library');
+  $config_factory->setData($config_data)->save(TRUE);
+
 }
