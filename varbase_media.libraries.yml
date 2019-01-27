@@ -51,6 +51,6 @@ youtube_player:
   js:
     //youtube.com/player_api: { type: external, minified: true }
 vimeo_player:
-  version: 2.6.1
+  version: VERSION
   js:
-    //cdn.rawgit.com/vimeo/player.js/v2.6.1/dist/player.min.js: { type: external, minified: true }
+    //player.vimeo.com/api/player.js: { type: external, minified: true }
