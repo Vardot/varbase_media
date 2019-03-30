@@ -26,23 +26,13 @@
         // Remote Youtube Video.
         // ---------------------------------------------------------------------
         if ($(this).closest('.field.field--type-entity-reference').find('.media--type-remote-video iframe[src*="youtube.com"]').length > 0) {
-          var closestYoutubeIframe = $(this).closest('.field.field--type-entity-reference').find('.media--type-remote-video iframe[src*="youtube.com"]');
-          var closestInnerYoutubeIframe = closestYoutubeIframe.contents().find('iframe[src*="youtube.com"]');
-          var youtubeURL = String(closestInnerYoutubeIframe.get(0).src); 
-          youtubeURL = youtubeURL.replace(/autoplay=0/gi, "autoplay=1");
-          youtubeURL = youtubeURL.replace(/controls=0/gi, "controls=1");
-          closestInnerYoutubeIframe.get(0).src = youtubeURL;
-          ev.preventDefault();
+          var closestYoutubeIframe = $(this).closest('.field.field--type-entity-reference').find('.media--type-remote-video iframe[src*="youtube.com"]').get(0).contentWindow;
+          closestYoutubeIframe.postMessage('play', Drupal.url().toAbsolute);
         }
 
         if ($(this).closest('.embedded-entity').find('.media--type-remote-video iframe[src*="youtube.com"]').length > 0) {
-          var closestYoutubeIframe = $(this).closest('.embedded-entity').find('.media--type-remote-video iframe[src*="youtube.com"]');
-          var closestInnerYoutubeIframe = closestYoutubeIframe.contents().find('iframe[src*="youtube.com"]');
-          var youtubeURL = String(closestInnerYoutubeIframe.get(0).src); 
-          youtubeURL = youtubeURL.replace(/autoplay=0/gi, "autoplay=1");
-          youtubeURL = youtubeURL.replace(/controls=0/gi, "controls=1");
-          closestInnerYoutubeIframe.get(0).src = youtubeURL;
-          ev.preventDefault();
+          var closestYoutubeIframe = $(this).closest('.embedded-entity').find('.media--type-remote-video iframe[src*="youtube.com"]').get(0).contentWindow;
+          closestYoutubeIframe.postMessage('play', Drupal.url().toAbsolute);
         }
         // ---------------------------------------------------------------------
 
@@ -50,17 +40,13 @@
         // Remote Vimeo Video.
         // ---------------------------------------------------------------------
         if ($(this).closest('.field.field--type-entity-reference').find('.media--type-remote-video iframe[src*="vimeo.com"]').length > 0) {
-          var closestVimoIframe = $(this).closest('.field.field--type-entity-reference').find('.media--type-remote-video iframe[src*="vimeo.com"]').get(0);
-          var closestInnerVimoIframe = closestVimoIframe.contents().find('iframe[src*="vimeo.com"]').get(0);
-          var vimoPlayer = new Vimeo.Player(closestInnerVimoIframe);
-          vimoPlayer.play();
+          var closestVimeoIframe = $(this).closest('.field.field--type-entity-reference').find('.media--type-remote-video iframe[src*="vimeo.com"]').get(0).contentWindow;
+          closestVimeoIframe.postMessage('play', Drupal.url().toAbsolute);
         }
 
         if ($(this).closest('.embedded-entity').find('.media--type-remote-video iframe[src*="vimeo.com"]').length > 0) {
-          var closestVimoIframe = $(this).closest('.embedded-entity').find('.media--type-remote-video iframe[src*="vimeo.com"]').get(0);
-          var closestInnerVimoIframe = closestVimoIframe.contents().find('iframe[src*="vimeo.com"]').get(0);
-          var vimoPlayer = new Vimeo.Player(closestInnerVimoIframe);
-          vimoPlayer.play();
+          var closestVimeoIframe = $(this).closest('.embedded-entity').find('.media--type-remote-video iframe[src*="vimeo.com"]').get(0).contentWindow;
+          closestVimeoIframe.postMessage('play', Drupal.url().toAbsolute);
         }
         // ---------------------------------------------------------------------
 
