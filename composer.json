@@ -86,7 +86,7 @@
     "patches": {
       "drupal/focal_point": {
         "Issue #2916562: Broken image preview":
-        "https://www.drupal.org/files/issues/2019-03-30/2916562-36.patch"
+        "https://www.drupal.org/files/issues/2019-03-30/2916562-37.patch"
       },
       "drupal/entity_embed": {
         "Issue #2832504: Send the CKEditor instance ID to the embed.preview route.":
