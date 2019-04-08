@@ -39,3 +39,4 @@ dependencies:
 install:
   - views_bulk_operations
   - views_bulk_edit
+  - blazy

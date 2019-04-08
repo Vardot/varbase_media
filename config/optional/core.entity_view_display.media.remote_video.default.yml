@@ -1,3 +1,4 @@
+uuid: bbae0fbc-75d8-497c-bcbe-bebfd2b65fe7
 langcode: en
 status: true
 dependencies:
@@ -6,11 +7,10 @@ dependencies:
     - field.field.media.remote_video.field_media_in_library
     - field.field.media.remote_video.field_media_oembed_video
     - media.type.remote_video
-    - responsive_image.styles.de2e_standard
   module:
+    - blazy
     - ds
     - media
-    - responsive_image
 third_party_settings:
   ds:
     layout:
@@ -31,19 +31,45 @@ third_party_settings:
       ds_content:
         - field_media_oembed_video
         - field_media_cover_image
+_core:
+  default_config_hash: co7_7FzNRP5GLw5NUyyDrhpnztsQxGr0hk-7pP5cmY4
 id: media.remote_video.default
 targetEntityType: media
 bundle: remote_video
 mode: default
 content:
   field_media_cover_image:
-    type: responsive_image
+    type: blazy
     weight: 1
     region: ds_content
     label: hidden
     settings:
       responsive_image_style: de2e_standard
-      image_link: ''
+      iframe_lazy: true
+      icon: ''
+      layout: ''
+      thumbnail_style: ''
+      view_mode: ''
+      cache: 0
+      current_view_mode: ''
+      optionset: default
+      skin: ''
+      style: ''
+      background: false
+      box_caption: ''
+      box_caption_custom: ''
+      box_style: ''
+      box_media_style: ''
+      breakpoints: {  }
+      caption: {  }
+      image_style: ''
+      media_switch: ''
+      ratio: ''
+      sizes: ''
+      grid: 0
+      grid_header: ''
+      grid_medium: 0
+      grid_small: 0
     third_party_settings:
       ds:
         ft:

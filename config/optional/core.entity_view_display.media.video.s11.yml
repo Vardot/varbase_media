@@ -7,10 +7,9 @@ dependencies:
     - field.field.media.video.field_media_in_library
     - field.field.media.video.field_media_video_file
     - media.type.video
-    - responsive_image.styles.d11_standard
   module:
+    - blazy
     - ds
-    - responsive_image
 third_party_settings:
   ds:
     layout:
@@ -37,13 +36,37 @@ bundle: video
 mode: s11
 content:
   field_media_cover_image:
-    type: responsive_image
+    type: blazy
     weight: 1
     region: ds_content
     label: hidden
     settings:
       responsive_image_style: d11_standard
-      image_link: ''
+      iframe_lazy: true
+      icon: ''
+      layout: ''
+      thumbnail_style: ''
+      view_mode: ''
+      cache: 0
+      current_view_mode: ''
+      optionset: default
+      skin: ''
+      style: ''
+      background: false
+      box_caption: ''
+      box_caption_custom: ''
+      box_style: ''
+      box_media_style: ''
+      breakpoints: {  }
+      caption: {  }
+      image_style: ''
+      media_switch: ''
+      ratio: ''
+      sizes: ''
+      grid: 0
+      grid_header: ''
+      grid_medium: 0
+      grid_small: 0
     third_party_settings:
       ds:
         ft:
@@ -74,13 +97,37 @@ content:
             fi: false
             fi-def-at: false
   thumbnail:
-    type: responsive_image
+    type: blazy
     weight: 0
     region: ds_content
     label: hidden
     settings:
       responsive_image_style: d11_standard
-      image_link: ''
+      iframe_lazy: true
+      icon: ''
+      layout: ''
+      thumbnail_style: ''
+      view_mode: ''
+      cache: 0
+      current_view_mode: ''
+      optionset: default
+      skin: ''
+      style: ''
+      background: false
+      box_caption: ''
+      box_caption_custom: ''
+      box_style: ''
+      box_media_style: ''
+      breakpoints: {  }
+      caption: {  }
+      image_style: ''
+      media_switch: ''
+      ratio: ''
+      sizes: ''
+      grid: 0
+      grid_header: ''
+      grid_medium: 0
+      grid_small: 0
     third_party_settings:
       ds:
         ft:
