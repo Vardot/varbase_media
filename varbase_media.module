@@ -415,3 +415,33 @@ function _varbase_media_default_image_field_name($media_entity) {
   }
 
 }
+
+/**
+ * Implements hook_theme().
+ */
+function varbase_media_theme($existing, $type, $theme, $path) {
+
+  return [
+    'media_oembed_iframe' => [
+      'template' => 'media-oembed-iframe--varbase-media',
+    ],
+  ];
+}
+
+/**
+ * Implements hook_theme_suggestions_media_oembed_iframe_alter().
+ */
+function varbase_media_theme_suggestions_media_oembed_iframe_alter(array &$suggestions, array &$variables) {
+
+  if (isset($variables['provider_name'])) {
+    $suggestions[] = 'media-oembed-iframe--varbase-media';
+    $suggestions[] = 'media-oembed-iframe--varbase-media--provider--' . $variables['provider_name'];
+  }
+
+  $variables['module_handler_path'] = \Drupal::service('module_handler')->getModule("varbase_media")->getPath();
+  $variables['theme_handler_path'] = \Drupal::theme()->getActiveTheme()->getPath();
+  $variables['base_path'] = base_path();
+
+  return $suggestions;
+
+}
