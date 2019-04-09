@@ -52,7 +52,7 @@
     "drupal/focal_point": "1.0",
     "drupal/imagemagick": "~2.0",
     "drupal/imageapi_optimize": "~2.0",
-    "drupal/blazy": "~1.0",
+    "drupal/blazy": "~2.0",
     "drupal/slick": "~1.0",
     "drupal/slick_views": "~1.0",
     "drupal/slick_media": "~2.0",
