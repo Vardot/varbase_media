@@ -27,6 +27,90 @@ use Drupal\Core\Language\LanguageInterface;
 use Drupal\image\Entity\ImageStyle;
 
 /**
+ * Implements hook_preprocess_field().
+ */
+function varbase_media_preprocess_field(&$variables) {
+  // Provide an extra variable to the field template when the field uses
+  // a formatter of type 'foo_formatter'
+  $resource_fetcher = \Drupal::service('media.oembed.resource_fetcher');
+  $url_resolver = \Drupal::service('media.oembed.url_resolver');
+  $iframe_url_helper = \Drupal::service('media.oembed.iframe_url_helper');
+
+  if ($variables['element']['#formatter'] == 'oembed') {
+
+    $entity = $variables['element']['#object'];
+
+    $view_mode = $variables['element']['#view_mode'];
+    $field_name = $variables['element']['#field_name'];
+    $bundle = $variables['element']['#bundle'];
+
+    // get the field formatter settings...
+    $entity_display = EntityViewDisplay::collectRenderDisplay($entity, $view_mode);
+    $field_display = $entity_display->getComponent($field_name);
+
+    if ( $bundle == "remote_video" ) {
+      $max_width = $field_display['settings']['max_width'];
+      $max_height = $field_display['settings']['max_height'];
+      $item = $variables['element']["#items"]->first();
+      $main_property = $item->getFieldDefinition()->getFieldStorageDefinition()->getMainPropertyName();
+      $value = $item->{$main_property};
+      $resource_url = $url_resolver->getResourceUrl($value, $max_width, $max_height);
+      $resource = $resource_fetcher->fetchResource($resource_url);
+      $provider = $resource->getProvider()->getName();
+      $url = Url::fromRoute('media.oembed_iframe', [], [
+        'query' => [
+          'url' => $value,
+          'max_width' => $max_width,
+          'max_height' => $max_height,
+          'type' => "remote_video",
+          'provider' => strtolower($provider),
+          'view_mode' => $view_mode,
+          'hash' => $iframe_url_helper->getHash($value, $max_width, $max_height, $provider, $view_mode),
+        ],
+      ]);
+
+      $variables['items'][0]['content']['#attributes']['src'] = $url->toString();
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function varbase_media_preprocess_media_oembed_iframe(&$variables) {
+  // suggestions go here!
+  $module_handler = \Drupal::service('module_handler');
+  $query = \Drupal::request()->query;
+  $variables['type'] = $query->get('type');
+  $variables['provider'] = $query->get('provider');
+  $variables['view_mode'] = $query->get('view_mode');
+  $variables['base_path'] = Url::fromRoute('<front>', [], ['absolute' => TRUE]);
+  $variables['varbase_heroslider_media_path'] = $module_handler->getModule('varbase_heroslider_media')->getPath();
+
+}
+
+
+/**
+ * Implements hook_theme_suggestions_media_oembed_iframe_alter().
+ */
+function varbase_media_theme_suggestions_media_oembed_iframe_alter(&$suggestions, &$vars) {
+  // suggestions go here!
+  $query = \Drupal::request()->query;
+  $type = $query->get('type');
+  $provider = $query->get('provider');
+  $view_mode = $query->get('view_mode');
+  if($type && $provider){
+    $suggestions[] = "media_oembed_iframe__" . $provider;
+    $suggestions[] = "media_oembed_iframe__" . $provider . "__" . $view_mode;
+    $suggestions[] = "media_oembed_iframe__" . $view_mode;
+    $suggestions[] = "media_oembed_iframe__" . $type;
+    $suggestions[] = "media_oembed_iframe__" . $type . "__" . $view_mode;
+    $suggestions[] = "media_oembed_iframe__" . $type . "__" . $provider;
+    $suggestions[] = "media_oembed_iframe__" . $type . "__" . $provider . "__" . $view_mode;
+  }
+}
+
+/**
  * Implements hook_page_attachments().
  */
 function varbase_media_page_attachments(array &$page) {
@@ -46,7 +130,7 @@ function varbase_media_ckeditor_css_alter(array &$css, Editor $editor) {
 
   // Varbase media path.
   $varbase_media_path = Drupal::service('module_handler')->getModule('varbase_media')->getPath();
-  
+
   // Attached the varbase media common style.
   $css[] = $varbase_media_path . '/css/varbase_media.common.css';
 
@@ -197,7 +281,7 @@ function varbase_media_entity_view_alter(array &$build, EntityInterface $entity,
         if (isset($build['thumbnail'])) {
           $build['thumbnail']['#access'] = FALSE;
         }
-        
+
         $build['field_media_cover_image']['#attached']['library'][] = 'varbase_media/varbase_video_player';
       }
     }
@@ -371,7 +455,7 @@ function varbase_media_tokens($type, $tokens, array $data, array $options, Bubbl
 
 /**
  * Get the URL with image style for a selected media entity.
- * 
+ *
  */
 function _varbase_media_image_url($media_entity, $style_name = NULL) {
 
@@ -395,7 +479,7 @@ function _varbase_media_image_url($media_entity, $style_name = NULL) {
 }
 
 /**
- * Get the default image field name for any media entity types. 
+ * Get the default image field name for any media entity types.
  */
 function _varbase_media_default_image_field_name($media_entity) {
 
