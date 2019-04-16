@@ -1,3 +1,8 @@
+/**
+ * @file
+ * Behaviors of Youtube player in the Default OEmbed iframe.
+ */
+
 function ready(fn) {
   if (document.readyState != 'loading'){
     fn();
