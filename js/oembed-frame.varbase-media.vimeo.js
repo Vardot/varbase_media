@@ -30,13 +30,8 @@ ready(function() {
     if (evt.data === "play") {
       if (!player_confgured) {
         var vimeo_iframe = document.querySelector('iframe[src*="vimeo.com"]');
-        
-        var vimeo_options = {
-            background: true,
-            muted: false
-        };
-        
-        vimeo_player = new Vimeo.Player(vimeo_iframe, vimeo_options);
+
+        vimeo_player = new Vimeo.Player(vimeo_iframe);
         vimeo_player.on('ended', function() {
           window.parent.postMessage("ended", "*");
           vimeo_player.play();
