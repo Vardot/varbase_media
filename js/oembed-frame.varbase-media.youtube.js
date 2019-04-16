@@ -46,8 +46,7 @@ ready(function() {
 
           youtube_player = new YT.Player(youtube_iframe.id, {
             events: {
-              'onReady': onPlayerReady,
-              'onStateChange': onPlayerStateChange
+              'onReady': onPlayerReady
             }
           });
 
@@ -55,29 +54,9 @@ ready(function() {
             event.target.playVideo();
           }
 
-          function onPlayerStateChange(event) {
-
-            if (event.data === YT.PlayerState.PLAYING) {
-              youtube_player.isPlaying = true;
-            }
-            else {
-              youtube_player.isPlaying = false;
-            }
-
-            if (event.data === YT.PlayerState.ENDED) {
-              window.parent.postMessage("ended", "*");
-            }
-          }
-
           player_confgured = true;
         }
 
-      }
-    }
-    else if (evt.data === "pause") {
-      if (player_confgured) {
-        youtube_player.pauseVideo();
-        youtube_player.isPlaying = false;
       }
     }
   }

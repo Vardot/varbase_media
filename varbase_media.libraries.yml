@@ -51,4 +51,4 @@ youtube_player:
 vimeo_player:
   version: VERSION
   js:
-    //www.player.vimeo.com/api/player.js: { type: external, minified: true }
+    //player.vimeo.com/api/player.js: { type: external, minified: true }
