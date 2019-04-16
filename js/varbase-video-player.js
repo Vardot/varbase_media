@@ -27,12 +27,12 @@
         // ---------------------------------------------------------------------
         if ($(this).closest('.field.field--type-entity-reference').find('.media--type-remote-video iframe[src*="youtube.com"]').length > 0) {
           var closestYoutubeIframe = $(this).closest('.field.field--type-entity-reference').find('.media--type-remote-video iframe[src*="youtube.com"]').get(0).contentWindow;
-          closestYoutubeIframe.postMessage('play', Drupal.url().toAbsolute);
+          closestYoutubeIframe.postMessage('play', "*");
         }
 
         if ($(this).closest('.embedded-entity').find('.media--type-remote-video iframe[src*="youtube.com"]').length > 0) {
           var closestYoutubeIframe = $(this).closest('.embedded-entity').find('.media--type-remote-video iframe[src*="youtube.com"]').get(0).contentWindow;
-          closestYoutubeIframe.postMessage('play', Drupal.url().toAbsolute);
+          closestYoutubeIframe.postMessage('play', "*");
         }
         // ---------------------------------------------------------------------
 
@@ -41,12 +41,12 @@
         // ---------------------------------------------------------------------
         if ($(this).closest('.field.field--type-entity-reference').find('.media--type-remote-video iframe[src*="vimeo.com"]').length > 0) {
           var closestVimeoIframe = $(this).closest('.field.field--type-entity-reference').find('.media--type-remote-video iframe[src*="vimeo.com"]').get(0).contentWindow;
-          closestVimeoIframe.postMessage('play', Drupal.url().toAbsolute);
+          closestVimeoIframe.postMessage('play', "*");
         }
 
         if ($(this).closest('.embedded-entity').find('.media--type-remote-video iframe[src*="vimeo.com"]').length > 0) {
           var closestVimeoIframe = $(this).closest('.embedded-entity').find('.media--type-remote-video iframe[src*="vimeo.com"]').get(0).contentWindow;
-          closestVimeoIframe.postMessage('play', Drupal.url().toAbsolute);
+          closestVimeoIframe.postMessage('play', "*");
         }
         // ---------------------------------------------------------------------
 
