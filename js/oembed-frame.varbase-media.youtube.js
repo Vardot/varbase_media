@@ -34,6 +34,7 @@ ready(function() {
         if (!player_confgured) {
           var youtubeURL = String(youtube_iframe.src);
           youtubeURL = youtubeURL.replace(/autoplay=0/gi, "autoplay=1");
+          youtubeURL = youtubeURL.replace(/controls=0/gi, "controls=1");
           youtubeURL = youtubeURL + "&enablejsapi=1";
           youtube_iframe.src = youtubeURL;
           youtubeURL = undefined; 
