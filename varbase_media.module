@@ -33,7 +33,7 @@ use Drupal\Core\Url;
  */
 function varbase_media_preprocess_field(&$variables) {
   // Provide an extra variable to the field template when the field uses
-  // a formatter of type 'foo_formatter'
+  // a formatter of type 'oembed'
   $resource_fetcher = \Drupal::service('media.oembed.resource_fetcher');
   $url_resolver = \Drupal::service('media.oembed.url_resolver');
   $iframe_url_helper = \Drupal::service('media.oembed.iframe_url_helper');
@@ -50,7 +50,7 @@ function varbase_media_preprocess_field(&$variables) {
     $entity_display = EntityViewDisplay::collectRenderDisplay($entity, $view_mode);
     $field_display = $entity_display->getComponent($field_name);
 
-    if ( $bundle == "remote_video" ) {
+    if ($bundle == "remote_video") {
       $max_width = $field_display['settings']['max_width'];
       $max_height = $field_display['settings']['max_height'];
       $item = $variables['element']["#items"]->first();
@@ -87,7 +87,6 @@ function varbase_media_preprocess_media_oembed_iframe(&$variables) {
   $variables['view_mode'] = $query->get('view_mode');
   $variables['base_path'] = Url::fromRoute('<front>', [], ['absolute' => TRUE]);
   $variables['varbase_heroslider_media_path'] = \Drupal::service('module_handler')->getModule('varbase_heroslider_media')->getPath();
-
 }
 
 /**

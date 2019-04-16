@@ -44,13 +44,11 @@ varbase_video_player:
     - core/drupalSettings
     - core/jquery
     - core/jquery.once
-    - varbase_media/youtube_player
-    - varbase_media/vimeo_player
 youtube_player:
   version: VERSION
   js:
-    //youtube.com/player_api: { type: external, minified: true }
+    //www.youtube.com/player_api: { type: external, minified: true }
 vimeo_player:
   version: VERSION
   js:
-    //player.vimeo.com/api/player.js: { type: external, minified: true }
+    //www.player.vimeo.com/api/player.js: { type: external, minified: true }
