@@ -66,7 +66,6 @@ ready(function() {
 
             if (event.data === YT.PlayerState.ENDED) {
               window.parent.postMessage("ended", "*");
-              youtube_player.playVideo();
             }
           }
 

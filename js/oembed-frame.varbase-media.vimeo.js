@@ -39,7 +39,6 @@ ready(function() {
         vimeo_player = new Vimeo.Player(vimeo_iframe);
         vimeo_player.on('ended', function() {
           window.parent.postMessage("ended", "*");
-          vimeo_player.play();
         });
         player_confgured = true;
       }
