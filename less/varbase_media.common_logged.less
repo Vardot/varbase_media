@@ -265,14 +265,42 @@ body {
     }
   }
 
-  .entity-browser-generic-embed {
-    .varbase-video-player,
-    div[data-drupal-selector*="edit-preview"] {
-      float: left;
-      margin-right: 30px;
-      width: 42%;
+  .entity-browser-generic-embed div {
+    .varbase-video-player {
+      width: 100%;
+
+      iframe {
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+      } 
     }
   }
+
+  @media (min-width: 576px) {
+    .entity-browser-generic-embed div {
+      .varbase-video-player {
+        float: left;
+        margin-right: 30px;
+        width: 42%;
+
+        iframe {
+          height: 300px;
+        }
+      }
+
+      div[data-drupal-selector*="edit-preview"] { 
+        float: right;
+        width: 42%;
+      }
+    }
+  }
+
 }
 
 a.entity-browser-handle {
