@@ -4,18 +4,16 @@ dependencies:
   config:
     - image.style.d07_square
     - image.style.d08_square
-  theme:
-    - bootstrap
 id: d07_square
 label: 'Display 07 responsive square 1:1'
 image_style_mappings:
   -
-    breakpoint_id: bootstrap.screen-xs-max
+    breakpoint_id: bootstrap.screen-sm-max
     multiplier: 1x
     image_mapping_type: image_style
     image_mapping: d08_square
   -
-    breakpoint_id: bootstrap.screen-sm-min
+    breakpoint_id: bootstrap.screen-md-min
     multiplier: 1x
     image_mapping_type: image_style
     image_mapping: d07_square
