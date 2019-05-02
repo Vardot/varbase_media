@@ -12,7 +12,7 @@ image_style_mappings:
     image_mapping_type: image_style
     image_mapping: d08_traditional
   -
-    breakpoint_id: bootstrap.screen-sm-max
+    breakpoint_id: bootstrap.screen-md-max
     multiplier: 1x
     image_mapping_type: image_style
     image_mapping: d08_traditional

@@ -8,7 +8,7 @@ id: d03_standard
 label: 'Display 03 responsive standard 16:9'
 image_style_mappings:
   -
-    breakpoint_id: bootstrap.screen-sm-max
+    breakpoint_id: bootstrap.screen-md-max
     multiplier: 1x
     image_mapping_type: image_style
     image_mapping: d08_standard
