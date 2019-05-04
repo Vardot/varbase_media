@@ -4,6 +4,8 @@ dependencies:
   config:
     - image.style.d08
     - image.style.d09
+  module:
+    - varbase_media
 id: d09
 label: 'Display 09 responsive auto'
 image_style_mappings:

@@ -4,6 +4,8 @@ dependencies:
   config:
     - image.style.d08_standard
     - image.style.d10_standard
+  module:
+    - varbase_media
 id: d10_standard
 label: 'Display 10 responsive standard 16:9'
 image_style_mappings:

@@ -5,6 +5,8 @@ dependencies:
     - image.style.d08
     - image.style.d10
     - image.style.d11
+  module:
+    - varbase_media
 id: d11
 label: 'Display 11 responsive auto'
 image_style_mappings:

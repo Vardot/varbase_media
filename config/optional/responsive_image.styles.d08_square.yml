@@ -3,6 +3,8 @@ status: true
 dependencies:
   config:
     - image.style.d08_square
+  module:
+    - varbase_media
 id: d08_square
 label: 'Display 08 responsive square 1:1'
 image_style_mappings:

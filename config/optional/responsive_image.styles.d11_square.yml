@@ -5,6 +5,8 @@ dependencies:
     - image.style.d08_square
     - image.style.d10_square
     - image.style.d11_square
+  module:
+    - varbase_media
 id: d11_square
 label: 'Display 11 responsive square 1:1'
 image_style_mappings:

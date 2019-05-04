@@ -4,6 +4,8 @@ dependencies:
   config:
     - image.style.d07_square
     - image.style.d08_square
+  module:
+    - varbase_media
 id: d07_square
 label: 'Display 07 responsive square 1:1'
 image_style_mappings:

@@ -5,6 +5,8 @@ dependencies:
     - image.style.d08_traditional
     - image.style.d10_traditional
     - image.style.d12_traditional
+  module:
+    - varbase_media
 id: d12_traditional
 label: 'Display 12 responsive traditional 4:3'
 image_style_mappings:

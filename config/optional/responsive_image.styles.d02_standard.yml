@@ -4,6 +4,8 @@ dependencies:
   config:
     - image.style.d02_standard
     - image.style.d04_standard
+  module:
+    - varbase_media
 id: d02_standard
 label: 'Display 02 responsive standard 16:9'
 image_style_mappings:
