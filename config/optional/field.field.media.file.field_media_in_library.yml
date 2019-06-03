@@ -8,7 +8,7 @@ id: media.file.field_media_in_library
 field_name: field_media_in_library
 entity_type: media
 bundle: file
-label: 'Save to Library'
+label: 'Show in media library'
 description: ''
 required: false
 translatable: false
