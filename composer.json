@@ -84,8 +84,8 @@
     "composer-exit-on-patch-failure": true,
     "patches": {
       "drupal/focal_point": {
-        "Issue #2916562: Broken image preview":
-        "https://www.drupal.org/files/issues/2019-03-30/2916562-39.patch"
+        "Issue #3001262: Integrate focal point with media_library, which is now in core":
+        "https://www.drupal.org/files/issues/2019-05-24/focal_point-integrate_with_media_library-3001262-5.patch"
       },
       "drupal/entity_browser": {
         "Issue #2865928: The View widget should filter based on field settings.":
