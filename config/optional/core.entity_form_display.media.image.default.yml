@@ -7,7 +7,7 @@ dependencies:
     - image.style.field_preview
     - media.type.image
   module:
-    - image
+    - focal_point
 id: media.image.default
 targetEntityType: media
 bundle: image
@@ -17,8 +17,10 @@ content:
     settings:
       preview_image_style: field_preview
       progress_indicator: throbber
+      preview_link: true
+      offsets: '50,50'
     third_party_settings: {  }
-    type: image_image
+    type: image_focal_point
     weight: 0
     region: content
   field_media_in_library:
