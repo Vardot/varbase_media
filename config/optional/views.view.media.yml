@@ -1156,15 +1156,7 @@ display:
       display_extenders:
         metatag_display_extender: {  }
       path: admin/content/media-table
-      menu:
-        type: tab
-        title: Media
-        description: ''
-        expanded: false
-        parent: ''
-        weight: 0
-        context: '0'
-        menu_name: main
+      menu: { }
       display_description: ''
     cache_metadata:
       max-age: 0
