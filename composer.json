@@ -47,7 +47,6 @@
     "drupal/embed": "~1.0",
     "drupal/media_entity_instagram": "~2.0",
     "drupal/media_entity_twitter": "~2.0",
-    "drupal/media_entity_googledocs": "~4.0",
     "drupal/crop": "~2.0",
     "drupal/focal_point": "1.0",
     "drupal/imagemagick": "~2.0",
