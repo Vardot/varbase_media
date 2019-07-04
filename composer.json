@@ -88,7 +88,7 @@
       },
       "drupal/entity_browser": {
         "Issue #2877751: Inform users how many items they can add to a field that uses an entity browser.":
-        "https://www.drupal.org/files/issues/2877751-27-8.x-2.x.patch"
+        "https://www.drupal.org/files/issues/2019-07-04/2877751-40.patch"
       }
     }
   }
