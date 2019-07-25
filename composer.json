@@ -42,7 +42,7 @@
     "drupal/entity_browser": "2.2",
     "drupal/entity_browser_enhanced": "~1.0",
     "drupal/dropzonejs": "~2.0",
-    "drupal/entity_embed": "~1.0",
+    "drupal/entity_embed": "1.0",
     "drupal/inline_entity_form": "~1.0",
     "drupal/embed": "~1.0",
     "drupal/media_entity_instagram": "~2.0",
@@ -89,6 +89,10 @@
       "drupal/entity_browser": {
         "Issue #2877751: Inform users how many items they can add to a field that uses an entity browser.":
         "https://www.drupal.org/files/issues/2019-07-04/2877751-40.patch"
+      },
+      "drupal/entity_embed": {
+        "Issue #2511404: Image entities/fields embedded using Entity Embed cannot be linked in CKEditor":
+        "https://www.drupal.org/files/issues/2018-04-23/25114040-47.patch"
       }
     }
   }
