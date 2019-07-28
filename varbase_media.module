@@ -120,6 +120,12 @@ function varbase_media_page_attachments(array &$page) {
     // Attached the varbase media common logged in users library.
     $page['#attached']['library'][] = 'varbase_media/common_logged';
   }
+
+  if (Drupal::service('module_handler')->moduleExists('blazy')) {
+    // Attach the Blazy load library.
+    $page['#attached']['library'][] = 'blazy/load';
+  }
+
 }
 
 /**
@@ -156,23 +162,6 @@ function varbase_media_form_entity_embed_dialog_alter(&$form, FormStateInterface
 
     switch ($bundle_type) {
       case "image":
-
-        // Adding the alt field to the embed dialog form.
-        $form['attributes']['alt'] = [
-          '#title' => t('Alternative text'),
-          '#type' => 'textfield',
-          '#required' => TRUE ,
-          '#default_value' => $entity->field_media_image->alt,
-          '#description' => t('This text will be used by screen readers, search engines, or when the image cannot be loaded.'),
-        ];
-
-        // Adding the title field to the embed dialog form.
-        $form['attributes']['title'] = [
-          '#title' => t('Title'),
-          '#type' => 'textfield',
-          '#default_value' => $entity->field_media_image->title,
-          '#description' => t('The title is used as a tool tip when the user hovers the mouse over the image.'),
-        ];
 
         // Render the Embed entity.
         $form['entity'] = [
@@ -238,6 +227,11 @@ function varbase_media_form_entity_embed_dialog_alter(&$form, FormStateInterface
         if (isset($form['attributes']['data-entity-embed-display-settings'])) {
           unset($form['attributes']['data-entity-embed-display-settings']);
         }
+    }
+
+    if (Drupal::service('module_handler')->moduleExists('blazy')) {
+      // Attach the Blazy library.
+      $form['#attached']['library'][] = 'blazy/load';
     }
 
     if (isset($form['revision_log_message'])) {
