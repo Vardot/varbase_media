@@ -64,11 +64,16 @@ function varbase_media_install() {
   // ---------------------------------------------------------------------------
 
   // Configure widgets for entity browser enhanced behaviours.
-  $config_path = $optional_install_path . '/' . 'entity_browser_enhanced.widgets.yml';
-  $config_content = file_get_contents($config_path);
-  $config_data = (array) Yaml::parse($config_content);
-  $config_factory = \Drupal::configFactory()->getEditable('entity_browser_enhanced.widgets');
-  $config_factory->setData($config_data)->save(TRUE);
+  $ebe_widgets_config_files = file_scan_directory($optional_install_path, '/^entity_browser_enhanced.widgets.*\\.(yml)$/i');
+  if (isset($ebe_widgets_config_files)
+    && is_array($ebe_widgets_config_files)) {
+    foreach ($ebe_widgets_config_files as $ebe_widgets_config_file) {
+      $ebe_widgets_config_file_content = file_get_contents(DRUPAL_ROOT . '/' . $ebe_widgets_config_file->uri);
+      $ebe_widgets_config_file_data = (array) Yaml::parse($ebe_widgets_config_file_content);
+      $ebe_widgets_config_factory = \Drupal::configFactory()->getEditable($ebe_widgets_config_file->name);
+      $ebe_widgets_config_factory->setData($ebe_widgets_config_file_data)->save(TRUE);
+    }
+  }
 
   // Ovarride the media liabrary view.
   $config_path = $optional_install_path . '/' . 'views.view.media_library.yml';
