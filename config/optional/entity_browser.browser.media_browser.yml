@@ -14,20 +14,12 @@ name: media_browser
 label: 'Media Browser'
 display: modal
 display_configuration:
-  width: '1200'
-  height: ''
+  width: '1245'
+  height: '1245'
   link_text: 'Select media'
   auto_open: false
 selection_display: no_display
-selection_display_configuration:
-  entity_type: media
-  display: rendered_entity
-  display_settings:
-    view_mode: default
-  select_text: 'Use selected'
-  selection_hidden: false
-  view: null
-  view_display: null
+selection_display_configuration: {  }
 widget_selector: tabs
 widget_selector_configuration: {  }
 widgets:

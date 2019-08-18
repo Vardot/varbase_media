@@ -1,0 +1,4 @@
+media.source.gallery:
+  type: media.source.field_aware
+  label: '"Gallery" media source configuration'
+

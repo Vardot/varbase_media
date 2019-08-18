@@ -35,15 +35,9 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  status:
-    type: boolean_checkbox
-    settings:
-      display_label: true
-    weight: 3
-    region: content
-    third_party_settings: {  }
 hidden:
   created: true
   langcode: true
   path: true
+  status: true
   uid: true

@@ -223,6 +223,26 @@ function varbase_media_form_entity_embed_dialog_alter(&$form, FormStateInterface
         }
 
       break;
+      case "gallery":
+        // Render the Embed entity.
+
+        if (isset($form['attributes']['data-align'])) {
+          unset($form['attributes']['data-align']);
+        }
+
+        if (isset($form['attributes']['data-entity-embed-display-settings'])) {
+          unset($form['attributes']['data-entity-embed-display-settings']);
+        }
+
+        if (isset($form['attributes']['data-caption'])) {
+          unset($form['attributes']['data-caption']);
+        }
+
+        if (isset($form['attributes']['data-entity-embed-display'])) {
+          $form['attributes']['data-entity-embed-display']['#access'] = FALSE;
+          $form['attributes']['data-entity-embed-display']['#default_value'] = 'view_mode:media.original';
+        }
+      break;
       default :
         if (isset($form['attributes']['data-entity-embed-display-settings'])) {
           unset($form['attributes']['data-entity-embed-display-settings']);
@@ -234,9 +254,20 @@ function varbase_media_form_entity_embed_dialog_alter(&$form, FormStateInterface
       $form['#attached']['library'][] = 'blazy/load';
     }
 
+    // Hide revistion log message.
     if (isset($form['revision_log_message'])) {
       $form['revision_log_message']['#access'] = false;
     }
+  }
+}
+
+/**
+ * Implements hook_inline_entity_form_entity_form_alter().
+ */
+function varbase_media_inline_entity_form_entity_form_alter(&$entity_form, &$form_state) {
+  // Hide revistion log message.
+  if (isset($entity_form['revision_log_message'])) {
+    $entity_form['revision_log_message']['#access'] = false;
   }
 }
 
@@ -263,6 +294,9 @@ function varbase_media_entity_view_alter(array &$build, EntityInterface $entity,
 
   if ($entity->getEntityTypeId() == 'media'
     && $build['#view_mode'] != 'field_preview') {
+
+    $build['#attached']['library'][] = 'varbase_media/varbase_video_player';
+
     if(isset($build['field_media_cover_image'])
       && isset($build['field_media_cover_image']['#items'])) {
 
@@ -373,6 +407,17 @@ function varbase_media_form_alter(&$form, &$form_state, $form_id) {
       || $form_id == 'entity_browser_media_browser_form'
       || $form_id == 'entity_browser_editor_media_browser_form') {
     $form['#attached']['library'][] = 'varbase_media/auto_fill_media_data';
+  }
+
+  if ($form_id === "entity_browser_widgets_config_form") {
+
+    // Attach the varbase media common library.
+    $form['#attached']['library'][] = 'varbase_media/common';
+
+    if (!(\Drupal::currentUser()->isAnonymous())) {
+      // Attached the varbase media common logged in users library.
+      $form['#attached']['library'][] = 'varbase_media/common_logged';
+    }
   }
 }
 
@@ -501,6 +546,12 @@ function varbase_media_theme($existing, $type, $theme, $path) {
   return [
     'media_oembed_iframe__remote_video' => [
       'template' => 'media-oembed-iframe--remote-video',
+    ],
+    'media_entity_gallery_post' => [
+      'variables' => [
+        'post' => NULL,
+        'shortcode' => NULL,
+      ],
     ],
   ];
 }

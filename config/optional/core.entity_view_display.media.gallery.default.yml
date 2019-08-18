@@ -1,0 +1,128 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.media.gallery.field_media_gallery
+    - field.field.media.gallery.field_media_in_library
+    - media.type.gallery
+  module:
+    - ds
+    - slick_media
+third_party_settings:
+  ds:
+    layout:
+      id: layout_onecol
+      library: layout_discovery/onecol
+      disable_css: false
+      entity_classes: all_classes
+      settings: {  }
+    regions:
+      content:
+        - name
+        - field_media_gallery
+id: media.gallery.default
+targetEntityType: media
+bundle: gallery
+mode: default
+content:
+  field_media_gallery:
+    weight: 1
+    label: hidden
+    settings:
+      vanilla: true
+      optionset: varbase_slick
+      optionset_thumbnail: ''
+      skin: ''
+      skin_thumbnail: ''
+      image_style: ''
+      responsive_image_style: ''
+      thumbnail_effect: ''
+      thumbnail_position: ''
+      media_switch: ''
+      thumbnail_style: ''
+      ratio: ''
+      view_mode: se2e_standard
+      image: ''
+      title: ''
+      link: ''
+      layout: ''
+      thumbnail_caption: ''
+      class: ''
+      cache: 0
+      override: true
+      overridables:
+        arrows: arrows
+        autoplay: autoplay
+        infinite: infinite
+        dots: '0'
+        draggable: '0'
+        mouseWheel: '0'
+        randomize: '0'
+        variableWidth: '0'
+      sizes: ''
+      current_view_mode: default
+      background: false
+      caption:
+        field_media_image: '0'
+        field_media_cover_image: '0'
+        field_media_oembed_video: '0'
+        field_media_video_file: '0'
+      breakpoints:
+        xs:
+          image_style: ''
+          width: ''
+        sm:
+          image_style: ''
+          width: ''
+        md:
+          image_style: ''
+          width: ''
+        lg:
+          image_style: ''
+          width: ''
+        xl:
+          image_style: ''
+          width: ''
+      thumbnail: ''
+      skin_arrows: ''
+      skin_dots: ''
+      style: ''
+      icon: ''
+      box_caption: ''
+      box_caption_custom: ''
+      box_style: ''
+      box_media_style: ''
+      preserve_keys: false
+      visible_items: 0
+      grid: 0
+      grid_header: ''
+      grid_medium: 0
+      grid_small: 0
+      id: ''
+      overlay: ''
+    third_party_settings:
+      ds:
+        ds_limit: ''
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    type: slick_media
+    region: content
+  name:
+    type: string
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+hidden:
+  created: true
+  field_media_in_library: true
+  langcode: true
+  search_api_excerpt: true
+  thumbnail: true
+  uid: true

@@ -8,6 +8,7 @@ dependencies:
     module:
       - media_library
   module:
+    - better_exposed_filters
     - image
     - media
     - media_library
@@ -44,7 +45,7 @@ display:
           query_comment: ''
           query_tags: {  }
       exposed_form:
-        type: basic
+        type: bef
         options:
           submit_button: 'Apply filters'
           reset_button: false
@@ -53,6 +54,57 @@ display:
           expose_sort_order: false
           sort_asc_label: Asc
           sort_desc_label: Desc
+          input_required: false
+          text_input_required: 'Select any filter and click on Apply to see results'
+          bef:
+            general:
+              allow_secondary: false
+              secondary_label: 'Advanced options'
+              autosubmit: false
+              autosubmit_exclude_textfield: false
+              autosubmit_hide: false
+            sort:
+              bef_format: default
+              advanced:
+                collapsible: false
+                collapsible_label: 'Sort options'
+                combine: false
+                combine_rewrite: ''
+                reset: false
+                reset_label: ''
+                is_secondary: false
+            status:
+              bef_format: default
+              more_options:
+                bef_select_all_none: false
+                bef_collapsible: false
+                is_secondary: false
+                rewrite:
+                  filter_rewrite_values: ''
+            name:
+              bef_format: default
+              more_options:
+                is_secondary: false
+                placeholder_text: ''
+            bundle:
+              bef_format: default
+              more_options:
+                bef_select_all_none: false
+                bef_collapsible: false
+                is_secondary: false
+                rewrite:
+                  filter_rewrite_values: ''
+            created:
+              bef_format: bef_datepicker
+              more_options:
+                is_secondary: false
+                placeholder_text: ''
+            created_1:
+              bef_format: bef_datepicker
+              more_options:
+                is_secondary: false
+                placeholder_text: ''
+          text_input_required_format: full_html
       pager:
         type: mini
         options:
@@ -397,10 +449,22 @@ display:
         - 'config:core.entity_view_display.media.audio.default'
         - 'config:core.entity_view_display.media.audio.field_preview'
         - 'config:core.entity_view_display.media.audio.media_library'
+        - 'config:core.entity_view_display.media.audio.simplified'
         - 'config:core.entity_view_display.media.file.browser_teaser'
         - 'config:core.entity_view_display.media.file.default'
         - 'config:core.entity_view_display.media.file.field_preview'
         - 'config:core.entity_view_display.media.file.media_library'
+        - 'config:core.entity_view_display.media.file.simplified'
+        - 'config:core.entity_view_display.media.gallery.browser_teaser'
+        - 'config:core.entity_view_display.media.gallery.default'
+        - 'config:core.entity_view_display.media.gallery.field_preview'
+        - 'config:core.entity_view_display.media.gallery.full'
+        - 'config:core.entity_view_display.media.gallery.large'
+        - 'config:core.entity_view_display.media.gallery.media_library'
+        - 'config:core.entity_view_display.media.gallery.medium'
+        - 'config:core.entity_view_display.media.gallery.original'
+        - 'config:core.entity_view_display.media.gallery.simplified'
+        - 'config:core.entity_view_display.media.gallery.small'
         - 'config:core.entity_view_display.media.image.browser_teaser'
         - 'config:core.entity_view_display.media.image.default'
         - 'config:core.entity_view_display.media.image.field_preview'
@@ -461,9 +525,9 @@ display:
         - 'config:core.entity_view_display.media.image.se2e_square'
         - 'config:core.entity_view_display.media.image.se2e_standard'
         - 'config:core.entity_view_display.media.image.se2e_traditional'
+        - 'config:core.entity_view_display.media.image.simplified'
         - 'config:core.entity_view_display.media.image.small'
         - 'config:core.entity_view_display.media.image.token'
-        - 'config:core.entity_view_display.media.image.varbase_media_hero_slider'
         - 'config:core.entity_view_display.media.remote_video.browser_teaser'
         - 'config:core.entity_view_display.media.remote_video.default'
         - 'config:core.entity_view_display.media.remote_video.field_preview'
@@ -525,8 +589,8 @@ display:
         - 'config:core.entity_view_display.media.remote_video.se2e_square'
         - 'config:core.entity_view_display.media.remote_video.se2e_standard'
         - 'config:core.entity_view_display.media.remote_video.se2e_traditional'
+        - 'config:core.entity_view_display.media.remote_video.simplified'
         - 'config:core.entity_view_display.media.remote_video.small'
-        - 'config:core.entity_view_display.media.remote_video.varbase_media_hero_slider'
         - 'config:core.entity_view_display.media.video.browser_teaser'
         - 'config:core.entity_view_display.media.video.default'
         - 'config:core.entity_view_display.media.video.field_preview'
@@ -588,8 +652,8 @@ display:
         - 'config:core.entity_view_display.media.video.se2e_square'
         - 'config:core.entity_view_display.media.video.se2e_standard'
         - 'config:core.entity_view_display.media.video.se2e_traditional'
+        - 'config:core.entity_view_display.media.video.simplified'
         - 'config:core.entity_view_display.media.video.small'
-        - 'config:core.entity_view_display.media.video.varbase_media_hero_slider'
   page:
     display_plugin: page
     id: page
@@ -746,6 +810,7 @@ display:
         fields: false
         filters: false
         filter_groups: false
+        pager: false
       filters:
         status:
           id: status
@@ -983,6 +1048,27 @@ display:
         operator: AND
         groups:
           1: AND
+      pager:
+        type: full
+        options:
+          items_per_page: 24
+          offset: 0
+          id: 0
+          total_pages: null
+          tags:
+            previous: ‹‹
+            next: ››
+            first: '« First'
+            last: 'Last »'
+          expose:
+            items_per_page: true
+            items_per_page_label: Items
+            items_per_page_options: '6, 12, 24, 48, 96'
+            items_per_page_options_all: true
+            items_per_page_options_all_label: '- All -'
+            offset: true
+            offset_label: Offset
+          quantity: 9
     cache_metadata:
       max-age: 0
       contexts:
@@ -996,10 +1082,22 @@ display:
         - 'config:core.entity_view_display.media.audio.default'
         - 'config:core.entity_view_display.media.audio.field_preview'
         - 'config:core.entity_view_display.media.audio.media_library'
+        - 'config:core.entity_view_display.media.audio.simplified'
         - 'config:core.entity_view_display.media.file.browser_teaser'
         - 'config:core.entity_view_display.media.file.default'
         - 'config:core.entity_view_display.media.file.field_preview'
         - 'config:core.entity_view_display.media.file.media_library'
+        - 'config:core.entity_view_display.media.file.simplified'
+        - 'config:core.entity_view_display.media.gallery.browser_teaser'
+        - 'config:core.entity_view_display.media.gallery.default'
+        - 'config:core.entity_view_display.media.gallery.field_preview'
+        - 'config:core.entity_view_display.media.gallery.full'
+        - 'config:core.entity_view_display.media.gallery.large'
+        - 'config:core.entity_view_display.media.gallery.media_library'
+        - 'config:core.entity_view_display.media.gallery.medium'
+        - 'config:core.entity_view_display.media.gallery.original'
+        - 'config:core.entity_view_display.media.gallery.simplified'
+        - 'config:core.entity_view_display.media.gallery.small'
         - 'config:core.entity_view_display.media.image.browser_teaser'
         - 'config:core.entity_view_display.media.image.default'
         - 'config:core.entity_view_display.media.image.field_preview'
@@ -1060,9 +1158,9 @@ display:
         - 'config:core.entity_view_display.media.image.se2e_square'
         - 'config:core.entity_view_display.media.image.se2e_standard'
         - 'config:core.entity_view_display.media.image.se2e_traditional'
+        - 'config:core.entity_view_display.media.image.simplified'
         - 'config:core.entity_view_display.media.image.small'
         - 'config:core.entity_view_display.media.image.token'
-        - 'config:core.entity_view_display.media.image.varbase_media_hero_slider'
         - 'config:core.entity_view_display.media.remote_video.browser_teaser'
         - 'config:core.entity_view_display.media.remote_video.default'
         - 'config:core.entity_view_display.media.remote_video.field_preview'
@@ -1124,8 +1222,8 @@ display:
         - 'config:core.entity_view_display.media.remote_video.se2e_square'
         - 'config:core.entity_view_display.media.remote_video.se2e_standard'
         - 'config:core.entity_view_display.media.remote_video.se2e_traditional'
+        - 'config:core.entity_view_display.media.remote_video.simplified'
         - 'config:core.entity_view_display.media.remote_video.small'
-        - 'config:core.entity_view_display.media.remote_video.varbase_media_hero_slider'
         - 'config:core.entity_view_display.media.video.browser_teaser'
         - 'config:core.entity_view_display.media.video.default'
         - 'config:core.entity_view_display.media.video.field_preview'
@@ -1187,8 +1285,8 @@ display:
         - 'config:core.entity_view_display.media.video.se2e_square'
         - 'config:core.entity_view_display.media.video.se2e_standard'
         - 'config:core.entity_view_display.media.video.se2e_traditional'
+        - 'config:core.entity_view_display.media.video.simplified'
         - 'config:core.entity_view_display.media.video.small'
-        - 'config:core.entity_view_display.media.video.varbase_media_hero_slider'
   widget:
     display_plugin: page
     id: widget
@@ -1468,10 +1566,22 @@ display:
         - 'config:core.entity_view_display.media.audio.default'
         - 'config:core.entity_view_display.media.audio.field_preview'
         - 'config:core.entity_view_display.media.audio.media_library'
+        - 'config:core.entity_view_display.media.audio.simplified'
         - 'config:core.entity_view_display.media.file.browser_teaser'
         - 'config:core.entity_view_display.media.file.default'
         - 'config:core.entity_view_display.media.file.field_preview'
         - 'config:core.entity_view_display.media.file.media_library'
+        - 'config:core.entity_view_display.media.file.simplified'
+        - 'config:core.entity_view_display.media.gallery.browser_teaser'
+        - 'config:core.entity_view_display.media.gallery.default'
+        - 'config:core.entity_view_display.media.gallery.field_preview'
+        - 'config:core.entity_view_display.media.gallery.full'
+        - 'config:core.entity_view_display.media.gallery.large'
+        - 'config:core.entity_view_display.media.gallery.media_library'
+        - 'config:core.entity_view_display.media.gallery.medium'
+        - 'config:core.entity_view_display.media.gallery.original'
+        - 'config:core.entity_view_display.media.gallery.simplified'
+        - 'config:core.entity_view_display.media.gallery.small'
         - 'config:core.entity_view_display.media.image.browser_teaser'
         - 'config:core.entity_view_display.media.image.default'
         - 'config:core.entity_view_display.media.image.field_preview'
@@ -1532,9 +1642,9 @@ display:
         - 'config:core.entity_view_display.media.image.se2e_square'
         - 'config:core.entity_view_display.media.image.se2e_standard'
         - 'config:core.entity_view_display.media.image.se2e_traditional'
+        - 'config:core.entity_view_display.media.image.simplified'
         - 'config:core.entity_view_display.media.image.small'
         - 'config:core.entity_view_display.media.image.token'
-        - 'config:core.entity_view_display.media.image.varbase_media_hero_slider'
         - 'config:core.entity_view_display.media.remote_video.browser_teaser'
         - 'config:core.entity_view_display.media.remote_video.default'
         - 'config:core.entity_view_display.media.remote_video.field_preview'
@@ -1596,8 +1706,8 @@ display:
         - 'config:core.entity_view_display.media.remote_video.se2e_square'
         - 'config:core.entity_view_display.media.remote_video.se2e_standard'
         - 'config:core.entity_view_display.media.remote_video.se2e_traditional'
+        - 'config:core.entity_view_display.media.remote_video.simplified'
         - 'config:core.entity_view_display.media.remote_video.small'
-        - 'config:core.entity_view_display.media.remote_video.varbase_media_hero_slider'
         - 'config:core.entity_view_display.media.video.browser_teaser'
         - 'config:core.entity_view_display.media.video.default'
         - 'config:core.entity_view_display.media.video.field_preview'
@@ -1659,8 +1769,8 @@ display:
         - 'config:core.entity_view_display.media.video.se2e_square'
         - 'config:core.entity_view_display.media.video.se2e_standard'
         - 'config:core.entity_view_display.media.video.se2e_traditional'
+        - 'config:core.entity_view_display.media.video.simplified'
         - 'config:core.entity_view_display.media.video.small'
-        - 'config:core.entity_view_display.media.video.varbase_media_hero_slider'
   widget_table:
     display_plugin: page
     id: widget_table

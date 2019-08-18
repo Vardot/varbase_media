@@ -17,7 +17,15 @@ third_party_settings:
       library: layout_discovery/onecol
       disable_css: false
       entity_classes: all_classes
-      settings: {  }
+      settings:
+        wrappers:
+          ds_content: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+        classes:
+          layout_class: {  }
     regions:
       content:
         - field_media_image
@@ -63,11 +71,11 @@ content:
             fi-def-at: false
     type: image
     weight: 0
-    region: content
+    region: ds_content
   name:
     type: string
     weight: 1
-    region: content
+    region: ds_content
     label: hidden
     settings:
       link_to_entity: true
@@ -81,28 +89,29 @@ content:
             lbw-el: ''
             lbw-cl: ''
             lbw-at: ''
-            ow: true
             ow-el: ''
-            ow-cl: media-library-item__attributes
+            ow-cl: ''
             ow-at: ''
             fis-el: ''
             fis-cl: ''
             fis-at: ''
+            fi: true
             fi-el: ''
-            fi-cl: ''
+            fi-cl: media-library-item__attributes
             fi-at: ''
             suffix: ''
             lbw: false
             lb-col: false
+            ow: false
             ow-def-at: false
             ow-def-cl: false
             fis: false
             fis-def-at: false
-            fi: false
             fi-def-at: false
 hidden:
   created: true
   field_media_in_library: true
   langcode: true
+  search_api_excerpt: true
   thumbnail: true
   uid: true

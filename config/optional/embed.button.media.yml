@@ -2,6 +2,11 @@ langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.media.large
+    - core.entity_view_mode.media.medium
+    - core.entity_view_mode.media.original
+    - core.entity_view_mode.media.small
+    - entity_browser.browser.editor_media_browser
     - media.type.audio
     - media.type.file
     - media.type.image
@@ -28,5 +33,5 @@ type_settings:
     - 'view_mode:media.small'
   entity_browser: editor_media_browser
   entity_browser_settings:
-    display_review: false
+    display_review: true
 icon_uuid: null

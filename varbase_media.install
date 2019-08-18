@@ -6,7 +6,6 @@
  */
 
 use Symfony\Component\Yaml\Yaml;
-use Drupal\Core\Config;
 use Drupal\Core\Config\InstallStorage;
 use Drupal\Core\Config\StorageInterface;
 use Drupal\Core\Config\FileStorage;
@@ -77,5 +76,64 @@ function varbase_media_install() {
   $config_data = (array) Yaml::parse($config_content);
   $config_factory = \Drupal::configFactory()->getEditable('views.view.media_library');
   $config_factory->setData($config_data)->save(TRUE);
+
+  $source = $module_path . '/images/icons';
+  $destination = \Drupal::config('media.settings')->get('icon_base_uri');
+  file_prepare_directory($destination, FILE_CREATE_DIRECTORY | FILE_MODIFY_PERMISSIONS);
+
+  $files = file_scan_directory($source, '/.*\.(svg|png|jpg|jpeg|gif)$/');
+  foreach ($files as $file) {
+    if (!file_exists($destination . DIRECTORY_SEPARATOR . $file->filename)) {
+      file_unmanaged_copy($file->uri, $destination, FILE_EXISTS_ERROR);
+    }
+  }
+
+}
+
+/**
+ * Implements hook_requirements().
+ */
+function varbase_media_requirements($phase) {
+  $requirements = [];
+  if ($phase == 'install') {
+    $destination = \Drupal::config('media.settings')->get('icon_base_uri');
+    file_prepare_directory($destination, FILE_CREATE_DIRECTORY | FILE_MODIFY_PERMISSIONS);
+    $is_writable = is_writable($destination);
+    $is_directory = is_dir($destination);
+    if (!$is_writable || !$is_directory) {
+      if (!$is_directory) {
+        $error = t('The directory %directory does not exist.', ['%directory' => $destination]);
+      }
+      else {
+        $error = t('The directory %directory is not writable.', ['%directory' => $destination]);
+      }
+      $description = t('An automated attempt to create this directory failed, possibly due to a permissions problem. To proceed with the installation, either create the directory and modify its permissions manually or ensure that the installer has the permissions to create it automatically. For more information, see INSTALL.txt or the <a href=":handbook_url">online handbook</a>.', [':handbook_url' => 'https://www.drupal.org/server-permissions']);
+      if (!empty($error)) {
+        $description = $error . ' ' . $description;
+        $requirements['varbase_media']['description'] = $description;
+        $requirements['varbase_media']['severity'] = REQUIREMENT_ERROR;
+      }
+    }
+  }
+  return $requirements;
+}
+
+/**
+ * Add Media gallery and icon.
+ */
+function varbase_media_update_8700() {
+
+  $module_path = Drupal::service('module_handler')->getModule('varbase_media')->getPath();
+
+  $source = $module_path . '/images/icons';
+  $destination = \Drupal::config('media.settings')->get('icon_base_uri');
+  file_prepare_directory($destination, FILE_CREATE_DIRECTORY | FILE_MODIFY_PERMISSIONS);
+
+  $files = file_scan_directory($source, '/.*\.(svg|png|jpg|jpeg|gif)$/');
+  foreach ($files as $file) {
+    if (!file_exists($destination . DIRECTORY_SEPARATOR . $file->filename)) {
+      file_unmanaged_copy($file->uri, $destination, FILE_EXISTS_ERROR);
+    }
+  }
 
 }

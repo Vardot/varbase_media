@@ -14,8 +14,8 @@ dependencies:
 third_party_settings:
   ds:
     layout:
-      id: ds_1col
-      library: null
+      id: layout_onecol
+      library: layout_discovery/onecol
       disable_css: false
       entity_classes: all_classes
       settings:
@@ -28,7 +28,7 @@ third_party_settings:
         classes:
           layout_class: {  }
     regions:
-      ds_content:
+      content:
         - thumbnail
         - field_media_cover_image
         - name
@@ -91,24 +91,24 @@ content:
             lbw-el: ''
             lbw-cl: ''
             lbw-at: ''
-            ow: true
             ow-el: ''
-            ow-cl: media-library-item__attributes
+            ow-cl: ''
             ow-at: ''
             fis-el: ''
             fis-cl: ''
             fis-at: ''
+            fi: true
             fi-el: ''
-            fi-cl: ''
+            fi-cl: media-library-item__attributes
             fi-at: ''
             suffix: ''
             lbw: false
             lb-col: false
+            ow: false
             ow-def-at: false
             ow-def-cl: false
             fis: false
             fis-def-at: false
-            fi: false
             fi-def-at: false
   thumbnail:
     type: image
@@ -152,4 +152,5 @@ hidden:
   field_media_in_library: true
   field_media_video_file: true
   langcode: true
+  search_api_excerpt: true
   uid: true

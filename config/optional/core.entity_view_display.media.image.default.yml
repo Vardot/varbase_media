@@ -17,7 +17,6 @@ content:
     label: visually_hidden
     settings:
       image_style: ''
-      iframe_lazy: true
       icon: ''
       layout: ''
       thumbnail_style: ''
@@ -58,5 +57,6 @@ hidden:
   field_media_in_library: true
   langcode: true
   name: true
+  search_api_excerpt: true
   thumbnail: true
   uid: true

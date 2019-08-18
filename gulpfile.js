@@ -13,7 +13,7 @@ const paths = {
   js: {  }
 }
 
-// Compile sass into CSS & auto-inject into browsers
+// Compile sass into CSS & auto-inject into browsers.
 function compile () {
   var sassOptions = {
     outputStyle: 'expanded',
@@ -40,7 +40,7 @@ function compile () {
     .pipe(browserSync.stream())
 }
 
-// Watching scss files
+// Watching scss files.
 function watch () {
   gulp.watch([paths.scss.watch], compile)
 }

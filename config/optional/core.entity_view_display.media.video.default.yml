@@ -6,6 +6,7 @@ dependencies:
     - field.field.media.video.field_media_in_library
     - field.field.media.video.field_media_video_file
     - media.type.video
+    - responsive_image.styles.de2e_standard
   module:
     - blazy
     - ds
@@ -42,7 +43,6 @@ content:
     label: hidden
     settings:
       responsive_image_style: de2e_standard
-      iframe_lazy: true
       icon: ''
       layout: ''
       thumbnail_style: ''
@@ -143,5 +143,6 @@ hidden:
   field_media_in_library: true
   langcode: true
   name: true
+  search_api_excerpt: true
   thumbnail: true
   uid: true

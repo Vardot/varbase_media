@@ -3,6 +3,7 @@ status: true
 dependencies:
   config:
     - media.type.image
+    - media.type.video
     - views.view.media_browsers
   module:
     - dropzonejs_eb_widget
@@ -14,7 +15,7 @@ label: 'Editor Media Browser'
 display: iframe
 display_configuration:
   width: 100%
-  height: '700'
+  height: '850'
   link_text: 'Select media'
   auto_open: true
 selection_display: no_display
@@ -25,7 +26,7 @@ widgets:
   0ce5dbdc-76cf-4c4e-a020-03328ef20f1c:
     settings:
       view: media_browsers
-      view_display: editor_media_browser
+      view_display: media_browser
       submit_text: 'Select media'
       auto_select: false
     uuid: 0ce5dbdc-76cf-4c4e-a020-03328ef20f1c
@@ -37,7 +38,7 @@ widgets:
       submit_text: 'Embed media'
       form_mode: entity_browser
     uuid: 0f828fb5-d820-46c1-9260-d706fe92b367
-    weight: -8
+    weight: -7
     label: Embed
     id: embed_code
   422803d7-21aa-471b-8d65-335f345c4e30:
@@ -54,8 +55,27 @@ widgets:
       resize_quality: !!float 1
       resize_method: contain
       thumbnail_method: contain
-      submit_text: 'Select media'
+      submit_text: 'Select image(s)'
     uuid: 422803d7-21aa-471b-8d65-335f345c4e30
     weight: -9
-    label: Upload
+    label: 'Upload image'
+    id: dropzonejs_media_entity_inline_entity_form
+  c05a5c40-6a5e-4a45-a841-7ba471656952:
+    settings:
+      form_mode: entity_browser
+      media_type: video
+      upload_location: 'public://videos/[date:custom:Y]-[date:custom:m]'
+      dropzone_description: 'Drop video files here to upload them'
+      max_filesize: 128M
+      extensions: 'mp4 webm ogv'
+      clientside_resize: false
+      resize_width: null
+      resize_height: null
+      resize_quality: !!float 1
+      resize_method: contain
+      thumbnail_method: contain
+      submit_text: 'Select video(s)'
+    uuid: c05a5c40-6a5e-4a45-a841-7ba471656952
+    weight: -8
+    label: 'Upload video'
     id: dropzonejs_media_entity_inline_entity_form

@@ -11,6 +11,27 @@ dependencies:
   module:
     - ds
     - image
+third_party_settings:
+  ds:
+    layout:
+      id: ds_1col
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        wrappers:
+          ds_content: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+        classes:
+          layout_class: {  }
+    regions:
+      ds_content:
+        - thumbnail
+        - field_media_cover_image
+        - name
 id: media.remote_video.field_preview
 targetEntityType: media
 bundle: remote_video
@@ -19,7 +40,7 @@ content:
   field_media_cover_image:
     type: image
     weight: 1
-    region: content
+    region: ds_content
     label: hidden
     settings:
       image_style: field_preview
@@ -27,15 +48,36 @@ content:
     third_party_settings:
       ds:
         ft:
-          id: default
+          id: expert
           settings:
             lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow: true
+            ow-el: ''
+            ow-cl: video-player-icon
+            ow-at: ''
+            ow-def-at: true
+            ow-def-cl: true
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lbw: false
             lb-col: false
-            classes: {  }
+            fis: false
+            fis-def-at: false
+            fi: false
+            fi-def-at: false
   name:
     type: string
     weight: 2
-    region: content
+    region: ds_content
     label: hidden
     settings:
       link_to_entity: false
@@ -43,7 +85,7 @@ content:
   thumbnail:
     type: image
     weight: 0
-    region: content
+    region: ds_content
     label: hidden
     settings:
       image_style: field_preview
@@ -51,14 +93,36 @@ content:
     third_party_settings:
       ds:
         ft:
-          id: default
+          id: expert
           settings:
             lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow: true
+            ow-el: ''
+            ow-cl: video-player-icon
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lbw: false
             lb-col: false
-            classes: {  }
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi: false
+            fi-def-at: false
 hidden:
   created: true
   field_media_in_library: true
   field_media_oembed_video: true
   langcode: true
+  search_api_excerpt: true
   uid: true
