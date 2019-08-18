@@ -6,7 +6,6 @@
  * 
  * They have changed this in Drupal 8.7.0 with other style.
  */
-
 .media-library-views-form__header .form-item {
   margin-right: 8px;
 }
@@ -16,12 +15,17 @@
 }
 
 .media-library-item {
-  justify-content: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   vertical-align: top;
   border: 1px solid #dbdbdb;
   margin: 16px 16px 2px 2px;
   width: 180px;
   background: #fff;
+  -webkit-transition: border-color 0.2s, color 0.2s, background 0.2s;
+  -o-transition: border-color 0.2s, color 0.2s, background 0.2s;
   transition: border-color 0.2s, color 0.2s, background 0.2s;
 }
 
@@ -36,7 +40,9 @@
 .media-library-view .media-library-view--form-actions {
   clear: left;
   margin: 0.75em 0;
-  align-self: flex-end;
+  -webkit-align-self: flex-end;
+      -ms-flex-item-align: end;
+          align-self: flex-end;
 }
 
 .media-library-item .field--name-thumbnail {
@@ -47,13 +53,13 @@
 
 .media-library-item .field--name-thumbnail img {
   height: 180px;
-  object-fit: contain;
-  object-position: center center;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: center center;
+     object-position: center center;
 }
 
-.media-library-item.is-hover,
-.media-library-item.checked,
-.media-library-item.is-focus {
+.media-library-item.is-hover, .media-library-item.checked, .media-library-item.is-focus {
   border-color: #40b6ff;
   border-width: 3px;
   border-radius: 3px;
@@ -183,12 +189,15 @@
   height: 24px;
   margin: 5px;
   padding: 0;
-  background: url('../../../misc/icons/787878/ex.svg') #fff center no-repeat;
-  background-size: 16px 16px;
+  background: url("../../../misc/icons/787878/ex.svg") #fff center no-repeat;
+  -webkit-background-size: 16px 16px;
+          background-size: 16px 16px;
   border: 2px solid #ccc;
   border-radius: 20px;
   color: transparent;
   text-shadow: none;
+  -webkit-transition: 0.2s border-color;
+  -o-transition: 0.2s border-color;
   transition: 0.2s border-color;
 }
 
@@ -203,13 +212,21 @@
 /* Style the wrappers around new media and files */
 .media-library-upload__media,
 .media-library-upload__file {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
   padding: 20px 0 20px 0;
 }
 
 .media-library-upload__file {
-  align-items: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .media-library-upload__file-label {
@@ -229,9 +246,18 @@
   margin-right: 20px;
   width: 220px;
   background: #ebebeb;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .media-library-upload__media-preview img {

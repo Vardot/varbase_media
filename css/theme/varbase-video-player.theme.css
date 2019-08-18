@@ -1,6 +1,7 @@
 .video-player-icon {
   position: relative;
 }
+
 .video-player-icon.js-video-player-icon {
   position: absolute;
   top: 0;
@@ -10,12 +11,15 @@
   cursor: pointer;
   z-index: 3;
 }
+
 .video-player-icon:after {
   content: "";
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+       -o-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
   background: url(../../images/play.svg) no-repeat center center;
   height: 72px;
   width: 72px;
@@ -23,13 +27,16 @@
   font-size: 15%;
   cursor: pointer;
 }
+
 .video-player-icon:hover:after {
   opacity: 0.75;
 }
+
 [dir="rtl"] .video-player-icon.js-video-player-icon {
   right: 0;
   left: auto;
 }
+
 .media--type-video-embed,
 .media--type-remote-video,
 .media--type-video {
