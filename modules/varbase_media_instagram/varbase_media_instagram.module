@@ -43,10 +43,12 @@ function varbase_media_instagram_form_entity_embed_dialog_alter(&$form, FormStat
     $values = $form_state->getValues();
 
     if ($bundle_type == "instagram") {
+        $builder = \Drupal::entityTypeManager()->getViewBuilder($entity->getEntityTypeId());
+
         // Render the Embed entity.
         $form['entity'] = [
           '#type' => 'item',
-          '#markup' => \Drupal::service('renderer')->renderRoot(entity_view($entity, 's06')),
+          '#markup' => \Drupal::service('renderer')->renderRoot($builder->view($entity, 's06')),
         ];
 
         if (isset($form['attributes']['data-align'])) {

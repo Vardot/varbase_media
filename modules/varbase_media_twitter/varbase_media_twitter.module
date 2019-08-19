@@ -42,11 +42,13 @@ function varbase_media_twitter_form_entity_embed_dialog_alter(&$form, FormStateI
     $bundle_type = $entity->bundle();
     $values = $form_state->getValues();
 
-    if ($bundle_type == "tweet") { 
+    if ($bundle_type == "tweet") {
+        $builder = \Drupal::entityTypeManager()->getViewBuilder($entity->getEntityTypeId());
+
         // Render the Embed entity.
         $form['entity'] = [
           '#type' => 'item',
-          '#markup' => \Drupal::service('renderer')->renderRoot(entity_view($entity, 's06')),
+          '#markup' => \Drupal::service('renderer')->renderRoot($builder->view($entity, 's06')),
         ];
 
         if (isset($form['attributes']['data-align'])) {
