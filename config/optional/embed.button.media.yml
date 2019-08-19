@@ -1,3 +1,4 @@
+uuid: a0ff9b5d-3493-4c81-9f2c-01b947101b33
 langcode: en
 status: true
 dependencies:
@@ -31,7 +32,10 @@ type_settings:
     - 'view_mode:media.medium'
     - 'view_mode:media.original'
     - 'view_mode:media.small'
+  inline_entity_form: 0
+  inline_entity_form_settings:
+    entity_form_display: default
   entity_browser: editor_media_browser
   entity_browser_settings:
     display_review: true
-icon_uuid: null
+icon_uuid: 0c8d8f34-e57a-46e7-a0f3-3da1c1d631f6

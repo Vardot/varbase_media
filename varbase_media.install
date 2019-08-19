@@ -9,6 +9,7 @@ use Symfony\Component\Yaml\Yaml;
 use Drupal\Core\Config\InstallStorage;
 use Drupal\Core\Config\StorageInterface;
 use Drupal\Core\Config\FileStorage;
+use Drupal\Core\Config\ExtensionInstallStorage;
 
 /**
  * Implements hook_install().
@@ -81,6 +82,7 @@ function varbase_media_install() {
   $config_factory = \Drupal::configFactory()->getEditable('views.view.media_library');
   $config_factory->setData($config_data)->save(TRUE);
 
+  // Load Media types icons for the media libraray table view page.
   $source = $module_path . '/images/icons';
   $destination = \Drupal::config('media.settings')->get('icon_base_uri');
   file_prepare_directory($destination, FILE_CREATE_DIRECTORY | FILE_MODIFY_PERMISSIONS);
@@ -90,6 +92,30 @@ function varbase_media_install() {
     if (!file_exists($destination . DIRECTORY_SEPARATOR . $file->filename)) {
       file_unmanaged_copy($file->uri, $destination, FILE_EXISTS_ERROR);
     }
+  }
+
+  // Add CKEditor Embed Media Library and Embed Gallery Icons.
+  if (!\Drupal::isConfigSyncing()) {
+
+    // CKEditor Embed Media Library icon for the gallery embed entity button.
+    $embed_media_data = file_get_contents(dirname(__FILE__) . '/images/ckeditor/embed-media.png');
+    /** @var \Drupal\file\FileInterface $file */
+    $embed_media_file = file_save_data($embed_media_data, 'public://embed-media.png', FILE_EXISTS_REPLACE);
+    // Set file uuid same as default config.
+    $embed_media_uuid = (new ExtensionInstallStorage(\Drupal::service('config.storage')))->read('embed.button.media')['icon_uuid'];
+    $embed_media_file->set('uuid', $embed_media_uuid);
+    $embed_media_file->save();
+    \Drupal::service('file.usage')->add($embed_media_file, 'embed', 'embed_button', 'media');
+
+    // CKEditor Embed Gallery icon for the gallery embed entity button.
+    $embed_gallery_data = file_get_contents(dirname(__FILE__) . '/images/ckeditor/embed-gallery.png');
+    /** @var \Drupal\file\FileInterface $file */
+    $embed_gallery_file = file_save_data($embed_gallery_data, 'public://embed-gallery.png', FILE_EXISTS_REPLACE);
+    // Set file uuid same as default config.
+    $embed_gallery_uuid = (new ExtensionInstallStorage(\Drupal::service('config.storage')))->read('embed.button.gallery')['icon_uuid'];
+    $embed_gallery_file->set('uuid', $embed_gallery_uuid);
+    $embed_gallery_file->save();
+    \Drupal::service('file.usage')->add($embed_gallery_file, 'embed', 'embed_button', 'gallery');
   }
 
 }
