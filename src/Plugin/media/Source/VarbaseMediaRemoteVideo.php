@@ -6,13 +6,12 @@ use Drupal\media\MediaTypeInterface;
 use Drupal\entity_browser_generic_embed\InputMatchInterface;
 use Drupal\media\Plugin\media\Source\OEmbed as DrupalCoreOEmbed;
 use Drupal\media\Plugin\Validation\Constraint\OEmbedResourceConstraint;
-use Drupal\media\MediaInterface;
 
 /**
  * Input-matching version of the Varbase Media Remote Video media source.
  */
 class VarbaseMediaRemoteVideo extends DrupalCoreOEmbed implements InputMatchInterface {
-  
+
   /**
    * {@inheritdoc}
    */

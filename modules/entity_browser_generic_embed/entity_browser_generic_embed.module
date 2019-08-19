@@ -8,23 +8,16 @@
 use Drupal\Component\Utility\Unicode;
 use Drupal\Core\Entity\Display\EntityFormDisplayInterface;
 use Drupal\Core\Field\FieldStorageDefinitionInterface;
-use Drupal\Core\Field\WidgetInterface;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\Core\StringTranslation\PluralTranslatableMarkup as Plural;
 use Drupal\ckeditor\Ajax\AddStyleSheetCommand;
-use Drupal\entity_browser\Element\EntityBrowserElement;
-use Drupal\entity_browser\Entity\EntityBrowser;
 use Drupal\file\FileInterface;
 use Drupal\image\Entity\ImageStyle;
 use Drupal\image\Plugin\Field\FieldType\ImageItem;
-use Drupal\image\Plugin\Field\FieldWidget\ImageWidget;
 use Drupal\image\Plugin\ImageEffect\ResizeImageEffect;
 use Drupal\entity_browser_generic_embed\Exception\IndeterminateBundleException;
 use Drupal\entity_browser_generic_embed\MediaHelper;
-use Drupal\entity_browser_generic_embed\Form\MediaForm;
 use Drupal\media\Entity\MediaType;
 use Drupal\media\MediaInterface;
-use Drupal\media\MediaTypeInterface;
 use Drupal\views\ViewEntityInterface;
 
 /**

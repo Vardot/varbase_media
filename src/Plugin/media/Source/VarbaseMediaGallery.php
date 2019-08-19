@@ -52,8 +52,10 @@ class VarbaseMediaGallery extends MediaSourceBase implements MediaSourceEntityCo
 
       case 'length':
         return $media->{$source_field}->count();
+
       case 'thumbnail_uri':
-          return parent::getMetadata($media, 'thumbnail_uri');
+        return parent::getMetadata($media, 'thumbnail_uri');
+
       default:
         return parent::getMetadata($media, $name);
     }

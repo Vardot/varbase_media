@@ -5,7 +5,6 @@ namespace Drupal\varbase_media\Plugin\media\Source;
 use Drupal\entity_browser_generic_embed\FileInputExtensionMatchTrait;
 use Drupal\entity_browser_generic_embed\InputMatchInterface;
 use Drupal\media\Plugin\media\Source\File as DrupalCoreMediaFile;
-use Drupal\media\MediaInterface;
 
 /**
  * Input-matching version of the Varbase Media File media source.

@@ -72,7 +72,11 @@ abstract class EntityFormProxy extends WidgetBase {
    *   returned array will be empty.
    */
   protected function getAllowedBundles(FormStateInterface $form_state) {
-    return (array) $form_state->get(['entity_browser', 'widget_context', 'target_bundles']);
+    return (array) $form_state->get([
+      'entity_browser',
+      'widget_context',
+      'target_bundles',
+    ]);
   }
 
   /**
@@ -165,7 +169,7 @@ abstract class EntityFormProxy extends WidgetBase {
    *
    * @param array $form
    *   The complete form.
-   * @param FormStateInterface $form_state
+   * @param \Drupal\Core\Form\FormStateInterface $form_state
    *   The current form state.
    *
    * @return \Drupal\Core\Ajax\AjaxResponse

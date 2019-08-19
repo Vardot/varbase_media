@@ -1,6 +1,7 @@
 #  Entity Browser Generic Embed
 
-A generic/global embed text area for Entity Browsers that allows you to paste any URL to create a media entity based on the URL schema.
+A generic/global embed text area for Entity Browsers that allows you to paste
+any URL to create a media entity based on the URL schema.
 
 Inspired by the work in the [Lightning](https://www.drupal.org/project/lightning)
  Drupal distribution and the

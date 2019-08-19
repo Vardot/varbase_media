@@ -2,6 +2,7 @@
 
 namespace Drupal\entity_browser_generic_embed\Plugin\EntityBrowser\Widget;
 
+use Drupal\Core\Field\FieldFilteredMarkup;
 use Drupal\Core\Form\FormStateInterface;
 
 /**
@@ -54,12 +55,15 @@ class EmbedCode extends EntityFormProxy {
   }
 
   /**
-   * Get Embed Description
-   * 
-   * @param FormStateInterface $form_state
-   * @return String
+   * Get Embed Description.
+   *
+   * @param \Drupal\Core\Form\FormStateInterface $form_state
+   *   The Status of the form.
+   *
+   * @return string
+   *   Description Markup.
    */
-  function getEmbedDescription(FormStateInterface $form_state) {
+  public function getEmbedDescription(FormStateInterface $form_state) {
     // Embed Description.
     $embedDescription = "<h5>" . $this->t("You can embed any of the following media by pasting a single complete URL:") . "</h5>";
     $embedDescription .= "<ul>";
@@ -137,7 +141,7 @@ class EmbedCode extends EntityFormProxy {
 
     $embedDescription .= "</ul>";
 
-    return \Drupal\Core\Field\FieldFilteredMarkup::create($embedDescription);
+    return FieldFilteredMarkup::create($embedDescription);
   }
 
 }

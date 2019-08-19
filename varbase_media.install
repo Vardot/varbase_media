@@ -19,8 +19,8 @@ function varbase_media_install() {
   $module_path = Drupal::service('module_handler')->getModule($module_name)->getPath();
 
   // Processer for install: in [$module_name].info.yml file.
-  // ---------------------------------------------------------------------------
-  $module_info_file = $module_path . '/'. $module_name . '.info.yml';
+  // --------------------------------------------------------------------------.
+  $module_info_file = $module_path . '/' . $module_name . '.info.yml';
   if (file_exists($module_info_file)) {
     $module_info_data = (array) Yaml::parse(file_get_contents($module_info_file));
     if (isset($module_info_data['install'])
@@ -61,8 +61,7 @@ function varbase_media_install() {
       }
     }
   }
-  // ---------------------------------------------------------------------------
-
+  // --------------------------------------------------------------------------.
   // Configure widgets for entity browser enhanced behaviours.
   $ebe_widgets_config_files = file_scan_directory($optional_install_path, '/^entity_browser_enhanced.widgets.*\\.(yml)$/i');
   if (isset($ebe_widgets_config_files)

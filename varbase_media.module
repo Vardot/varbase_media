@@ -5,24 +5,15 @@
  * Contains varbase_media.module.
  */
 
+use Drupal\Core\Entity\EntityFormInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\editor\Entity\Editor;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
-use Drupal\Core\Entity\Display\EntityFormDisplayInterface;
-use Drupal\field\Entity\FieldStorageConfig;
-use Drupal\ds\Ds;
 use Drupal\entity_browser_generic_embed\OverrideHelper as Override;
-use Drupal\varbase_media\Plugin\media\Source\VarbaseMediaFile;
-use Drupal\varbase_media\Plugin\media\Source\VarbaseMediaImage;
-use Drupal\varbase_media\Plugin\media\Source\VarbaseMediaAudioFile;
-use Drupal\varbase_media\Plugin\media\Source\VarbaseMediaVideoFile;
 use Drupal\varbase_media\Plugin\media\Source\VarbaseMediaRemoteVideo;
-use Drupal\Component\Utility\Html;
-use Drupal\Component\Serialization\Json;
 use Drupal\Component\Utility\UrlHelper;
 use Drupal\Core\Render\BubbleableMetadata;
-use Drupal\Core\Datetime\Entity\DateFormat;
 use Drupal\Core\Language\LanguageInterface;
 use Drupal\image\Entity\ImageStyle;
 use Drupal\Core\Entity\Entity\EntityViewDisplay;
@@ -33,7 +24,7 @@ use Drupal\Core\Url;
  */
 function varbase_media_preprocess_field(&$variables) {
   // Provide an extra variable to the field template when the field uses
-  // a formatter of type 'oembed'
+  // a formatter of type 'oembed'.
   $resource_fetcher = \Drupal::service('media.oembed.resource_fetcher');
   $url_resolver = \Drupal::service('media.oembed.url_resolver');
   $iframe_url_helper = \Drupal::service('media.oembed.iframe_url_helper');
@@ -46,7 +37,7 @@ function varbase_media_preprocess_field(&$variables) {
     $field_name = $variables['element']['#field_name'];
     $bundle = $variables['element']['#bundle'];
 
-    // get the field formatter settings...
+    // Get the field formatter settings...
     $entity_display = EntityViewDisplay::collectRenderDisplay($entity, $view_mode);
     $field_display = $entity_display->getComponent($field_name);
 
@@ -98,7 +89,7 @@ function varbase_media_theme_suggestions_media_oembed_iframe_alter(&$suggestions
   $type = $query->get('type');
   $provider = $query->get('provider');
   $view_mode = $query->get('view_mode');
-  if($type && $provider){
+  if ($type && $provider) {
     $suggestions[] = "media_oembed_iframe__" . $provider;
     $suggestions[] = "media_oembed_iframe__" . $provider . "__" . $view_mode;
     $suggestions[] = "media_oembed_iframe__" . $view_mode;
@@ -151,14 +142,13 @@ function varbase_media_form_entity_embed_dialog_alter(&$form, FormStateInterface
   if ($form_state->get('step') == 'embed') {
 
     // Get the entity values and attributes.
-    $entity_element = empty($values['attributes']) ? array() : $values['attributes'];
+    $entity_element = [];
     $entity_element += $form_state->get('entity_element');
     $form_state->set('entity_element', $entity_element);
     $entity = $form_state->get('entity');
 
     // Get the entity bundle type.
     $bundle_type = $entity->bundle();
-    $values = $form_state->getValues();
     $builder = \Drupal::entityTypeManager()->getViewBuilder($entity->getEntityTypeId());
 
     switch ($bundle_type) {
@@ -223,10 +213,10 @@ function varbase_media_form_entity_embed_dialog_alter(&$form, FormStateInterface
           $form['attributes']['data-entity-embed-display']['#default_value'] = 'view_mode:media.original';
         }
 
-      break;
+        break;
+
       case "gallery":
         // Render the Embed entity.
-
         if (isset($form['attributes']['data-align'])) {
           unset($form['attributes']['data-align']);
         }
@@ -243,8 +233,9 @@ function varbase_media_form_entity_embed_dialog_alter(&$form, FormStateInterface
           $form['attributes']['data-entity-embed-display']['#access'] = FALSE;
           $form['attributes']['data-entity-embed-display']['#default_value'] = 'view_mode:media.original';
         }
-      break;
-      default :
+        break;
+
+      default:
         if (isset($form['attributes']['data-entity-embed-display-settings'])) {
           unset($form['attributes']['data-entity-embed-display-settings']);
         }
@@ -257,7 +248,7 @@ function varbase_media_form_entity_embed_dialog_alter(&$form, FormStateInterface
 
     // Hide revistion log message.
     if (isset($form['revision_log_message'])) {
-      $form['revision_log_message']['#access'] = false;
+      $form['revision_log_message']['#access'] = FALSE;
     }
   }
 }
@@ -268,7 +259,7 @@ function varbase_media_form_entity_embed_dialog_alter(&$form, FormStateInterface
 function varbase_media_inline_entity_form_entity_form_alter(&$entity_form, &$form_state) {
   // Hide revistion log message.
   if (isset($entity_form['revision_log_message'])) {
-    $entity_form['revision_log_message']['#access'] = false;
+    $entity_form['revision_log_message']['#access'] = FALSE;
   }
 }
 
@@ -298,7 +289,7 @@ function varbase_media_entity_view_alter(array &$build, EntityInterface $entity,
 
     $build['#attached']['library'][] = 'varbase_media/varbase_video_player';
 
-    if(isset($build['field_media_cover_image'])
+    if (isset($build['field_media_cover_image'])
       && isset($build['field_media_cover_image']['#items'])) {
 
       $fields = $build['field_media_cover_image']['#items'];
@@ -333,48 +324,8 @@ function varbase_media_entity_view_alter(array &$build, EntityInterface $entity,
  */
 function varbase_media_media_source_info_alter(array &$sources) {
 
-  // File.
-  // ---------------------------------------------------------------------------
-  //  $sources['file']['input_match'] = [
-  //    'constraint' => 'file',
-  //    'field_types' => [
-  //      'file',
-  //    ],
-  //  ];
-  //  Override::pluginClass($sources['file'], VarbaseMediaFile::class);
-
-  // Image.
-  // ---------------------------------------------------------------------------
-  //  $sources['image']['input_match'] = [
-  //    'constraint' => 'image',
-  //    'field_types' => [
-  //      'image',
-  //    ],
-  //  ];
-  //  Override::pluginClass($sources['image'], VarbaseMediaImage::class);
-
-  // Audio file.
-  // ---------------------------------------------------------------------------
-  //  $sources['audio_file']['input_match'] = [
-  //    'constraint' => 'file',
-  //    'field_types' => [
-  //      'file',
-  //    ],
-  //  ];
-  //  Override::pluginClass($sources['audio_file'], VarbaseMediaAudioFile::class);
-
-  // Video file.
-  // ---------------------------------------------------------------------------
-  //  $sources['video_file']['input_match'] = [
-  //    'constraint' => 'file',
-  //    'field_types' => [
-  //      'file',
-  //    ],
-  //  ];
-  //  Override::pluginClass($sources['video_file'], VarbaseMediaVideoFile::class);
-
   // Remote Video.
-  // ---------------------------------------------------------------------------
+  // --------------------------------------------------------------------------.
   $sources['oembed:video']['input_match'] = [
     'constraint' => 'oembed_resource',
     'field_types' => [
@@ -392,7 +343,7 @@ function varbase_media_media_source_info_alter(array &$sources) {
  * Implements hook_form_alter().
  */
 function varbase_media_form_alter(&$form, &$form_state, $form_id) {
-  if ($form_state->getFormObject() instanceof \Drupal\Core\Entity\EntityFormInterface) {
+  if ($form_state->getFormObject() instanceof EntityFormInterface) {
     $entity_type = $form_state->getFormObject()->getEntity()->getEntityTypeId();
 
     // Only for media entity type.
@@ -454,9 +405,7 @@ function varbase_media_token_info_alter(&$data) {
  */
 function varbase_media_tokens($type, $tokens, array $data, array $options, BubbleableMetadata $bubbleable_metadata) {
 
-  $url_options = ['absolute' => TRUE];
   if (isset($options['langcode'])) {
-    $url_options['language'] = \Drupal::languageManager()->getLanguage($options['langcode']);
     $langcode = $options['langcode'];
   }
   else {
@@ -474,17 +423,17 @@ function varbase_media_tokens($type, $tokens, array $data, array $options, Bubbl
         // Social Large (1200x630) image for the selected media type.
         case 'social_large':
           $replacements[$original] = _varbase_media_image_url($media_entity, 'social_large');
-        break;
+          break;
 
         // Social Medium (600x315) image for the selected media type.
         case 'social_medium':
           $replacements[$original] = _varbase_media_image_url($media_entity, 'social_medium');
-        break;
+          break;
 
         // Social Small (280x150) image for the selected media type.
         case 'social_small':
           $replacements[$original] = _varbase_media_image_url($media_entity, 'social_small');
-        break;
+          break;
       }
     }
   }
@@ -494,7 +443,6 @@ function varbase_media_tokens($type, $tokens, array $data, array $options, Bubbl
 
 /**
  * Get the URL with image style for a selected media entity.
- *
  */
 function _varbase_media_image_url($media_entity, $style_name = NULL) {
 
@@ -505,8 +453,8 @@ function _varbase_media_image_url($media_entity, $style_name = NULL) {
       if (!empty($style_name)) {
         return ImageStyle::load($style_name)
           ->buildUrl($file_entity->get('uri')
-          ->first()
-          ->getString());
+            ->first()
+            ->getString());
       }
       else {
         return file_create_url($file_entity->get('uri')->getString());
@@ -524,12 +472,12 @@ function _varbase_media_default_image_field_name($media_entity) {
 
   // Media entities with a valied field media image data it will come first.
   if (isset($media_entity->field_media_image)
-      && $img_entity = $media_entity->get('field_media_image')->first()) {
+      && !empty($media_entity->get('field_media_image')->first())) {
     return 'field_media_image';
   }
   // Media entities with a valied field media cover image data it will be used.
   elseif (isset($media_entity->field_media_cover_image)
-      && $img_entity = $media_entity->get('field_media_cover_image')->first()) {
+      && !empty($media_entity->get('field_media_cover_image')->first())) {
     return 'field_media_cover_image';
   }
   // Media entities without field image or cover image, will get the thumbnail.
