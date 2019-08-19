@@ -1,9 +1,8 @@
-uuid: d182a47f-af85-4509-9583-aa9bb9b3a35a
 langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.media.slick
+    - core.entity_view_mode.media.original
     - media.type.gallery
   module:
     - entity_embed
@@ -16,7 +15,7 @@ type_settings:
   bundles:
     - gallery
   display_plugins:
-    - 'view_mode:media.slick'
+    - 'view_mode:media.original'
   inline_entity_form: 1
   inline_entity_form_settings:
     entity_form_display: editor

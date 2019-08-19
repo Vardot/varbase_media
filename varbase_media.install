@@ -98,7 +98,7 @@ function varbase_media_install() {
   if (!\Drupal::isConfigSyncing()) {
 
     // CKEditor Embed Media Library icon for the gallery embed entity button.
-    $embed_media_data = file_get_contents(dirname(__FILE__) . '/images/ckeditor/embed-media.png');
+    $embed_media_data = file_get_contents(DRUPAL_ROOT . '/' . $module_path . '/images/ckeditor/hidpi/embed-media.png');
     /** @var \Drupal\file\FileInterface $file */
     $embed_media_file = file_save_data($embed_media_data, 'public://embed-media.png', FILE_EXISTS_REPLACE);
     // Set file uuid same as default config.
@@ -108,7 +108,7 @@ function varbase_media_install() {
     \Drupal::service('file.usage')->add($embed_media_file, 'embed', 'embed_button', 'media');
 
     // CKEditor Embed Gallery icon for the gallery embed entity button.
-    $embed_gallery_data = file_get_contents(dirname(__FILE__) . '/images/ckeditor/embed-gallery.png');
+    $embed_gallery_data = file_get_contents(DRUPAL_ROOT . '/' . $module_path . '/images/ckeditor/hidpi/embed-gallery.png');
     /** @var \Drupal\file\FileInterface $file */
     $embed_gallery_file = file_save_data($embed_gallery_data, 'public://embed-gallery.png', FILE_EXISTS_REPLACE);
     // Set file uuid same as default config.
