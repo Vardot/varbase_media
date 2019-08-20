@@ -36,5 +36,5 @@ type_settings:
     entity_form_display: default
   entity_browser: editor_media_browser
   entity_browser_settings:
-    display_review: true
+    display_review: false
 icon_uuid: 0c8d8f34-e57a-46e7-a0f3-3da1c1d631f6
