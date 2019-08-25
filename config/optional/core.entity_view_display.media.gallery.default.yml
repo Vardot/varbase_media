@@ -5,37 +5,28 @@ dependencies:
     - field.field.media.gallery.field_media_gallery
     - field.field.media.gallery.field_media_in_library
     - media.type.gallery
+    - responsive_image.styles.de2e_standard
   module:
     - ds
     - slick_media
-third_party_settings:
-  ds:
-    layout:
-      id: layout_onecol
-      library: layout_discovery/onecol
-      disable_css: false
-      entity_classes: all_classes
-      settings: {  }
-    regions:
-      content:
-        - name
-        - field_media_gallery
 id: media.gallery.default
 targetEntityType: media
 bundle: gallery
 mode: default
 content:
   field_media_gallery:
-    weight: 1
+    type: slick_media
+    weight: 0
+    region: content
     label: hidden
     settings:
       vanilla: true
-      optionset: varbase_slick
+      optionset: varbase_gallery
       optionset_thumbnail: ''
-      skin: ''
+      skin: classic
       skin_thumbnail: ''
       image_style: ''
-      responsive_image_style: ''
+      responsive_image_style: de2e_standard
       thumbnail_effect: ''
       thumbnail_position: ''
       media_switch: ''
@@ -109,20 +100,11 @@ content:
             lb: ''
             lb-col: false
             classes: {  }
-    type: slick_media
-    region: content
-  name:
-    type: string
-    weight: 0
-    region: content
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
 hidden:
   created: true
   field_media_in_library: true
   langcode: true
+  name: true
   search_api_excerpt: true
   thumbnail: true
   uid: true

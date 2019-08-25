@@ -2,7 +2,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.media.original
+    - core.entity_view_mode.media.full
     - media.type.gallery
   module:
     - entity_embed
@@ -15,10 +15,11 @@ type_settings:
   bundles:
     - gallery
   display_plugins:
-    - 'view_mode:media.original'
+    - 'view_mode:media.full'
   inline_entity_form: 1
   inline_entity_form_settings:
     entity_form_display: editor
+    display_review: 0
   entity_browser: ''
   entity_browser_settings:
     display_review: true
