@@ -152,12 +152,17 @@ function varbase_media_form_entity_embed_dialog_alter(&$form, FormStateInterface
     $builder = \Drupal::entityTypeManager()->getViewBuilder($entity->getEntityTypeId());
 
     switch ($bundle_type) {
+      // ----------------------------------------------------------------------.
       case "image":
+
+        // Image Media for review.
+        $media_view_mode = $builder->view($entity, 's03');
+        $media_markup = \Drupal::service('renderer')->renderRoot($media_view_mode);
 
         // Render the Embed entity.
         $form['entity'] = [
           '#type' => 'item',
-          '#markup' => \Drupal::service('renderer')->renderRoot($builder->view($entity, 's03')),
+          '#markup' => $media_markup,
         ];
 
         // Change the "data align" field from radio buttons to Select list.
@@ -188,12 +193,18 @@ function varbase_media_form_entity_embed_dialog_alter(&$form, FormStateInterface
         $entity->save();
         break;
 
+      // ----------------------------------------------------------------------.
       case "video":
       case "remote_video":
+
+        // Video Media for review.
+        $media_view_mode = $builder->view($entity, 's06');
+        $media_markup = \Drupal::service('renderer')->renderRoot($media_view_mode);
+
         // Render the Embed entity.
         $form['entity'] = [
           '#type' => 'item',
-          '#markup' => \Drupal::service('renderer')->renderRoot($builder->view($entity, 's06')),
+          '#markup' => $media_markup,
         ];
 
         if (isset($form['attributes']['data-align'])) {
@@ -210,12 +221,24 @@ function varbase_media_form_entity_embed_dialog_alter(&$form, FormStateInterface
 
         if (isset($form['attributes']['data-entity-embed-display'])) {
           $form['attributes']['data-entity-embed-display']['#access'] = FALSE;
-          $form['attributes']['data-entity-embed-display']['#default_value'] = 'view_mode:media.original';
+          $form['attributes']['data-entity-embed-display']['#default_value'] = 'view_mode:media.s06';
         }
 
         break;
 
+      // ----------------------------------------------------------------------.
       case "gallery":
+
+        // Gallery Media for review.
+        $media_view_mode = $builder->view($entity, 'media_library');
+        $media_markup = \Drupal::service('renderer')->renderRoot($media_view_mode);
+
+        // Render the Embed entity.
+        $form['entity'] = [
+          '#type' => 'item',
+          '#markup' => $media_markup,
+        ];
+
         // Render the Embed entity.
         if (isset($form['attributes']['data-align'])) {
           unset($form['attributes']['data-align']);
@@ -231,7 +254,7 @@ function varbase_media_form_entity_embed_dialog_alter(&$form, FormStateInterface
 
         if (isset($form['attributes']['data-entity-embed-display'])) {
           $form['attributes']['data-entity-embed-display']['#access'] = FALSE;
-          $form['attributes']['data-entity-embed-display']['#default_value'] = 'view_mode:media.original';
+          $form['attributes']['data-entity-embed-display']['#default_value'] = 'view_mode:media.full';
         }
         break;
 

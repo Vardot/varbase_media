@@ -728,3 +728,18 @@ form.media-form {
   width: 100%;
   z-index: 1;
 }
+
+div[data-drupal-selector^="edit-inline-entity-form-field-media-gallery-current"] {
+  display: none;
+}
+
+details[id^="edit-field-media-gallery-"] {
+  summary {
+    display: none;
+  }
+
+  .details-wrapper {
+    margin-top: 0;
+  }
+}
+
