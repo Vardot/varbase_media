@@ -221,7 +221,7 @@ function varbase_media_form_entity_embed_dialog_alter(&$form, FormStateInterface
 
         if (isset($form['attributes']['data-entity-embed-display'])) {
           $form['attributes']['data-entity-embed-display']['#access'] = FALSE;
-          $form['attributes']['data-entity-embed-display']['#default_value'] = 'view_mode:media.s06';
+          $form['attributes']['data-entity-embed-display']['#default_value'] = 'view_mode:media.original';
         }
 
         break;
