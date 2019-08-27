@@ -236,7 +236,7 @@ function varbase_media_form_entity_embed_dialog_alter(&$form, FormStateInterface
         // Render the Embed entity.
         $form['entity'] = [
           '#type' => 'item',
-          '#markup' => $media_markup,
+          '#markup' => '<div class="gallery-entity-embed-dialog-step--embed"><div class="media-library-item">' . $media_markup . '</div></div>',
         ];
 
         // Render the Embed entity.
@@ -539,4 +539,32 @@ function varbase_media_preprocess_media_oembed_iframe__remote_video(&$variables)
   $variables['view_mode'] = $query->get('view_mode');
   $variables['base_path'] = base_path();
   $variables['varbase_media_path'] = \Drupal::service('module_handler')->getModule('varbase_media')->getPath();
+}
+
+/**
+ * Implements hook_entity_embed_alter().
+ */
+function varbase_media_entity_embed_alter(array &$build, EntityInterface $entity, array &$context) {
+
+  // Only in the CKEditor or no need to swhich view modes.
+  if (!isset($context['data-widget'])
+    || $context['data-widget'] != 'drupalentity') {
+    return;
+  }
+
+  // Switch view mode for gallery in the CKEditor to show the Media Libraray.
+  if (isset($context['data-embed-button'])
+      && $context['data-embed-button'] == 'gallery') {
+
+    // Remove the contextual links.
+    if (isset($build['#contextual_links'])) {
+      unset($build['#contextual_links']);
+    }
+
+    if ($build['#context']['data-entity-embed-display'] == 'view_mode:media.full') {
+      $build['#context']['data-entity-embed-display'] = 'view_mode:media.media_library';
+      $build['entity']['#view_mode'] = 'media_library';
+    }
+  }
+
 }

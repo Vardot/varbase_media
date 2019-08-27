@@ -133,7 +133,7 @@ body .form-wrapper.field--widget-entity-browser-entity-reference .entities-list 
   background-repeat: no-repeat;
   background-position: left top;
   -webkit-background-size: 100% 100%;
-          background-size: 100%;
+  background-size: 100%;
   left: 0;
   right: auto;
   -webkit-filter: invert(100%) !important;
@@ -146,7 +146,7 @@ body .form-wrapper.field--widget-entity-browser-entity-reference .entities-list 
   background-repeat: no-repeat;
   background-position: left top;
   -webkit-background-size: 100% 100%;
-          background-size: 100%;
+  background-size: 100%;
   right: 0;
   left: auto;
   -webkit-filter: invert(75%) !important;
@@ -280,7 +280,7 @@ body #edit-selected.entities-list .item-container button[id*="-edit-button"] {
   background-repeat: no-repeat;
   background-position: left top;
   -webkit-background-size: 100% 100%;
-          background-size: 100%;
+  background-size: 100%;
   left: 0;
   right: auto;
   -webkit-filter: invert(100%) !important;
@@ -293,7 +293,7 @@ body #edit-selected.entities-list .item-container button[id*="-remove-button"] {
   background-repeat: no-repeat;
   background-position: left top;
   -webkit-background-size: 100% 100%;
-          background-size: 100%;
+  background-size: 100%;
   right: 0;
   left: auto;
   -webkit-filter: invert(75%) !important;
@@ -317,12 +317,12 @@ body #edit-selected.entities-list .video-player-icon {
   position: initial;
 }
 
-[dir="rtl"] body #edit-selected.entities-list .item-container input[id*="-edit-button"] {
+html[dir="rtl"] body #edit-selected.entities-list .item-container input[id*="-edit-button"] {
   left: auto;
   right: 0;
 }
 
-[dir="rtl"] body #edit-selected.entities-list .item-container input[id*="-remove-button"] {
+html[dir="rtl"] body #edit-selected.entities-list .item-container input[id*="-remove-button"] {
   right: auto;
   left: 0;
 }
@@ -336,7 +336,7 @@ body #edit-selected.entities-list .video-player-icon {
   width: 200px;
 }
 
-[dir="rtl"] .entity-embed-dialog-step--embed > .form-item-entity {
+html[dir="rtl"] .entity-embed-dialog-step--embed > .form-item-entity {
   float: left;
 }
 
@@ -443,11 +443,11 @@ form.media-image-edit-form > .field--type-image .field--widget-image-image > div
   display: none;
 }
 
-[dir="rtl"] form.media-image-edit-form > .field--type-image .field--widget-image-image > div > div > .image-widget .image-preview {
+html[dir="rtl"] form.media-image-edit-form > .field--type-image .field--widget-image-image > div > div > .image-widget .image-preview {
   float: left;
 }
 
-[dir="rtl"] form.media-image-edit-form > .field--type-image .field--widget-image-image > div > div > .image-widget > .button {
+html[dir="rtl"] form.media-image-edit-form > .field--type-image .field--widget-image-image > div > div > .image-widget > .button {
   float: left;
   margin-left: 4%;
 }
@@ -457,7 +457,7 @@ form.media-form .form-item-field-source {
   margin-right: 1.3rem;
 }
 
-[dir="rtl"] form.media-form .form-item-field-source {
+html[dir="rtl"] form.media-form .form-item-field-source {
   float: right;
   margin-left: 1.5rem;
   margin-right: auto;
@@ -483,11 +483,11 @@ form.media-form .form-item-field-source {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
   -webkit-flex-direction: row;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
   -webkit-flex-wrap: wrap;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
   padding: 3%;
   height: 185px;
 }
@@ -537,8 +537,8 @@ form.media-form .form-item-field-source {
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
-       -o-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   background: url(../images/play.svg) no-repeat center center;
   height: 72px;
   width: 72px;
@@ -571,4 +571,23 @@ details[id^="edit-field-media-gallery-"] summary {
 
 details[id^="edit-field-media-gallery-"] .details-wrapper {
   margin-top: 0;
+}
+
+.gallery-entity-embed-dialog-step--embed {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.gallery-entity-embed-dialog-step--embed .media-library-item {
+  margin: 20px;
 }

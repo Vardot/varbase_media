@@ -132,7 +132,7 @@ function varbase_media_install() {
       'gallery' => [
         'source' => DRUPAL_ROOT . '/' . $module_path . '/images/ckeditor/hidpi/embed-gallery.png',
         'destination' => 'public://embed-gallery.png',
-      ]
+      ],
     ];
 
     foreach ($embed_buttons as $embed_button_id => $embed_button_info) {
