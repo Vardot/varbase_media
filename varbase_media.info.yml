@@ -40,3 +40,5 @@ install:
   - views_bulk_operations
   - views_bulk_edit
   - blazy
+  - slick
+  - slick_media
