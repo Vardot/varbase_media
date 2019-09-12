@@ -49,7 +49,7 @@
     "drupal/media_entity_twitter": "~2.0",
     "drupal/media_entity_googledocs": "~4.0",
     "drupal/crop": "~2.0",
-    "drupal/focal_point": "1.0",
+    "drupal/focal_point": "~1.0",
     "drupal/imagemagick": "~2.0",
     "drupal/imageapi_optimize": "~2.0",
     "drupal/blazy": "~2.0",
@@ -83,10 +83,6 @@
     "enable-patching": true,
     "composer-exit-on-patch-failure": true,
     "patches": {
-      "drupal/focal_point": {
-        "Issue #2916562: Broken image preview":
-        "https://www.drupal.org/files/issues/2019-03-30/2916562-39.patch"
-      },
       "drupal/entity_browser": {
         "Issue #2877751: Inform users how many items they can add to a field that uses an entity browser.":
         "https://www.drupal.org/files/issues/2019-07-04/2877751-40.patch"
