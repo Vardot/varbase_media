@@ -48,7 +48,7 @@
     "drupal/media_entity_instagram": "~2.0",
     "drupal/media_entity_twitter": "~2.0",
     "drupal/crop": "~2.0",
-    "drupal/focal_point": "1.0",
+    "drupal/focal_point": "~1.0",
     "drupal/imagemagick": "~2.0",
     "drupal/imageapi_optimize": "~2.0",
     "drupal/blazy": "~2.0",
@@ -82,10 +82,6 @@
     "enable-patching": true,
     "composer-exit-on-patch-failure": true,
     "patches": {
-      "drupal/focal_point": {
-        "Issue #3001262: Integrate focal point with media_library, which is now in core":
-        "https://www.drupal.org/files/issues/2019-05-02/focal_point-integrate_with_media_library-3001262-4-b.patch"
-      },
       "drupal/entity_browser": {
         "Issue #2877751: Inform users how many items they can add to a field that uses an entity browser.":
         "https://www.drupal.org/files/issues/2019-07-04/2877751-40.patch"
