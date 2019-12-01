@@ -42,3 +42,4 @@ install:
   - blazy
   - slick
   - slick_media
+  - image_effects

@@ -1,0 +1,15 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - image_effects
+name: blazy_blurry_square
+label: 'Blazy Blurry Square '
+effects:
+  988533e7-df53-47f8-b072-811de92ff171:
+    uuid: 988533e7-df53-47f8-b072-811de92ff171
+    id: image_effects_resize_percentage
+    weight: 1
+    data:
+      width: '20'
+      height: '20'

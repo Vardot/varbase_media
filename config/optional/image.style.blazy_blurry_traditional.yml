@@ -1,0 +1,15 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - image_effects
+name: blazy_blurry_traditional
+label: 'Blazy Blurry Traditional'
+effects:
+  56baae02-adad-4102-9b3b-e14eaa8e2254:
+    uuid: 56baae02-adad-4102-9b3b-e14eaa8e2254
+    id: image_effects_resize_percentage
+    weight: 1
+    data:
+      width: '20'
+      height: '15'

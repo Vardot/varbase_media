@@ -114,3 +114,48 @@ figure.align-left {
     caption-side: bottom;
   }
 }
+
+.blazy {
+  &.field--type-image {
+    max-width: 100%;
+    height: auto;
+
+    .media--loading {
+      max-width: 100%;
+      height: auto;
+      
+      &::before {
+        display: none;
+      }
+
+      figure,
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+    }
+
+    .b-lazy {
+      filter: blur(3px);
+      transform: scale(1.001);
+      transition: filter .2s, transform .2s;
+      opacity: 1;
+    }
+
+    .b-loaded {
+      filter: blur(0);
+      transform: scale(1);
+    }
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.media--loading {
+  &::before {
+    display: none;
+  }
+}

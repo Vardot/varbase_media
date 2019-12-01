@@ -54,7 +54,8 @@
     "drupal/blazy": "~2.0",
     "drupal/slick": "~2.0",
     "drupal/slick_views": "~2.0",
-    "drupal/slick_media": "~2.0"
+    "drupal/slick_media": "~2.0",
+    "drupal/image_effects": "~2.0"
   },
   "extra": {
     "branch-alias": {
