@@ -1,15 +1,14 @@
 langcode: en
 status: true
-dependencies:
-  module:
-    - image_effects
+dependencies: {  }
 name: blazy_blurry
-label: 'Blazy Blurry Auto'
+label: 'Blazy Blurry'
 effects:
-  c9617a48-45dc-4c4a-b3f9-d7bccac0508c:
-    uuid: c9617a48-45dc-4c4a-b3f9-d7bccac0508c
-    id: image_effects_resize_percentage
+  43eaf639-71b9-458a-8320-4d489481f2ee:
+    uuid: 43eaf639-71b9-458a-8320-4d489481f2ee
+    id: image_scale
     weight: 1
     data:
-      width: '20'
-      height: ''
+      width: 10
+      height: null
+      upscale: false

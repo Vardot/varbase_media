@@ -609,13 +609,11 @@ function varbase_media_preprocess_image(&$variables) {
 
     $responsive_image_style = $variables['attributes']['responsive_image_style'];
 
-    $blazy_blurry_image_style = _varbase_media_get_selected_blazy_blurry_image_style($responsive_image_style);
-
     $uri = $variables['attributes']['uri'];
     $current_uri_with_style = !empty($responsive_image_style) ? ImageStyle::load($responsive_image_style)->buildUri($uri) : $uri;
 
-    $img = ImageStyle::load($blazy_blurry_image_style)->buildUri($current_uri_with_style);
-    ImageStyle::load($blazy_blurry_image_style)->createDerivative($current_uri_with_style, $img);
+    $img = ImageStyle::load('blazy_blurry')->buildUri($current_uri_with_style);
+    ImageStyle::load('blazy_blurry')->createDerivative($current_uri_with_style, $img);
 
     if (file_exists($uri) && file_exists($img)) {
       // Encode the image in base64 to speed up loading times.
@@ -630,43 +628,4 @@ function varbase_media_preprocess_image(&$variables) {
       unset($variables['attributes']['uri']);
     }
   }
-}
-
-/**
- * Get the selected blazy blurry image style by blazy blurry shape.
- */
-function _varbase_media_get_selected_blazy_blurry_image_style($image_style) {
-
-  // List all blazy blurry image style shapes.
-  // To add a new blazy blurry shape, you must add a new image style and have
-  // STARTS_WITH blazy_blurry in the Machine-readable name.
-  // The other part will match the name of the shape in used image style.
-  $blazy_blurry_image_style_shapes = \Drupal::entityQuery('image_style')
-    ->condition('name', 'blazy_blurry', 'STARTS_WITH')
-    ->execute();
-
-  // $blazy_blurry_image_style_shapes
-  // [
-  // [blazy_blurry] => blazy_blurry
-  // [blazy_blurry_4_1] => blazy_blurry_4_1
-  // [blazy_blurry_square] => blazy_blurry_square
-  // [blazy_blurry_standard] => blazy_blurry_standard
-  // [blazy_blurry_traditional] => blazy_blurry_traditional
-  // ]
-  foreach ($blazy_blurry_image_style_shapes as $blazy_blurry_image_style_shape) {
-
-    if ($blazy_blurry_image_style_shape !== "blazy_blurry") {
-      $blazy_blurry_shape_needle = str_replace("blazy_blurry", "", $blazy_blurry_image_style_shape);
-
-      if ($image_style !== ''
-        && strrpos($image_style, $blazy_blurry_shape_needle) > 0) {
-
-        return $blazy_blurry_image_style_shape;
-      }
-    }
-  }
-
-  // If no match return the auto/original shape size for blazy_lurry.
-  return "blazy_blurry";
-
 }
