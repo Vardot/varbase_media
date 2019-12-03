@@ -68,34 +68,39 @@ function varbase_media_preprocess_field(&$variables) {
     }
   }
 
-  if (!empty($variables['items'])) {
-    foreach ($variables['items'] as &$item) {
-      if (!empty($item['content']['#theme'])
-        && $item['content']['#theme'] === 'blazy') {
+  // Add the Varbase Media Blazy Blurry behaviour.
+  $use_blazy_blurry = \Drupal::config('varbase_media.settings')->get('use_blazy_blurry');
+  if (isset($use_blazy_blurry) && $use_blazy_blurry === TRUE) {
 
-        $entity = $variables['element']['#object'];
-        $view_mode = $variables['element']['#view_mode'];
-        $field_name = $variables['element']['#field_name'];
+    if (!empty($variables['items'])) {
+      foreach ($variables['items'] as &$item) {
+        if (!empty($item['content']['#theme'])
+          && $item['content']['#theme'] === 'blazy') {
 
-        $entity_display = EntityViewDisplay::collectRenderDisplay($entity, $view_mode);
-        $field_display = $entity_display->getComponent($field_name);
+          $entity = $variables['element']['#object'];
+          $view_mode = $variables['element']['#view_mode'];
+          $field_name = $variables['element']['#field_name'];
 
-        $build_item = $item['content']['#build']['item'];
-        $value = $build_item->getValue();
-        $file = File::load($value['target_id']);
-        $value['_attributes']['uri'] = $file->getFileUri();
+          $entity_display = EntityViewDisplay::collectRenderDisplay($entity, $view_mode);
+          $field_display = $entity_display->getComponent($field_name);
 
-        if (isset($item['content']['#build'])
-          && isset($item['content']['#build']['settings'])
-          && isset($item['content']['#build']['settings']['responsive_image_style'])) {
-          $value['_attributes']['responsive_image_style'] = $item['content']['#build']['settings']['responsive_image_style'];
+          $build_item = $item['content']['#build']['item'];
+          $value = $build_item->getValue();
+          $file = File::load($value['target_id']);
+          $value['_attributes']['uri'] = $file->getFileUri();
+
+          if (isset($item['content']['#build'])
+            && isset($item['content']['#build']['settings'])
+            && isset($item['content']['#build']['settings']['responsive_image_style'])) {
+            $value['_attributes']['responsive_image_style'] = $item['content']['#build']['settings']['responsive_image_style'];
+          }
+
+          if (!empty($item['content']['#image_style'])) {
+            $value['_attributes']['image_style'] = $item['content']['#image_style'];
+          }
+
+          $build_item->setValue($value);
         }
-
-        if (!empty($item['content']['#image_style'])) {
-          $value['_attributes']['image_style'] = $item['content']['#image_style'];
-        }
-
-        $build_item->setValue($value);
       }
     }
   }
@@ -149,6 +154,12 @@ function varbase_media_page_attachments(array &$page) {
   if (Drupal::service('module_handler')->moduleExists('blazy')) {
     // Attach the Blazy load library.
     $page['#attached']['library'][] = 'blazy/load';
+
+    // Add the Varbase Media Blazy Blurry behaviour.
+    $use_blazy_blurry = \Drupal::config('varbase_media.settings')->get('use_blazy_blurry');
+    if (isset($use_blazy_blurry) && $use_blazy_blurry === TRUE) {
+      $page['#attached']['library'][] = 'varbase_media/blazy_blurry';
+    }
   }
 
 }
@@ -423,6 +434,12 @@ function varbase_media_form_alter(&$form, &$form_state, $form_id) {
     // Attach the varbase media common library.
     $form['#attached']['library'][] = 'varbase_media/common';
 
+    // Add the Varbase Media Blazy Blurry behaviour.
+    $use_blazy_blurry = \Drupal::config('varbase_media.settings')->get('use_blazy_blurry');
+    if (isset($use_blazy_blurry) && $use_blazy_blurry === TRUE) {
+      $form['#attached']['library'][] = 'varbase_media/blazy_blurry';
+    }
+
     if (!(\Drupal::currentUser()->isAnonymous())) {
       // Attached the varbase media common logged in users library.
       $form['#attached']['library'][] = 'varbase_media/common_logged';
@@ -607,36 +624,41 @@ function varbase_media_entity_embed_alter(array &$build, EntityInterface $entity
  */
 function varbase_media_preprocess_image(&$variables) {
 
-  if (!empty($variables['attributes']['class'])
-    && !empty($variables['attributes']['uri'])) {
+  // Add the Varbase Media Blazy Blurry behaviour.
+  $use_blazy_blurry = \Drupal::config('varbase_media.settings')->get('use_blazy_blurry');
+  if (isset($use_blazy_blurry) && $use_blazy_blurry === TRUE) {
 
-    $uri = $variables['attributes']['uri'];
-    $current_uri_with_style = $uri;
+    if (!empty($variables['attributes']['class'])
+      && !empty($variables['attributes']['uri'])) {
 
-    if (!empty($variables['attributes']['responsive_image_style'])) {
-      $current_uri_with_style = ImageStyle::load($variables['attributes']['responsive_image_style'])->buildUri($uri);
-    }
-    elseif (!empty($variables['attributes']['image_style'])) {
-      $current_uri_with_style = ImageStyle::load($variables['attributes']['image_style'])->buildUri($uri);
-    }
+      $uri = $variables['attributes']['uri'];
+      $current_uri_with_style = $uri;
 
-    $image_style_blazy_blurry = ImageStyle::load('blazy_blurry');
+      if (!empty($variables['attributes']['responsive_image_style'])) {
+        $current_uri_with_style = ImageStyle::load($variables['attributes']['responsive_image_style'])->buildUri($uri);
+      }
+      elseif (!empty($variables['attributes']['image_style'])) {
+        $current_uri_with_style = ImageStyle::load($variables['attributes']['image_style'])->buildUri($uri);
+      }
 
-    $img = $image_style_blazy_blurry->buildUri($current_uri_with_style);
-    $image_style_blazy_blurry->createDerivative($current_uri_with_style, $img);
+      $image_style_blazy_blurry = ImageStyle::load('blazy_blurry');
 
-    if (file_exists($uri) && file_exists($img)) {
-      // Encode the image in base64 to speed up loading times.
-      $img_binary = fread(fopen($img, "r"), filesize($img));
-      $file_type = mime_content_type($img);
-      $img_base64 = 'data:' . $file_type . ';base64,' . base64_encode($img_binary);
+      $img = $image_style_blazy_blurry->buildUri($current_uri_with_style);
+      $image_style_blazy_blurry->createDerivative($current_uri_with_style, $img);
 
-      // Update the placeholder URI.
-      $variables['attributes']['src'] = $img_base64;
+      if (file_exists($uri) && file_exists($img)) {
+        // Encode the image in base64 to speed up loading times.
+        $img_binary = fread(fopen($img, "r"), filesize($img));
+        $file_type = mime_content_type($img);
+        $img_base64 = 'data:' . $file_type . ';base64,' . base64_encode($img_binary);
 
-      unset($variables['attributes']['responsive_image_style']);
-      unset($variables['attributes']['image_style']);
-      unset($variables['attributes']['uri']);
+        // Update the placeholder URI.
+        $variables['attributes']['src'] = $img_base64;
+
+        unset($variables['attributes']['responsive_image_style']);
+        unset($variables['attributes']['image_style']);
+        unset($variables['attributes']['uri']);
+      }
     }
   }
 }
