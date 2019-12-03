@@ -6,8 +6,6 @@ use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Config\InstallStorage;
 use Symfony\Component\Yaml\Yaml;
-use Drupal\Core\Url;
-use Drupal\Core\Link;
 
 /**
  * Provides form for managing module settings.
@@ -34,13 +32,16 @@ class VarbaseMediaSettingsForm extends ConfigFormBase {
   public function buildForm(array $form, FormStateInterface $form_state) {
     $config = $this->config('varbase_media.settings');
 
-    $blazy_settings_link = Link::fromTextAndUrl($this->t('Blazy UI'),
-      new Url('blazy.settings'))->toString();
+    // $blazy_settings_link = Link::fromTextAndUrl($this->t('Blazy UI'),
+    // new Url('blazy.settings'))->toString();
+    // ------------------------------------------------------------------.
+    // Changed blazy settings link to work if the Blazy UI module is disabled.
+    $blazy_settings_link = base_path() . "admin/config/media/blazy";
 
     $form['use_blazy_blurry'] = [
       '#type' => 'checkbox',
       '#title' => $this->t('Use blurred image loading effect for Lazy-loaded images'),
-      '#description' => $this->t('Varbase uses Blazy to lazy-load offscreen images. This setting enhances Varbase to lazy-load images with a low-res blurred image effect. Switching this setting off (<em>not recommended</em>) will fallback to Blazy pixel loader as configured in @blazy_settings_link. Note that you’ll need to enable Blazy UI module to configure it.', ['@blazy_settings_link' => $blazy_settings_link]),
+      '#description' => $this->t('Varbase uses Blazy to lazy-load offscreen images. This setting enhances Varbase to lazy-load images with a low-res blurred image effect. Switching this setting off (<em>not recommended</em>) will fallback to Blazy pixel loader as configured in <a href="@blazy_settings_link">Blazy UI</a> Note that you’ll need to enable Blazy UI module to configure it.', ['@blazy_settings_link' => $blazy_settings_link]),
       '#default_value' => $config->get('use_blazy_blurry'),
     ];
 
