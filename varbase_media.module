@@ -91,6 +91,10 @@ function varbase_media_preprocess_field(&$variables) {
           $value['_attributes']['responsive_image_style'] = $item['content']['#build']['settings']['responsive_image_style'];
         }
 
+        if (!empty($item['content']['#image_style'])) {
+          $value['_attributes']['image_style'] = $item['content']['#image_style'];
+        }
+
         $build_item->setValue($value);
       }
     }
@@ -604,16 +608,22 @@ function varbase_media_entity_embed_alter(array &$build, EntityInterface $entity
 function varbase_media_preprocess_image(&$variables) {
 
   if (!empty($variables['attributes']['class'])
-    && !empty($variables['attributes']['uri'])
-    && !empty($variables['attributes']['responsive_image_style'])) {
-
-    $responsive_image_style = $variables['attributes']['responsive_image_style'];
+    && !empty($variables['attributes']['uri'])) {
 
     $uri = $variables['attributes']['uri'];
-    $current_uri_with_style = !empty($responsive_image_style) ? ImageStyle::load($responsive_image_style)->buildUri($uri) : $uri;
+    $current_uri_with_style = $uri;
 
-    $img = ImageStyle::load('blazy_blurry')->buildUri($current_uri_with_style);
-    ImageStyle::load('blazy_blurry')->createDerivative($current_uri_with_style, $img);
+    if (!empty($variables['attributes']['responsive_image_style'])) {
+      $current_uri_with_style = ImageStyle::load($variables['attributes']['responsive_image_style'])->buildUri($uri);
+    }
+    elseif (!empty($variables['attributes']['image_style'])) {
+      $current_uri_with_style = ImageStyle::load($variables['attributes']['image_style'])->buildUri($uri);
+    }
+
+    $image_style_blazy_blurry = ImageStyle::load('blazy_blurry');
+
+    $img = $image_style_blazy_blurry->buildUri($current_uri_with_style);
+    $image_style_blazy_blurry->createDerivative($current_uri_with_style, $img);
 
     if (file_exists($uri) && file_exists($img)) {
       // Encode the image in base64 to speed up loading times.
@@ -625,6 +635,7 @@ function varbase_media_preprocess_image(&$variables) {
       $variables['attributes']['src'] = $img_base64;
 
       unset($variables['attributes']['responsive_image_style']);
+      unset($variables['attributes']['image_style']);
       unset($variables['attributes']['uri']);
     }
   }

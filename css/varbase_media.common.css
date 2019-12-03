@@ -102,7 +102,13 @@ figure.align-left figcaption {
   height: auto;
 }
 
-.blazy.field--type-image .media--loading {
+.blazy.media-cover-image {
+  width: 100%;
+  height: auto;
+}
+
+.blazy.field--type-image .media--loading,
+.blazy.media-cover-image .media--loading {
   max-width: 100%;
   height: auto;
   -webkit-backface-visibility: inherit;
@@ -110,19 +116,23 @@ figure.align-left figcaption {
   overflow: hidden;
 }
 
-.blazy.field--type-image .media--loading::before {
+.blazy.field--type-image .media--loading::before,
+.blazy.media-cover-image .media--loading::before {
   display: none;
 }
 
 .blazy.field--type-image .media--loading figure,
-.blazy.field--type-image .media--loading img {
+.blazy.field--type-image .media--loading img,
+.blazy.media-cover-image .media--loading figure,
+.blazy.media-cover-image .media--loading img {
   max-width: 100%;
   height: auto;
 }
 
-.blazy.field--type-image .b-lazy {
-  -webkit-filter: blur(1px);
-  filter: blur(1px);
+.blazy.field--type-image .b-lazy,
+.blazy.media-cover-image .b-lazy {
+  -webkit-filter: blur(2px);
+  filter: blur(2px);
   -webkit-transform: scale(1.001);
   -o-transform: scale(1.001);
   transform: scale(1.001);
@@ -134,7 +144,8 @@ figure.align-left figcaption {
   opacity: 1;
 }
 
-.blazy.field--type-image .b-loaded {
+.blazy.field--type-image .b-loaded,
+.blazy.media-cover-image .b-loaded {
   -webkit-filter: blur(0);
   filter: blur(0);
   -webkit-transform: scale(1);

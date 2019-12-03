@@ -119,7 +119,15 @@ figure.align-left {
   &.field--type-image {
     max-width: 100%;
     height: auto;
+  }
 
+  &.media-cover-image {
+    width: 100%;
+    height: auto;
+  }
+
+  &.field--type-image,
+  &.media-cover-image {
     .media--loading {
       max-width: 100%;
       height: auto;
@@ -138,7 +146,7 @@ figure.align-left {
     }
 
     .b-lazy {
-      filter: blur(1px);
+      filter: blur(2px);
       transform: scale(1.001);
       transition: filter .2s, transform .2s;
       opacity: 1;
