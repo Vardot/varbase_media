@@ -105,6 +105,9 @@ figure.align-left figcaption {
 .blazy.field--type-image .media--loading {
   max-width: 100%;
   height: auto;
+  -webkit-backface-visibility: inherit;
+  backface-visibility: inherit;
+  overflow: hidden;
 }
 
 .blazy.field--type-image .media--loading::before {
@@ -118,8 +121,8 @@ figure.align-left figcaption {
 }
 
 .blazy.field--type-image .b-lazy {
-  -webkit-filter: blur(3px);
-  filter: blur(3px);
+  -webkit-filter: blur(1px);
+  filter: blur(1px);
   -webkit-transform: scale(1.001);
   -o-transform: scale(1.001);
   transform: scale(1.001);
@@ -142,6 +145,12 @@ figure.align-left figcaption {
 .blazy img {
   width: 100%;
   height: 100%;
+}
+
+.media--loading {
+  -webkit-backface-visibility: inherit;
+  backface-visibility: inherit;
+  overflow: hidden;
 }
 
 .media--loading::before {
