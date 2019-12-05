@@ -677,15 +677,7 @@ display:
       display_extenders:
         metatag_display_extender: {  }
       path: admin/content/media-grid
-      menu:
-        type: tab
-        title: Media
-        description: 'Allows users to browse and administer media items'
-        expanded: false
-        parent: system.admin_content
-        weight: 5
-        context: '0'
-        menu_name: admin
+      menu: { }
       fields:
         views_bulk_operations_bulk_form:
           id: views_bulk_operations_bulk_form
