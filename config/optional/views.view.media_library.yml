@@ -102,12 +102,12 @@ display:
                 rewrite:
                   filter_rewrite_values: ''
             created:
-              bef_format: default
+              bef_format: bef_datepicker
               more_options:
                 is_secondary: false
                 placeholder_text: ''
             created_1:
-              bef_format: default
+              bef_format: bef_datepicker
               more_options:
                 is_secondary: false
                 placeholder_text: ''
