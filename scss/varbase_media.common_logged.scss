@@ -635,23 +635,26 @@ html[dir="rtl"] form.media-form {
 
 .gallery-thumbnail {
   background-color: #ebebeb;
-  width: 180px;
+  width: 100%;
   overflow: hidden;
   cursor: pointer;
   z-index: 0;
+  display: flex;
+  justify-content: center;
 
   .field--name-thumbnail  {
+    height: 170px !important;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: center; 
     padding: 3%;
-    height: 185px; 
 
     img {
-      width: 48%;
-      margin: 0;
-      height: auto;
-      padding: 1% 1% 0;
+      width: 42% !important;
+      height: auto !important;
+      margin: 0px;
+      padding: 1px;
     }
   }
 }

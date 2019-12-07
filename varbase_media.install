@@ -76,6 +76,20 @@ function varbase_media_install() {
     }
   }
 
+  // Ovarride the media view.
+  $config_path = $optional_install_path . '/' . 'views.view.media.yml';
+  $config_content = file_get_contents($config_path);
+  $config_data = (array) Yaml::parse($config_content);
+  $config_factory = \Drupal::configFactory()->getEditable('views.view.media');
+  $config_factory->setData($config_data)->save(TRUE);
+
+  // Ovarride the media library view.
+  $config_path = $optional_install_path . '/' . 'views.view.media_library.yml';
+  $config_content = file_get_contents($config_path);
+  $config_data = (array) Yaml::parse($config_content);
+  $config_factory = \Drupal::configFactory()->getEditable('views.view.media_library');
+  $config_factory->setData($config_data)->save(TRUE);
+
   // Load Media types icons for the media libraray table view page.
   $source = $module_path . '/images/icons';
   $destination = \Drupal::config('media.settings')->get('icon_base_uri');
@@ -171,4 +185,28 @@ function varbase_media_requirements($phase) {
     }
   }
   return $requirements;
+}
+
+/**
+ * Issue #3098789: Fix [Media Library] and the [Media Grid and Media Table]
+ *  admin pages to work with Drupal ^8.8.0
+ */
+function varbase_media_update_8708() {
+
+  $module_path = Drupal::service('module_handler')->getModule('varbase_media')->getPath();
+  $optional_install_path = $module_path . '/' . InstallStorage::CONFIG_OPTIONAL_DIRECTORY;
+
+  // Ovarride the media view.
+  $config_path = $optional_install_path . '/' . 'views.view.media.yml';
+  $config_content = file_get_contents($config_path);
+  $config_data = (array) Yaml::parse($config_content);
+  $config_factory = \Drupal::configFactory()->getEditable('views.view.media');
+  $config_factory->setData($config_data)->save(TRUE);
+
+  // Ovarride the media library view.
+  $config_path = $optional_install_path . '/' . 'views.view.media_library.yml';
+  $config_content = file_get_contents($config_path);
+  $config_data = (array) Yaml::parse($config_content);
+  $config_factory = \Drupal::configFactory()->getEditable('views.view.media_library');
+  $config_factory->setData($config_data)->save(TRUE);
 }

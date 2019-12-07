@@ -469,13 +469,22 @@ html[dir="rtl"] form.media-form .form-item-field-source {
 
 .gallery-thumbnail {
   background-color: #ebebeb;
-  width: 180px;
+  width: 100%;
   overflow: hidden;
   cursor: pointer;
   z-index: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 
 .gallery-thumbnail .field--name-thumbnail {
+  height: 170px !important;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -488,15 +497,18 @@ html[dir="rtl"] form.media-form .form-item-field-source {
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   padding: 3%;
-  height: 185px;
 }
 
 .gallery-thumbnail .field--name-thumbnail img {
-  width: 48%;
-  margin: 0;
-  height: auto;
-  padding: 1% 1% 0;
+  width: 42% !important;
+  height: auto !important;
+  margin: 0px;
+  padding: 1px;
 }
 
 .editor-media-browser .gallery-thumbnail {
