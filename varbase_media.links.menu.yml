@@ -6,11 +6,6 @@ varbase_media.settings:
 varbase_media.table:
   title: 'Table'
   parent_id: entity.media.collection
-  route_name: view.media.media_page_list
-  weight: 10
-varbase_media.table:
-  title: 'Table'
-  parent_id: entity.media.collection
   route_name: entity.media.collection
   weight: 10
 varbase_media.grid:
