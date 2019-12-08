@@ -1,0 +1,7 @@
+varbase_media.add:
+  route_name: entity.media.add_page
+  title: 'Add media'
+  appears_on:
+    - view.media_library.page
+    - view.media.media_page_list
+    - entity.media.collection

@@ -3,12 +3,17 @@ varbase_media.settings:
   description: 'Configuring Varbase Media.'
   parent: varbase_core.settings_index
   route_name: varbase_media.settings
-media_library.table:
+varbase_media.table:
+  title: 'Table'
+  parent_id: entity.media.collection
+  route_name: view.media.media_page_list
+  weight: 10
+varbase_media.table:
   title: 'Table'
   parent_id: entity.media.collection
   route_name: entity.media.collection
   weight: 10
-media_library.grid:
+varbase_media.grid:
   title: 'Grid'
   parent_id: entity.media.collection
   route_name: view.media_library.page
