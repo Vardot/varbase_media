@@ -448,6 +448,8 @@ display:
         - 'config:core.entity_view_display.media.audio.default'
         - 'config:core.entity_view_display.media.file.default'
         - 'config:core.entity_view_display.media.gallery.default'
+        - 'config:core.entity_view_display.media.remote_video.default'
+        - 'config:core.entity_view_display.media.video.default'
         - 'config:core.entity_view_display.media.audio.browser_teaser'
         - 'config:core.entity_view_display.media.audio.field_preview'
         - 'config:core.entity_view_display.media.audio.media_library'
@@ -455,12 +457,9 @@ display:
         - 'config:core.entity_view_display.media.file.field_preview'
         - 'config:core.entity_view_display.media.file.media_library'
         - 'config:core.entity_view_display.media.gallery.browser_teaser'
-        - 'config:core.entity_view_display.media.gallery.default'
         - 'config:core.entity_view_display.media.gallery.field_preview'
-        - 'config:core.entity_view_display.media.gallery.large'
+        - 'config:core.entity_view_display.media.gallery.full'
         - 'config:core.entity_view_display.media.gallery.media_library'
-        - 'config:core.entity_view_display.media.gallery.medium'
-        - 'config:core.entity_view_display.media.gallery.small'
         - 'config:core.entity_view_display.media.image.browser_teaser'
         - 'config:core.entity_view_display.media.image.default'
         - 'config:core.entity_view_display.media.image.field_preview'
@@ -525,7 +524,6 @@ display:
         - 'config:core.entity_view_display.media.image.token'
         - 'config:core.entity_view_display.media.image.varbase_media_hero_slider'
         - 'config:core.entity_view_display.media.remote_video.browser_teaser'
-        - 'config:core.entity_view_display.media.remote_video.default'
         - 'config:core.entity_view_display.media.remote_video.field_preview'
         - 'config:core.entity_view_display.media.remote_video.full'
         - 'config:core.entity_view_display.media.remote_video.large'
@@ -588,7 +586,6 @@ display:
         - 'config:core.entity_view_display.media.remote_video.small'
         - 'config:core.entity_view_display.media.remote_video.varbase_media_hero_slider'
         - 'config:core.entity_view_display.media.video.browser_teaser'
-        - 'config:core.entity_view_display.media.video.default'
         - 'config:core.entity_view_display.media.video.field_preview'
         - 'config:core.entity_view_display.media.video.full'
         - 'config:core.entity_view_display.media.video.large'
@@ -729,8 +726,8 @@ display:
             views_bulk_operations_delete_entity: views_bulk_operations_delete_entity
             pathauto_update_alias: pathauto_update_alias
             'entity:unpublish_action:media': 'entity:unpublish_action:media'
-            'entity:save_action:media': 'entity:save_action:media'
             'entity:delete_action:media': 'entity:delete_action:media'
+            'entity:save_action:media': 'entity:save_action:media'
             'entity:publish_action:media': 'entity:publish_action:media'
           preconfiguration:
             'entity:break_lock:media':
@@ -744,9 +741,9 @@ display:
               label_override: ''
             'entity:unpublish_action:media':
               label_override: ''
-            'entity:save_action:media':
-              label_override: ''
             'entity:delete_action:media':
+              label_override: ''
+            'entity:save_action:media':
               label_override: ''
             'entity:publish_action:media':
               label_override: ''
@@ -1087,8 +1084,6 @@ display:
         - 'config:core.entity_view_display.media.gallery.field_preview'
         - 'config:core.entity_view_display.media.gallery.full'
         - 'config:core.entity_view_display.media.gallery.media_library'
-        - 'config:core.entity_view_display.media.gallery.medium'
-        - 'config:core.entity_view_display.media.gallery.small'
         - 'config:core.entity_view_display.media.image.browser_teaser'
         - 'config:core.entity_view_display.media.image.default'
         - 'config:core.entity_view_display.media.image.field_preview'
@@ -1566,8 +1561,6 @@ display:
         - 'config:core.entity_view_display.media.gallery.field_preview'
         - 'config:core.entity_view_display.media.gallery.full'
         - 'config:core.entity_view_display.media.gallery.media_library'
-        - 'config:core.entity_view_display.media.gallery.medium'
-        - 'config:core.entity_view_display.media.gallery.small'
         - 'config:core.entity_view_display.media.image.browser_teaser'
         - 'config:core.entity_view_display.media.image.default'
         - 'config:core.entity_view_display.media.image.field_preview'
