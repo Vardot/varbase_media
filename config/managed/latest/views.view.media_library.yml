@@ -529,7 +529,7 @@ display:
       relationships: {  }
       display_extenders: {  }
       use_ajax: true
-      css_class: 'media-library-view js-media-library-view'
+      css_class: ''
     cache_metadata:
       max-age: 0
       contexts:
@@ -543,6 +543,9 @@ display:
       tags:
         - 'config:core.entity_view_display.media.audio.browser_teaser'
         - 'config:core.entity_view_display.media.audio.default'
+        - 'config:core.entity_view_display.media.file.default'
+        - 'config:core.entity_view_display.media.gallery.default'
+        - 'config:core.entity_view_display.media.audio.browser_teaser'
         - 'config:core.entity_view_display.media.audio.field_preview'
         - 'config:core.entity_view_display.media.audio.media_library'
         - 'config:core.entity_view_display.media.file.browser_teaser'

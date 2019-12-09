@@ -190,12 +190,12 @@ function _varbase_media_managed_media_library_configs() {
     $managed_config_path = $managed_config_path . '/managed/lt80800';
   }
   else {
-    // Use the latest managed configs from the optional directory.
+    // Use the latest managed configs from the managed latest directory.
     $managed_config_path = $managed_config_path . '/managed/latest';
   }
 
   // Ovarride the media view.
-  $media_config_path =  $managed_config_path . '/views.view.media.yml';
+  $media_config_path = $managed_config_path . '/views.view.media.yml';
   if (file_exists($media_config_path)) {
     $media_config_content = file_get_contents($media_config_path);
     $media_config_data = (array) Yaml::parse($media_config_content);
@@ -209,14 +209,15 @@ function _varbase_media_managed_media_library_configs() {
     $media_library_config_content = file_get_contents($media_library_config_path);
     $media_library_config_data = (array) Yaml::parse($media_library_config_content);
     $media_library_config_factory = \Drupal::configFactory()->getEditable('views.view.media_library');
-    $media_library_config_factory->setData($media_library_config_data)->save(TRUE);  
+    $media_library_config_factory->setData($media_library_config_data)->save(TRUE);
   }
 
 }
 
 /**
- * Issue #3098789: Fix [Media Library] and the [Media Grid and Media Table]
- * admin pages to work with Drupal ^8.8.x and ^8.7.x .
+ * Issue #3098789: Fix [Media Library] and the [Media Grid and Media Table].
+ *
+ * Admin pages to work with Drupal ^8.8.x and ^8.7.x .
  */
 function varbase_media_update_8701() {
   _varbase_media_managed_media_library_configs();
