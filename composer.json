@@ -35,7 +35,7 @@
     "npm-asset/blazy": "~1.0",
     "npm-asset/slick-carousel": "~1.0",
     "drupal/ds": "~3.0",
-    "drupal/better_exposed_filters": "~3.0",
+    "drupal/better_exposed_filters": "~4.0",
     "drupal/views_bulk_operations": "~3.0",
     "drupal/views_bulk_edit": "~2.0",
     "drupal/views_infinite_scroll": "~1.0",
