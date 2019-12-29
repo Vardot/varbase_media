@@ -570,6 +570,10 @@ function varbase_media_theme($existing, $type, $theme, $path) {
   return [
     'media_oembed_iframe__remote_video' => [
       'template' => 'media-oembed-iframe--remote-video',
+        'variables' => [
+            'provider' => NULL,
+            'media' => NULL,
+        ],
     ],
     'media_entity_gallery_post' => [
       'variables' => [
