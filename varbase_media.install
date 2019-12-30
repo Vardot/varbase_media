@@ -247,29 +247,41 @@ function varbase_media_update_8702() {
   ];
 
   foreach ($embed_buttons as $embed_button_id => $embed_button_info) {
-    $target_destination = NULL;
-    if (version_compare(Drupal::VERSION, '8.7.0', '>=')) {
-      try {
-        $target_destination = Drupal::service('file_system')->copy($embed_button_info['source'], $embed_button_info['destination']);
+    $embed_button_list = \Drupal::configFactory()->listAll('embed.button.' . $embed_button_id);
+    if (count($embed_button_list) > 0) {
+      $target_destination = NULL;
+      if (version_compare(Drupal::VERSION, '8.7.0', '>=')) {
+        try {
+          $target_destination = Drupal::service('file_system')->copy($embed_button_info['source'], $embed_button_info['destination']);
+        }
+        catch (FileException $e) {
+          $target_destination = FALSE;
+        }
       }
-      catch (FileException $e) {
-        $target_destination = FALSE;
+      else {
+        $target_destination = call_user_func('file_unmanaged_copy', $embed_button_info['source'], $embed_button_info['destination']);
       }
-    }
-    else {
-      $target_destination = call_user_func('file_unmanaged_copy', $embed_button_info['source'], $embed_button_info['destination']);
-    }
 
-    if ($target_destination) {
-      $target_file = File::create(['uri' => $target_destination]);
-      $target_file->save();
+      if ($target_destination) {
+        $target_file = File::create(['uri' => $target_destination]);
+        $target_file->save();
 
-      EmbedButton::load($embed_button_id)->set('icon', EmbedButton::convertImageToEncodedData($target_file->getFileUri()))->save();
-    }
-    else {
-      return t("Unable to copy @source to the public files directory.", [
-        '@source' => $embed_button_info['source'],
-      ]);
+        EmbedButton::load($embed_button_id)->set('icon', EmbedButton::convertImageToEncodedData($target_file->getFileUri()))->save();
+      }
+      else {
+        return t("Unable to copy @source to the public files directory.", [
+          '@source' => $embed_button_info['source'],
+        ]);
+      }
     }
   }
+}
+
+/**
+ * Follow up fix Issue #3103229: Fix icons for [Embed buttons] for the CKEditor
+ * after the change of Embed API as they had droped icon_uuid and change of
+ * config schema in case for optional updates or buttons were deleted.
+ */
+function varbase_media_update_8703() {
+  varbase_media_update_8702();
 }
