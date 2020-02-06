@@ -49,7 +49,7 @@
     "drupal/media_entity_twitter": "~2.0",
     "drupal/crop": "~2.0",
     "drupal/focal_point": "~1.0",
-    "drupal/imagemagick": "~2.0",
+    "drupal/imagemagick": "~3.0",
     "drupal/imageapi_optimize": "~2.0",
     "drupal/blazy": "~2.0",
     "drupal/slick": "~2.0",
