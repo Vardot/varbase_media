@@ -670,3 +670,17 @@ function varbase_media_preprocess_image(&$variables) {
     }
   }
 }
+
+/**
+ * Implements hook_oembed_resource_url_alter()
+ */
+function varbase_media_oembed_resource_url_alter(array &$parsed_url, Provider $provider) {
+  // Process arguments for vimeo videos to be included in oEmbed.
+  if ($provider->getName() == 'Vimeo') {
+    $url = $parsed_url['query']['url'];
+    // Use '/&' as a seporator between arguments.
+    $url = str_replace('&', '/&', $url);
+    $url = str_replace('?', '/&', $url);
+    $parsed_url['query']['url'] = $url;
+  }
+}
