@@ -88,7 +88,7 @@ function varbase_media_install() {
   $files = \Drupal::service('file_system')->scanDirectory($source, '/.*\.(svg|png|jpg|jpeg|gif)$/');
   foreach ($files as $file) {
     if (!file_exists($destination . DIRECTORY_SEPARATOR . $file->filename)) {
-      file_unmanaged_copy($file->uri, $destination, FileSystemInterface::EXISTS_ERROR);
+      FileSystemInterface::copy($file->uri, $destination, FileSystemInterface::EXISTS_ERROR);
     }
   }
 
