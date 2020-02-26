@@ -11,6 +11,7 @@ use Drupal\Core\Config\StorageInterface;
 use Drupal\Core\Config\FileStorage;
 use Drupal\file\Entity\File;
 use Drupal\embed\Entity\EmbedButton;
+use Drupal\Core\File\FileSystemInterface;
 
 /**
  * Implements hook_install().
@@ -38,7 +39,7 @@ function varbase_media_install() {
     $config_installer->installDefaultConfig('module', $module_name);
 
     // Create field storage configs first in active config.
-    $storage_config_files = file_scan_directory($optional_install_path, '/^field.storage.*\\.(yml)$/i');
+    $storage_config_files = \Drupal::service('file_system')->scanDirectory($optional_install_path, '/^field.storage.*\\.(yml)$/i');
     if (isset($storage_config_files) && is_array($storage_config_files)) {
       foreach ($storage_config_files as $storage_config_file) {
         $storage_config_file_content = file_get_contents(DRUPAL_ROOT . '/' . $storage_config_file->uri);
@@ -53,7 +54,7 @@ function varbase_media_install() {
     $config_installer->installOptionalConfig($storage, '');
 
     // Have the .settings.yml configs into the active config.
-    $settings_config_files = file_scan_directory($optional_install_path, '/^.*\\.(settings.yml)$/i');
+    $settings_config_files = \Drupal::service('file_system')->scanDirectory($optional_install_path, '/^.*\\.(settings.yml)$/i');
     if (isset($settings_config_files) && is_array($settings_config_files)) {
       foreach ($settings_config_files as $settings_config_file) {
         $settings_config_file_content = file_get_contents(DRUPAL_ROOT . '/' . $settings_config_file->uri);
@@ -65,7 +66,7 @@ function varbase_media_install() {
   }
   // --------------------------------------------------------------------------.
   // Configure widgets for entity browser enhanced behaviours.
-  $ebe_widgets_config_files = file_scan_directory($optional_install_path, '/^entity_browser_enhanced.widgets.*\\.(yml)$/i');
+  $ebe_widgets_config_files = \Drupal::service('file_system')->scanDirectory($optional_install_path, '/^entity_browser_enhanced.widgets.*\\.(yml)$/i');
   if (isset($ebe_widgets_config_files)
     && is_array($ebe_widgets_config_files)) {
     foreach ($ebe_widgets_config_files as $ebe_widgets_config_file) {
@@ -82,17 +83,17 @@ function varbase_media_install() {
   // Load Media types icons for the media libraray table view page.
   $source = $module_path . '/images/icons';
   $destination = \Drupal::config('media.settings')->get('icon_base_uri');
-  file_prepare_directory($destination, FILE_CREATE_DIRECTORY | FILE_MODIFY_PERMISSIONS);
+  FileSystemInterface::prepareDirectory($destination, FileSystemInterface::CREATE_DIRECTORY | FileSystemInterface::MODIFY_PERMISSIONS);
 
-  $files = file_scan_directory($source, '/.*\.(svg|png|jpg|jpeg|gif)$/');
+  $files = \Drupal::service('file_system')->scanDirectory($source, '/.*\.(svg|png|jpg|jpeg|gif)$/');
   foreach ($files as $file) {
     if (!file_exists($destination . DIRECTORY_SEPARATOR . $file->filename)) {
-      file_unmanaged_copy($file->uri, $destination, FILE_EXISTS_ERROR);
+      file_unmanaged_copy($file->uri, $destination, FileSystemInterface::EXISTS_ERROR);
     }
   }
 
   // Configure Entity Embed buttons.
-  $embed_button_config_files = file_scan_directory($optional_install_path, '/^embed.button.*\\.(yml)$/i');
+  $embed_button_config_files = \Drupal::service('file_system')->scanDirectory($optional_install_path, '/^embed.button.*\\.(yml)$/i');
   if (isset($embed_button_config_files)
     && is_array($embed_button_config_files)) {
     foreach ($embed_button_config_files as $embed_button_config_file) {
@@ -155,7 +156,7 @@ function varbase_media_requirements($phase) {
   $requirements = [];
   if ($phase == 'install') {
     $destination = \Drupal::config('media.settings')->get('icon_base_uri');
-    file_prepare_directory($destination, FILE_CREATE_DIRECTORY | FILE_MODIFY_PERMISSIONS);
+    FileSystemInterface::prepareDirectory($destination, FileSystemInterface::CREATE_DIRECTORY | FileSystemInterface::MODIFY_PERMISSIONS);
     $is_writable = is_writable($destination);
     $is_directory = is_dir($destination);
     if (!$is_writable || !$is_directory) {
@@ -224,8 +225,10 @@ function varbase_media_update_8701() {
 }
 
 /**
- * Issue #3103229: Fix icons for [Embed buttons] for the CKEditor after the
- * change of Embed API as they had droped icon_uuid and change of config schema
+ * Issue #3103229: Fix icons for [Embed buttons] for the CKEditor.
+ *
+ * After the change of Embed API as they had droped icon_uuid and change of
+ * config schema.
  */
 function varbase_media_update_8702() {
   varbase_media_update_8701();
@@ -278,8 +281,9 @@ function varbase_media_update_8702() {
 }
 
 /**
- * Follow up fix Issue #3103229: Fix icons for [Embed buttons] for the CKEditor
- * after the change of Embed API as they had droped icon_uuid and change of
+ * Follow up fix Issue #3103229: Fix icons for [Embed buttons] for the CKEditor.
+ *
+ * After the change of Embed API as they had droped icon_uuid and change of
  * config schema in case for optional updates or buttons were deleted.
  */
 function varbase_media_update_8703() {
