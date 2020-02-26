@@ -655,9 +655,12 @@ function varbase_media_preprocess_image(&$variables) {
       $img = $image_style_blazy_blurry->buildUri($current_uri_with_style);
       $image_style_blazy_blurry->createDerivative($current_uri_with_style, $img);
 
-      if (file_exists($uri) && file_exists($img)) {
+      if (file_exists($uri) && filesize($uri) > 0
+        && file_exists($img) && filesize($img) > 0) {
+
         // Encode the image in base64 to speed up loading times.
-        $img_binary = fread(fopen($img, "r"), filesize($img));
+        $img_file = fopen($img, "r");
+        $img_binary = fread($img_file, filesize($img));
         $file_type = mime_content_type($img);
         $img_base64 = 'data:' . $file_type . ';base64,' . base64_encode($img_binary);
 
@@ -667,6 +670,8 @@ function varbase_media_preprocess_image(&$variables) {
         unset($variables['attributes']['responsive_image_style']);
         unset($variables['attributes']['image_style']);
         unset($variables['attributes']['uri']);
+
+        fclose($img_file);
       }
     }
   }
