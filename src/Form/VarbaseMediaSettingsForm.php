@@ -8,9 +8,39 @@ use Drupal\Core\Config\InstallStorage;
 use Symfony\Component\Yaml\Yaml;
 
 /**
- * Provides form for managing module settings.
+ * Provides form for managing Varbase Media settings form.
  */
 class VarbaseMediaSettingsForm extends ConfigFormBase {
+
+  /**
+   * The module handler service.
+   *
+   * @var \Drupal\Core\Extension\ModuleHandlerInterface
+   */
+  protected $moduleHandler;
+
+  /**
+   * Constructs a new Varbase Media settings form.
+   *
+   * @param \Drupal\Core\Config\ConfigFactoryInterface $config_factory
+   *   The factory for configuration objects.
+   * @param \Drupal\Core\Extension\ModuleHandlerInterface $module_handler
+   *   The module handler service.
+   */
+  public function __construct(ConfigFactoryInterface $config_factory, ModuleHandlerInterface $module_handler) {
+    parent::__construct($config_factory);
+    $this->moduleHandler = $module_handler;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public static function create(ContainerInterface $container) {
+    return new static(
+      $container->get('config.factory'),
+      $container->get('module_handler')
+    );
+  }
 
   /**
    * Get the from ID.
@@ -61,13 +91,13 @@ class VarbaseMediaSettingsForm extends ConfigFormBase {
 
     // Have the Blazy Blurry image style in the active config.
     if ($use_blazy_blurry) {
-      $module_path = \Drupal::service('module_handler')->getModule('varbase_media')->getPath();
+      $module_path = $this->moduleHandler->getModule('varbase_media')->getPath();
       $optional_install_path = $module_path . '/' . InstallStorage::CONFIG_OPTIONAL_DIRECTORY;
 
       $image_style_config_path = $optional_install_path . '/' . 'image.style.blazy_blurry.yml';
       $image_style_config_content = file_get_contents($image_style_config_path);
       $image_style_config_data = (array) Yaml::parse($image_style_config_content);
-      $image_style_config_factory = \Drupal::configFactory()->getEditable('image.style.blazy_blurry');
+      $image_style_config_factory = $this->configFactory->getEditable('image.style.blazy_blurry');
       $image_style_config_factory->setData($image_style_config_data)->save(TRUE);
     }
 

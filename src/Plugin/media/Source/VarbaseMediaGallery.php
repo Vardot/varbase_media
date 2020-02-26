@@ -5,6 +5,7 @@ namespace Drupal\varbase_media\Plugin\media\Source;
 use Drupal\media\MediaInterface;
 use Drupal\media\MediaSourceBase;
 use Drupal\media\MediaSourceEntityConstraintsInterface;
+use Drupal\datetime\Plugin\Field\FieldType\DateTimeItemInterface;
 
 /**
  * Provides media type plugin for Gallery.
@@ -45,7 +46,7 @@ class VarbaseMediaGallery extends MediaSourceBase implements MediaSourceEntityCo
             '@count media items, created on @date',
             [
               '@date' => \Drupal::service('date.formatter')
-                ->format($media->getCreatedTime(), 'custom', DATETIME_DATETIME_STORAGE_FORMAT),
+                ->format($media->getCreatedTime(), 'custom', DateTimeItemInterface::DATETIME_STORAGE_FORMAT),
             ]);
         }
         return parent::getMetadata($media, 'default_name');

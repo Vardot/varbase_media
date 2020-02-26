@@ -571,10 +571,10 @@ function varbase_media_theme($existing, $type, $theme, $path) {
   return [
     'media_oembed_iframe__remote_video' => [
       'template' => 'media-oembed-iframe--remote-video',
-        'variables' => [
-            'provider' => NULL,
-            'media' => NULL,
-        ],
+      'variables' => [
+        'provider' => NULL,
+        'media' => NULL,
+      ],
     ],
     'media_entity_gallery_post' => [
       'variables' => [
@@ -673,7 +673,7 @@ function varbase_media_preprocess_image(&$variables) {
 }
 
 /**
- * Implements hook_oembed_resource_url_alter()
+ * Implements hook_oembed_resource_url_alter().
  */
 function varbase_media_oembed_resource_url_alter(array &$parsed_url, Provider $provider) {
   // Process arguments for vimeo videos to be included in oEmbed.
