@@ -53,25 +53,70 @@ display:
           expose_sort_order: true
           sort_asc_label: Asc
           sort_desc_label: Desc
-          input_required: false
           text_input_required: 'Select any filter and click on Apply to see results'
+          text_input_required_format: full_html
           bef:
             general:
-              allow_secondary: false
-              secondary_label: 'Advanced options'
               autosubmit: false
               autosubmit_exclude_textfield: false
               autosubmit_hide: false
+              input_required: false
+              allow_secondary: false
+              secondary_label: 'Advanced options'
             sort:
-              bef_format: default
+              plugin_id: default
               advanced:
-                collapsible: false
-                collapsible_label: 'Sort options'
                 combine: false
                 combine_rewrite: ''
                 reset: false
                 reset_label: ''
+                collapsible: false
+                collapsible_label: 'Sort options'
                 is_secondary: false
+            pager:
+              plugin_id: default
+              advanced:
+                is_secondary: false
+            filter:
+              status:
+                plugin_id: default
+                advanced:
+                  sort_options: false
+                  rewrite:
+                    filter_rewrite_values: ''
+                  collapsible: false
+                  is_secondary: false
+              name:
+                plugin_id: default
+                advanced:
+                  collapsible: false
+                  is_secondary: false
+              bundle:
+                plugin_id: default
+                advanced:
+                  sort_options: false
+                  rewrite:
+                    filter_rewrite_values: ''
+                  collapsible: false
+                  is_secondary: false
+              langcode:
+                plugin_id: default
+                advanced:
+                  sort_options: false
+                  rewrite:
+                    filter_rewrite_values: ''
+                  collapsible: false
+                  is_secondary: false
+              created:
+                plugin_id: bef_datepicker
+                advanced:
+                  collapsible: false
+                  is_secondary: false
+              created_1:
+                plugin_id: bef_datepicker
+                advanced:
+                  collapsible: false
+                  is_secondary: false
             status:
               bef_format: default
               more_options:
@@ -111,7 +156,7 @@ display:
               more_options:
                 is_secondary: false
                 placeholder_text: ''
-          text_input_required_format: full_html
+          input_required: false
       pager:
         type: full
         options:
@@ -126,7 +171,7 @@ display:
             last: 'Last »'
           expose:
             items_per_page: true
-            items_per_page_label: 'Items'
+            items_per_page_label: Items
             items_per_page_options: '5, 10, 25, 50, 100'
             items_per_page_options_all: false
             items_per_page_options_all_label: '- All -'
@@ -254,14 +299,24 @@ display:
           clear_on_exposed: false
           action_title: Action
           selected_actions:
-            'entity:break_lock:media': 'entity:break_lock:media'
-            views_bulk_edit: views_bulk_edit
-            views_bulk_operations_delete_entity: views_bulk_operations_delete_entity
-            pathauto_update_alias: pathauto_update_alias
-            'entity:unpublish_action:media': 'entity:unpublish_action:media'
-            'entity:save_action:media': 'entity:save_action:media'
-            'entity:delete_action:media': 'entity:delete_action:media'
-            'entity:publish_action:media': 'entity:publish_action:media'
+            -
+              action_id: 'entity:break_lock:media'
+            -
+              action_id: views_bulk_edit
+              preconfiguration:
+                get_bundles_from_results: 1
+            -
+              action_id: views_bulk_operations_delete_entity
+            -
+              action_id: pathauto_update_alias
+            -
+              action_id: 'entity:unpublish_action:media'
+            -
+              action_id: 'entity:delete_action:media'
+            -
+              action_id: 'entity:save_action:media'
+            -
+              action_id: 'entity:publish_action:media'
           preconfiguration:
             'entity:break_lock:media':
               label_override: ''
@@ -1584,7 +1639,7 @@ display:
             next: 'Next ›'
           expose:
             items_per_page: false
-            items_per_page_label: 'Items'
+            items_per_page_label: Items
             items_per_page_options: '5, 10, 25, 50'
             items_per_page_options_all: false
             items_per_page_options_all_label: '- All -'
