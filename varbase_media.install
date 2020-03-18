@@ -5,16 +5,17 @@
  * Contains install and update for Varbase Media module.
  */
 
-use Drupal\Core\Config\FileStorage;
+use Symfony\Component\Yaml\Yaml;
 use Drupal\Core\Config\InstallStorage;
 use Drupal\Core\Config\StorageInterface;
-use Drupal\Core\File\Exception\FileException;
+use Drupal\Core\Config\FileStorage;
+use Drupal\file\Entity\File;
 use Drupal\embed\Entity\EmbedButton;
+use Drupal\Core\File\FileSystemInterface;
+use Drupal\Core\File\Exception\FileException;
 use Drupal\field\Entity\FieldConfig;
 use Drupal\field\Entity\FieldStorageConfig;
-use Drupal\file\Entity\File;
 use Drupal\varbase\entity\VarbaseEntityDefinitionUpdateManager;
-use Symfony\Component\Yaml\Yaml;
 
 /**
  * Implements hook_install().
@@ -327,20 +328,22 @@ function varbase_media_update_8705() {
   $resource_fetcher = \Drupal::service('media.oembed.resource_fetcher');
   $entities = \Drupal::entityTypeManager()->getStorage('media')->loadByProperties(['bundle' => 'remote_video']);
 
-  foreach ($entities as $entity) {
-    try {
-      $resource_url = $url_resolver->getResourceUrl(($entity->field_media_oembed_video->value));
-      $resource = $resource_fetcher->fetchResource($resource_url);
-      $provider = strtolower($resource->getProvider()->getName());
+  if (isset($entities) && is_array($entities) && count($entities)) {
+    foreach ($entities as $entity) {
+      try {
+        $resource_url = $url_resolver->getResourceUrl(($entity->field_media_oembed_video->value));
+        $resource = $resource_fetcher->fetchResource($resource_url);
+        $provider = strtolower($resource->getProvider()->getName());
 
-      if ($entity->field_provider->value != $provider) {
-        $entity->set('field_provider', $provider);
-        $entity->save();
+        if ($entity->field_provider->value != $provider) {
+          $entity->set('field_provider', $provider);
+          $entity->save();
+        }
       }
-    }
-    catch (Exception $e) {
-    }
+      catch (Exception $e) {
+      }
 
+    }
   }
 
   // --------------------------------------------------------------------------.
