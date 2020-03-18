@@ -57,6 +57,7 @@ content:
 hidden:
   created: true
   langcode: true
+  field_provider: true
   path: true
   status: true
   uid: true

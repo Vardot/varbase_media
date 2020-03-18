@@ -5,13 +5,16 @@
  * Contains install and update for Varbase Media module.
  */
 
-use Symfony\Component\Yaml\Yaml;
+use Drupal\Core\Config\FileStorage;
 use Drupal\Core\Config\InstallStorage;
 use Drupal\Core\Config\StorageInterface;
-use Drupal\Core\Config\FileStorage;
-use Drupal\file\Entity\File;
+use Drupal\Core\File\Exception\FileException;
 use Drupal\embed\Entity\EmbedButton;
-use Drupal\Core\File\FileSystemInterface;
+use Drupal\field\Entity\FieldConfig;
+use Drupal\field\Entity\FieldStorageConfig;
+use Drupal\file\Entity\File;
+use Drupal\varbase\entity\VarbaseEntityDefinitionUpdateManager;
+use Symfony\Component\Yaml\Yaml;
 
 /**
  * Implements hook_install().
@@ -288,4 +291,88 @@ function varbase_media_update_8702() {
  */
 function varbase_media_update_8703() {
   varbase_media_update_8702();
+}
+
+/**
+ * Follow up fix Issue #3115391: Create new field field_provider.
+ */
+function varbase_media_update_8704() {
+  FieldStorageConfig::create(array(
+    'field_name' => 'field_provider',
+    'entity_type' => 'media',
+    'type' => 'string',
+    'cardinality' => 1,
+  ))->save();
+
+  FieldConfig::create([
+    'field_name' => 'field_provider',
+    'entity_type' => 'media',
+    'bundle' => 'remote_video',
+    'label' => 'Provider',
+  ])->save();
+
+  // --------------------------------------------------------------------------.
+  // Entity updates to clear up any mismatched entity and/or field definitions
+  // And Fix changes were detected in the entity type and field definitions.
+  \Drupal::classResolver()
+  ->getInstanceFromDefinition(VarbaseEntityDefinitionUpdateManager::class)
+  ->applyUpdates();
+}
+
+/**
+ * Follow up fix Issue #3115391: Update all remote videos, set field_provider value.
+ */
+function varbase_media_update_8705() {
+  $url_resolver = \Drupal::service('media.oembed.url_resolver');
+  $resource_fetcher = \Drupal::service('media.oembed.resource_fetcher');
+  $entities = \Drupal::entityTypeManager()->getStorage('media')->loadByProperties(['bundle' => 'remote_video']);
+
+  foreach ($entities as $entity) {
+    try {
+      $resource_url = $url_resolver->getResourceUrl(($entity->field_media_oembed_video->value));
+      $resource = $resource_fetcher->fetchResource($resource_url);
+      $provider = strtolower($resource->getProvider()->getName());
+
+      if ($entity->field_provider->value != $provider) {
+        $entity->set('field_provider', $provider);
+        $entity->save();
+      }
+    }
+    catch (Exception $e) {
+    }
+
+  }
+
+  // --------------------------------------------------------------------------.
+  // Entity updates to clear up any mismatched entity and/or field definitions
+  // And Fix changes were detected in the entity type and field definitions.
+  \Drupal::classResolver()
+  ->getInstanceFromDefinition(VarbaseEntityDefinitionUpdateManager::class)
+  ->applyUpdates();
+
+}
+
+/**
+ * Follow up fix Issue #3115391: Update all remote videos, set field oembed view mode type.
+ */
+function varbase_media_update_8706() {
+  $storage = \Drupal::entityTypeManager()->getStorage('entity_view_display');
+  $media_view_modes = \Drupal::service('entity_display.repository')->getViewModes('media');
+  foreach (array_keys($media_view_modes)  as  $key) {
+    $view_display = $storage->load('media.remote_video.' . $key);
+    $config = $view_display->getComponent('field_media_oembed_video');
+
+    if(isset($config['type']) && $config['type'] == 'oembed') {
+      $config['type'] = 'varbase_oembed';
+      $view_display->setComponent('field_media_oembed_video' , $config);
+      $view_display->save();
+    }
+  }
+
+  // --------------------------------------------------------------------------.
+  // Entity updates to clear up any mismatched entity and/or field definitions
+  // And Fix changes were detected in the entity type and field definitions.
+  \Drupal::classResolver()
+  ->getInstanceFromDefinition(VarbaseEntityDefinitionUpdateManager::class)
+  ->applyUpdates();
 }

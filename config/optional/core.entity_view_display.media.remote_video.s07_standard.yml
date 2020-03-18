@@ -6,11 +6,13 @@ dependencies:
     - field.field.media.remote_video.field_media_cover_image
     - field.field.media.remote_video.field_media_in_library
     - field.field.media.remote_video.field_media_oembed_video
+    - field.field.media.remote_video.field_provider
     - media.type.remote_video
+    - responsive_image.styles.d07_standard
   module:
     - blazy
     - ds
-    - media
+    - varbase_media
 third_party_settings:
   ds:
     layout:
@@ -19,6 +21,7 @@ third_party_settings:
       disable_css: false
       entity_classes: all_classes
       settings:
+        label: ''
         wrappers:
           ds_content: div
         outer_wrapper: div
@@ -98,7 +101,7 @@ content:
             fi: false
             fi-def-at: false
   field_media_oembed_video:
-    type: oembed
+    type: varbase_oembed
     weight: 0
     region: ds_content
     label: hidden
@@ -138,6 +141,7 @@ hidden:
   created: true
   field_media_in_library: true
   langcode: true
+  field_provider: true
   name: true
   thumbnail: true
   uid: true

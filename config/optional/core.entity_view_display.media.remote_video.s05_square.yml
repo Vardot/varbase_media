@@ -6,7 +6,9 @@ dependencies:
     - field.field.media.remote_video.field_media_cover_image
     - field.field.media.remote_video.field_media_in_library
     - field.field.media.remote_video.field_media_oembed_video
+    - field.field.media.remote_video.field_provider
     - media.type.remote_video
+    - responsive_image.styles.d05_square
   module:
     - blazy
     - ds
@@ -162,5 +164,6 @@ hidden:
   field_media_in_library: true
   field_media_oembed_video: true
   langcode: true
+  field_provider: true
   name: true
   uid: true

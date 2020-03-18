@@ -6,6 +6,7 @@ dependencies:
     - field.field.media.remote_video.field_media_cover_image
     - field.field.media.remote_video.field_media_in_library
     - field.field.media.remote_video.field_media_oembed_video
+    - field.field.media.remote_video.field_provider
     - image.style.d03_traditional
     - media.type.remote_video
   module:
@@ -124,4 +125,5 @@ hidden:
   field_media_in_library: true
   field_media_oembed_video: true
   langcode: true
+  field_provider: true
   uid: true
