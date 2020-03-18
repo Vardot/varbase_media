@@ -298,84 +298,118 @@ function varbase_media_update_8703() {
  * Follow up fix Issue #3115391: Create new field field_provider.
  */
 function varbase_media_update_8704() {
-  FieldStorageConfig::create(array(
-    'field_name' => 'field_provider',
-    'entity_type' => 'media',
-    'type' => 'string',
-    'cardinality' => 1,
-  ))->save();
+  // When Remote Video media type is active.
+  $media_bundle_ids = \Drupal::service('entity_type.bundle.info')->getBundleInfo('media');
+  if (isset($media_bundle_ids)
+    && count($media_bundle_ids) > 0
+    && in_array('remote_video', $media_bundle_ids)) {
 
-  FieldConfig::create([
-    'field_name' => 'field_provider',
-    'entity_type' => 'media',
-    'bundle' => 'remote_video',
-    'label' => 'Provider',
-  ])->save();
+    // Configure field storage media field_provider.
+    $field_storage_media_field_provider = FieldStorageConfig::loadByName('media', 'field_provider');
+    if (!isset($field_storage_media_field_provider)) {
+      FieldStorageConfig::create(array(
+        'field_name' => 'field_provider',
+        'entity_type' => 'media',
+        'type' => 'string',
+        'cardinality' => 1,
+      ))->save();
+    }
 
-  // --------------------------------------------------------------------------.
-  // Entity updates to clear up any mismatched entity and/or field definitions
-  // And Fix changes were detected in the entity type and field definitions.
-  \Drupal::classResolver()
-  ->getInstanceFromDefinition(VarbaseEntityDefinitionUpdateManager::class)
-  ->applyUpdates();
+    // Configure init field media remote_video field_provider.
+    $field_field_media_remote_video_field_provider = FieldConfig::loadByName('media', 'remote_video', 'field_provider');
+    if (!isset($field_field_media_remote_video_field_provider)) {
+      FieldConfig::create([
+        'field_name' => 'field_provider',
+        'entity_type' => 'media',
+        'bundle' => 'remote_video',
+        'label' => t('Provider'),
+      ])->save();
+    }
+
+    // ------------------------------------------------------------------------.
+    // Entity updates to clear up any mismatched entity and/or field definitions
+    // And Fix changes were detected in the entity type and field definitions.
+    \Drupal::classResolver()
+    ->getInstanceFromDefinition(VarbaseEntityDefinitionUpdateManager::class)
+    ->applyUpdates();
+  }
 }
 
 /**
  * Follow up fix Issue #3115391: Update all remote videos, set field_provider value.
  */
 function varbase_media_update_8705() {
-  $url_resolver = \Drupal::service('media.oembed.url_resolver');
-  $resource_fetcher = \Drupal::service('media.oembed.resource_fetcher');
-  $entities = \Drupal::entityTypeManager()->getStorage('media')->loadByProperties(['bundle' => 'remote_video']);
+  // When the Remote Video media type is active.
+  $media_bundle_ids = \Drupal::service('entity_type.bundle.info')->getBundleInfo('media');
+  if (isset($media_bundle_ids)
+    && count($media_bundle_ids) > 0
+    && in_array('remote_video', $media_bundle_ids)) {
 
-  if (isset($entities) && is_array($entities) && count($entities)) {
-    foreach ($entities as $entity) {
-      try {
-        $resource_url = $url_resolver->getResourceUrl(($entity->field_media_oembed_video->value));
-        $resource = $resource_fetcher->fetchResource($resource_url);
-        $provider = strtolower($resource->getProvider()->getName());
+    $url_resolver = \Drupal::service('media.oembed.url_resolver');
+    $resource_fetcher = \Drupal::service('media.oembed.resource_fetcher');
+    $entities = \Drupal::entityTypeManager()->getStorage('media')->loadByProperties(['bundle' => 'remote_video']);
 
-        if ($entity->field_provider->value != $provider) {
-          $entity->set('field_provider', $provider);
-          $entity->save();
+    // When we do have remote video media entities.
+    if (isset($entities) && is_array($entities) && count($entities) > 0) {
+      // And no syncing for update process.
+      if (!\Drupal::isConfigSyncing()) {
+        // Fetch the provider name and cach it in the field_provider
+        // Not to be changed or fetched again.
+        foreach ($entities as $entity) {
+          try {
+            $resource_url = $url_resolver->getResourceUrl(($entity->field_media_oembed_video->value));
+            $resource = $resource_fetcher->fetchResource($resource_url);
+            $provider = strtolower($resource->getProvider()->getName());
+
+            if ($entity->field_provider->value != $provider) {
+              $entity->set('field_provider', $provider);
+              $entity->save();
+            }
+          }
+          catch (Exception $e) {
+          }
+
         }
       }
-      catch (Exception $e) {
-      }
-
     }
+
+    // ------------------------------------------------------------------------.
+    // Entity updates to clear up any mismatched entity and/or field definitions
+    // And Fix changes were detected in the entity type and field definitions.
+    \Drupal::classResolver()
+    ->getInstanceFromDefinition(VarbaseEntityDefinitionUpdateManager::class)
+    ->applyUpdates();
   }
-
-  // --------------------------------------------------------------------------.
-  // Entity updates to clear up any mismatched entity and/or field definitions
-  // And Fix changes were detected in the entity type and field definitions.
-  \Drupal::classResolver()
-  ->getInstanceFromDefinition(VarbaseEntityDefinitionUpdateManager::class)
-  ->applyUpdates();
-
 }
 
 /**
  * Follow up fix Issue #3115391: Update all remote videos, set field oembed view mode type.
  */
 function varbase_media_update_8706() {
-  $storage = \Drupal::entityTypeManager()->getStorage('entity_view_display');
-  $media_view_modes = \Drupal::service('entity_display.repository')->getViewModes('media');
-  foreach (array_keys($media_view_modes)  as  $key) {
-    $view_display = $storage->load('media.remote_video.' . $key);
-    $config = $view_display->getComponent('field_media_oembed_video');
+  // When the Remote Video media type is active.
+  $media_bundle_ids = \Drupal::service('entity_type.bundle.info')->getBundleInfo('media');
+  if (isset($media_bundle_ids)
+    && count($media_bundle_ids) > 0
+    && in_array('remote_video', $media_bundle_ids)) {
 
-    if(isset($config['type']) && $config['type'] == 'oembed') {
-      $config['type'] = 'varbase_oembed';
-      $view_display->setComponent('field_media_oembed_video' , $config);
-      $view_display->save();
+    $storage = \Drupal::entityTypeManager()->getStorage('entity_view_display');
+    $media_view_modes = \Drupal::service('entity_display.repository')->getViewModes('media');
+    foreach (array_keys($media_view_modes)  as  $key) {
+      $view_display = $storage->load('media.remote_video.' . $key);
+      $config = $view_display->getComponent('field_media_oembed_video');
+
+      if(isset($config['type']) && $config['type'] == 'oembed') {
+        $config['type'] = 'varbase_oembed';
+        $view_display->setComponent('field_media_oembed_video' , $config);
+        $view_display->save();
+      }
     }
-  }
 
-  // --------------------------------------------------------------------------.
-  // Entity updates to clear up any mismatched entity and/or field definitions
-  // And Fix changes were detected in the entity type and field definitions.
-  \Drupal::classResolver()
-  ->getInstanceFromDefinition(VarbaseEntityDefinitionUpdateManager::class)
-  ->applyUpdates();
+    // ------------------------------------------------------------------------.
+    // Entity updates to clear up any mismatched entity and/or field definitions
+    // And Fix changes were detected in the entity type and field definitions.
+    \Drupal::classResolver()
+    ->getInstanceFromDefinition(VarbaseEntityDefinitionUpdateManager::class)
+    ->applyUpdates();
+  }
 }
