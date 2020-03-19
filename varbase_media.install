@@ -15,7 +15,7 @@ use Drupal\Core\File\FileSystemInterface;
 use Drupal\Core\File\Exception\FileException;
 use Drupal\field\Entity\FieldConfig;
 use Drupal\field\Entity\FieldStorageConfig;
-use Drupal\varbase\entity\VarbaseEntityDefinitionUpdateManager;
+use Drupal\varbase\Entity\VarbaseEntityDefinitionUpdateManager;
 
 /**
  * Implements hook_install().
@@ -301,8 +301,9 @@ function varbase_media_update_8704() {
   // When Remote Video media type is active.
   $media_bundle_ids = \Drupal::service('entity_type.bundle.info')->getBundleInfo('media');
   if (isset($media_bundle_ids)
+    && is_array($media_bundle_ids)
     && count($media_bundle_ids) > 0
-    && in_array('remote_video', $media_bundle_ids)) {
+    && isset($media_bundle_ids['remote_video'])) {
 
     // Configure field storage media field_provider.
     $field_storage_media_field_provider = FieldStorageConfig::loadByName('media', 'field_provider');
@@ -342,8 +343,9 @@ function varbase_media_update_8705() {
   // When the Remote Video media type is active.
   $media_bundle_ids = \Drupal::service('entity_type.bundle.info')->getBundleInfo('media');
   if (isset($media_bundle_ids)
+    && is_array($media_bundle_ids)
     && count($media_bundle_ids) > 0
-    && in_array('remote_video', $media_bundle_ids)) {
+    && isset($media_bundle_ids['remote_video'])) {
 
     $url_resolver = \Drupal::service('media.oembed.url_resolver');
     $resource_fetcher = \Drupal::service('media.oembed.resource_fetcher');
@@ -389,19 +391,22 @@ function varbase_media_update_8706() {
   // When the Remote Video media type is active.
   $media_bundle_ids = \Drupal::service('entity_type.bundle.info')->getBundleInfo('media');
   if (isset($media_bundle_ids)
+    && is_array($media_bundle_ids)
     && count($media_bundle_ids) > 0
-    && in_array('remote_video', $media_bundle_ids)) {
+    && isset($media_bundle_ids['remote_video'])) {
 
     $storage = \Drupal::entityTypeManager()->getStorage('entity_view_display');
     $media_view_modes = \Drupal::service('entity_display.repository')->getViewModes('media');
     foreach (array_keys($media_view_modes)  as  $key) {
       $view_display = $storage->load('media.remote_video.' . $key);
-      $config = $view_display->getComponent('field_media_oembed_video');
+      if (isset($view_display)) {
+        $config = $view_display->getComponent('field_media_oembed_video');
 
-      if(isset($config['type']) && $config['type'] == 'oembed') {
-        $config['type'] = 'varbase_oembed';
-        $view_display->setComponent('field_media_oembed_video' , $config);
-        $view_display->save();
+        if(isset($config['type']) && $config['type'] == 'oembed') {
+          $config['type'] = 'varbase_oembed';
+          $view_display->setComponent('field_media_oembed_video' , $config);
+          $view_display->save();
+        }
       }
     }
 
