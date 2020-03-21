@@ -295,7 +295,7 @@ function varbase_media_update_8703() {
 }
 
 /**
- * Follow up fix Issue #3115391: Create new field field_provider.
+ * Issue #3115391: Create new field field_provider for remote video media type.
  */
 function varbase_media_update_8704() {
   // When Remote Video media type is active.
@@ -308,12 +308,12 @@ function varbase_media_update_8704() {
     // Configure field storage media field_provider.
     $field_storage_media_field_provider = FieldStorageConfig::loadByName('media', 'field_provider');
     if (!isset($field_storage_media_field_provider)) {
-      FieldStorageConfig::create(array(
+      FieldStorageConfig::create([
         'field_name' => 'field_provider',
         'entity_type' => 'media',
         'type' => 'string',
         'cardinality' => 1,
-      ))->save();
+      ])->save();
     }
 
     // Configure init field media remote_video field_provider.
@@ -331,13 +331,13 @@ function varbase_media_update_8704() {
     // Entity updates to clear up any mismatched entity and/or field definitions
     // And Fix changes were detected in the entity type and field definitions.
     \Drupal::classResolver()
-    ->getInstanceFromDefinition(VarbaseEntityDefinitionUpdateManager::class)
-    ->applyUpdates();
+      ->getInstanceFromDefinition(VarbaseEntityDefinitionUpdateManager::class)
+      ->applyUpdates();
   }
 }
 
 /**
- * Follow up fix Issue #3115391: Update all remote videos, set field_provider value.
+ * Follow up #3115391: Update all remote videos, set field_provider value.
  */
 function varbase_media_update_8705() {
   // When the Remote Video media type is active.
@@ -379,13 +379,13 @@ function varbase_media_update_8705() {
     // Entity updates to clear up any mismatched entity and/or field definitions
     // And Fix changes were detected in the entity type and field definitions.
     \Drupal::classResolver()
-    ->getInstanceFromDefinition(VarbaseEntityDefinitionUpdateManager::class)
-    ->applyUpdates();
+      ->getInstanceFromDefinition(VarbaseEntityDefinitionUpdateManager::class)
+      ->applyUpdates();
   }
 }
 
 /**
- * Follow up fix Issue #3115391: Update all remote videos, set field oembed view mode type.
+ * Follow up #3115391: Update all remote videos, set oembed view mode type.
  */
 function varbase_media_update_8706() {
   // When the Remote Video media type is active.
@@ -397,24 +397,33 @@ function varbase_media_update_8706() {
 
     $storage = \Drupal::entityTypeManager()->getStorage('entity_view_display');
     $media_view_modes = \Drupal::service('entity_display.repository')->getViewModes('media');
-    foreach (array_keys($media_view_modes)  as  $key) {
-      $view_display = $storage->load('media.remote_video.' . $key);
-      if (isset($view_display)) {
-        $config = $view_display->getComponent('field_media_oembed_video');
 
-        if(isset($config['type']) && $config['type'] == 'oembed') {
-          $config['type'] = 'varbase_oembed';
-          $view_display->setComponent('field_media_oembed_video' , $config);
-          $view_display->save();
+    if (isset()
+      && is_array()
+      && count() > 0) {
+
+      $media_view_modes['default'] = 'default';
+      $media_view_modes = array_keys($media_view_modes);
+
+      foreach ($media_view_modes as $key) {
+        $view_display = $storage->load('media.remote_video.' . $key);
+        if (isset($view_display)) {
+          $config = $view_display->getComponent('field_media_oembed_video');
+
+          if (isset($config['type']) && $config['type'] == 'oembed') {
+            $config['type'] = 'varbase_oembed';
+            $view_display->setComponent('field_media_oembed_video', $config);
+            $view_display->save();
+          }
         }
       }
-    }
 
-    // ------------------------------------------------------------------------.
-    // Entity updates to clear up any mismatched entity and/or field definitions
-    // And Fix changes were detected in the entity type and field definitions.
-    \Drupal::classResolver()
-    ->getInstanceFromDefinition(VarbaseEntityDefinitionUpdateManager::class)
-    ->applyUpdates();
+      // ----------------------------------------------------------------------.
+      // Entity updates to clear up any mismatched entity field definitions
+      // And Fix changes were detected in the entity type and field definitions.
+      \Drupal::classResolver()
+        ->getInstanceFromDefinition(VarbaseEntityDefinitionUpdateManager::class)
+        ->applyUpdates();
+    }
   }
 }
