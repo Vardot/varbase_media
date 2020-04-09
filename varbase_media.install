@@ -326,13 +326,6 @@ function varbase_media_update_8704() {
         'label' => t('Provider'),
       ])->save();
     }
-
-    // ------------------------------------------------------------------------.
-    // Entity updates to clear up any mismatched entity and/or field definitions
-    // And Fix changes were detected in the entity type and field definitions.
-    \Drupal::classResolver()
-      ->getInstanceFromDefinition(VarbaseEntityDefinitionUpdateManager::class)
-      ->applyUpdates();
   }
 }
 
@@ -374,13 +367,6 @@ function varbase_media_update_8705() {
         }
       }
     }
-
-    // ------------------------------------------------------------------------.
-    // Entity updates to clear up any mismatched entity and/or field definitions
-    // And Fix changes were detected in the entity type and field definitions.
-    \Drupal::classResolver()
-      ->getInstanceFromDefinition(VarbaseEntityDefinitionUpdateManager::class)
-      ->applyUpdates();
   }
 }
 
@@ -417,13 +403,39 @@ function varbase_media_update_8706() {
           }
         }
       }
-
-      // ----------------------------------------------------------------------.
-      // Entity updates to clear up any mismatched entity field definitions
-      // And Fix changes were detected in the entity type and field definitions.
-      \Drupal::classResolver()
-        ->getInstanceFromDefinition(VarbaseEntityDefinitionUpdateManager::class)
-        ->applyUpdates();
     }
+  }
+}
+
+/**
+ * Issue #3125946: Fix missing varbase media entity presave hook.
+ *
+ * For remote videos after introduced issues on update with [entityqueue]
+ * latest release.
+ */
+function varbase_media_update_8707() {
+  // When the Remote Video media type is active.
+  $media_bundle_ids = \Drupal::service('entity_type.bundle.info')->getBundleInfo('media');
+  if (isset($media_bundle_ids)
+    && is_array($media_bundle_ids)
+    && count($media_bundle_ids) > 0
+    && isset($media_bundle_ids['remote_video'])) {
+
+    // Recall for the following update functions as they had changed
+    // as hey introduced issues on update with [entityqueue] latest release
+    // Issue #3115391: Create new field field_provider for remote video
+    // media type.
+    // Follow up on Update all remote videos, set field_provider value.
+    // Follow up onUpdate all remote videos, set oembed view mode type.
+    varbase_media_update_8704();
+    varbase_media_update_8705();
+    varbase_media_update_8706();
+
+    // ----------------------------------------------------------------------.
+    // Entity updates to clear up any mismatched entity field definitions
+    // And Fix changes were detected in the entity type and field definitions.
+    \Drupal::classResolver()
+      ->getInstanceFromDefinition(VarbaseEntityDefinitionUpdateManager::class)
+      ->applyUpdates();
   }
 }

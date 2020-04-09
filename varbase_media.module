@@ -21,14 +21,55 @@ use Drupal\Core\Url;
 use Drupal\file\Entity\File;
 use Drupal\responsive_image\Entity\ResponsiveImageStyle;
 use Drupal\media\OEmbed\Provider;
+use Drupal\field\Entity\FieldConfig;
 
 /**
  * Implements hook_preprocess_field().
  */
 function varbase_media_preprocess_field(&$variables) {
 
-  if ($variables['element']['#formatter'] == 'oembed') {
+  if ($variables['element']['#formatter'] == 'varbase_oembed') {
 
+    // Provide an extra variable to the field template when the field uses
+    // a formatter of type 'varbase_oembed'.
+    $iframe_url_helper = \Drupal::service('media.oembed.iframe_url_helper');
+
+    $entity = $variables['element']['#object'];
+
+    $view_mode = $variables['element']['#view_mode'];
+    $field_name = $variables['element']['#field_name'];
+    $bundle = $variables['element']['#bundle'];
+
+    // Get the field formatter settings...
+    $entity_display = EntityViewDisplay::collectRenderDisplay($entity, $view_mode);
+    $field_display = $entity_display->getComponent($field_name);
+
+    if ($bundle == "remote_video") {
+      $max_width = $field_display['settings']['max_width'];
+      $max_height = $field_display['settings']['max_height'];
+      $item = $variables['element']["#items"]->first();
+
+      $main_property = $item->getFieldDefinition()->getFieldStorageDefinition()->getMainPropertyName();
+      $value = $item->{$main_property};
+      $provider = $entity->field_provider->value;
+      $url = Url::fromRoute('media.oembed_iframe', [], [
+        'query' => [
+          'url' => $value,
+          'max_width' => $max_width,
+          'max_height' => $max_height,
+          'type' => "remote_video",
+          'provider' => strtolower($provider),
+          'view_mode' => $view_mode,
+          'hash' => $iframe_url_helper->getHash($value, $max_width, $max_height, $provider, $view_mode),
+        ],
+      ]);
+
+      $variables['items'][0]['content']['#attributes']['src'] = $url->toString();
+    }
+  }
+  elseif ($variables['element']['#formatter'] == 'oembed') {
+    // Fallback option for oembed old way, In case of change back to oembed.
+    // -------
     // Provide an extra variable to the field template when the field uses
     // a formatter of type 'oembed'.
     $resource_fetcher = \Drupal::service('media.oembed.resource_fetcher');
@@ -51,6 +92,9 @@ function varbase_media_preprocess_field(&$variables) {
       $item = $variables['element']["#items"]->first();
       $main_property = $item->getFieldDefinition()->getFieldStorageDefinition()->getMainPropertyName();
       $value = $item->{$main_property};
+
+      // Fallback option for oembed old way, In case of change back to oembed
+      // fetch resource way.
       $resource_url = $url_resolver->getResourceUrl($value, $max_width, $max_height);
       $resource = $resource_fetcher->fetchResource($resource_url);
       $provider = $resource->getProvider()->getName();
@@ -103,6 +147,27 @@ function varbase_media_preprocess_field(&$variables) {
 
           $build_item->setValue($value);
         }
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_entity_presave().
+ */
+function varbase_media_entity_presave(EntityInterface $entity) {
+  if ($entity->getEntityType()->id() == 'media' && $entity->bundle->target_id == 'remote_video') {
+    // If the field_provider exists in the remote video media type.
+    $field_field_media_remote_video_field_provider = FieldConfig::loadByName('media', 'remote_video', 'field_provider');
+    if (isset($field_field_media_remote_video_field_provider)) {
+      // Fetch the resource from the URL and save in the field_provider.
+      $url_resolver = \Drupal::service('media.oembed.url_resolver');
+      $resource_fetcher = \Drupal::service('media.oembed.resource_fetcher');
+      $resource_url = $url_resolver->getResourceUrl(($entity->field_media_oembed_video->value));
+      $resource = $resource_fetcher->fetchResource($resource_url);
+      $provider = strtolower($resource->getProvider()->getName());
+      if ($entity->field_provider->value != $provider) {
+        $entity->set('field_provider', $provider);
       }
     }
   }
