@@ -2,9 +2,6 @@ name: Entity Browser Generic Embed
 description: 'Entity Browser Generic Embed'
 type: module
 package: Media
-version: 8.x-7.x-dev
-core: 8.x
-project: varbase_media
 core_version_requirement: ^8 || ^9
 dependencies:
   - entity_browser:entity_browser

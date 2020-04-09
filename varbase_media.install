@@ -15,7 +15,6 @@ use Drupal\Core\File\FileSystemInterface;
 use Drupal\Core\File\Exception\FileException;
 use Drupal\field\Entity\FieldConfig;
 use Drupal\field\Entity\FieldStorageConfig;
-use Drupal\varbase\Entity\VarbaseEntityDefinitionUpdateManager;
 
 /**
  * Implements hook_install().
@@ -411,7 +410,8 @@ function varbase_media_update_8706() {
  * Issue #3125946: Fix missing varbase media entity presave hook.
  *
  * For remote videos after introduced issues on update with [entityqueue]
- * latest release.
+ * latest release. Please run [ drupal update:entities ] after the update of
+ * entityqueue and Varbase Media.
  */
 function varbase_media_update_8707() {
   // When the Remote Video media type is active.
@@ -430,12 +430,5 @@ function varbase_media_update_8707() {
     varbase_media_update_8704();
     varbase_media_update_8705();
     varbase_media_update_8706();
-
-    // ----------------------------------------------------------------------.
-    // Entity updates to clear up any mismatched entity field definitions
-    // And Fix changes were detected in the entity type and field definitions.
-    \Drupal::classResolver()
-      ->getInstanceFromDefinition(VarbaseEntityDefinitionUpdateManager::class)
-      ->applyUpdates();
   }
 }
