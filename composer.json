@@ -20,7 +20,7 @@
     "drupal": {
       "type": "composer",
       "url": "https://packages.drupal.org/8"
-      },
+    },
     "assets": {
       "type": "composer",
       "url": "https://asset-packagist.org"
@@ -31,6 +31,7 @@
     "oomphinc/composer-installers-extender": "~1.0",
     "cweagans/composer-patches": "~1.0",
     "drupal/drupal-library-installer-plugin": "^0.3",
+    "drupal/core": "^8.8.0 || ~9.0.0",
     "npm-asset/dropzone": "~4.0",
     "npm-asset/blazy": "~1.0",
     "npm-asset/slick-carousel": "~1.0",
