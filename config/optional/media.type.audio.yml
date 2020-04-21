@@ -3,9 +3,10 @@ status: true
 dependencies:
   module:
     - crop
+    - varbase_media
 third_party_settings:
   crop:
-    image_field: _none
+    image_field: null
 id: audio
 label: Audio
 description: 'A locally hosted audio file.'

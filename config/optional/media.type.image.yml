@@ -3,10 +3,10 @@ status: true
 dependencies:
   module:
     - crop
+    - varbase_media
 third_party_settings:
   crop:
-    image_media_field: image_media_field
-    image_field: _none
+    image_field: null
 id: image
 label: Image
 description: 'Use local images for reusable media.'

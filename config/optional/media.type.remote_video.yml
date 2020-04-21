@@ -3,9 +3,10 @@ status: true
 dependencies:
   module:
     - crop
+    - varbase_media
 third_party_settings:
   crop:
-    image_field: _none
+    image_field: null
 id: remote_video
 label: 'Remote video'
 description: 'A remotely hosted video from YouTube or Vimeo.'

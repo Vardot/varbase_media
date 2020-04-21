@@ -16,10 +16,10 @@ type_settings:
     - gallery
   display_plugins:
     - 'view_mode:media.full'
-  inline_entity_form: 1
+  inline_entity_form: true
   inline_entity_form_settings:
     entity_form_display: editor
-    display_review: 0
+    display_review: false
   entity_browser: ''
   entity_browser_settings:
     display_review: true
