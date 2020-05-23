@@ -14,15 +14,19 @@ build:
           - sudo -u www-data composer config extra.installer-types.1 "bower-asset"
           - sudo -u www-data composer config extra.installer-paths.web\/libraries\/\{\$name\} ["type:drupal-library","type:bower-asset","type:npm-asset"]
           - sudo -u www-data composer config extra.installer-paths.web\/libraries\/slick ["npm-asset/slick-carousel"]
-          - sudo -u www-data composer config extra.libraries '[{"name": "dropzone","package": "npm-asset/dropzone"},{"name": "blazy", "package": "npm-asset/blazy"},{"name": "slick", "package": "npm-asset/slick-carousel"}]'
+          - 'sudo -u www-data composer config extra.libraries [{"name": "dropzone","package": "npm-asset/dropzone"},{"name": "blazy", "package": "npm-asset/blazy"},{"name": "slick", "package": "npm-asset/slick-carousel"}]'
           - sudo -u www-data composer require npm-asset/dropzone:~4.0
           - sudo -u www-data composer require npm-asset/blazy:~1.0
           - sudo -u www-data composer require npm-asset/slick-carousel:~1.0 
           - dir libraries'
       phplint:
       csslint:
+        halt-on-fail: false
       eslint:
+        halt-on-fail: false
       phpcs:
+        sniff-all-files: false
+        halt-on-fail: false
     testing:
       run_tests.functional:
         types: 'PHPUnit-Functional'

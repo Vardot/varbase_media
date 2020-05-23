@@ -82,7 +82,7 @@ class VarbaseMediaTests extends BrowserTestBase {
   public function testCheckVarbaseMediaSettingsPermissions() {
     $assert_session = $this->assertSession();
 
-    $this->drupalGet('/admin/people/permissions#module-varbase_media');
+    $this->drupalGet('/admin/people/permissions');
     $assert_session->pageTextContains($this->t('Administer Varbase Media settings'));
   }
 
