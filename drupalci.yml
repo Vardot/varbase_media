@@ -23,7 +23,9 @@ build:
           - sed -i 's/\"}\"]\"/"}/g' composer.json
           - sed -i 's/\"\[{\"/[{"/g' composer.json
           - sed -i 's/\"}\]\"/"}]/g' composer.json
-          - 'sudo -u www-data composer require npm-asset/dropzone:~4.0 npm-asset/blazy:~1.0 npm-asset/slick-carousel:~1.0'
+          - 'sudo -u www-data composer require npm-asset/dropzone:~4.0'
+          - 'sudo -u www-data composer require npm-asset/blazy:~1.0'
+          - 'sudo -u www-data composer require npm-asset/slick-carousel:~1.0'
           - 'dir libraries'
       phplint:
       csslint:
