@@ -18,14 +18,7 @@ third_party_settings:
       disable_css: false
       entity_classes: all_classes
       settings:
-        wrappers:
-          ds_content: div
-        outer_wrapper: div
-        attributes: ''
-        link_attribute: ''
-        link_custom: ''
-        classes:
-          layout_class: {  }
+        label: ''
     regions:
       content:
         - field_media_image
@@ -71,11 +64,11 @@ content:
             fi-def-at: false
     type: image
     weight: 0
-    region: ds_content
+    region: content
   name:
     type: string
     weight: 1
-    region: ds_content
+    region: content
     label: hidden
     settings:
       link_to_entity: true

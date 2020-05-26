@@ -8,6 +8,7 @@ dependencies:
     - image.style.field_preview
     - media.type.image
   module:
+    - ds
     - image
 id: media.image.field_preview
 targetEntityType: media
@@ -20,7 +21,14 @@ content:
     settings:
       image_style: field_preview
       image_link: ''
-    third_party_settings: {  }
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
     type: image
     region: content
   name:
@@ -30,10 +38,18 @@ content:
     label: hidden
     settings:
       link_to_entity: false
-    third_party_settings: {  }
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
 hidden:
   created: true
   field_media_in_library: true
   langcode: true
+  search_api_excerpt: true
   thumbnail: true
   uid: true

@@ -8,6 +8,7 @@ dependencies:
     - image.style.d03_traditional
     - media.type.image
   module:
+    - ds
     - image
 id: media.image.browser_teaser
 targetEntityType: media
@@ -20,7 +21,14 @@ content:
     settings:
       image_style: d03_traditional
       image_link: ''
-    third_party_settings: {  }
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
     type: image
     region: content
   name:
@@ -35,5 +43,6 @@ hidden:
   created: true
   field_media_in_library: true
   langcode: true
+  search_api_excerpt: true
   thumbnail: true
   uid: true

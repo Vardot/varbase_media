@@ -19,6 +19,7 @@ third_party_settings:
       disable_css: false
       entity_classes: all_classes
       settings:
+        label: ''
         wrappers:
           ds_content: div
         outer_wrapper: div
@@ -124,4 +125,5 @@ hidden:
   field_media_in_library: true
   field_media_video_file: true
   langcode: true
+  search_api_excerpt: true
   uid: true

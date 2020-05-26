@@ -44,51 +44,31 @@ content:
     label: hidden
     settings:
       image_style: ''
-      thumbnail_style: ''
       responsive_image_style: de2e_square
       media_switch: ''
+      thumbnail_style: ''
       ratio: ''
-      sizes: ''
-      breakpoints:
-        xs:
-          image_style: ''
-          width: ''
-          breakpoint: ''
-        sm:
-          image_style: ''
-          width: ''
-          breakpoint: ''
-        md:
-          image_style: ''
-          width: ''
-          breakpoint: ''
-        lg:
-          image_style: ''
-          width: ''
-          breakpoint: ''
-        xl:
-          image_style: ''
-          width: ''
-          breakpoint: ''
       current_view_mode: se2e_square
       background: false
       caption:
         title: '0'
         alt: '0'
-      iframe_lazy: true
       icon: ''
       layout: ''
       view_mode: ''
       cache: 0
-      optionset: default
       skin: ''
+      fx: ''
       style: ''
       box_caption: ''
       box_caption_custom: ''
-      box_style: ''
       box_media_style: ''
-      grid: 0
+      box_style: ''
+      _uri: ''
+      breakpoints: {  }
+      sizes: ''
       grid_header: ''
+      grid: 0
       grid_medium: 0
       grid_small: 0
     third_party_settings:
@@ -128,8 +108,8 @@ content:
     region: ds_content
     label: hidden
     settings:
-      max_width: 1600
-      max_height: 1600
+      max_width: '1600'
+      max_height: '1600'
     third_party_settings:
       ds:
         ft:
@@ -162,8 +142,9 @@ content:
 hidden:
   created: true
   field_media_in_library: true
-  langcode: true
   field_provider: true
+  langcode: true
   name: true
+  search_api_excerpt: true
   thumbnail: true
   uid: true

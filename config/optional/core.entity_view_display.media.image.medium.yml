@@ -8,6 +8,7 @@ dependencies:
     - media.type.image
     - responsive_image.styles.d06
   module:
+    - ds
     - responsive_image
 id: media.image.medium
 targetEntityType: media
@@ -20,7 +21,14 @@ content:
     settings:
       responsive_image_style: d06
       image_link: ''
-    third_party_settings: {  }
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
     type: responsive_image
     region: content
 hidden:
@@ -28,5 +36,6 @@ hidden:
   field_media_in_library: true
   langcode: true
   name: true
+  search_api_excerpt: true
   thumbnail: true
   uid: true

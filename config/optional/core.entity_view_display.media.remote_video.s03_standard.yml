@@ -20,6 +20,7 @@ third_party_settings:
       disable_css: false
       entity_classes: all_classes
       settings:
+        label: ''
         wrappers:
           ds_content: div
         outer_wrapper: div
@@ -43,30 +44,32 @@ content:
     region: ds_content
     label: hidden
     settings:
+      image_style: ''
       responsive_image_style: d03_standard
-      iframe_lazy: true
+      media_switch: ''
+      thumbnail_style: ''
+      ratio: ''
+      current_view_mode: s03_standard
+      background: false
+      caption:
+        title: '0'
+        alt: '0'
       icon: ''
       layout: ''
-      thumbnail_style: ''
       view_mode: ''
       cache: 0
-      current_view_mode: ''
-      optionset: default
       skin: ''
+      fx: ''
       style: ''
-      background: false
       box_caption: ''
       box_caption_custom: ''
-      box_style: ''
       box_media_style: ''
+      box_style: ''
+      _uri: ''
       breakpoints: {  }
-      caption: {  }
-      image_style: ''
-      media_switch: ''
-      ratio: ''
       sizes: ''
-      grid: 0
       grid_header: ''
+      grid: 0
       grid_medium: 0
       grid_small: 0
     third_party_settings:
@@ -104,30 +107,32 @@ content:
     region: ds_content
     label: hidden
     settings:
+      image_style: ''
       responsive_image_style: d03_standard
-      iframe_lazy: true
+      media_switch: ''
+      thumbnail_style: ''
+      ratio: ''
+      current_view_mode: s03_standard
+      background: false
+      caption:
+        title: '0'
+        alt: '0'
       icon: ''
       layout: ''
-      thumbnail_style: ''
       view_mode: ''
       cache: 0
-      current_view_mode: ''
-      optionset: default
       skin: ''
+      fx: ''
       style: ''
-      background: false
       box_caption: ''
       box_caption_custom: ''
-      box_style: ''
       box_media_style: ''
+      box_style: ''
+      _uri: ''
       breakpoints: {  }
-      caption: {  }
-      image_style: ''
-      media_switch: ''
-      ratio: ''
       sizes: ''
-      grid: 0
       grid_header: ''
+      grid: 0
       grid_medium: 0
       grid_small: 0
     third_party_settings:
@@ -163,7 +168,8 @@ hidden:
   created: true
   field_media_in_library: true
   field_media_oembed_video: true
-  langcode: true
   field_provider: true
+  langcode: true
   name: true
+  search_api_excerpt: true
   uid: true

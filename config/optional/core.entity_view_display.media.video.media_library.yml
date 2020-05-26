@@ -19,14 +19,7 @@ third_party_settings:
       disable_css: false
       entity_classes: all_classes
       settings:
-        wrappers:
-          ds_content: div
-        outer_wrapper: div
-        attributes: ''
-        link_attribute: ''
-        link_custom: ''
-        classes:
-          layout_class: {  }
+        label: ''
     regions:
       content:
         - thumbnail
@@ -40,7 +33,7 @@ content:
   field_media_cover_image:
     type: image
     weight: 1
-    region: ds_content
+    region: content
     label: hidden
     settings:
       image_style: medium
@@ -77,7 +70,7 @@ content:
   name:
     type: string
     weight: 2
-    region: ds_content
+    region: content
     label: hidden
     settings:
       link_to_entity: true
@@ -113,7 +106,7 @@ content:
   thumbnail:
     type: image
     weight: 0
-    region: ds_content
+    region: content
     label: hidden
     settings:
       image_style: medium
@@ -125,25 +118,25 @@ content:
           settings:
             lb: ''
             prefix: ''
+            lbw: true
             lbw-el: ''
-            lbw-cl: ''
+            lbw-cl: 'media-library-item__preview js-media-library-item-preview js-click-to-select-trigger'
             lbw-at: ''
             ow: true
             ow-el: ''
-            ow-cl: 'media-library-item__preview js-media-library-item-preview js-click-to-select-trigger'
+            ow-cl: 'field--name-thumbnail field--name-thumbnail  video-player-icon'
             ow-at: ''
-            fis: true
             fis-el: ''
-            fis-cl: 'field--name-thumbnail  video-player-icon'
+            fis-cl: ''
             fis-at: ''
             fi-el: ''
             fi-cl: ''
             fi-at: ''
             suffix: ''
-            lbw: false
             lb-col: false
             ow-def-at: false
             ow-def-cl: false
+            fis: false
             fis-def-at: false
             fi: false
             fi-def-at: false

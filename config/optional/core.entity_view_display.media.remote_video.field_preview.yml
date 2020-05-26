@@ -20,6 +20,7 @@ third_party_settings:
       disable_css: false
       entity_classes: all_classes
       settings:
+        label: ''
         wrappers:
           ds_content: div
         outer_wrapper: div
@@ -82,7 +83,14 @@ content:
     label: hidden
     settings:
       link_to_entity: false
-    third_party_settings: {  }
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
   thumbnail:
     type: image
     weight: 0
@@ -124,7 +132,7 @@ hidden:
   created: true
   field_media_in_library: true
   field_media_oembed_video: true
-  langcode: true
   field_provider: true
+  langcode: true
   search_api_excerpt: true
   uid: true

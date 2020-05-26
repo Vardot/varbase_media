@@ -9,6 +9,7 @@ dependencies:
     - media.type.video
     - responsive_image.styles.d03_standard
   module:
+    - blazy
     - ds
     - file
     - responsive_image
@@ -20,6 +21,7 @@ third_party_settings:
       disable_css: false
       entity_classes: all_classes
       settings:
+        label: ''
         wrappers:
           ds_content: div
         outer_wrapper: div
@@ -121,5 +123,6 @@ hidden:
   field_media_in_library: true
   langcode: true
   name: true
+  search_api_excerpt: true
   thumbnail: true
   uid: true

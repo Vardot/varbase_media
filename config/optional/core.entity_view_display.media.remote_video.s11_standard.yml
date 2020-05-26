@@ -46,14 +46,12 @@ content:
     label: hidden
     settings:
       responsive_image_style: d11_standard
-      iframe_lazy: true
       icon: ''
       layout: ''
       thumbnail_style: ''
       view_mode: ''
       cache: 0
       current_view_mode: ''
-      optionset: default
       skin: ''
       style: ''
       background: false
@@ -71,6 +69,8 @@ content:
       grid_header: ''
       grid_medium: 0
       grid_small: 0
+      fx: ''
+      _uri: ''
     third_party_settings:
       ds:
         ft:
@@ -106,8 +106,8 @@ content:
     region: ds_content
     label: hidden
     settings:
-      max_width: 1100
-      max_height: 619
+      max_width: '1100'
+      max_height: '619'
     third_party_settings:
       ds:
         ft:
@@ -140,8 +140,9 @@ content:
 hidden:
   created: true
   field_media_in_library: true
-  langcode: true
   field_provider: true
+  langcode: true
   name: true
+  search_api_excerpt: true
   thumbnail: true
   uid: true

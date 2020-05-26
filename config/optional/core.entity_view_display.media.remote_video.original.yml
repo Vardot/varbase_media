@@ -81,8 +81,8 @@ content:
     weight: 0
     label: hidden
     settings:
-      max_width: 1600
-      max_height: 900
+      max_width: '1600'
+      max_height: '900'
     third_party_settings:
       ds:
         ft:
@@ -116,8 +116,9 @@ content:
 hidden:
   created: true
   field_media_in_library: true
-  langcode: true
   field_provider: true
+  langcode: true
   name: true
+  search_api_excerpt: true
   thumbnail: true
   uid: true

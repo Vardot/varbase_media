@@ -6,6 +6,7 @@ dependencies:
     - field.field.media.image.field_media_image
     - field.field.media.image.field_media_in_library
     - media.type.image
+    - responsive_image.styles.d03_square
   module:
     - blazy
     - ds
@@ -18,30 +19,32 @@ content:
     weight: 0
     label: hidden
     settings:
+      image_style: ''
       responsive_image_style: d03_square
-      iframe_lazy: true
+      media_switch: ''
+      thumbnail_style: ''
+      ratio: ''
+      current_view_mode: s03_square
+      background: false
+      caption:
+        title: '0'
+        alt: '0'
       icon: ''
       layout: ''
-      thumbnail_style: ''
       view_mode: ''
       cache: 0
-      current_view_mode: ''
-      optionset: default
       skin: ''
+      fx: ''
       style: ''
-      background: false
       box_caption: ''
       box_caption_custom: ''
-      box_style: ''
       box_media_style: ''
+      box_style: ''
+      _uri: ''
       breakpoints: {  }
-      caption: {  }
-      image_style: ''
-      media_switch: ''
-      ratio: ''
       sizes: ''
-      grid: 0
       grid_header: ''
+      grid: 0
       grid_medium: 0
       grid_small: 0
     third_party_settings:
@@ -59,5 +62,6 @@ hidden:
   field_media_in_library: true
   langcode: true
   name: true
+  search_api_excerpt: true
   thumbnail: true
   uid: true
