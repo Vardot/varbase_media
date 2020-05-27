@@ -128,7 +128,6 @@ content:
             suffix: ''
             lbw: false
             lb-col: false
-            classes: {  }
 hidden:
   created: true
   field_media_in_library: true

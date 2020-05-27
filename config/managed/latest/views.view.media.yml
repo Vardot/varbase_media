@@ -1,3 +1,4 @@
+uuid: null
 langcode: en
 status: true
 dependencies:
@@ -59,10 +60,12 @@ display:
             general:
               autosubmit: false
               autosubmit_exclude_textfield: false
+              autosubmit_textfield_delay: 500
               autosubmit_hide: false
               input_required: false
               allow_secondary: false
               secondary_label: 'Advanced options'
+              secondary_open: false
             sort:
               plugin_id: default
               advanced:
@@ -89,6 +92,7 @@ display:
               name:
                 plugin_id: default
                 advanced:
+                  placeholder_text: ''
                   collapsible: false
                   is_secondary: false
               bundle:
@@ -110,11 +114,13 @@ display:
               created:
                 plugin_id: bef_datepicker
                 advanced:
+                  placeholder_text: ''
                   collapsible: false
                   is_secondary: false
               created_1:
                 plugin_id: bef_datepicker
                 advanced:
+                  placeholder_text: ''
                   collapsible: false
                   is_secondary: false
             status:
@@ -1273,9 +1279,7 @@ display:
         - 'url.query_args:sort_by'
         - 'url.query_args:sort_order'
         - user.permissions
-      tags:
-        - 'config:field.storage.media.field_media_cover_image'
-        - 'config:field.storage.media.field_media_image'
+      tags: {  }
   entity_browser_1:
     display_plugin: entity_browser
     id: entity_browser_1
@@ -1738,6 +1742,4 @@ display:
         - 'url.query_args:sort_by'
         - 'url.query_args:sort_order'
         - user.permissions
-      tags:
-        - 'config:field.storage.media.field_media_cover_image'
-        - 'config:field.storage.media.field_media_image'
+      tags: {  }

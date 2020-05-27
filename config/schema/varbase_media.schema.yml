@@ -8,3 +8,13 @@ varbase_media.settings:
     use_blazy_blurry:
       type: boolean
       label: 'Use blurred image loading effect for Lazy-loaded images'
+field.formatter.settings.varbase_oembed:
+  type: mapping
+  label: 'oEmbed display format settings'
+  mapping:
+    max_width:
+      type: integer
+      label: 'Maximum width'
+    max_height:
+      type: integer
+      label: 'Maximum height'

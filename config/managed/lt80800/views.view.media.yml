@@ -1656,6 +1656,4 @@ display:
         - 'url.query_args:sort_by'
         - 'url.query_args:sort_order'
         - user.permissions
-      tags:
-        - 'config:field.storage.media.field_media_cover_image'
-        - 'config:field.storage.media.field_media_image'
+      tags: {  }

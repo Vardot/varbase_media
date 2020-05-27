@@ -20,6 +20,9 @@ class VarbaseMediaTests extends BrowserTestBase {
    * @var array
    */
   public static $modules = [
+    'metatag',
+    'metatag_views',
+    'better_exposed_filters',
     'varbase_media',
     'varbase_media_instagram',
     'varbase_media_twitter',

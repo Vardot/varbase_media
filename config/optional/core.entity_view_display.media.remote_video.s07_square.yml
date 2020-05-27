@@ -108,8 +108,8 @@ content:
     region: ds_content
     label: hidden
     settings:
-      max_width: '700'
-      max_height: '700'
+      max_width: 700
+      max_height: 700
     third_party_settings:
       ds:
         ft:
