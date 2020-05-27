@@ -21,12 +21,8 @@ build:
           - dir libraries'
       phplint:
       csslint:
-        halt-on-fail: false
       eslint:
-        halt-on-fail: false
       phpcs:
-        sniff-all-files: false
-        halt-on-fail: false
     testing:
       run_tests.functional:
         types: 'PHPUnit-Functional'

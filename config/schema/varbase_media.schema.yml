@@ -10,7 +10,7 @@ varbase_media.settings:
       label: 'Use blurred image loading effect for Lazy-loaded images'
 field.formatter.settings.varbase_oembed:
   type: mapping
-  label: 'oEmbed display format settings'
+  label: 'Varbase oEmbed display format settings'
   mapping:
     max_width:
       type: integer
