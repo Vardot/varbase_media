@@ -58,3 +58,7 @@ blazy_blurry:
   css:
     theme:
       css/theme/varbase-media-blazy-blurry.theme.css: { }
+media_library_enhancements:
+  version: VERSION
+  js:
+    js/varbase-media-enhancements.js: { }

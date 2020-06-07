@@ -755,3 +755,12 @@ function varbase_media_oembed_resource_url_alter(array &$parsed_url, Provider $p
     $parsed_url['query']['url'] = $url;
   }
 }
+
+/**
+ * Implements hook_library_info_alter().
+ */
+function varbase_media_library_info_alter(array &$libraries, $module) {
+  if ($module === 'media_library' && isset($libraries['widget'])) {
+    $libraries['widget']['dependencies'][] = 'varbase_media/media_library_enhancements';
+  }
+}
