@@ -305,23 +305,21 @@ display:
           clear_on_exposed: false
           action_title: Action
           selected_actions:
-            -
+            0:
               action_id: 'entity:break_lock:media'
-            -
+            1:
               action_id: views_bulk_edit
               preconfiguration:
                 get_bundles_from_results: 1
-            -
+            2:
               action_id: views_bulk_operations_delete_entity
-            -
+            3:
               action_id: pathauto_update_alias
-            -
+            4:
               action_id: 'entity:unpublish_action:media'
-            -
-              action_id: 'entity:delete_action:media'
-            -
+            6:
               action_id: 'entity:save_action:media'
-            -
+            7:
               action_id: 'entity:publish_action:media'
           preconfiguration:
             'entity:break_lock:media':
@@ -1279,7 +1277,9 @@ display:
         - 'url.query_args:sort_by'
         - 'url.query_args:sort_order'
         - user.permissions
-      tags: {  }
+      tags:
+        - 'config:field.storage.media.field_media_cover_image'
+        - 'config:field.storage.media.field_media_image'
   entity_browser_1:
     display_plugin: entity_browser
     id: entity_browser_1
@@ -1742,4 +1742,6 @@ display:
         - 'url.query_args:sort_by'
         - 'url.query_args:sort_order'
         - user.permissions
-      tags: {  }
+      tags:
+        - 'config:field.storage.media.field_media_cover_image'
+        - 'config:field.storage.media.field_media_image'
