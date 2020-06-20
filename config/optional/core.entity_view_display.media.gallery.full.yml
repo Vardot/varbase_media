@@ -9,6 +9,7 @@ dependencies:
     - responsive_image.styles.de2e_standard
   module:
     - ds
+    - slick
 id: media.gallery.full
 targetEntityType: media
 bundle: gallery
