@@ -15,6 +15,7 @@ use Drupal\Core\File\FileSystemInterface;
 use Drupal\Core\File\Exception\FileException;
 use Drupal\field\Entity\FieldConfig;
 use Drupal\field\Entity\FieldStorageConfig;
+use Drupal\varbase\Entity\VarbaseEntityDefinitionUpdateManager;
 
 /**
  * Implements hook_install().
@@ -431,4 +432,70 @@ function varbase_media_update_8707() {
     varbase_media_update_8705();
     varbase_media_update_8706();
   }
+}
+
+/**
+ * Helper function to rename slick_media config dependencies to slick.
+ *
+ * Https://git.drupalcode.org/project/slick_media/-/blob/8.x-3.x/slick_media.install.
+ *
+ * @param string $dependency_type
+ *   The type of the dependency, such as "module" or "config".
+ * @param string $dependency_id
+ *   The name of the dependency to be updated.
+ * @param callable $map
+ *   A callback to be passed to array_map() to actually perform the config name
+ *   substitution.
+ */
+function _varbase_media_slick_media_fix_dependencies($dependency_type, $dependency_id, callable $map) {
+  $dependents = \Drupal::service('config.manager')
+    ->findConfigEntityDependents($dependency_type, [$dependency_id]);
+
+  $key = 'dependencies.' . $dependency_type;
+  $key2 = 'dependencies.enforced.' . $dependency_type;
+
+  foreach (array_keys($dependents) as $name) {
+    $config = \Drupal::configFactory()->getEditable($name);
+    $dependencies = $config->get($key);
+    if (is_array($dependencies)) {
+      $config->set($key, array_map($map, $dependencies));
+    }
+
+    $dependencies2 = $config->get($key2);
+    if (is_array($dependencies2)) {
+      $config->set($key2, array_map($map, $dependencies2));
+    }
+
+    $config->save();
+  }
+}
+
+/**
+ * Issue #3151898: Remove [Slick Media] module dependencies.
+ *
+ * From [Varbase Media] module and replace it with the main module Slick
+ *  and uninstall.
+ */
+function varbase_media_update_8708() {
+
+  // Move all module dependencies on existing config entities from
+  // "slick_media" to "slick".
+  _varbase_media_slick_media_fix_dependencies('module', 'slick_media', function ($module) {
+    return $module === 'slick_media' ? 'slick' : $module;
+  });
+
+  // Fix the update process to uninstall.
+  $query = \Drupal::database()->delete('key_value')
+    ->condition('collection', 'system.schema')
+    ->condition('name', 'slick_media')
+    ->execute();
+
+  if (isset($query)) {
+    // Entity updates to clear up any mismatched entity and/or field definitions
+    // And Fix changes were detected in the entity type and field definitions.
+    \Drupal::classResolver()
+      ->getInstanceFromDefinition(VarbaseEntityDefinitionUpdateManager::class)
+      ->applyUpdates();
+  }
+
 }
