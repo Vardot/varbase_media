@@ -46,7 +46,7 @@
     "drupal/embed": "~1.0",
     "drupal/media_entity_instagram": "~2.0",
     "drupal/media_entity_twitter": "~2.0",
-    "drupal/media_library_edit": "~1.0",
+    "drupal/media_library_edit": "1.0-alpha2",
     "drupal/crop": "~2.0",
     "drupal/focal_point": "1.4",
     "drupal/imagemagick": "~3.0",
