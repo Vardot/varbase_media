@@ -92,6 +92,10 @@
         "https://www.drupal.org/files/issues/2019-07-25/3070343-8.patch",
         "Issue #2679875: Inline Entity Form integration":
         "https://www.drupal.org/files/issues/2020-04-21/2679875-13.patch"
+      },
+      "drupal/media_library_edit": {
+        "Issue #3034205: Open in modal":
+        "https://www.drupal.org/files/issues/2020-06-25/open-in-modal-3034205-43.patch"
       }
     }
   }
