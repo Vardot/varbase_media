@@ -99,7 +99,9 @@
       },
       "drupal/focal_point": {
         "Issue #3094478: Integrate focal point with media_library":
-        "https://www.drupal.org/files/issues/2020-05-26/3094478-39.patch"
+        "https://www.drupal.org/files/issues/2020-05-26/3094478-39.patch",
+        "Issue #3162218: Fix Images preview style is not attached in the page":
+        "https://www.drupal.org/files/issues/2020-07-29/3162218-3.patch"
       }
     }
   }
