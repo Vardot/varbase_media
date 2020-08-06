@@ -409,33 +409,25 @@ function varbase_media_form_entity_embed_dialog_alter(&$form, FormStateInterface
  */
 function varbase_media_inline_entity_form_entity_form_alter(&$entity_form, &$form_state) {
 
-  if ($entity_form->getFormObject() instanceof EntityFormInterface) {
-    $entity_type = $entity_form->getFormObject()->getEntity()->getEntityTypeId();
+  // No revision information or revision log message.
+  if (isset($entity_form['revision_information'])) {
+    $entity_form['revision_information']['#disabled'] = TRUE;
+    $entity_form['revision_information']['#attributes']['style'][] = 'display:none;';
+    $entity_form['revision_information']['#prefix'] = '<div style="display:none;">';
+    $entity_form['revision_information']['#suffix'] = '</div>';
+  }
 
-    // Only for media entity type.
-    if ($entity_type == 'media') {
+  // Hide revistion.
+  if (isset($entity_form['revision'])) {
+    $entity_form['revision']['#default_value'] = TRUE;
+    $entity_form['revision']['#disabled'] = TRUE;
+    $entity_form['revision']['#attributes']['style'][] = 'display:none;';
+  }
 
-      // No revision information or revision log message.
-      if (isset($entity_form['revision_information'])) {
-        $entity_form['revision_information']['#disabled'] = TRUE;
-        $entity_form['revision_information']['#attributes']['style'][] = 'display:none;';
-        $entity_form['revision_information']['#prefix'] = '<div style="display:none;">';
-        $entity_form['revision_information']['#suffix'] = '</div>';
-      }
-
-      // Hide revistion.
-      if (isset($entity_form['revision'])) {
-        $entity_form['revision']['#default_value'] = TRUE;
-        $entity_form['revision']['#disabled'] = TRUE;
-        $entity_form['revision']['#attributes']['style'][] = 'display:none;';
-      }
-
-      // Hide revistion log message.
-      if (isset($entity_form['revision_log_message'])) {
-        $entity_form['revision_log_message']['#disabled'] = TRUE;
-        $entity_form['revision_log_message']['#attributes']['style'][] = 'display:none;';
-      }
-    }
+  // Hide revistion log message.
+  if (isset($entity_form['revision_log_message'])) {
+    $entity_form['revision_log_message']['#disabled'] = TRUE;
+    $entity_form['revision_log_message']['#attributes']['style'][] = 'display:none;';
   }
 }
 
