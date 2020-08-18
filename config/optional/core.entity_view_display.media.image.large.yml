@@ -8,8 +8,8 @@ dependencies:
     - media.type.image
     - responsive_image.styles.d12
   module:
+    - blazy
     - ds
-    - responsive_image
 id: media.image.large
 targetEntityType: media
 bundle: image
@@ -20,7 +20,31 @@ content:
     label: hidden
     settings:
       responsive_image_style: d12
-      image_link: ''
+      icon: ''
+      layout: ''
+      view_mode: ''
+      cache: 0
+      current_view_mode: ''
+      skin: ''
+      fx: ''
+      style: ''
+      background: false
+      box_caption: ''
+      box_caption_custom: ''
+      box_media_style: ''
+      caption: {  }
+      box_style: ''
+      image_style: ''
+      media_switch: ''
+      ratio: ''
+      thumbnail_style: ''
+      _uri: ''
+      breakpoints: {  }
+      sizes: ''
+      grid_header: ''
+      grid: 0
+      grid_medium: 0
+      grid_small: 0
     third_party_settings:
       ds:
         ft:
@@ -29,7 +53,7 @@ content:
             lb: ''
             lb-col: false
             classes: {  }
-    type: responsive_image
+    type: blazy
     region: content
 hidden:
   created: true

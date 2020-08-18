@@ -8,35 +8,31 @@
   height: auto;
 }
 
-.blazy.field--type-image .media--loading,
-.blazy.media-cover-image .media--loading {
+.blazy.field--type-image .media--loading, .blazy.media-cover-image .media--loading {
   max-width: 100%;
   height: auto;
   -webkit-backface-visibility: inherit;
-  backface-visibility: inherit;
+          backface-visibility: inherit;
   overflow: hidden;
 }
 
-.blazy.field--type-image .media--loading::before,
-.blazy.media-cover-image .media--loading::before {
+.blazy.field--type-image .media--loading::before, .blazy.media-cover-image .media--loading::before {
   display: none;
 }
 
 .blazy.field--type-image .media--loading figure,
-.blazy.field--type-image .media--loading img,
-.blazy.media-cover-image .media--loading figure,
+.blazy.field--type-image .media--loading img, .blazy.media-cover-image .media--loading figure,
 .blazy.media-cover-image .media--loading img {
   max-width: 100%;
   height: auto;
 }
 
-.blazy.field--type-image .b-lazy,
-.blazy.media-cover-image .b-lazy {
+.blazy.field--type-image .b-lazy, .blazy.media-cover-image .b-lazy {
   -webkit-filter: blur(2px);
-  filter: blur(2px);
+          filter: blur(2px);
   -webkit-transform: scale(1.001);
-  -o-transform: scale(1.001);
-  transform: scale(1.001);
+       -o-transform: scale(1.001);
+          transform: scale(1.001);
   -webkit-transition: -webkit-filter .2s, -webkit-transform .2s;
   transition: -webkit-filter .2s, -webkit-transform .2s;
   -o-transition: filter .2s, -o-transform .2s;
@@ -45,13 +41,12 @@
   opacity: 1;
 }
 
-.blazy.field--type-image .b-loaded,
-.blazy.media-cover-image .b-loaded {
+.blazy.field--type-image .b-loaded, .blazy.media-cover-image .b-loaded {
   -webkit-filter: blur(0);
-  filter: blur(0);
+          filter: blur(0);
   -webkit-transform: scale(1);
-  -o-transform: scale(1);
-  transform: scale(1);
+       -o-transform: scale(1);
+          transform: scale(1);
 }
 
 .blazy img {
@@ -61,7 +56,7 @@
 
 .media--loading {
   -webkit-backface-visibility: inherit;
-  backface-visibility: inherit;
+          backface-visibility: inherit;
   overflow: hidden;
 }
 

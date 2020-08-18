@@ -2,42 +2,48 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.media.original
+    - core.entity_view_mode.media.background_media
     - field.field.media.image.field_media_image
     - field.field.media.image.field_media_in_library
     - media.type.image
-    - responsive_image.styles.default
+    - responsive_image.styles.de2e
   module:
     - blazy
     - ds
-id: media.image.original
+    - layout_builder
+third_party_settings:
+  layout_builder:
+    allow_custom: false
+    enabled: false
+id: media.image.background_media
 targetEntityType: media
 bundle: image
-mode: original
+mode: background_media
 content:
   field_media_image:
-    weight: 0
     label: hidden
     settings:
-      responsive_image_style: default
+      image_style: ''
+      responsive_image_style: de2e
+      media_switch: ''
+      thumbnail_style: ''
+      ratio: ''
+      current_view_mode: background_media
+      background: false
+      caption:
+        title: '0'
+        alt: '0'
       icon: ''
       layout: ''
       view_mode: ''
       cache: 0
-      current_view_mode: ''
       skin: ''
       fx: ''
       style: ''
-      background: false
       box_caption: ''
       box_caption_custom: ''
       box_media_style: ''
-      caption: {  }
       box_style: ''
-      image_style: ''
-      media_switch: ''
-      ratio: ''
-      thumbnail_style: ''
       _uri: ''
       breakpoints: {  }
       sizes: ''
@@ -48,12 +54,11 @@ content:
     third_party_settings:
       ds:
         ft:
-          id: default
+          id: reset
           settings:
             lb: ''
-            lb-col: false
-            classes: {  }
     type: blazy
+    weight: 0
     region: content
 hidden:
   created: true

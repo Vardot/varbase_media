@@ -133,7 +133,7 @@ body .form-wrapper.field--widget-entity-browser-entity-reference .entities-list 
   background-repeat: no-repeat;
   background-position: left top;
   -webkit-background-size: 100% 100%;
-  background-size: 100%;
+          background-size: 100%;
   left: 0;
   right: auto;
   -webkit-filter: invert(100%) !important;
@@ -146,7 +146,7 @@ body .form-wrapper.field--widget-entity-browser-entity-reference .entities-list 
   background-repeat: no-repeat;
   background-position: left top;
   -webkit-background-size: 100% 100%;
-  background-size: 100%;
+          background-size: 100%;
   right: 0;
   left: auto;
   -webkit-filter: invert(75%) !important;
@@ -280,7 +280,7 @@ body #edit-selected.entities-list .item-container button[id*="-edit-button"] {
   background-repeat: no-repeat;
   background-position: left top;
   -webkit-background-size: 100% 100%;
-  background-size: 100%;
+          background-size: 100%;
   left: 0;
   right: auto;
   -webkit-filter: invert(100%) !important;
@@ -293,7 +293,7 @@ body #edit-selected.entities-list .item-container button[id*="-remove-button"] {
   background-repeat: no-repeat;
   background-position: left top;
   -webkit-background-size: 100% 100%;
-  background-size: 100%;
+          background-size: 100%;
   right: 0;
   left: auto;
   -webkit-filter: invert(75%) !important;
@@ -479,8 +479,8 @@ html[dir="rtl"] form.media-form .form-item-field-source {
   display: flex;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .gallery-thumbnail .field--name-thumbnail {
@@ -492,15 +492,15 @@ html[dir="rtl"] form.media-form .form-item-field-source {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
   -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
   -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   padding: 3%;
 }
 
@@ -549,8 +549,8 @@ html[dir="rtl"] form.media-form .form-item-field-source {
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+       -o-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
   background: url(../images/play.svg) no-repeat center center;
   height: 72px;
   width: 72px;
@@ -592,14 +592,115 @@ details[id^="edit-field-media-gallery-"] .details-wrapper {
   display: flex;
   -webkit-box-align: center;
   -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .gallery-entity-embed-dialog-step--embed .media-library-item {
   margin: 20px;
+}
+
+.cke_widget_drupalmedia drupal-media[data-view-mode="original"] {
+  width: 100%;
+}
+
+.cke_widget_drupalmedia drupal-media[data-view-mode="original"][data-align=center] {
+  margin-left: 0%;
+  margin-right: 0%;
+}
+
+.cke_widget_drupalmedia drupal-media[data-view-mode="large"] {
+  width: 100%;
+}
+
+.cke_widget_drupalmedia drupal-media[data-view-mode="large"][data-align=center] {
+  margin-left: 0%;
+  margin-right: 0%;
+}
+
+.cke_widget_drupalmedia drupal-media[data-view-mode="medium"] {
+  width: 50%;
+}
+
+.cke_widget_drupalmedia drupal-media[data-view-mode="medium"][data-align=center] {
+  margin-left: 25%;
+  margin-right: 25%;
+}
+
+.cke_widget_drupalmedia drupal-media[data-view-mode="small"] {
+  width: 20%;
+}
+
+.cke_widget_drupalmedia drupal-media[data-view-mode="small"][data-align=center] {
+  margin-left: 40%;
+  margin-right: 40%;
+}
+
+.cke_widget_drupalmedia drupal-media .media-library-item__edit {
+  z-index: 1000;
+  position: absolute;
+}
+
+.cke_widget_drupalmedia drupal-media .blazy.blazy--field-media-cover-image {
+  position: absolute !important;
+}
+
+.cke_widget_drupalmedia drupal-media .media.media--type-remote-video,
+.cke_widget_drupalmedia drupal-media .media.media--type-video {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  position: absolute;
+}
+
+.cke_widget_drupalmedia drupal-media .media.media--type-remote-video .video-player-icon,
+.cke_widget_drupalmedia drupal-media .media.media--type-video .video-player-icon {
+  position: relative;
+}
+
+.cke_widget_drupalmedia drupal-media .media.media--type-remote-video .video-player-icon.js-video-player-icon,
+.cke_widget_drupalmedia drupal-media .media.media--type-video .video-player-icon.js-video-player-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0;
+  cursor: pointer;
+  z-index: 3;
+}
+
+.cke_widget_drupalmedia drupal-media .media.media--type-remote-video .video-player-icon:after,
+.cke_widget_drupalmedia drupal-media .media.media--type-video .video-player-icon:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+       -o-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background: url(../images/play.svg) no-repeat center center;
+  height: 72px;
+  width: 72px;
+  max-height: 55%;
+  font-size: 15%;
+  cursor: pointer;
+}
+
+.cke_widget_drupalmedia drupal-media .media.media--type-remote-video .video-player-icon:hover:after,
+.cke_widget_drupalmedia drupal-media .media.media--type-video .video-player-icon:hover:after {
+  opacity: 0.75;
+}
+
+@media screen and (min-width: 768px) {
+  .cke_widget_drupalmedia drupal-media .media.media--type-remote-video,
+  .cke_widget_drupalmedia drupal-media .media.media--type-video {
+    min-width: 100%;
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+  }
 }

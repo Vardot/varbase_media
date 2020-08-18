@@ -12,7 +12,6 @@ dependencies:
     - blazy
     - ds
     - file
-    - responsive_image
 third_party_settings:
   ds:
     layout:
@@ -40,13 +39,37 @@ bundle: video
 mode: small
 content:
   field_media_cover_image:
-    type: responsive_image
+    type: blazy
     weight: 1
     region: ds_content
     label: hidden
     settings:
       responsive_image_style: d03_standard
-      image_link: ''
+      icon: ''
+      layout: ''
+      view_mode: ''
+      cache: 0
+      current_view_mode: ''
+      skin: ''
+      fx: ''
+      style: ''
+      background: false
+      box_caption: ''
+      box_caption_custom: ''
+      box_media_style: ''
+      caption: {  }
+      box_style: ''
+      image_style: ''
+      media_switch: ''
+      ratio: ''
+      thumbnail_style: ''
+      _uri: ''
+      breakpoints: {  }
+      sizes: ''
+      grid_header: ''
+      grid: 0
+      grid_medium: 0
+      grid_small: 0
     third_party_settings:
       ds:
         ft:

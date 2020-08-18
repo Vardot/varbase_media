@@ -9,6 +9,7 @@ dependencies:
     - responsive_image.styles.d08_square
   module:
     - blazy
+    - ds
 id: media.image.s08_square
 targetEntityType: media
 bundle: image

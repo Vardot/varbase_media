@@ -9,7 +9,6 @@ dependencies:
     - media.type.image
   module:
     - ds
-    - image
 id: media.image.browser_teaser
 targetEntityType: media
 bundle: image

@@ -1,21 +1,24 @@
-uuid: a7756521-a858-4f6d-8f7d-379984a2652b
 langcode: en
-status: true
+status: false
 dependencies:
   config:
+    - core.entity_view_mode.media.original
     - field.field.media.gallery.field_media_gallery
     - field.field.media.gallery.field_media_in_library
     - media.type.gallery
     - responsive_image.styles.de2e_standard
   module:
     - ds
+    - layout_builder
     - slick
-_core:
-  default_config_hash: Z8kdpDdbgl51-qgUNQl-8RE7Xl-VpulobJh1SdjZLVE
-id: media.gallery.default
+third_party_settings:
+  layout_builder:
+    allow_custom: false
+    enabled: false
+id: media.gallery.original
 targetEntityType: media
 bundle: gallery
-mode: default
+mode: original
 content:
   field_media_gallery:
     type: slick_media
