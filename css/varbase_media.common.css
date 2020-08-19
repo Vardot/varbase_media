@@ -12,7 +12,7 @@
 }
 
 .embedded-entity.align-right {
-  margin: 0 0 8px 8px;
+  margin: 0 0 1rem 1rem;
 }
 
 .embedded-entity.align-right figcaption {
@@ -28,7 +28,7 @@
 }
 
 picture.align-right {
-  margin: 0 0 8px 8px;
+  margin: 0 0 1rem 1rem;
 }
 
 picture.align-right figcaption {
@@ -36,7 +36,7 @@ picture.align-right figcaption {
 }
 
 picture.align-left {
-  margin: 0 8px 8px 0;
+  margin: 0 1rem 1rem 0;
 }
 
 picture.align-left figcaption {
@@ -58,7 +58,7 @@ figure.align-center figcaption {
 
 figure.align-right {
   display: table;
-  margin: 0 0 8px 8px;
+  margin: 0 0 1rem 1rem;
 }
 
 figure.align-right figcaption {
@@ -68,7 +68,7 @@ figure.align-right figcaption {
 
 figure.align-left {
   display: table;
-  margin: 0 8px 8px 0;
+  margin: 0 1rem 1rem 0;
 }
 
 figure.align-left figcaption {
@@ -83,7 +83,7 @@ img.align-center {
 }
 
 img.align-right {
-  margin: 0 0 8px 8px;
+  margin: 0 0 1rem 1rem;
 }
 
 figure.align-right,
@@ -93,6 +93,30 @@ figure.align-left {
 
 figure.align-right figcaption,
 figure.align-left figcaption {
+  display: table-caption;
+  caption-side: bottom;
+}
+
+.media.media--type-remote-video.align-right,
+.media.media--type-video.align-right {
+  display: table;
+  margin: 0 0 1rem 1rem;
+}
+
+.media.media--type-remote-video.align-right figcaption,
+.media.media--type-video.align-right figcaption {
+  display: table-caption;
+  caption-side: bottom;
+}
+
+.media.media--type-remote-video.align-left,
+.media.media--type-video.align-left {
+  display: table;
+  margin: 0 1rem 1rem 0;
+}
+
+.media.media--type-remote-video.align-left figcaption,
+.media.media--type-video.align-left figcaption {
   display: table-caption;
   caption-side: bottom;
 }

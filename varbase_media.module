@@ -219,6 +219,8 @@ function varbase_media_page_attachments(array &$page) {
   }
 
   if (Drupal::service('module_handler')->moduleExists('blazy')) {
+    // Attach the Blazy load library.
+    $page['#attached']['library'][] = 'blazy/load';
 
     // Add the Varbase Media Blazy Blurry behaviour.
     $use_blazy_blurry = \Drupal::config('varbase_media.settings')->get('use_blazy_blurry');
@@ -372,6 +374,11 @@ function varbase_media_form_entity_embed_dialog_alter(&$form, FormStateInterface
         if (isset($form['attributes']['data-entity-embed-display-settings'])) {
           unset($form['attributes']['data-entity-embed-display-settings']);
         }
+    }
+
+    if (Drupal::service('module_handler')->moduleExists('blazy')) {
+      // Attach the Blazy library.
+      $form['#attached']['library'][] = 'blazy/load';
     }
 
     // No revision information or revision log message.
