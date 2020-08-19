@@ -96,3 +96,20 @@ figure.align-left figcaption {
   display: table-caption;
   caption-side: bottom;
 }
+
+.media.media--type-remote-video.media--view-mode-large,
+.media.media--type-remote-video.media--view-mode-origional,
+.media.media--type-video.media--view-mode-large,
+.media.media--type-video.media--view-mode-origional {
+  width: 100%;
+}
+
+.media.media--type-remote-video.media--view-mode-small,
+.media.media--type-video.media--view-mode-small {
+  width: 25%;
+}
+
+.media.media--type-remote-video.media--view-mode-medium,
+.media.media--type-video.media--view-mode-medium {
+  width: 50%;
+}

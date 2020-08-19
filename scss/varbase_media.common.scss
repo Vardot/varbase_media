@@ -114,3 +114,22 @@ figure.align-left {
     caption-side: bottom;
   }
 }
+
+.media {
+  &.media--type-remote-video,
+  &.media--type-video {
+
+    &.media--view-mode-large,
+    &.media--view-mode-origional {
+      width: 100%;
+    }
+
+    &.media--view-mode-small {
+      width: 25%; 
+    }
+
+    &.media--view-mode-medium {
+      width: 50%; 
+    }
+  }
+} 
