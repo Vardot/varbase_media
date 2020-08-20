@@ -808,6 +808,11 @@ details[id^="edit-field-media-gallery-"] {
       width: max-content;
       position: absolute;
       
+      picture,
+      img {
+        width: 100%;
+      }
+      
       .video-player-icon {
         position: relative;
 

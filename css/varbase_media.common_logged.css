@@ -657,6 +657,13 @@ details[id^="edit-field-media-gallery-"] .details-wrapper {
   position: absolute;
 }
 
+.cke_widget_drupalmedia drupal-media .media.media--type-remote-video picture,
+.cke_widget_drupalmedia drupal-media .media.media--type-remote-video img,
+.cke_widget_drupalmedia drupal-media .media.media--type-video picture,
+.cke_widget_drupalmedia drupal-media .media.media--type-video img {
+  width: 100%;
+}
+
 .cke_widget_drupalmedia drupal-media .media.media--type-remote-video .video-player-icon,
 .cke_widget_drupalmedia drupal-media .media.media--type-video .video-player-icon {
   position: relative;
