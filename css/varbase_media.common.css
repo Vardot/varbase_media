@@ -95,6 +95,24 @@ figure.align-right figcaption,
 figure.align-left figcaption {
   display: table-caption;
   caption-side: bottom;
+  text-align: center;
+}
+
+figure.caption.caption-drupal-media.align-center {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.media.media--type-remote-video,
+.media.media--type-video {
+  width: 100%;
+}
+
+.media.media--type-remote-video.align-center figcaption,
+.media.media--type-video.align-center figcaption {
+  display: table-caption;
+  caption-side: bottom;
+  text-align: center;
 }
 
 .media.media--type-remote-video.align-right,
@@ -107,6 +125,7 @@ figure.align-left figcaption {
 .media.media--type-video.align-right figcaption {
   display: table-caption;
   caption-side: bottom;
+  text-align: center;
 }
 
 .media.media--type-remote-video.align-left,
@@ -119,13 +138,12 @@ figure.align-left figcaption {
 .media.media--type-video.align-left figcaption {
   display: table-caption;
   caption-side: bottom;
+  text-align: center;
 }
 
-.media.media--type-remote-video.media--view-mode-large,
-.media.media--type-remote-video.media--view-mode-origional,
-.media.media--type-video.media--view-mode-large,
-.media.media--type-video.media--view-mode-origional {
-  width: 100%;
+.media.media--type-remote-video.media--view-mode-medium,
+.media.media--type-video.media--view-mode-medium {
+  width: 50%;
 }
 
 .media.media--type-remote-video.media--view-mode-small,
@@ -133,7 +151,7 @@ figure.align-left figcaption {
   width: 25%;
 }
 
-.media.media--type-remote-video.media--view-mode-medium,
-.media.media--type-video.media--view-mode-medium {
-  width: 50%;
+.media.media--type-remote-video .media.media--bundle--image .blazy img {
+  width: auto;
+  height: auto;
 }

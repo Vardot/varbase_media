@@ -105,19 +105,41 @@ img {
 }
 
 // Image caption Right and Left style (Fit Image).
-figure.align-right,
-figure.align-left {
-  display:table;
+figure {
   
-  figcaption {
-    display: table-caption;
-    caption-side: bottom;
+  &.align-right,
+  &.align-left {
+    display:table;
+
+    figcaption {
+      display: table-caption;
+      caption-side: bottom;
+      text-align: center;
+    }
+  }
+
+  &.caption.caption-drupal-media {
+
+    &.align-center {
+      margin-right: auto;
+      margin-left: auto;
+    }
   }
 }
 
 .media {
   &.media--type-remote-video,
   &.media--type-video {
+    width: 100%;
+    
+    &.align-center {
+
+      figcaption {
+        display: table-caption;
+        caption-side: bottom;
+        text-align: center;
+      }
+    }
 
     &.align-right {
       display:table;
@@ -126,6 +148,7 @@ figure.align-left {
       figcaption {
         display: table-caption;
         caption-side: bottom;
+        text-align: center;
       }
     }
 
@@ -136,21 +159,25 @@ figure.align-left {
       figcaption {
         display: table-caption;
         caption-side: bottom;
+        text-align: center;
       }
     }
     
-
-    &.media--view-mode-large,
-    &.media--view-mode-origional {
-      width: 100%;
+    &.media--view-mode-medium {
+      width: 50%; 
     }
 
     &.media--view-mode-small {
       width: 25%; 
     }
 
-    &.media--view-mode-medium {
-      width: 50%; 
+  }
+
+  &.media--type-remote-video
+  &.media--bundle--image {
+    .blazy img {
+      width: auto;
+      height: auto;
     }
   }
-} 
+}

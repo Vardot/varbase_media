@@ -102,7 +102,7 @@ $grid-breakpoints: (
 // Style the CKEditor widget for images.
 .cke_widget_wrapper {
   .align-left {
-    margin: 0 8px 8px 0;
+    margin: 0 1rem 1rem 0;
 
     figcaption {
       text-align: center;
@@ -110,7 +110,7 @@ $grid-breakpoints: (
   }
 
   .align-right {
-    margin: 0 0 8px 8px;
+    margin: 0 0 1rem 1rem;
 
     figcaption {
       text-align: center;
@@ -758,6 +758,10 @@ details[id^="edit-field-media-gallery-"] {
 
 .cke_widget_drupalmedia {
   drupal-media {
+    .caption {
+      width: 100%;
+    }
+
     &[data-view-mode="original"] {
       width: 100%;
       
@@ -786,11 +790,31 @@ details[id^="edit-field-media-gallery-"] {
     }
 
     &[data-view-mode="small"] {
-      width: 20%;
+      width: 25%;
       
       &[data-align=center] {
-        margin-left: 40%;
-        margin-right: 40%;
+        margin-left: 32%;
+        margin-right: 32%;
+      }
+    }
+
+    &[data-align=left] {
+      display: inline-block;
+      float: left;
+      margin: 0 1rem 1rem 0;
+
+      figcaption {
+        text-align: center;
+      }
+    }
+
+    &[data-align=right] {
+      display: inline-block;
+      float: right;
+      margin: 0 0 1rem 1rem;
+
+      figcaption {
+        text-align: center;
       }
     }
 
@@ -805,7 +829,7 @@ details[id^="edit-field-media-gallery-"] {
 
     .media.media--type-remote-video,
     .media.media--type-video {
-      width: max-content;
+      width: 100%;
       position: absolute;
       
       picture,
@@ -846,13 +870,13 @@ details[id^="edit-field-media-gallery-"] {
       }
     }
 
-    @media screen and (min-width: 768px) { 
+    @media screen and (min-width: 761rem) { 
       .media.media--type-remote-video,
       .media.media--type-video {
         min-width: 100%;
         width: max-content;
       }
     }
-  
+
   }
 }

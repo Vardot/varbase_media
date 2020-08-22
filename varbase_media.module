@@ -22,6 +22,7 @@ use Drupal\file\Entity\File;
 use Drupal\responsive_image\Entity\ResponsiveImageStyle;
 use Drupal\media\OEmbed\Provider;
 use Drupal\field\Entity\FieldConfig;
+use Drupal\image\Plugin\Field\FieldType\ImageItem;
 
 /**
  * Implements hook_preprocess_field().
@@ -561,6 +562,60 @@ function varbase_media_form_alter(&$form, &$form_state, $form_id) {
       $form['#attached']['library'][] = 'varbase_media/common_logged';
     }
   }
+
+  if ($form_id === 'editor_media_dialog') {
+    if (isset($form_state->getUserInput()['editor_object'])) {
+      $editor_object = $form_state->getUserInput()['editor_object'];
+      $media_embed_element = $editor_object['attributes'];
+
+      if (isset($media_embed_element['data-entity-type'])
+       && $media_embed_element['data-entity-type'] == 'media') {
+        $media = \Drupal::service('entity.repository')->loadEntityByUuid('media', $media_embed_element['data-entity-uuid']);
+
+        if (isset($media)) {
+          $media_type = $media->bundle();
+
+          switch ($media_type) {
+            case 'image':
+              if (isset($form['alt'])) {
+                $form['alt']['#required'] = TRUE;
+
+                $field_definition = $media->getSource()->getSourceFieldDefinition($media->bundle->entity);
+                $item_class = $field_definition->getItemDefinition()->getClass();
+                if (is_a($item_class, ImageItem::class, TRUE)) {
+                  $image_field_name = $field_definition->getName();
+
+                  // We'll want the alt text from the same language as the host.
+                  if (!empty($editor_object['hostEntityLangcode']) && $media->hasTranslation($editor_object['hostEntityLangcode'])) {
+                    $media = $media->getTranslation($editor_object['hostEntityLangcode']);
+                  }
+                  $alt = isset($media_embed_element['alt']) ? $media_embed_element['alt'] : $media->{$image_field_name}->alt;
+                  $form['alt']['#default_value'] = $alt;
+                  $form['alt']['#placeholder'] = $media->{$image_field_name}->alt;
+                }
+              }
+              break;
+
+            case 'audio':
+            case 'file':
+              if (isset($form['view_mode'])) {
+                $form['view_mode']['#access'] = FALSE;
+              }
+              break;
+
+            case 'video':
+            case 'remote_video':
+              if (isset($form['caption'])) {
+                $form['caption']['#access'] = FALSE;
+                $form['caption']['#default_value'] = FALSE;
+              }
+              break;
+          }
+        }
+      }
+    }
+  }
+
 }
 
 /**

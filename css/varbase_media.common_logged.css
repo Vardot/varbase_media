@@ -47,7 +47,7 @@
 }
 
 .cke_widget_wrapper .align-left {
-  margin: 0 8px 8px 0;
+  margin: 0 1rem 1rem 0;
 }
 
 .cke_widget_wrapper .align-left figcaption {
@@ -55,7 +55,7 @@
 }
 
 .cke_widget_wrapper .align-right {
-  margin: 0 0 8px 8px;
+  margin: 0 0 1rem 1rem;
 }
 
 .cke_widget_wrapper .align-right figcaption {
@@ -604,6 +604,10 @@ details[id^="edit-field-media-gallery-"] .details-wrapper {
   margin: 20px;
 }
 
+.cke_widget_drupalmedia drupal-media .caption {
+  width: 100%;
+}
+
 .cke_widget_drupalmedia drupal-media[data-view-mode="original"] {
   width: 100%;
 }
@@ -632,12 +636,32 @@ details[id^="edit-field-media-gallery-"] .details-wrapper {
 }
 
 .cke_widget_drupalmedia drupal-media[data-view-mode="small"] {
-  width: 20%;
+  width: 25%;
 }
 
 .cke_widget_drupalmedia drupal-media[data-view-mode="small"][data-align=center] {
-  margin-left: 40%;
-  margin-right: 40%;
+  margin-left: 32%;
+  margin-right: 32%;
+}
+
+.cke_widget_drupalmedia drupal-media[data-align=left] {
+  display: inline-block;
+  float: left;
+  margin: 0 1rem 1rem 0;
+}
+
+.cke_widget_drupalmedia drupal-media[data-align=left] figcaption {
+  text-align: center;
+}
+
+.cke_widget_drupalmedia drupal-media[data-align=right] {
+  display: inline-block;
+  float: right;
+  margin: 0 0 1rem 1rem;
+}
+
+.cke_widget_drupalmedia drupal-media[data-align=right] figcaption {
+  text-align: center;
 }
 
 .cke_widget_drupalmedia drupal-media .media-library-item__edit {
@@ -651,9 +675,7 @@ details[id^="edit-field-media-gallery-"] .details-wrapper {
 
 .cke_widget_drupalmedia drupal-media .media.media--type-remote-video,
 .cke_widget_drupalmedia drupal-media .media.media--type-video {
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
+  width: 100%;
   position: absolute;
 }
 
@@ -702,7 +724,7 @@ details[id^="edit-field-media-gallery-"] .details-wrapper {
   opacity: 0.75;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 761rem) {
   .cke_widget_drupalmedia drupal-media .media.media--type-remote-video,
   .cke_widget_drupalmedia drupal-media .media.media--type-video {
     min-width: 100%;
