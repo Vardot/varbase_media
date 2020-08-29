@@ -49,7 +49,7 @@
     "drupal/media_library_edit": "1.0-alpha2",
     "drupal/media_revisions_ui": "~2.0",
     "drupal/crop": "~2.0",
-    "drupal/focal_point": "1.4",
+    "drupal/focal_point": "~1.0",
     "drupal/imagemagick": "~3.0",
     "drupal/imageapi_optimize": "~2.0",
     "drupal/blazy": "~2.0",
@@ -97,12 +97,6 @@
       "drupal/media_library_edit": {
         "Issue #3034205: Open in modal":
         "https://www.drupal.org/files/issues/2020-06-25/open-in-modal-3034205-43.patch"
-      },
-      "drupal/focal_point": {
-        "Issue #3094478: Integrate focal point with media_library":
-        "https://www.drupal.org/files/issues/2020-05-26/3094478-39.patch",
-        "Issue #3162218: Fix Images preview style is not attached in the page":
-        "https://www.drupal.org/files/issues/2020-07-29/3162218-3.patch"
       }
     }
   }
