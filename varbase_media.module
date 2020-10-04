@@ -10,7 +10,7 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\editor\Entity\Editor;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
-use Drupal\entity_browser_generic_embed\OverrideHelper as Override;
+use Drupal\entity_browser_generic_embed\OverrideHelper;
 use Drupal\varbase_media\Plugin\media\Source\VarbaseMediaRemoteVideo;
 use Drupal\Component\Utility\UrlHelper;
 use Drupal\Core\Render\BubbleableMetadata;
@@ -504,7 +504,7 @@ function varbase_media_media_source_info_alter(array &$sources) {
     ],
   ];
   $sources['oembed:video']['preview'] = TRUE;
-  Override::pluginClass($sources['oembed:video'], VarbaseMediaRemoteVideo::class);
+  OverrideHelper::pluginClass($sources['oembed:video'], VarbaseMediaRemoteVideo::class);
 
 }
 

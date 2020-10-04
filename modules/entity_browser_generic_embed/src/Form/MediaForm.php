@@ -4,7 +4,7 @@ namespace Drupal\entity_browser_generic_embed\Form;
 
 use Drupal\Component\Utility\NestedArray;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\entity_browser_generic_embed\MediaHelper as Helper;
+use Drupal\entity_browser_generic_embed\MediaHelper;
 use Drupal\media\MediaForm as BaseMediaForm;
 
 /**
@@ -23,7 +23,7 @@ class MediaForm extends BaseMediaForm {
     /** @var \Drupal\media\MediaInterface $entity */
     $entity = $this->getEntity();
 
-    $field = Helper::getSourceField($entity);
+    $field = MediaHelper::getSourceField($entity);
     if ($field && !$field->isEmpty()) {
       // Get the source field widget element.
       $widget_keys = [
@@ -37,7 +37,7 @@ class MediaForm extends BaseMediaForm {
       // Add an attribute to identify it.
       $widget['#attributes']['data-source-field'] = TRUE;
 
-      if (Helper::isPreviewable($entity)) {
+      if (MediaHelper::isPreviewable($entity)) {
         $widget['#ajax'] = [
           'callback' => [static::class, 'onChange'],
           'wrapper' => 'preview',
@@ -77,7 +77,7 @@ class MediaForm extends BaseMediaForm {
    */
   public function renderPreview(array $element) {
     $entity = $this->getEntity();
-    return $element + Helper::getSourceField($entity)->view('default');
+    return $element + MediaHelper::getSourceField($entity)->view('default');
   }
 
   /**
@@ -97,7 +97,7 @@ class MediaForm extends BaseMediaForm {
     $entity = $handler->getEntity();
     $handler->copyFormValuesToEntity($entity, $form, $form_state);
 
-    return Helper::getSourceField($entity)->view('default');
+    return MediaHelper::getSourceField($entity)->view('default');
   }
 
 }

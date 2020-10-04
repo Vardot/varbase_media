@@ -6,7 +6,7 @@
  */
 
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\entity_browser_generic_embed\OverrideHelper as Override;
+use Drupal\entity_browser_generic_embed\OverrideHelper;
 use Drupal\varbase_media_instagram\Plugin\media\Source\VarbaseMediaInstagram;
 
 /**
@@ -22,7 +22,7 @@ function varbase_media_instagram_media_source_info_alter(array &$sources) {
   ];
   $sources['instagram']['preview'] = TRUE;
 
-  Override::pluginClass($sources['instagram'], VarbaseMediaInstagram::class);
+  OverrideHelper::pluginClass($sources['instagram'], VarbaseMediaInstagram::class);
 }
 
 /**

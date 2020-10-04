@@ -69,7 +69,7 @@ class EmbedCode extends EntityFormProxy {
     $embedDescription .= "<ul>";
 
     // Get list of media types.
-    $mediaTypes = \Drupal::service('entity.manager')->getStorage('media_type')->loadMultiple();
+    $mediaTypes = $this->entityTypeManager->getStorage('media_type')->loadMultiple();
 
     // List of media files Sources, which we do not want to show at embed.
     $mediaFileSources = ['Drupal\media\Plugin\media\Source\File',

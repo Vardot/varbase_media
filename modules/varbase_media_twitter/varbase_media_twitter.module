@@ -6,7 +6,7 @@
  */
 
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\entity_browser_generic_embed\OverrideHelper as Override;
+use Drupal\entity_browser_generic_embed\OverrideHelper;
 use Drupal\varbase_media_twitter\Plugin\media\Source\VarbaseMediaTwitter;
 
 /**
@@ -22,7 +22,7 @@ function varbase_media_twitter_media_source_info_alter(array &$sources) {
   ];
   $sources['twitter']['preview'] = TRUE;
 
-  Override::pluginClass($sources['twitter'], VarbaseMediaTwitter::class);
+  OverrideHelper::pluginClass($sources['twitter'], VarbaseMediaTwitter::class);
 }
 
 /**
