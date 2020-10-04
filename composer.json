@@ -52,7 +52,7 @@
     "drupal/focal_point": "~1.0",
     "drupal/imagemagick": "~3.0",
     "drupal/imageapi_optimize": "~3.0",
-    "drupal/blazy": "~2.0",
+    "drupal/blazy": "2.1",
     "drupal/slick": "~2.0",
     "drupal/slick_views": "~2.0",
     "drupal/metatag": "^1.12"
@@ -97,6 +97,10 @@
       "drupal/media_library_edit": {
         "Issue #3034205: Open in modal":
         "https://www.drupal.org/files/issues/2020-06-25/open-in-modal-3034205-43.patch"
+      },
+      "drupal/blazy": {
+        "Issue #3174661: Fix notice: undefined index ratio by check the value if not empty":
+        "https://www.drupal.org/files/issues/2020-10-03/3174661-1.patch"
       }
     }
   }
