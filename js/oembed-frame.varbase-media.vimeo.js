@@ -4,46 +4,43 @@
  */
 
 function ready(fn) {
-  if (document.readyState != 'loading'){
+  if (document.readyState !== "loading") {
     fn();
   } else if (document.addEventListener) {
-    document.addEventListener('DOMContentLoaded', fn);
+    document.addEventListener("DOMContentLoaded", fn);
   } else {
-    document.attachEvent('onreadystatechange', function() {
-      if (document.readyState != 'loading')
-        fn();
+    document.attachEvent("onreadystatechange", function() {
+      if (document.readyState !== "loading") fn();
     });
   }
 }
 
-var tag = document.createElement('script');
+const tag = document.createElement("script");
 tag.src = "//player.vimeo.com/api/player.js";
-var firstScriptTag = document.getElementsByTagName('script')[0];
+const firstScriptTag = document.getElementsByTagName("script")[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 ready(function() {
+  const mediaIframe = document.querySelector("iframe");
+  mediaIframe.setAttribute("id", "media-oembed-iframe");
 
-  var media_iframe = document.querySelector('iframe');
-  media_iframe.setAttribute('id', 'media-oembed-iframe');
-
-  var player_confgured = false;
-  var vimeo_player;
+  let playerConfgured = false;
+  let vimeoPlayer;
 
   function actionProcessor(evt) {
-
     // Manage Vimeo video.
     if (evt.data === "play") {
-      if (!player_confgured) {
-        var vimeo_iframe = document.querySelector('iframe[src*="vimeo.com"]');
+      if (!playerConfgured) {
+        const vimeoIframe = document.querySelector('iframe[src*="vimeo.com"]');
 
-        vimeo_player = new Vimeo.Player(vimeo_iframe);
-        player_confgured = true;
+        vimeoPlayer = new window.Vimeo.Player(vimeoIframe);
+        playerConfgured = true;
       }
 
-       vimeo_player.ready().then(function() {
-         vimeo_player.getPaused().then(function(paused) {
+      vimeoPlayer.ready().then(function() {
+        vimeoPlayer.getPaused().then(function(paused) {
           if (paused) {
-            vimeo_player.play();
+            vimeoPlayer.play();
           }
         });
       });
@@ -53,8 +50,7 @@ ready(function() {
   // Setup the event listener for messaging.
   if (window.addEventListener) {
     window.addEventListener("message", actionProcessor, false);
-  }
-  else {
+  } else {
     window.attachEvent("onmessage", actionProcessor);
   }
 });

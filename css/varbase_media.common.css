@@ -1,13 +1,13 @@
 .embedded-entity.align-center img {
   display: block;
-  margin-left: auto;
   margin-right: auto;
+  margin-left: auto;
 }
 
 .embedded-entity.align-center figcaption {
   display: block;
-  margin-left: auto;
   margin-right: auto;
+  margin-left: auto;
   text-align: center;
 }
 
@@ -45,14 +45,14 @@ picture.align-left figcaption {
 
 figure.align-center img {
   display: block;
-  margin-left: auto;
   margin-right: auto;
+  margin-left: auto;
 }
 
 figure.align-center figcaption {
   display: block;
-  margin-left: auto;
   margin-right: auto;
+  margin-left: auto;
   text-align: center;
 }
 
@@ -78,8 +78,8 @@ figure.align-left figcaption {
 
 img.align-center {
   display: block;
-  margin-left: auto;
   margin-right: auto;
+  margin-left: auto;
 }
 
 img.align-right {

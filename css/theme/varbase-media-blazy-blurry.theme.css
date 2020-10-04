@@ -10,11 +10,11 @@
 
 .blazy.field--type-image .media--loading,
 .blazy.media-cover-image .media--loading {
-  max-width: 100%;
-  height: auto;
   -webkit-backface-visibility: inherit;
   backface-visibility: inherit;
   overflow: hidden;
+  max-width: 100%;
+  height: auto;
 }
 
 .blazy.field--type-image .media--loading::before,
@@ -32,26 +32,16 @@
 
 .blazy.field--type-image .b-lazy,
 .blazy.media-cover-image .b-lazy {
-  -webkit-filter: blur(2px);
-  filter: blur(2px);
-  -webkit-transform: scale(1.001);
-  -o-transform: scale(1.001);
+  transition: filter 0.2s, transform 0.2s;
   transform: scale(1.001);
-  -webkit-transition: -webkit-filter .2s, -webkit-transform .2s;
-  transition: -webkit-filter .2s, -webkit-transform .2s;
-  -o-transition: filter .2s, -o-transform .2s;
-  transition: filter .2s, transform .2s;
-  transition: filter .2s, transform .2s, -webkit-filter .2s, -webkit-transform .2s, -o-transform .2s;
   opacity: 1;
+  filter: blur(2px);
 }
 
 .blazy.field--type-image .b-loaded,
 .blazy.media-cover-image .b-loaded {
-  -webkit-filter: blur(0);
-  filter: blur(0);
-  -webkit-transform: scale(1);
-  -o-transform: scale(1);
   transform: scale(1);
+  filter: blur(0);
 }
 
 .blazy img {
@@ -77,28 +67,28 @@
 }
 
 .text-formatted .align-center > .blazy.blazy--field-media-image.blazy--field-media-image--original {
-  margin-right: auto;
-  margin-left: auto;
   width: auto;
   max-width: 100%;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .text-formatted .align-center > .blazy.blazy--field-media-image.blazy--field-media-image--large {
-  margin-left: 0%;
-  margin-right: 0%;
   width: 100%;
+  margin-right: 0;
+  margin-left: 0;
 }
 
 .text-formatted .align-center > .blazy.blazy--field-media-image.blazy--field-media-image--medium {
-  margin-left: 25%;
-  margin-right: 25%;
   width: 50%;
+  margin-right: 25%;
+  margin-left: 25%;
 }
 
 .text-formatted .align-center > .blazy.blazy--field-media-image.blazy--field-media-image--small {
-  margin-left: 37.5%;
-  margin-right: 37.5%;
   width: 25%;
+  margin-right: 37.5%;
+  margin-left: 37.5%;
 }
 
 .text-formatted .align-left > .blazy.blazy--field-media-image {
