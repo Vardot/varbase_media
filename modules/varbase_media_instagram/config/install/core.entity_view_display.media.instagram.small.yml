@@ -17,9 +17,10 @@ content:
     weight: 0
     label: hidden
     settings:
-      width: null
-      hidecaption: false
-    third_party_settings: {  }
+      max_width: 0
+    third_party_settings:
+      empty_fields:
+        handler: ''
     type: instagram_embed
     region: content
 hidden:
