@@ -45,7 +45,7 @@
     "drupal/embed": "~1.0",
     "drupal/media_entity_instagram": "~3.0",
     "drupal/media_entity_twitter": "~2.0",
-    "drupal/media_library_edit": "1.0-alpha2",
+    "drupal/media_library_edit": "~2.0",
     "drupal/media_revisions_ui": "~2.0",
     "drupal/crop": "~2.0",
     "drupal/focal_point": "~1.0",
@@ -89,10 +89,6 @@
         "https://www.drupal.org/files/issues/2019-07-25/3070343-8.patch",
         "Issue #2679875: Inline Entity Form integration":
         "https://www.drupal.org/files/issues/2020-04-21/2679875-13.patch"
-      },
-      "drupal/media_library_edit": {
-        "Issue #3034205: Open in modal":
-        "https://www.drupal.org/files/issues/2020-06-25/open-in-modal-3034205-43.patch"
       },
       "drupal/blazy": {
         "Issue #3174661: Fix notice: undefined index ratio by check the value if not empty":
