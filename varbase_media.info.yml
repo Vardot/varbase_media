@@ -42,3 +42,4 @@ install:
   - views_bulk_edit
   - blazy
   - slick
+  - webp
