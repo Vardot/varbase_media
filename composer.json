@@ -99,7 +99,7 @@
       },
       "drupal/dropzonejs": {
         "Issue #3051658: Make dropzonejs widget available to the new Media Library in core":
-        "https://www.drupal.org/files/issues/2020-10-26/3051658-12.patch"
+        "https://www.drupal.org/files/issues/2021-01-04/3051658-20.patch"
       }
     }
   }
