@@ -39,7 +39,7 @@
     "drupal/views_infinite_scroll": "~1.0",
     "drupal/entity_browser": "~2.0",
     "drupal/entity_browser_enhanced": "~1.0",
-    "drupal/dropzonejs": "2.3",
+    "drupal/dropzonejs": "2.4",
     "drupal/entity_embed": "1.1",
     "drupal/inline_entity_form": "~1.0",
     "drupal/embed": "~1.0",
@@ -58,7 +58,7 @@
     "drupal/webp": "~1.0"
   },
   "suggest": {
-    "npm-asset/dropzone": "~4.0: Provides JavaScript library necessary for Dropzone",
+    "npm-asset/dropzone": "~5.0: Provides JavaScript library necessary for Dropzone",
     "npm-asset/blazy": "~1.0: Provides JavaScript library necessary for Blazy loading",
     "npm-asset/slick-carousel": "~1.0: Provides JavaScript library necessary for Slick Carousel"
   }, 
@@ -97,7 +97,7 @@
       },
       "drupal/dropzonejs": {
         "Issue #3051658: Make dropzonejs widget available to the new Media Library in core":
-        "https://www.drupal.org/files/issues/2020-10-26/3051658-12.patch"
+        "https://www.drupal.org/files/issues/2021-01-04/3051658-20.patch"
       }
     }
   }
