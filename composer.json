@@ -38,7 +38,7 @@
     "drupal/views_infinite_scroll": "~1.0",
     "drupal/entity_browser": "~2.0",
     "drupal/entity_browser_enhanced": "~1.0",
-    "drupal/dropzonejs": "2.4",
+    "drupal/dropzonejs": "~2.0",
     "drupal/entity_embed": "1.1",
     "drupal/inline_entity_form": "~1.0",
     "drupal/embed": "~1.0",
@@ -96,10 +96,6 @@
       "drupal/blazy": {
         "Issue #3174661: Fix notice: undefined index ratio by check the value if not empty":
         "https://www.drupal.org/files/issues/2020-10-03/3174661-1.patch"
-      },
-      "drupal/dropzonejs": {
-        "Issue #3051658: Make dropzonejs widget available to the new Media Library in core":
-        "https://www.drupal.org/files/issues/2021-01-04/3051658-20.patch"
       }
     }
   }
