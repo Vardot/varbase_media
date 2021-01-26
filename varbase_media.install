@@ -526,3 +526,12 @@ function varbase_media_update_8709() {
   }
 
 }
+
+/**
+ * Issue #3192175: Add WebP module ~1.0 and enable by default.
+ */
+function varbase_media_update_9001() {
+  if (!\Drupal::moduleHandler()->moduleExists('webp')) {
+    \Drupal::service('module_installer')->install(['webp'], FALSE);
+  }
+}
