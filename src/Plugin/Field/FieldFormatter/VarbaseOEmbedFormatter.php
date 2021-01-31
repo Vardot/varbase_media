@@ -67,6 +67,7 @@ class VarbaseOEmbedFormatter extends OEmbedFormatter {
           'allowtransparency' => TRUE,
           'width' => $max_width,
           'height' => $max_height,
+          'loading' => 'lazy',
           'class' => ['media-oembed-content'],
         ],
         '#attached' => [
