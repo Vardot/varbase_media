@@ -831,7 +831,7 @@ function varbase_media_preprocess_image(&$variables) {
 
         // Create image style derivative if necessary.
         if (!file_exists($current_uri_with_style)) {
-          $image_style->createDerivative($uri, $$current_uri_with_style);
+          $image_style->createDerivative($uri, $current_uri_with_style);
         }
       }
 
