@@ -814,28 +814,44 @@ function varbase_media_preprocess_image(&$variables) {
         // Create Uri from the fallback image style.
         $fallback_image_style_name = $responsive_image_style->getFallbackImageStyle();
         $fallback_image_style = ImageStyle::load($fallback_image_style_name);
+
+        // Set up derivative file information.
         $current_uri_with_style = $fallback_image_style->buildUri($uri);
-        $fallback_image_style->createDerivative($uri, $current_uri_with_style);
+
+        // Create responsive image style derivative if necessary.
+        if (!file_exists($current_uri_with_style)) {
+          $fallback_image_style->createDerivative($uri, $current_uri_with_style);
+        }
       }
       elseif (!empty($variables['attributes']['image_style'])) {
         $image_style = ImageStyle::load($variables['attributes']['image_style']);
+
+        // Set up derivative file information.
         $current_uri_with_style = $image_style->buildUri($uri);
-        $image_style->createDerivative($uri, $current_uri_with_style);
+
+        // Create image style derivative if necessary.
+        if (!file_exists($current_uri_with_style)) {
+          $image_style->createDerivative($uri, $$current_uri_with_style);
+        }
       }
 
       $image_style_blazy_blurry = ImageStyle::load('blazy_blurry');
+      // Set up derivative file information.
+      $blazy_blurry_image = $image_style_blazy_blurry->buildUri($current_uri_with_style);
 
-      $img = $image_style_blazy_blurry->buildUri($current_uri_with_style);
-      $image_style_blazy_blurry->createDerivative($current_uri_with_style, $img);
+      // Create Blazy Blurry derivative if necessary.
+      if (!file_exists($blazy_blurry_image)) {
+        $image_style_blazy_blurry->createDerivative($current_uri_with_style, $blazy_blurry_image);
+      }
 
-      if (file_exists($img)) {
+      if (file_exists($blazy_blurry_image)) {
 
         // Encode the image in base64 to speed up loading times.
-        $file_type = mime_content_type($img);
-        $img_base64 = 'data:' . $file_type . ';base64,' . base64_encode(file_get_contents($img));
+        $file_type = mime_content_type($blazy_blurry_image);
+        $blazy_blurry_image_base64 = 'data:' . $file_type . ';base64,' . base64_encode(file_get_contents($blazy_blurry_image));
 
         // Update the placeholder URI.
-        $variables['attributes']['src'] = $img_base64;
+        $variables['attributes']['src'] = $blazy_blurry_image_base64;
 
         unset($variables['attributes']['responsive_image_style']);
         unset($variables['attributes']['image_style']);
