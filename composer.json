@@ -54,7 +54,7 @@
     "drupal/slick": "~2.0",
     "drupal/slick_views": "~2.0",
     "drupal/metatag": "^1.12",
-    "drupal/webp": "~1.0"
+    "drupal/webp": "1.0-beta5"
   },
   "suggest": {
     "npm-asset/dropzone": "~5.0: Provides JavaScript library necessary for Dropzone",
@@ -96,6 +96,10 @@
       "drupal/blazy": {
         "Issue #3174661: Fix notice: undefined index ratio by check the value if not empty":
         "https://www.drupal.org/files/issues/2020-10-03/3174661-1.patch"
+      },
+      "drupal/webp": {
+        "Issue #3186383: Access Denied on WebP images with Image Optimize API":
+        "https://www.drupal.org/files/issues/2021-01-19/webp_access_denied-3186383-10.patch"
       }
     }
   }
