@@ -616,6 +616,27 @@ function varbase_media_form_alter(&$form, &$form_state, $form_id) {
     }
   }
 
+  if ($form_id === 'media_bulk_upload_form') {
+    $form['#submit'][] = '_varbase_media_bulk_upload_form_submit_handler';
+  }
+
+}
+
+/**
+ * Varbase media bulk upload form submit handler.
+ * 
+ * Redirect the user back to the Media page (/admin/content/media)
+ * after successful bulk upload.
+ */
+function _varbase_media_bulk_upload_form_submit_handler(&$form, &$form_state) {
+  if (\Drupal::moduleHandler()->moduleExists('media_library')) {
+    $media_library_grid_url = Url::fromRoute('view.media_library.page');
+    $form_state->setRedirectUrl($media_library_grid_url);
+  }
+  else {
+    $media_library_table_url = Url::fromRoute('entity.media.collection');
+    $form_state->setRedirectUrl($media_library_table_url);
+  }
 }
 
 /**
