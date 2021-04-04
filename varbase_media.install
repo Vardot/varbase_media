@@ -535,3 +535,38 @@ function varbase_media_update_9001() {
     \Drupal::service('module_installer')->install(['webp'], FALSE);
   }
 }
+
+/**
+ * Issue #3206185: Add Media Bulk Upload module.
+ */
+function varbase_media_update_9002() {
+  if (!\Drupal::moduleHandler()->moduleExists('media_bulk_upload')) {
+    // Enable Media upload module.
+    \Drupal::service('module_installer')->install(['media_bulk_upload'], FALSE);
+
+    $module_path = Drupal::service('module_handler')->getModule('varbase_media')->getPath();
+    $optional_install_path = $module_path . '/' . InstallStorage::CONFIG_OPTIONAL_DIRECTORY;
+
+    // List of media bulk upload configs needed for Varbase media.
+    $media_bulk_upload_configs = [
+      'core.entity_form_mode.media.bulk_upload',
+      'core.entity_form_display.media.audio.bulk_upload',
+      'core.entity_form_display.media.file.bulk_upload',
+      'core.entity_form_display.media.image.bulk_upload',
+      'core.entity_form_display.media.video.bulk_upload',
+      'media_bulk_upload.media_bulk_config.media_bulk_upload',
+    ];
+
+    // Import list of needed configs for Meida Build Upload.
+    foreach ($media_bulk_upload_configs as $media_bulk_upload_config) {
+      $media_config_path = $optional_install_path . '/' . $media_bulk_upload_config;
+
+      if (file_exists($media_config_path)) {
+        $media_config_content = file_get_contents($media_config_path);
+        $media_config_data = (array) Yaml::parse($media_config_content);
+        $media_config_factory = \Drupal::configFactory()->getEditable($media_bulk_upload_config);
+        $media_config_factory->setData($media_config_data)->save(TRUE);
+      }
+    }
+  }
+}
