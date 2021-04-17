@@ -50,7 +50,7 @@
     "drupal/focal_point": "~1.0",
     "drupal/imagemagick": "~3.0",
     "drupal/imageapi_optimize": "~3.0",
-    "drupal/blazy": "2.1",
+    "drupal/blazy": "~2.0",
     "drupal/slick": "~2.0",
     "drupal/slick_views": "~2.0",
     "drupal/metatag": "^1.12",
@@ -92,10 +92,6 @@
         "https://www.drupal.org/files/issues/2019-07-25/3070343-8.patch",
         "Issue #2679875: Inline Entity Form integration":
         "https://www.drupal.org/files/issues/2020-04-21/2679875-13.patch"
-      },
-      "drupal/blazy": {
-        "Issue #3174661: Fix notice: undefined index ratio by check the value if not empty":
-        "https://www.drupal.org/files/issues/2020-10-03/3174661-1.patch"
       },
       "drupal/webp": {
         "Issue #3186383: Access Denied on WebP images with Image Optimize API":
