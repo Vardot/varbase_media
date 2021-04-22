@@ -208,31 +208,6 @@ function varbase_media_theme_suggestions_media_oembed_iframe_alter(&$suggestions
 }
 
 /**
- * Implements hook_page_attachments().
- */
-function varbase_media_page_attachments(array &$page) {
-  // Attached the varbase media common library.
-  $page['#attached']['library'][] = 'varbase_media/common';
-
-  if (!(\Drupal::currentUser()->isAnonymous())) {
-    // Attached the varbase media common logged in users library.
-    $page['#attached']['library'][] = 'varbase_media/common_logged';
-  }
-
-  if (Drupal::service('module_handler')->moduleExists('blazy')) {
-    // Attach the Blazy load library.
-    $page['#attached']['library'][] = 'blazy/load';
-
-    // Add the Varbase Media Blazy Blurry behaviour.
-    $use_blazy_blurry = \Drupal::config('varbase_media.settings')->get('use_blazy_blurry');
-    if (isset($use_blazy_blurry) && $use_blazy_blurry === TRUE) {
-      $page['#attached']['library'][] = 'varbase_media/blazy_blurry';
-    }
-  }
-
-}
-
-/**
  * Implements hook_ckeditor_css_alter().
  */
 function varbase_media_ckeditor_css_alter(array &$css, Editor $editor) {
@@ -456,7 +431,24 @@ function varbase_media_entity_view_alter(array &$build, EntityInterface $entity,
   if ($entity->getEntityTypeId() == 'media'
     && $build['#view_mode'] != 'field_preview') {
 
-    $build['#attached']['library'][] = 'varbase_media/varbase_video_player';
+    // Attached the varbase media common library.
+    $build['#attached']['library'][] = 'varbase_media/common';
+
+    if (!(\Drupal::currentUser()->isAnonymous())) {
+      // Attached the varbase media common logged in users library.
+      $build['#attached']['library'][] = 'varbase_media/common_logged';
+    }
+
+    if (Drupal::service('module_handler')->moduleExists('blazy')) {
+      // Attach the Blazy load library.
+      $build['#attached']['library'][] = 'blazy/load';
+
+      // Add the Varbase Media Blazy Blurry behaviour.
+      $use_blazy_blurry = \Drupal::config('varbase_media.settings')->get('use_blazy_blurry');
+      if (isset($use_blazy_blurry) && $use_blazy_blurry === TRUE) {
+        $build['#attached']['library'][] = 'varbase_media/blazy_blurry';
+      }
+    }
 
     if (isset($build['field_media_cover_image'])
       && isset($build['field_media_cover_image']['#items'])) {

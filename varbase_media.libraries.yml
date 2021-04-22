@@ -2,7 +2,7 @@ common:
   version: VERSION
   css:
     theme:
-      css/varbase_media.common.css: { every_page: 1 }
+      css/varbase_media.common.css: { }
   dependencies:
     - system/base
     - core/drupal
@@ -13,8 +13,8 @@ common_logged:
   version: VERSION
   css:
     theme:
-      css/theme/media_library.theme.css: { every_page: 1 }
-      css/varbase_media.common_logged.css: { every_page: 1 }
+      css/theme/media_library.theme.css: { }
+      css/varbase_media.common_logged.css: { }
   dependencies:
     - system/base
     - core/drupal
