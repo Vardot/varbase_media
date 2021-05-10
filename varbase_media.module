@@ -208,6 +208,32 @@ function varbase_media_theme_suggestions_media_oembed_iframe_alter(&$suggestions
 }
 
 /**
+ * Implements hook_page_attachments_alter().
+ */
+function varbase_media_page_attachments_alter(array &$attachments) {
+
+  // Attached the varbase media common library.
+  $attachments['#attached']['library'][] = 'varbase_media/common';
+
+  if (!(\Drupal::currentUser()->isAnonymous())) {
+    // Attached the varbase media common logged in users library.
+    $attachments['#attached']['library'][] = 'varbase_media/common_logged';
+  }
+
+  if (Drupal::service('module_handler')->moduleExists('blazy')) {
+    // Attach the Blazy load library.
+    $attachments['#attached']['library'][] = 'blazy/load';
+
+    // Add the Varbase Media Blazy Blurry behaviour.
+    $use_blazy_blurry = \Drupal::config('varbase_media.settings')->get('use_blazy_blurry');
+    if (isset($use_blazy_blurry) && $use_blazy_blurry === TRUE) {
+      $attachments['#attached']['library'][] = 'varbase_media/blazy_blurry';
+    }
+  }
+
+}
+
+/**
  * Implements hook_ckeditor_css_alter().
  */
 function varbase_media_ckeditor_css_alter(array &$css, Editor $editor) {
@@ -419,7 +445,7 @@ function varbase_media_theme_registry_alter(&$theme_registry) {
 /**
  * Implements hook_preprocess_HOOK().
  */
-function varbase_mediacpreprocess_entity_embed_container(&$variables) {
+function varbase_media_preprocess_entity_embed_container(&$variables) {
   $variables['url'] = isset($variables['element']['#context']['data-entity-embed-display-settings']['link_url']) ? UrlHelper::filterBadProtocol($variables['element']['#context']['data-entity-embed-display-settings']['link_url']) : '';
 }
 
