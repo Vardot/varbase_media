@@ -39,7 +39,8 @@ build:
       phpstan:
         halt-on-fail: false
     testing:
-      run_tests.functional:
-        types: 'PHPUnit-Functional'
-        testgroups: 'varbase_media'
+      run_tests.javascript:
+        types: 'PHPUnit-FunctionalJavascript'
+        testgroups: "varbase_media"
         suppress-deprecations: true
+        halt-on-fail: false
