@@ -616,7 +616,7 @@ function varbase_media_form_alter(&$form, &$form_state, $form_id) {
 
 /**
  * Varbase media bulk upload form submit handler.
- * 
+ *
  * Redirect the user back to the Media page (/admin/content/media)
  * after successful bulk upload.
  */
