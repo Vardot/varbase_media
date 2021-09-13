@@ -15,7 +15,6 @@ use Drupal\Core\File\FileSystemInterface;
 use Drupal\Core\File\Exception\FileException;
 use Drupal\field\Entity\FieldConfig;
 use Drupal\field\Entity\FieldStorageConfig;
-use Vardot\Entity\EntityDefinitionUpdateManager;
 
 /**
  * Implements hook_install().
@@ -480,34 +479,32 @@ function varbase_media_update_8708() {
 
   // The Slick module had released the update.
   // It is doing the same update process in the Slick module.
-
+  // --------------------------------------------------------
   // Move all module dependencies on existing config entities from
   // "slick_media" to "slick".
-  // _varbase_media_slick_media_fix_dependencies('module', 'slick_media', function ($module) {
-  //   return $module === 'slick_media' ? 'slick' : $module;
-  // });
-
+  // _varbase_media_slick_media_fix_dependencies
+  // ('module', 'slick_media', function ($module) {
+  // return $module === 'slick_media' ? 'slick' : $module;
+  // });.
   // Fix the update process to uninstall.
   // $query = \Drupal::database()->delete('key_value')
-  //   ->condition('collection', 'system.schema')
-  //   ->condition('name', 'slick_media')
-  //   ->execute();
-
-  // if (isset($query)) {
-  //   // Entity updates to clear up any mismatched entity and/or field definitions
-  //   // And Fix changes were detected in the entity type and field definitions.
-  //   \Drupal::classResolver()
-  //     ->getInstanceFromDefinition(EntityDefinitionUpdateManager::class)
-  //     ->applyUpdates();
+  // ->condition('collection', 'system.schema')
+  // ->condition('name', 'slick_media')
+  // ->execute();
+  // If (isset($query)) {
+  // Entity updates to clear up any mismatched entity and/or field definitions
+  // And Fix changes were detected in the entity type and field definitions.
+  // \Drupal::classResolver()
+  // ->getInstanceFromDefinition(EntityDefinitionUpdateManager::class)
+  // ->applyUpdates();
   // }
-
 }
 
 /**
  * Issue #3171237: Fix deprecated function getCurrentUserId.
  *
  * Replaced by getDefaultEntityOwner in all
- *  core.base_field_override.media.MEDIA_TYPES.uid
+ *  core.base_field_override.media.MEDIA_TYPES.uid.
  */
 function varbase_media_update_8709() {
   $config_factory = \Drupal::service('config.factory');

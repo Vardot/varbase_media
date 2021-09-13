@@ -29,8 +29,6 @@ build:
           - cat composer.json
           - find ${SOURCE_DIR}/libraries | sed -e "s/[^-][^\/]*\//  |/g" -e "s/|\([^ ]\)/|-\1/"
       phplint: {  }
-      csslint:
-        halt-on-fail: false
       eslint:
         # A test must pass eslinting standards check in order to continue processing.
         halt-on-fail: false
