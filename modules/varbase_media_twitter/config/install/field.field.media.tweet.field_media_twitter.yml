@@ -8,11 +8,11 @@ id: media.tweet.field_media_twitter
 field_name: field_media_twitter
 entity_type: media
 bundle: tweet
-label: 'Tweet URL'
-description: ''
+label: "Tweet URL"
+description: ""
 required: true
 translatable: false
-default_value: {  }
-default_value_callback: ''
-settings: {  }
+default_value: {}
+default_value_callback: ""
+settings: {}
 field_type: string

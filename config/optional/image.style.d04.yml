@@ -1,8 +1,8 @@
 langcode: en
 status: true
-dependencies: {  }
+dependencies: {}
 name: d04
-label: 'Display 04 (400xAuto)'
+label: "Display 04 (400xAuto)"
 effects:
   6f277f09-917a-4e9c-84e8-f22bdb06aed5:
     uuid: 6f277f09-917a-4e9c-84e8-f22bdb06aed5
@@ -12,4 +12,4 @@ effects:
       width: 400
       height: null
       upscale: false
-pipeline: ''
+pipeline: ""

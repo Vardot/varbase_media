@@ -4,7 +4,7 @@ dependencies:
   module:
     - media
 id: media_save_action
-label: 'Save media'
+label: "Save media"
 type: media
 plugin: entity:save_action:media
-configuration: {  }
+configuration: {}

@@ -4,7 +4,7 @@ dependencies:
   module:
     - focal_point
 name: d05_traditional
-label: 'Display 05 (500xTraditional 4:3)'
+label: "Display 05 (500xTraditional 4:3)"
 effects:
   da980631-55f3-4f8b-8f23-ce4ee4dfa22b:
     uuid: da980631-55f3-4f8b-8f23-ce4ee4dfa22b
@@ -14,4 +14,4 @@ effects:
       width: 500
       height: 375
       crop_type: focal_point
-pipeline: ''
+pipeline: ""

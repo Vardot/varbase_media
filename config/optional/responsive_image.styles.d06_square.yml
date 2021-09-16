@@ -7,15 +7,13 @@ dependencies:
   module:
     - varbase_media
 id: d06_square
-label: 'Display 06 responsive square 1:1'
+label: "Display 06 responsive square 1:1"
 image_style_mappings:
-  -
-    breakpoint_id: varbase_media.screen-sm-max
+  - breakpoint_id: varbase_media.screen-sm-max
     multiplier: 1x
     image_mapping_type: image_style
     image_mapping: d08_square
-  -
-    breakpoint_id: varbase_media.screen-md-min
+  - breakpoint_id: varbase_media.screen-md-min
     multiplier: 1x
     image_mapping_type: image_style
     image_mapping: d06_square

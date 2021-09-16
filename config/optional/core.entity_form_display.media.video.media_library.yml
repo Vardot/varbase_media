@@ -23,21 +23,21 @@ content:
     settings:
       preview_image_style: field_preview
       preview_link: true
-      offsets: '50,50'
+      offsets: "50,50"
       progress_indicator: throbber
-    third_party_settings: {  }
+    third_party_settings: {}
   field_media_in_library:
     type: boolean_checkbox
     weight: 3
     region: content
     settings:
       display_label: true
-    third_party_settings: {  }
+    third_party_settings: {}
   field_media_video_file:
     weight: 0
     settings:
       progress_indicator: throbber
-    third_party_settings: {  }
+    third_party_settings: {}
     type: file_generic
     region: content
   name:
@@ -46,8 +46,8 @@ content:
     region: content
     settings:
       size: 60
-      placeholder: ''
-    third_party_settings: {  }
+      placeholder: ""
+    third_party_settings: {}
 hidden:
   created: true
   langcode: true

@@ -20,15 +20,15 @@ third_party_settings:
       disable_css: false
       entity_classes: all_classes
       settings:
-        label: ''
+        label: ""
         wrappers:
           ds_content: div
         outer_wrapper: div
-        attributes: ''
-        link_attribute: ''
-        link_custom: ''
+        attributes: ""
+        link_attribute: ""
+        link_custom: ""
         classes:
-          layout_class: {  }
+          layout_class: {}
     regions:
       ds_content:
         - thumbnail
@@ -46,30 +46,30 @@ content:
     label: hidden
     settings:
       image_style: field_preview
-      image_link: ''
+      image_link: ""
     third_party_settings:
       ds:
         ft:
           id: expert
           settings:
-            lb: ''
-            prefix: ''
-            lbw-el: ''
-            lbw-cl: ''
-            lbw-at: ''
+            lb: ""
+            prefix: ""
+            lbw-el: ""
+            lbw-cl: ""
+            lbw-at: ""
             ow: true
-            ow-el: ''
+            ow-el: ""
             ow-cl: video-player-icon
-            ow-at: ''
+            ow-at: ""
             ow-def-at: true
             ow-def-cl: true
-            fis-el: ''
-            fis-cl: ''
-            fis-at: ''
-            fi-el: ''
-            fi-cl: ''
-            fi-at: ''
-            suffix: ''
+            fis-el: ""
+            fis-cl: ""
+            fis-at: ""
+            fi-el: ""
+            fi-cl: ""
+            fi-at: ""
+            suffix: ""
             lbw: false
             lb-col: false
             fis: false
@@ -88,9 +88,9 @@ content:
         ft:
           id: default
           settings:
-            lb: ''
+            lb: ""
             lb-col: false
-            classes: {  }
+            classes: {}
   thumbnail:
     type: image
     weight: 0
@@ -98,28 +98,28 @@ content:
     label: hidden
     settings:
       image_style: field_preview
-      image_link: ''
+      image_link: ""
     third_party_settings:
       ds:
         ft:
           id: expert
           settings:
-            lb: ''
-            prefix: ''
-            lbw-el: ''
-            lbw-cl: ''
-            lbw-at: ''
+            lb: ""
+            prefix: ""
+            lbw-el: ""
+            lbw-cl: ""
+            lbw-at: ""
             ow: true
-            ow-el: ''
+            ow-el: ""
             ow-cl: video-player-icon
-            ow-at: ''
-            fis-el: ''
-            fis-cl: ''
-            fis-at: ''
-            fi-el: ''
-            fi-cl: ''
-            fi-at: ''
-            suffix: ''
+            ow-at: ""
+            fis-el: ""
+            fis-cl: ""
+            fis-at: ""
+            fi-el: ""
+            fi-cl: ""
+            fi-at: ""
+            suffix: ""
             lbw: false
             lb-col: false
             ow-def-at: false

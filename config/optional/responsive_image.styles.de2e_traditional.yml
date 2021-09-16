@@ -7,10 +7,9 @@ dependencies:
     - image.style.d12_traditional
     - image.style.de2e_traditional
 id: de2e_traditional
-label: 'Display Edge-to-Edge responsive traditional 4:3'
+label: "Display Edge-to-Edge responsive traditional 4:3"
 image_style_mappings:
-  -
-    breakpoint_id: responsive_image.viewport_sizing
+  - breakpoint_id: responsive_image.viewport_sizing
     multiplier: 1x
     image_mapping_type: sizes
     image_mapping:

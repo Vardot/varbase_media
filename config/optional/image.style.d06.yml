@@ -1,8 +1,8 @@
 langcode: en
 status: true
-dependencies: {  }
+dependencies: {}
 name: d06
-label: 'Display 06 (600xAuto)'
+label: "Display 06 (600xAuto)"
 effects:
   db20a7f4-5f9d-45d3-b420-286324cdcb91:
     uuid: db20a7f4-5f9d-45d3-b420-286324cdcb91
@@ -12,4 +12,4 @@ effects:
       width: 600
       height: null
       upscale: false
-pipeline: ''
+pipeline: ""

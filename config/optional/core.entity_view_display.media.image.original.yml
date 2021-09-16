@@ -20,28 +20,28 @@ content:
     label: hidden
     settings:
       responsive_image_style: default
-      icon: ''
-      layout: ''
-      view_mode: ''
+      icon: ""
+      layout: ""
+      view_mode: ""
       cache: 0
-      current_view_mode: ''
-      skin: ''
-      fx: ''
-      style: ''
+      current_view_mode: ""
+      skin: ""
+      fx: ""
+      style: ""
       background: false
-      box_caption: ''
-      box_caption_custom: ''
-      box_media_style: ''
-      caption: {  }
-      box_style: ''
-      image_style: ''
-      media_switch: ''
-      ratio: ''
-      thumbnail_style: ''
-      _uri: ''
-      breakpoints: {  }
-      sizes: ''
-      grid_header: ''
+      box_caption: ""
+      box_caption_custom: ""
+      box_media_style: ""
+      caption: {}
+      box_style: ""
+      image_style: ""
+      media_switch: ""
+      ratio: ""
+      thumbnail_style: ""
+      _uri: ""
+      breakpoints: {}
+      sizes: ""
+      grid_header: ""
       grid: 0
       grid_medium: 0
       grid_small: 0
@@ -50,9 +50,9 @@ content:
         ft:
           id: default
           settings:
-            lb: ''
+            lb: ""
             lb-col: false
-            classes: {  }
+            classes: {}
     type: blazy
     region: content
 hidden:

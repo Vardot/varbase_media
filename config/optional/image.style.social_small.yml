@@ -4,7 +4,7 @@ dependencies:
   module:
     - focal_point
 name: social_small
-label: 'Social Small (280x150)'
+label: "Social Small (280x150)"
 effects:
   4faefa88-66ec-4ead-ab8c-42fbace9c2a2:
     uuid: 4faefa88-66ec-4ead-ab8c-42fbace9c2a2
@@ -14,4 +14,4 @@ effects:
       width: 280
       height: 150
       crop_type: focal_point
-pipeline: ''
+pipeline: ""

@@ -4,6 +4,6 @@ dependencies:
   module:
     - media
 id: media.bulk_upload
-label: 'Bulk upload'
+label: "Bulk upload"
 targetEntityType: media
 cache: true

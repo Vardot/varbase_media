@@ -4,6 +4,6 @@ dependencies:
   module:
     - media
 id: media.s01
-label: 'Size 01 auto'
+label: "Size 01 auto"
 targetEntityType: media
 cache: true

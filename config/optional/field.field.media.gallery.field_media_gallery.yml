@@ -11,14 +11,14 @@ id: media.gallery.field_media_gallery
 field_name: field_media_gallery
 entity_type: media
 bundle: gallery
-label: 'Media items'
-description: ''
+label: "Media items"
+description: ""
 required: true
 translatable: true
-default_value: {  }
-default_value_callback: ''
+default_value: {}
+default_value_callback: ""
 settings:
-  handler: 'default:media'
+  handler: "default:media"
   handler_settings:
     target_bundles:
       image: image

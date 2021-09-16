@@ -3,10 +3,10 @@
  * Behaviors Varbase Video Player general scripts.
  */
 
-(function($, _, Drupal) {
+(function ($, _, Drupal) {
   Drupal.behaviors.varbaseVideoPlayer = {
-    attach: function() {
-      $(".js-video-player-icon").on("click", function() {
+    attach: function () {
+      $(".js-video-player-icon").on("click", function () {
         $(this).fadeOut(500);
 
         // Locally Hosted Video.
@@ -24,9 +24,8 @@
         }
 
         if (
-          $(this)
-            .closest(".embedded-entity")
-            .find(".media--type-video video").length > 0
+          $(this).closest(".embedded-entity").find(".media--type-video video")
+            .length > 0
         ) {
           $(this)
             .closest(".embedded-entity")

@@ -4,7 +4,7 @@ dependencies:
   module:
     - focal_point
 name: d06_standard
-label: 'Display 06 (600xStandard 16:9)'
+label: "Display 06 (600xStandard 16:9)"
 effects:
   4fd90dcb-2437-4292-8ab2-bd5229b4476c:
     uuid: 4fd90dcb-2437-4292-8ab2-bd5229b4476c
@@ -14,4 +14,4 @@ effects:
       width: 600
       height: 338
       crop_type: focal_point
-pipeline: ''
+pipeline: ""

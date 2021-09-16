@@ -7,11 +7,11 @@ id: media.instagram.created
 field_name: created
 entity_type: media
 bundle: instagram
-label: 'Authored on'
-description: 'The time the media item was created.'
+label: "Authored on"
+description: "The time the media item was created."
 required: false
 translatable: false
-default_value: {  }
+default_value: {}
 default_value_callback: 'Drupal\media\Entity\Media::getRequestTime'
-settings: {  }
+settings: {}
 field_type: created

@@ -4,6 +4,6 @@ dependencies:
   module:
     - media
 id: media.slick
-label: 'Slick carousel'
+label: "Slick carousel"
 targetEntityType: media
 cache: true

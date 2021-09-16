@@ -27,9 +27,9 @@ content:
         ft:
           id: default
           settings:
-            lb: ''
+            lb: ""
             lb-col: false
-            classes: {  }
+            classes: {}
   thumbnail:
     type: image
     weight: 0
@@ -37,15 +37,15 @@ content:
     label: hidden
     settings:
       image_style: d03_traditional
-      image_link: ''
+      image_link: ""
     third_party_settings:
       ds:
         ft:
           id: default
           settings:
-            lb: ''
+            lb: ""
             lb-col: false
-            classes: {  }
+            classes: {}
 hidden:
   created: true
   field_media_in_library: true

@@ -7,10 +7,9 @@ dependencies:
     - image.style.d12
     - image.style.de2e
 id: de2e
-label: 'Display Edge-to-Edge responsive auto'
+label: "Display Edge-to-Edge responsive auto"
 image_style_mappings:
-  -
-    breakpoint_id: responsive_image.viewport_sizing
+  - breakpoint_id: responsive_image.viewport_sizing
     multiplier: 1x
     image_mapping_type: sizes
     image_mapping:

@@ -19,15 +19,15 @@ content:
     label: hidden
     settings:
       image_style: d03_traditional
-      image_link: ''
+      image_link: ""
     third_party_settings:
       ds:
         ft:
           id: default
           settings:
-            lb: ''
+            lb: ""
             lb-col: false
-            classes: {  }
+            classes: {}
     type: image
     region: content
   name:
@@ -37,7 +37,7 @@ content:
     label: hidden
     settings:
       link_to_entity: false
-    third_party_settings: {  }
+    third_party_settings: {}
 hidden:
   created: true
   field_media_in_library: true

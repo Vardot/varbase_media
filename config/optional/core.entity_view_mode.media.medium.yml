@@ -4,6 +4,6 @@ dependencies:
   module:
     - media
 id: media.medium
-label: 'Medium (1/2 of width)'
+label: "Medium (1/2 of width)"
 targetEntityType: media
 cache: true

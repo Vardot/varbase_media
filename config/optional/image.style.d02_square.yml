@@ -4,7 +4,7 @@ dependencies:
   module:
     - focal_point
 name: d02_square
-label: 'Display 02 (200xSquare 1:1)'
+label: "Display 02 (200xSquare 1:1)"
 effects:
   c6e9e082-4830-4c15-a79f-af656a5afd4a:
     uuid: c6e9e082-4830-4c15-a79f-af656a5afd4a
@@ -14,4 +14,4 @@ effects:
       width: 200
       height: 200
       crop_type: focal_point
-pipeline: ''
+pipeline: ""

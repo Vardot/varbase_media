@@ -4,6 +4,6 @@ dependencies:
   module:
     - media
 id: media.se2e_standard
-label: 'Size Edge-to-Edge standard 16:9'
+label: "Size Edge-to-Edge standard 16:9"
 targetEntityType: media
 cache: true

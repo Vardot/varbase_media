@@ -16,7 +16,7 @@ content:
   field_media_file:
     settings:
       progress_indicator: throbber
-    third_party_settings: {  }
+    third_party_settings: {}
     type: file_generic
     weight: 0
     region: content

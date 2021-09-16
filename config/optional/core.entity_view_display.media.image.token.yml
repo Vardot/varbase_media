@@ -18,7 +18,7 @@ third_party_settings:
       library: layout_discovery/onecol
       disable_css: false
       entity_classes: all_classes
-      settings: {  }
+      settings: {}
     regions:
       middle:
         - field_media_image
@@ -36,17 +36,17 @@ content:
     weight: 3
     settings:
       date_format: medium
-      custom_date_format: ''
-      timezone: ''
-    third_party_settings: {  }
+      custom_date_format: ""
+      timezone: ""
+    third_party_settings: {}
     region: content
   field_media_image:
     weight: 0
     label: above
     settings:
-      image_style: ''
-      image_link: ''
-    third_party_settings: {  }
+      image_style: ""
+      image_link: ""
+    third_party_settings: {}
     type: image
     region: content
   name:
@@ -55,23 +55,23 @@ content:
     weight: 1
     settings:
       link_to_entity: false
-    third_party_settings: {  }
+    third_party_settings: {}
     region: content
   thumbnail:
     type: responsive_image
     weight: 0
     label: above
     settings:
-      responsive_image_style: ''
-      image_link: ''
-    third_party_settings: {  }
+      responsive_image_style: ""
+      image_link: ""
+    third_party_settings: {}
     region: content
   uid:
     label: hidden
     type: author
     weight: 2
-    settings: {  }
-    third_party_settings: {  }
+    settings: {}
+    third_party_settings: {}
     region: content
 hidden:
   field_media_in_library: true

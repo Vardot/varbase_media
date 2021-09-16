@@ -4,6 +4,6 @@ dependencies:
   module:
     - media
 id: media.se2e_square
-label: 'Size Edge-to-Edge square 1:1'
+label: "Size Edge-to-Edge square 1:1"
 targetEntityType: media
 cache: true

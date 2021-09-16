@@ -4,7 +4,7 @@ dependencies:
   module:
     - focal_point
 name: d12_traditional
-label: 'Display 12 (1200xTraditional 4:3)'
+label: "Display 12 (1200xTraditional 4:3)"
 effects:
   448c0291-0918-4cc3-8432-d4d5beacc8bb:
     uuid: 448c0291-0918-4cc3-8432-d4d5beacc8bb
@@ -14,4 +14,4 @@ effects:
       width: 1200
       height: 900
       crop_type: focal_point
-pipeline: ''
+pipeline: ""

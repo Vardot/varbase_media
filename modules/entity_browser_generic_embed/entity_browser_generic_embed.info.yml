@@ -1,5 +1,5 @@
 name: Entity Browser Generic Embed
-description: 'Entity Browser Generic Embed'
+description: "Entity Browser Generic Embed"
 type: module
 package: Media
 core_version_requirement: ^9

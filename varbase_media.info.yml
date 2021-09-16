@@ -1,5 +1,5 @@
-name: 'Varbase Media'
-description: 'Manages type of media contents and entity browsers in the site.'
+name: "Varbase Media"
+description: "Manages type of media contents and entity browsers in the site."
 type: module
 package: Varbase
 core_version_requirement: ^9

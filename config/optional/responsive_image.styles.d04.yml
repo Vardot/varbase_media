@@ -7,15 +7,13 @@ dependencies:
   module:
     - varbase_media
 id: d04
-label: 'Display 04 responsive auto'
+label: "Display 04 responsive auto"
 image_style_mappings:
-  -
-    breakpoint_id: varbase_media.screen-sm-max
+  - breakpoint_id: varbase_media.screen-sm-max
     multiplier: 1x
     image_mapping_type: image_style
     image_mapping: d08
-  -
-    breakpoint_id: varbase_media.screen-md-min
+  - breakpoint_id: varbase_media.screen-md-min
     multiplier: 1x
     image_mapping_type: image_style
     image_mapping: d04

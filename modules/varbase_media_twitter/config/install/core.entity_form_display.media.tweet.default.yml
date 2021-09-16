@@ -14,15 +14,15 @@ content:
     weight: 3
     settings:
       display_label: true
-    third_party_settings: {  }
+    third_party_settings: {}
     type: boolean_checkbox
     region: content
   field_media_twitter:
     weight: 1
     settings:
       size: 60
-      placeholder: ''
-    third_party_settings: {  }
+      placeholder: ""
+    third_party_settings: {}
     type: string_textfield
     region: content
   name:
@@ -31,20 +31,20 @@ content:
     region: content
     settings:
       size: 60
-      placeholder: ''
-    third_party_settings: {  }
+      placeholder: ""
+    third_party_settings: {}
   preview:
     weight: 0
     region: content
-    settings: {  }
-    third_party_settings: {  }
+    settings: {}
+    third_party_settings: {}
   status:
     type: boolean_checkbox
     settings:
       display_label: true
     weight: 4
     region: content
-    third_party_settings: {  }
+    third_party_settings: {}
 hidden:
   created: true
   langcode: true

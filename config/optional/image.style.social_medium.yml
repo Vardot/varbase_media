@@ -4,7 +4,7 @@ dependencies:
   module:
     - focal_point
 name: social_medium
-label: 'Social Medium (600x315)'
+label: "Social Medium (600x315)"
 effects:
   e7a4dd87-2cb7-41ce-bb7a-893f8336c315:
     uuid: e7a4dd87-2cb7-41ce-bb7a-893f8336c315
@@ -14,4 +14,4 @@ effects:
       width: 600
       height: 315
       crop_type: focal_point
-pipeline: ''
+pipeline: ""

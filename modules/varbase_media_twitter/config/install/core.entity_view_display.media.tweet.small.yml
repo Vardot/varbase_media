@@ -17,15 +17,15 @@ content:
   field_media_twitter:
     weight: 0
     label: hidden
-    settings: {  }
+    settings: {}
     third_party_settings:
       ds:
         ft:
           id: default
           settings:
-            lb: ''
+            lb: ""
             lb-col: false
-            classes: {  }
+            classes: {}
     type: twitter_embed
     region: content
 hidden:

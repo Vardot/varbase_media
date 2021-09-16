@@ -4,7 +4,7 @@ dependencies:
   module:
     - focal_point
 name: d03_square
-label: 'Display 03 (300xSquare 1:1)'
+label: "Display 03 (300xSquare 1:1)"
 effects:
   d813a3a7-213c-4cb8-9707-7261ade1b49c:
     uuid: d813a3a7-213c-4cb8-9707-7261ade1b49c
@@ -14,4 +14,4 @@ effects:
       width: 300
       height: 300
       crop_type: focal_point
-pipeline: ''
+pipeline: ""

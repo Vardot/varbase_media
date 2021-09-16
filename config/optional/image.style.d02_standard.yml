@@ -4,7 +4,7 @@ dependencies:
   module:
     - focal_point
 name: d02_standard
-label: 'Display 02 (200xStandard 16:9)'
+label: "Display 02 (200xStandard 16:9)"
 effects:
   bcdbed62-73b1-442b-96d8-17520e3b324a:
     uuid: bcdbed62-73b1-442b-96d8-17520e3b324a
@@ -14,4 +14,4 @@ effects:
       width: 200
       height: 113
       crop_type: focal_point
-pipeline: ''
+pipeline: ""

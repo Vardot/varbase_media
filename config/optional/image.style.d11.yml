@@ -1,8 +1,8 @@
 langcode: en
 status: true
-dependencies: {  }
+dependencies: {}
 name: d11
-label: 'Display 11 (1100xAuto)'
+label: "Display 11 (1100xAuto)"
 effects:
   51c2de27-675d-460c-81d3-c9b1b64fe066:
     uuid: 51c2de27-675d-460c-81d3-c9b1b64fe066
@@ -12,4 +12,4 @@ effects:
       width: 1100
       height: null
       upscale: false
-pipeline: ''
+pipeline: ""

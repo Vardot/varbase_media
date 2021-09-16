@@ -1,8 +1,8 @@
 langcode: en
 status: true
-dependencies: {  }
+dependencies: {}
 name: field_preview
-label: 'Field Preview (150x150)'
+label: "Field Preview (150x150)"
 effects:
   b20a11a3-7485-4e14-82ae-c0d76291e666:
     uuid: b20a11a3-7485-4e14-82ae-c0d76291e666
@@ -20,4 +20,4 @@ effects:
       width: null
       height: 150
       upscale: false
-pipeline: ''
+pipeline: ""

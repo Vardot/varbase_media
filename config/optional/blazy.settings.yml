@@ -7,10 +7,10 @@ blazy:
   saveViewportOffsetDelay: 50
   validateDelay: 25
 unbreakpoints: false
-placeholder: ''
+placeholder: ""
 io:
   enabled: false
   unblazy: false
   rootMargin: 0px
-  threshold: '0'
+  threshold: "0"
   disconnect: false

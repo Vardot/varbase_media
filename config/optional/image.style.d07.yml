@@ -1,8 +1,8 @@
 langcode: en
 status: true
-dependencies: {  }
+dependencies: {}
 name: d07
-label: 'Display 07 (700xAuto)'
+label: "Display 07 (700xAuto)"
 effects:
   9134983f-ec14-415e-926f-b98523ffb7ba:
     uuid: 9134983f-ec14-415e-926f-b98523ffb7ba
@@ -12,4 +12,4 @@ effects:
       width: 700
       height: null
       upscale: false
-pipeline: ''
+pipeline: ""

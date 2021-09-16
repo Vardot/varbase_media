@@ -4,6 +4,6 @@ dependencies:
   module:
     - media
 id: media.s09_square
-label: 'Size 09 square 1:1'
+label: "Size 09 square 1:1"
 targetEntityType: media
 cache: true

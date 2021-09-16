@@ -9,12 +9,12 @@ dependencies:
     - media
     - views
 name: multiple_image_browser
-label: 'Multiple Image Browser'
+label: "Multiple Image Browser"
 display: modal
 display_configuration:
-  width: '1245'
-  height: ''
-  link_text: 'Select image(s)'
+  width: "1245"
+  height: ""
+  link_text: "Select image(s)"
   auto_open: false
 selection_display: multi_step_display
 selection_display_configuration:
@@ -22,16 +22,16 @@ selection_display_configuration:
   display: rendered_entity
   display_settings:
     view_mode: field_preview
-  select_text: 'Use selected'
+  select_text: "Use selected"
   selection_hidden: false
 widget_selector: tabs
-widget_selector_configuration: {  }
+widget_selector_configuration: {}
 widgets:
   c9e40862-4975-43fc-9e06-64c1bc53e9a4:
     settings:
       view: media_browsers
       view_display: media_browser
-      submit_text: 'Select image(s)'
+      submit_text: "Select image(s)"
       auto_select: true
     uuid: c9e40862-4975-43fc-9e06-64c1bc53e9a4
     weight: -10
@@ -40,17 +40,17 @@ widgets:
   b40a5f86-811f-43b9-9784-5205ee727bdc:
     settings:
       media_type: image
-      upload_location: 'public://images/[date:custom:Y]-[date:custom:m]'
-      dropzone_description: 'Drop image files here to upload them'
+      upload_location: "public://images/[date:custom:Y]-[date:custom:m]"
+      dropzone_description: "Drop image files here to upload them"
       max_filesize: 32M
-      extensions: 'jpg jpeg gif png'
+      extensions: "jpg jpeg gif png"
       clientside_resize: false
       resize_width: null
       resize_height: null
       resize_quality: !!float 1
       resize_method: contain
       thumbnail_method: contain
-      submit_text: 'Select image(s)'
+      submit_text: "Select image(s)"
       auto_select: true
     uuid: b40a5f86-811f-43b9-9784-5205ee727bdc
     weight: 3

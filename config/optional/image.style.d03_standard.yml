@@ -4,7 +4,7 @@ dependencies:
   module:
     - focal_point
 name: d03_standard
-label: 'Display 03 (300xStandard 16:9)'
+label: "Display 03 (300xStandard 16:9)"
 effects:
   80e049ed-f740-4da9-9b67-b429ced99e8d:
     uuid: 80e049ed-f740-4da9-9b67-b429ced99e8d
@@ -14,4 +14,4 @@ effects:
       width: 300
       height: 169
       crop_type: focal_point
-pipeline: ''
+pipeline: ""

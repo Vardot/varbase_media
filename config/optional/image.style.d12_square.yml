@@ -4,7 +4,7 @@ dependencies:
   module:
     - focal_point
 name: d12_square
-label: 'Display 12 (1200xSquare 1:1)'
+label: "Display 12 (1200xSquare 1:1)"
 effects:
   b87c3c96-3671-4b74-971f-0a2bb90f3521:
     uuid: b87c3c96-3671-4b74-971f-0a2bb90f3521
@@ -14,4 +14,4 @@ effects:
       width: 1200
       height: 1200
       crop_type: focal_point
-pipeline: ''
+pipeline: ""

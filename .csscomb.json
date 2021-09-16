@@ -456,6 +456,7 @@
       "font-emphasize-position",
       "font-emphasize-style",
       "font-smooth",
+      "-webkit-font-smoothing",
       "font-display",
       "line-height",
       "$media",

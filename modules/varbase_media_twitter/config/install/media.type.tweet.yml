@@ -9,7 +9,7 @@ third_party_settings:
     image_field: null
 id: tweet
 label: Tweet
-description: 'Represents a tweet.'
+description: "Represents a tweet."
 source: twitter
 queue_thumbnail_downloads: false
 new_revision: true
@@ -17,8 +17,8 @@ source_configuration:
   source_field: field_media_twitter
   use_twitter_api: false
   generate_thumbnails: false
-  consumer_key: ''
-  consumer_secret: ''
-  oauth_access_token: ''
-  oauth_access_token_secret: ''
-field_map: {  }
+  consumer_key: ""
+  consumer_secret: ""
+  oauth_access_token: ""
+  oauth_access_token_secret: ""
+field_map: {}

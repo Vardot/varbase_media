@@ -28,7 +28,7 @@ content:
       field_widget_replace: true
       open: true
       selection_mode: selection_edit
-    third_party_settings: {  }
+    third_party_settings: {}
 hidden:
   created: true
   field_media_in_library: true

@@ -1,8 +1,8 @@
 langcode: en
 status: true
-dependencies: {  }
+dependencies: {}
 name: blazy_blurry
-label: 'Blazy Blurry'
+label: "Blazy Blurry"
 effects:
   43eaf639-71b9-458a-8320-4d489481f2ee:
     uuid: 43eaf639-71b9-458a-8320-4d489481f2ee

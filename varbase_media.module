@@ -360,8 +360,8 @@ function varbase_media_form_entity_embed_dialog_alter(&$form, FormStateInterface
     // No revision information or revision log message.
     if (isset($form['revision_information'])) {
       $form['revision_information']['#disabled'] = TRUE;
-      $form['revision_information']['#attributes']['style'][] = 'display:none;';
-      $form['revision_information']['#prefix'] = '<div style="display:none;">';
+      $form['revision_information']['#attributes']['style'][] = 'display: none;';
+      $form['revision_information']['#prefix'] = '<div style="display: none;">';
       $form['revision_information']['#suffix'] = '</div>';
     }
 
@@ -369,13 +369,13 @@ function varbase_media_form_entity_embed_dialog_alter(&$form, FormStateInterface
     if (isset($form['revision'])) {
       $form['revision']['#default_value'] = TRUE;
       $form['revision']['#disabled'] = TRUE;
-      $form['revision']['#attributes']['style'][] = 'display:none;';
+      $form['revision']['#attributes']['style'][] = 'display: none;';
     }
 
     // Hide revistion log message.
     if (isset($form['revision_log_message'])) {
       $form['revision_log_message']['#disabled'] = TRUE;
-      $form['revision_log_message']['#attributes']['style'][] = 'display:none;';
+      $form['revision_log_message']['#attributes']['style'][] = 'display: none;';
     }
   }
 }
@@ -389,7 +389,7 @@ function varbase_media_inline_entity_form_entity_form_alter(&$entity_form, &$for
   if (isset($entity_form['revision_information'])) {
     $entity_form['revision_information']['#disabled'] = TRUE;
     $entity_form['revision_information']['#attributes']['style'][] = 'display:none;';
-    $entity_form['revision_information']['#prefix'] = '<div style="display:none;">';
+    $entity_form['revision_information']['#prefix'] = '<div style="display: none;">';
     $entity_form['revision_information']['#suffix'] = '</div>';
   }
 
@@ -397,13 +397,13 @@ function varbase_media_inline_entity_form_entity_form_alter(&$entity_form, &$for
   if (isset($entity_form['revision'])) {
     $entity_form['revision']['#default_value'] = TRUE;
     $entity_form['revision']['#disabled'] = TRUE;
-    $entity_form['revision']['#attributes']['style'][] = 'display:none;';
+    $entity_form['revision']['#attributes']['style'][] = 'display: none;';
   }
 
   // Hide revistion log message.
   if (isset($entity_form['revision_log_message'])) {
     $entity_form['revision_log_message']['#disabled'] = TRUE;
-    $entity_form['revision_log_message']['#attributes']['style'][] = 'display:none;';
+    $entity_form['revision_log_message']['#attributes']['style'][] = 'display: none;';
   }
 }
 
@@ -513,7 +513,7 @@ function varbase_media_form_alter(&$form, &$form_state, $form_id) {
       if (isset($form['revision_information'])) {
         $form['revision_information']['#disabled'] = TRUE;
         $form['revision_information']['#attributes']['style'][] = 'display:none;';
-        $form['revision_information']['#prefix'] = '<div style="display:none;">';
+        $form['revision_information']['#prefix'] = '<div style="display: none;">';
         $form['revision_information']['#suffix'] = '</div>';
       }
 
@@ -521,13 +521,13 @@ function varbase_media_form_alter(&$form, &$form_state, $form_id) {
       if (isset($form['revision'])) {
         $form['revision']['#default_value'] = TRUE;
         $form['revision']['#disabled'] = TRUE;
-        $form['revision']['#attributes']['style'][] = 'display:none;';
+        $form['revision']['#attributes']['style'][] = 'display: none;';
       }
 
       // Hide revistion log message.
       if (isset($form['revision_log_message'])) {
         $form['revision_log_message']['#disabled'] = TRUE;
-        $form['revision_log_message']['#attributes']['style'][] = 'display:none;';
+        $form['revision_log_message']['#attributes']['style'][] = 'display: none;';
       }
     }
   }

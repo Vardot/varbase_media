@@ -1,5 +1,5 @@
-name: 'Varbase Media Instagram'
-description: 'Manages default config for Instagram media type.'
+name: "Varbase Media Instagram"
+description: "Manages default config for Instagram media type."
 type: module
 package: Varbase
 core_version_requirement: ^9

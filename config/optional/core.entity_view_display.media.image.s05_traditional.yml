@@ -19,31 +19,31 @@ content:
     weight: 0
     label: hidden
     settings:
-      image_style: ''
+      image_style: ""
       responsive_image_style: d05_traditional
-      media_switch: ''
-      thumbnail_style: ''
-      ratio: ''
+      media_switch: ""
+      thumbnail_style: ""
+      ratio: ""
       current_view_mode: s05_traditional
       background: false
       caption:
-        title: '0'
-        alt: '0'
-      icon: ''
-      layout: ''
-      view_mode: ''
+        title: "0"
+        alt: "0"
+      icon: ""
+      layout: ""
+      view_mode: ""
       cache: 0
-      skin: ''
-      fx: ''
-      style: ''
-      box_caption: ''
-      box_caption_custom: ''
-      box_media_style: ''
-      box_style: ''
-      _uri: ''
-      breakpoints: {  }
-      sizes: ''
-      grid_header: ''
+      skin: ""
+      fx: ""
+      style: ""
+      box_caption: ""
+      box_caption_custom: ""
+      box_media_style: ""
+      box_style: ""
+      _uri: ""
+      breakpoints: {}
+      sizes: ""
+      grid_header: ""
       grid: 0
       grid_medium: 0
       grid_small: 0
@@ -52,9 +52,9 @@ content:
         ft:
           id: default
           settings:
-            lb: ''
+            lb: ""
             lb-col: false
-            classes: {  }
+            classes: {}
     type: blazy
     region: content
 hidden:

@@ -21,7 +21,7 @@ content:
     weight: 1
     settings:
       link_to_entity: false
-    third_party_settings: {  }
+    third_party_settings: {}
     region: content
   thumbnail:
     type: image
@@ -29,15 +29,15 @@ content:
     label: hidden
     settings:
       image_style: d03_traditional
-      image_link: ''
+      image_link: ""
     third_party_settings:
       ds:
         ft:
           id: default
           settings:
-            lb: ''
+            lb: ""
             lb-col: false
-            classes: {  }
+            classes: {}
     region: content
 hidden:
   created: true

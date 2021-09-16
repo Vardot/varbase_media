@@ -15,8 +15,8 @@ content:
     weight: 0
     settings:
       size: 60
-      placeholder: ''
-    third_party_settings: {  }
+      placeholder: ""
+    third_party_settings: {}
     type: oembed_textfield
     region: content
 hidden:

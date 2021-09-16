@@ -1,8 +1,8 @@
 langcode: en
 status: true
-dependencies: {  }
+dependencies: {}
 name: d08
-label: 'Display 08 (800xAuto)'
+label: "Display 08 (800xAuto)"
 effects:
   fdd23faf-5640-4db5-8d95-d18134c25ef0:
     uuid: fdd23faf-5640-4db5-8d95-d18134c25ef0
@@ -12,4 +12,4 @@ effects:
       width: 800
       height: null
       upscale: false
-pipeline: ''
+pipeline: ""

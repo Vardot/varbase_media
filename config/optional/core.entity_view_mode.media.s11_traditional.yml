@@ -4,6 +4,6 @@ dependencies:
   module:
     - media
 id: media.s11_traditional
-label: 'Size 11 traditional 4:3'
+label: "Size 11 traditional 4:3"
 targetEntityType: media
 cache: true

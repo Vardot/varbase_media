@@ -20,12 +20,12 @@ content:
     region: content
     settings:
       display_label: true
-    third_party_settings: {  }
+    third_party_settings: {}
   field_media_video_file:
     weight: 0
     settings:
       progress_indicator: throbber
-    third_party_settings: {  }
+    third_party_settings: {}
     type: file_generic
     region: content
   status:
@@ -34,7 +34,7 @@ content:
       display_label: true
     weight: 2
     region: content
-    third_party_settings: {  }
+    third_party_settings: {}
 hidden:
   created: true
   field_media_cover_image: true

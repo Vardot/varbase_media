@@ -4,7 +4,7 @@ dependencies:
   module:
     - focal_point
 name: d10_traditional
-label: 'Display 10 (1000xTraditional 4:3)'
+label: "Display 10 (1000xTraditional 4:3)"
 effects:
   47523cc9-5c0f-4112-836f-997f33667888:
     uuid: 47523cc9-5c0f-4112-836f-997f33667888
@@ -14,4 +14,4 @@ effects:
       width: 1000
       height: 750
       crop_type: focal_point
-pipeline: ''
+pipeline: ""

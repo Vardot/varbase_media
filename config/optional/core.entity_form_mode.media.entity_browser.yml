@@ -4,6 +4,6 @@ dependencies:
   module:
     - media
 id: media.entity_browser
-label: 'Entity Browser'
+label: "Entity Browser"
 targetEntityType: media
 cache: true

@@ -4,7 +4,7 @@ dependencies:
   module:
     - focal_point
 name: d10_square
-label: 'Display 10 (1000xSquare 1:1)'
+label: "Display 10 (1000xSquare 1:1)"
 effects:
   0ad7ffcc-777f-4747-a8e5-7b9b71aaee6b:
     uuid: 0ad7ffcc-777f-4747-a8e5-7b9b71aaee6b
@@ -14,4 +14,4 @@ effects:
       width: 1000
       height: 1000
       crop_type: focal_point
-pipeline: ''
+pipeline: ""

@@ -4,6 +4,6 @@ dependencies:
   module:
     - media
 id: media.s10
-label: 'Size 10 auto'
+label: "Size 10 auto"
 targetEntityType: media
 cache: true

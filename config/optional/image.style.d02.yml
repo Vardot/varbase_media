@@ -1,8 +1,8 @@
 langcode: en
 status: true
-dependencies: {  }
+dependencies: {}
 name: d02
-label: 'Display 02 (200xAuto)'
+label: "Display 02 (200xAuto)"
 effects:
   18a36955-4245-415d-b073-6ae036f8c739:
     uuid: 18a36955-4245-415d-b073-6ae036f8c739
@@ -12,4 +12,4 @@ effects:
       width: 200
       height: null
       upscale: false
-pipeline: ''
+pipeline: ""

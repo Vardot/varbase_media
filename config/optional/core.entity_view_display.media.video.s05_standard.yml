@@ -19,15 +19,15 @@ third_party_settings:
       disable_css: false
       entity_classes: all_classes
       settings:
-        label: ''
+        label: ""
         wrappers:
           ds_content: div
         outer_wrapper: div
-        attributes: ''
-        link_attribute: ''
-        link_custom: ''
+        attributes: ""
+        link_attribute: ""
+        link_custom: ""
         classes:
-          layout_class: {  }
+          layout_class: {}
     regions:
       ds_content:
         - thumbnail
@@ -43,31 +43,31 @@ content:
     region: ds_content
     label: hidden
     settings:
-      image_style: ''
+      image_style: ""
       responsive_image_style: d05_standard
-      media_switch: ''
-      thumbnail_style: ''
-      ratio: ''
+      media_switch: ""
+      thumbnail_style: ""
+      ratio: ""
       current_view_mode: s05_standard
       background: false
       caption:
-        title: '0'
-        alt: '0'
-      icon: ''
-      layout: ''
-      view_mode: ''
+        title: "0"
+        alt: "0"
+      icon: ""
+      layout: ""
+      view_mode: ""
       cache: 0
-      skin: ''
-      fx: ''
-      style: ''
-      box_caption: ''
-      box_caption_custom: ''
-      box_media_style: ''
-      box_style: ''
-      _uri: ''
-      breakpoints: {  }
-      sizes: ''
-      grid_header: ''
+      skin: ""
+      fx: ""
+      style: ""
+      box_caption: ""
+      box_caption_custom: ""
+      box_media_style: ""
+      box_style: ""
+      _uri: ""
+      breakpoints: {}
+      sizes: ""
+      grid_header: ""
       grid: 0
       grid_medium: 0
       grid_small: 0
@@ -76,24 +76,24 @@ content:
         ft:
           id: expert
           settings:
-            lb: ''
-            prefix: ''
-            lbw-el: ''
-            lbw-cl: ''
-            lbw-at: ''
+            lb: ""
+            prefix: ""
+            lbw-el: ""
+            lbw-cl: ""
+            lbw-at: ""
             ow: true
-            ow-el: ''
-            ow-cl: 'media-cover-image video-player-icon'
-            ow-at: ''
+            ow-el: ""
+            ow-cl: "media-cover-image video-player-icon"
+            ow-at: ""
             ow-def-at: true
             ow-def-cl: true
-            fis-el: ''
-            fis-cl: ''
-            fis-at: ''
-            fi-el: ''
-            fi-cl: ''
-            fi-at: ''
-            suffix: ''
+            fis-el: ""
+            fis-cl: ""
+            fis-at: ""
+            fi-el: ""
+            fi-cl: ""
+            fi-at: ""
+            suffix: ""
             lbw: false
             lb-col: false
             fis: false
@@ -106,31 +106,31 @@ content:
     region: ds_content
     label: hidden
     settings:
-      image_style: ''
+      image_style: ""
       responsive_image_style: d05_standard
-      media_switch: ''
-      thumbnail_style: ''
-      ratio: ''
+      media_switch: ""
+      thumbnail_style: ""
+      ratio: ""
       current_view_mode: s05_standard
       background: false
       caption:
-        title: '0'
-        alt: '0'
-      icon: ''
-      layout: ''
-      view_mode: ''
+        title: "0"
+        alt: "0"
+      icon: ""
+      layout: ""
+      view_mode: ""
       cache: 0
-      skin: ''
-      fx: ''
-      style: ''
-      box_caption: ''
-      box_caption_custom: ''
-      box_media_style: ''
-      box_style: ''
-      _uri: ''
-      breakpoints: {  }
-      sizes: ''
-      grid_header: ''
+      skin: ""
+      fx: ""
+      style: ""
+      box_caption: ""
+      box_caption_custom: ""
+      box_media_style: ""
+      box_style: ""
+      _uri: ""
+      breakpoints: {}
+      sizes: ""
+      grid_header: ""
       grid: 0
       grid_medium: 0
       grid_small: 0
@@ -139,24 +139,24 @@ content:
         ft:
           id: expert
           settings:
-            lb: ''
-            prefix: ''
-            lbw-el: ''
-            lbw-cl: ''
-            lbw-at: ''
+            lb: ""
+            prefix: ""
+            lbw-el: ""
+            lbw-cl: ""
+            lbw-at: ""
             ow: true
-            ow-el: ''
-            ow-cl: 'media-cover-image video-player-icon'
-            ow-at: ''
+            ow-el: ""
+            ow-cl: "media-cover-image video-player-icon"
+            ow-at: ""
             ow-def-at: true
             ow-def-cl: true
-            fis-el: ''
-            fis-cl: ''
-            fis-at: ''
-            fi-el: ''
-            fi-cl: ''
-            fi-at: ''
-            suffix: ''
+            fis-el: ""
+            fis-cl: ""
+            fis-at: ""
+            fi-el: ""
+            fi-cl: ""
+            fi-at: ""
+            suffix: ""
             lbw: false
             lb-col: false
             fis: false

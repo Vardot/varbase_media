@@ -4,7 +4,7 @@ dependencies:
   module:
     - focal_point
 name: d06_square
-label: 'Display 06 (600xSquare 1:1)'
+label: "Display 06 (600xSquare 1:1)"
 effects:
   f1533d32-4241-48e5-9c54-51573722f121:
     uuid: f1533d32-4241-48e5-9c54-51573722f121
@@ -14,4 +14,4 @@ effects:
       width: 600
       height: 600
       crop_type: focal_point
-pipeline: ''
+pipeline: ""

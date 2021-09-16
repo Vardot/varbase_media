@@ -4,6 +4,6 @@ dependencies:
   module:
     - media
 id: media.full
-label: 'Full content'
+label: "Full content"
 targetEntityType: media
 cache: true

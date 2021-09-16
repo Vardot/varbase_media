@@ -4,7 +4,7 @@ dependencies:
   module:
     - focal_point
 name: d02_traditional
-label: 'Display 02 (200xTraditional 4:3)'
+label: "Display 02 (200xTraditional 4:3)"
 effects:
   c0326178-af99-4c55-aabf-918acbd07f64:
     uuid: c0326178-af99-4c55-aabf-918acbd07f64
@@ -14,4 +14,4 @@ effects:
       width: 200
       height: 150
       crop_type: focal_point
-pipeline: ''
+pipeline: ""

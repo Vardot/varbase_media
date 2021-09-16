@@ -4,7 +4,7 @@ dependencies:
   module:
     - media
 id: media_publish_action
-label: 'Publish media'
+label: "Publish media"
 type: media
 plugin: entity:publish_action:media
-configuration: {  }
+configuration: {}

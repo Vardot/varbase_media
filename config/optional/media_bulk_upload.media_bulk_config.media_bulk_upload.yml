@@ -1,8 +1,8 @@
 langcode: en
 status: true
-dependencies: {  }
+dependencies: {}
 id: media_bulk_upload
-label: 'Media bulk upload'
+label: "Media bulk upload"
 media_types:
   audio: audio
   file: file

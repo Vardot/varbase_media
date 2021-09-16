@@ -4,6 +4,6 @@ dependencies:
   module:
     - media
 id: media.s11_standard
-label: 'Size 11 standard 16:9'
+label: "Size 11 standard 16:9"
 targetEntityType: media
 cache: true

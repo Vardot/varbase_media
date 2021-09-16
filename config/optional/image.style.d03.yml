@@ -1,8 +1,8 @@
 langcode: en
 status: true
-dependencies: {  }
+dependencies: {}
 name: d03
-label: 'Display 03 (300xAuto)'
+label: "Display 03 (300xAuto)"
 effects:
   1b7720d9-818c-4348-9ba4-41162ba4187f:
     uuid: 1b7720d9-818c-4348-9ba4-41162ba4187f
@@ -12,4 +12,4 @@ effects:
       width: 300
       height: null
       upscale: false
-pipeline: ''
+pipeline: ""

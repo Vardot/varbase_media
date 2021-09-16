@@ -3,11 +3,11 @@
  * Behaviors for the media library enhancements.
  */
 
-(function($, _, Drupal) {
+(function ($, _, Drupal) {
   Drupal.behaviors.mediaLibraryEnhancements = {
-    attach: function() {
+    attach: function () {
       // Add value attr to button.
-      $(window).on("ajaxComplete", function() {
+      $(window).on("ajaxComplete", function () {
         if ($(".media-library-widget-modal button.form-submit").length > 0) {
           $(".media-library-widget-modal button.form-submit").attr(
             "value",

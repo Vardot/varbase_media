@@ -20,7 +20,7 @@ content:
     weight: 1
     settings:
       link_to_entity: false
-    third_party_settings: {  }
+    third_party_settings: {}
     region: content
   thumbnail:
     type: image
@@ -28,8 +28,8 @@ content:
     label: hidden
     settings:
       image_style: field_preview
-      image_link: ''
-    third_party_settings: {  }
+      image_link: ""
+    third_party_settings: {}
     region: content
 hidden:
   created: true
