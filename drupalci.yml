@@ -24,7 +24,6 @@ build:
           - composer require npm-asset/imagesloaded:~4.0
           - composer require npm-asset/ace-builds:~1.0
           - composer require drupal/vartheme_bs4:9.0.x-dev
-          - composer require drupal/vartheme_claro:9.0.x-dev
           - cat composer.json
           - find ${SOURCE_DIR}/libraries | sed -e "s/[^-][^\/]*\//  |/g" -e "s/|\([^ ]\)/|-\1/"
       phplint:

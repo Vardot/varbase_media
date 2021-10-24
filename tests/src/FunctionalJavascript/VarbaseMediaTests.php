@@ -45,14 +45,19 @@ class VarbaseMediaTests extends WebDriverTestBase {
   /**
    * {@inheritdoc}
    */
+  protected $strictConfigSchema = FALSE;
+
+  /**
+   * {@inheritdoc}
+   */
   protected function setUp() {
     parent::setUp();
 
     // Insall the Claro admin theme.
-    $this->container->get('theme_installer')->install(['vartheme_claro']);
+    $this->container->get('theme_installer')->install(['claro']);
 
     // Set the Claro theme as the default admin theme.
-    $this->config('system.theme')->set('admin', 'vartheme_claro')->save();
+    $this->config('system.theme')->set('admin', 'claro')->save();
 
   }
 
