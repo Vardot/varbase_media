@@ -66,6 +66,10 @@
   min-width: fit-content;
 }
 
+.text-formatted .media--type-gallery .blazy.blazy--field-media-image.field[data-blazy] {
+  display: block;
+}
+
 .text-formatted .align-center > .blazy.blazy--field-media-image.blazy--field-media-image--original {
   width: auto;
   max-width: 100%;

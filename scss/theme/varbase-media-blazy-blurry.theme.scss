@@ -67,6 +67,16 @@
     }
   }
 
+  .media--type-gallery {
+    .blazy {
+      &.blazy--field-media-image {
+        &.field[data-blazy] {
+          display: block;
+        }
+      }
+    }
+  }
+
   .align-center {
     > .blazy {  
       &.blazy--field-media-image {
