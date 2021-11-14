@@ -548,7 +548,6 @@ display:
     cache_metadata:
       max-age: 0
       contexts:
-        - "languages:language_content"
         - "languages:language_interface"
         - url
         - url.query_args
@@ -1246,7 +1245,7 @@ display:
         - "url.query_args:sort_by"
         - user
         - user.permissions
-      tags:: {}
+      tags: {}
   widget:
     display_plugin: page
     id: widget
@@ -1567,7 +1566,7 @@ display:
         - url.query_args
         - "url.query_args:sort_by"
         - user.permissions
-      tags:: {}
+      tags: {}
   widget_table:
     display_plugin: page
     id: widget_table
