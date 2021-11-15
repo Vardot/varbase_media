@@ -66,16 +66,6 @@ display:
               allow_secondary: false
               secondary_label: "Advanced options"
               secondary_open: false
-            sort:
-              plugin_id: default
-              advanced:
-                combine: false
-                combine_rewrite: ""
-                reset: false
-                reset_label: ""
-                collapsible: false
-                collapsible_label: "Sort options"
-                is_secondary: false
             pager:
               plugin_id: default
               advanced:
@@ -121,6 +111,14 @@ display:
                 plugin_id: bef_datepicker
                 advanced:
                   placeholder_text: ""
+                  collapsible: false
+                  is_secondary: false
+              uid:
+                plugin_id: default
+                advanced:
+                  placeholder_text: ""
+                  rewrite:
+                    filter_rewrite_values: ""
                   collapsible: false
                   is_secondary: false
             status:
@@ -1790,6 +1788,360 @@ display:
         context: "0"
         menu_name: admin
       display_description: ""
+      relationships:
+        uid:
+          id: uid
+          table: media_field_data
+          field: uid
+          relationship: none
+          group_type: group
+          admin_label: author
+          required: false
+          entity_type: media
+          entity_field: uid
+          plugin_id: standard
+      defaults:
+        relationships: false
+        filters: false
+        filter_groups: false
+      filters:
+        status:
+          id: status
+          table: media_field_data
+          field: status
+          relationship: none
+          group_type: group
+          admin_label: ""
+          operator: "="
+          value: "1"
+          group: 1
+          exposed: true
+          expose:
+            operator_id: ""
+            label: "True"
+            description: null
+            use_operator: false
+            operator: status_op
+            identifier: status
+            required: true
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            operator_limit_selection: false
+            operator_list: {}
+          is_grouped: true
+          group_info:
+            label: Published
+            description: ""
+            identifier: status
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {}
+            group_items:
+              1:
+                title: Published
+                operator: "="
+                value: "1"
+              2:
+                title: Unpublished
+                operator: "="
+                value: "0"
+          plugin_id: boolean
+          entity_type: media
+          entity_field: status
+        name:
+          id: name
+          table: media_field_data
+          field: name
+          relationship: none
+          group_type: group
+          admin_label: ""
+          operator: contains
+          value: ""
+          group: 1
+          exposed: true
+          expose:
+            operator_id: name_op
+            label: "Media name"
+            description: ""
+            use_operator: false
+            operator: name_op
+            identifier: name
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: "0"
+              administrator: "0"
+            operator_limit_selection: false
+            operator_list: {}
+          is_grouped: false
+          group_info:
+            label: ""
+            description: ""
+            identifier: ""
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {}
+            group_items: {}
+          entity_type: media
+          entity_field: name
+          plugin_id: string
+        bundle:
+          id: bundle
+          table: media_field_data
+          field: bundle
+          relationship: none
+          group_type: group
+          admin_label: ""
+          operator: in
+          value: {}
+          group: 1
+          exposed: true
+          expose:
+            operator_id: bundle_op
+            label: "Media type"
+            description: ""
+            use_operator: false
+            operator: bundle_op
+            identifier: type
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: "0"
+              editor: "0"
+              content_admin: "0"
+              seo_admin: "0"
+              site_admin: "0"
+              administrator: "0"
+            reduce: false
+            operator_limit_selection: false
+            operator_list: {}
+          is_grouped: false
+          group_info:
+            label: ""
+            description: ""
+            identifier: ""
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {}
+            group_items: {}
+          entity_type: media
+          entity_field: bundle
+          plugin_id: bundle
+        langcode:
+          id: langcode
+          table: media_field_data
+          field: langcode
+          relationship: none
+          group_type: group
+          admin_label: ""
+          operator: in
+          value: {}
+          group: 1
+          exposed: true
+          expose:
+            operator_id: langcode_op
+            label: Language
+            description: ""
+            use_operator: false
+            operator: langcode_op
+            identifier: langcode
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: "0"
+              administrator: "0"
+            reduce: false
+            operator_limit_selection: false
+            operator_list: {}
+          is_grouped: false
+          group_info:
+            label: ""
+            description: ""
+            identifier: ""
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {}
+            group_items: {}
+          entity_type: media
+          entity_field: langcode
+          plugin_id: language
+        created:
+          id: created
+          table: media_field_data
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: "Created date (from)"
+          operator: ">="
+          value:
+            min: ""
+            max: ""
+            value: ""
+            type: date
+          group: 1
+          exposed: true
+          expose:
+            operator_id: created_op
+            label: "Created date (from)"
+            description: ""
+            use_operator: false
+            operator: created_op
+            identifier: created_from
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: "0"
+              editor: "0"
+              content_admin: "0"
+              seo_admin: "0"
+              site_admin: "0"
+              administrator: "0"
+            placeholder: ""
+            min_placeholder: ""
+            max_placeholder: ""
+            operator_limit_selection: false
+            operator_list: {}
+          is_grouped: false
+          group_info:
+            label: ""
+            description: ""
+            identifier: ""
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {}
+            group_items: {}
+          entity_type: media
+          entity_field: created
+          plugin_id: date
+        created_1:
+          id: created_1
+          table: media_field_data
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: "Created date (to)"
+          operator: "<="
+          value:
+            min: ""
+            max: ""
+            value: ""
+            type: date
+          group: 1
+          exposed: true
+          expose:
+            operator_id: created_1_op
+            label: "Created date (to)"
+            description: ""
+            use_operator: false
+            operator: created_1_op
+            identifier: created_to
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: "0"
+              editor: "0"
+              content_admin: "0"
+              seo_admin: "0"
+              site_admin: "0"
+              administrator: "0"
+            placeholder: ""
+            min_placeholder: ""
+            max_placeholder: ""
+            operator_limit_selection: false
+            operator_list: {}
+          is_grouped: false
+          group_info:
+            label: ""
+            description: ""
+            identifier: ""
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {}
+            group_items: {}
+          entity_type: media
+          entity_field: created
+          plugin_id: date
+        uid:
+          id: uid
+          table: users_field_data
+          field: uid
+          relationship: uid
+          group_type: group
+          admin_label: "Authored by"
+          operator: in
+          value: {}
+          group: 1
+          exposed: true
+          expose:
+            operator_id: uid_op
+            label: "Authored by"
+            description: ""
+            use_operator: false
+            operator: uid_op
+            operator_limit_selection: false
+            operator_list: {}
+            identifier: uid
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: "0"
+              editor: "0"
+              content_admin: "0"
+              seo_admin: "0"
+              site_admin: "0"
+              administrator: "0"
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ""
+            description: ""
+            identifier: ""
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {}
+            group_items: {}
+          entity_type: user
+          entity_field: uid
+          plugin_id: user_name
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
     cache_metadata:
       max-age: 0
       contexts:
