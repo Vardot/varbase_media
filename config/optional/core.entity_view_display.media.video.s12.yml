@@ -146,7 +146,7 @@ content:
             lbw-at: ""
             ow: true
             ow-el: ""
-            ow-cl: "varbase-video-player embed-responsive"
+            ow-cl: "varbase-video-player ratio"
             ow-at: ""
             ow-def-at: true
             ow-def-cl: true
