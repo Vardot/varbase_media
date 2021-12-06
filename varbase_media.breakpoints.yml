@@ -69,3 +69,21 @@ varbase_media.screen-xl-min:
   multipliers:
     - 1x
     - 2x
+
+varbase_media.screen-xl-max:
+  label: screen-xl-max
+  mediaQuery: "all and (max-width: 1399.98px)"
+  weight: 9
+  group: varbase_media
+  multipliers:
+    - 1x
+    - 2x
+
+varbase_media.screen-xxl-min:
+  label: screen-xxl-min
+  mediaQuery: "all and (min-width: 1400px)"
+  weight: 10
+  group: varbase_media
+  multipliers:
+    - 1x
+    - 2x
