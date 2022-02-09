@@ -895,4 +895,10 @@ function varbase_media_library_info_alter(array &$libraries, $module) {
   if ($module === 'media_library' && isset($libraries['widget'])) {
     $libraries['widget']['dependencies'][] = 'varbase_media/media_library_enhancements';
   }
+  elseif ($module == 'blazy' && isset($libraries['loading'])) {
+    $use_blazy_blurry = \Drupal::config('varbase_media.settings')->get('use_blazy_blurry');
+    if (isset($use_blazy_blurry) && $use_blazy_blurry === TRUE) {
+      unset($libraries['loading']['css']['component']['css/components/blazy.loading.css']);
+    }
+  }
 }
