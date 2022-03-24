@@ -557,7 +557,9 @@ function varbase_media_update_9002() {
 }
 
 /**
- * Issue #3206185: Add Media Bulk Upload module.
+ * Issue #3271439: Fix Entity Browser bundle media type filter.
+ *
+ * Not to use and empty exposed operator
  */
 function varbase_media_update_9003() {
 
