@@ -555,3 +555,26 @@ function varbase_media_update_9002() {
     }
   }
 }
+
+/**
+ * Issue #3271439: Fix Entity Browser bundle media type filter.
+ *
+ * Not to use and empty exposed operator
+ */
+function varbase_media_update_9003() {
+
+  $media_browsers_config_factory = \Drupal::configFactory()->getEditable('views.view.media_browsers');
+  $media_browsers_view_display = $media_browsers_config_factory->get('display');
+
+  if (isset($media_browsers_view_display)
+    && isset($media_browsers_view_display['default'])
+    && isset($media_browsers_view_display['default']['display_options'])
+    && isset($media_browsers_view_display['default']['display_options']['filters'])
+    && isset($media_browsers_view_display['default']['display_options']['filters']['entity_browser_bundle'])
+    && isset($media_browsers_view_display['default']['display_options']['filters']['entity_browser_bundle']['expose'])
+    && isset($media_browsers_view_display['default']['display_options']['filters']['entity_browser_bundle']['expose']['use_operator'])
+    && $media_browsers_view_display['default']['display_options']['filters']['entity_browser_bundle']['expose']['use_operator'] == TRUE) {
+    $media_browsers_view_display['default']['display_options']['filters']['entity_browser_bundle']['expose']['use_operator'] = FALSE;
+    $media_browsers_config_factory->set('display', $media_browsers_view_display)->save(TRUE);
+  }
+}
