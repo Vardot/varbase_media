@@ -415,11 +415,11 @@ body #edit-selected.entities-list {
       right: 0;
     }
   }
-  
+
   .media--type-video-embed,
   .media--type-remote-video,
   .media--type-video,
-  .video-player-icon, {
+  .video-player-icon {
     position: initial;
   }
 }
@@ -484,7 +484,7 @@ html[dir="rtl"] .entity-embed-dialog-step--embed {
         padding: 0;
         width: 100%;
         height: 100%;
-      } 
+      }
     }
   }
 
@@ -500,13 +500,13 @@ html[dir="rtl"] .entity-embed-dialog-step--embed {
         }
       }
 
-      div[data-drupal-selector*="edit-preview"] { 
+      div[data-drupal-selector*="edit-preview"] {
         float: right;
         width: 42%;
       }
     }
   }
-  
+
   @media screen and (min-width: map-get($grid-breakpoints, "md")) {
     .entity-browser-generic-embed div {
       .varbase-video-player {
@@ -519,7 +519,7 @@ html[dir="rtl"] .entity-embed-dialog-step--embed {
         }
       }
 
-      div[data-drupal-selector*="edit-preview"] { 
+      div[data-drupal-selector*="edit-preview"] {
         float: right;
         width: 42%;
       }
@@ -556,29 +556,29 @@ form.media-image-edit-form {
             & > .image-preview {
               float: right;
             }
-            
-            & > .image-widget-data { 
+
+            & > .image-widget-data {
               float: none;
             }
-            
+
             &:after {
               display: none;
             }
-            
+
             & > .file {
               display: none;
               float: right;
             }
-            
+
             & > .file-size {
               display: none;
             }
-            
+
             & > .button {
               float: right;
               margin-right: 4%;
             }
-            
+
             & > label {
               display: none;
             }
@@ -645,7 +645,7 @@ html[dir="rtl"] form.media-form {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center; 
+    justify-content: center;
     padding: 3%;
 
     img {
@@ -658,7 +658,7 @@ html[dir="rtl"] form.media-form {
 }
 
 .editor-media-browser {
-  .gallery-thumbnail { 
+  .gallery-thumbnail {
 
     width: 180px;
     height: 136px;
@@ -674,7 +674,7 @@ html[dir="rtl"] form.media-form {
 }
 
 .entity-browser-editor-gallery-browser-form {
-  .gallery-thumbnail { 
+  .gallery-thumbnail {
 
     width: 180px;
     height: 180px;
@@ -727,6 +727,7 @@ html[dir="rtl"] form.media-form {
 
 .media-library-item__attributes {
   width: 100%;
+  max-width: 100% !important;
   z-index: 1;
 }
 
@@ -762,7 +763,7 @@ details[id^="edit-field-media-gallery-"] {
 
     &[data-view-mode="original"] {
       width: 100%;
-      
+
       &[data-align=center] {
         margin-left: 0%;
         margin-right: 0%;
@@ -771,7 +772,7 @@ details[id^="edit-field-media-gallery-"] {
 
     &[data-view-mode="large"] {
       width: 100%;
-      
+
       &[data-align=center] {
         margin-left: 0%;
         margin-right: 0%;
@@ -780,7 +781,7 @@ details[id^="edit-field-media-gallery-"] {
 
     &[data-view-mode="medium"] {
       width: 50%;
-      
+
       &[data-align=center] {
         margin-left: 25%;
         margin-right: 25%;
@@ -789,7 +790,7 @@ details[id^="edit-field-media-gallery-"] {
 
     &[data-view-mode="small"] {
       width: 25%;
-      
+
       &[data-align=center] {
         margin-left: 32%;
         margin-right: 32%;
@@ -829,12 +830,12 @@ details[id^="edit-field-media-gallery-"] {
     .media.media--type-video {
       width: 100%;
       position: absolute;
-      
+
       picture,
       img {
         width: 100%;
       }
-      
+
       .video-player-icon {
         position: relative;
 
@@ -868,7 +869,7 @@ details[id^="edit-field-media-gallery-"] {
       }
     }
 
-    @media screen and (min-width: 761rem) { 
+    @media screen and (min-width: 761rem) {
       .media.media--type-remote-video,
       .media.media--type-video {
         min-width: 100%;

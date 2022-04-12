@@ -152,7 +152,6 @@ body #edit-selected.entities-list .item-container {
     width: 24vw;
   }
 }
-
 @media screen and (min-width: 768px) {
   body .views-view-grid .views-col {
     width: 24vw;
@@ -161,7 +160,6 @@ body #edit-selected.entities-list .item-container {
     width: 24vw;
   }
 }
-
 @media screen and (min-width: 992px) {
   body .views-view-grid .views-col {
     width: 16vw;
@@ -170,7 +168,6 @@ body #edit-selected.entities-list .item-container {
     width: 16vw;
   }
 }
-
 @media screen and (min-width: 1200px) {
   body .views-view-grid .views-col {
     width: 16vw;
@@ -318,7 +315,6 @@ html[dir=rtl] .entity-embed-dialog-step--embed > .form-item-entity {
   margin: 0;
   padding: 0;
 }
-
 @media screen and (min-width: 576px) {
   .entity-browser-form .entity-browser-generic-embed div .varbase-video-player {
     float: left;
@@ -333,7 +329,6 @@ html[dir=rtl] .entity-embed-dialog-step--embed > .form-item-entity {
     width: 42%;
   }
 }
-
 @media screen and (min-width: 768px) {
   .entity-browser-form .entity-browser-generic-embed div .varbase-video-player {
     float: left;
@@ -486,6 +481,7 @@ html[dir=rtl] form.media-form .form-item-field-source {
 .media-library-item__attributes {
   z-index: 1;
   width: 100%;
+  max-width: 100% !important;
 }
 
 div[data-drupal-selector^=edit-inline-entity-form-field-media-gallery-current] {
@@ -605,7 +601,6 @@ details[id^=edit-field-media-gallery-] .details-wrapper {
 .cke_widget_drupalmedia drupal-media .media.media--type-video .video-player-icon:hover:after {
   opacity: 0.75;
 }
-
 @media screen and (min-width: 761rem) {
   .cke_widget_drupalmedia drupal-media .media.media--type-remote-video,
   .cke_widget_drupalmedia drupal-media .media.media--type-video {
