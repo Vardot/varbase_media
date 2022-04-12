@@ -87,7 +87,6 @@ body .media-library-item--grid .views-field-views-bulk-operations-bulk-form {
   bottom: 0;
   display: block;
   overflow: hidden;
-  max-width: calc(100% - 10px);
   max-height: calc(100% - 50px);
   padding: 5px;
   background: white;
