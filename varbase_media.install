@@ -519,3 +519,17 @@ function varbase_media_update_9003() {
     $media_browsers_config_factory->set('display', $media_browsers_view_display)->save(TRUE);
   }
 }
+
+/**
+ * Issue #3274535: Update Media Bulk Upload module.
+ *
+ * From ~1.0 to ~3.0 new stable and supported branch
+ * And enable the Media Bulk Upload Dropzone.js sub-module.
+ */
+function varbase_media_update_90004() {
+  if (\Drupal::moduleHandler()->moduleExists('media_bulk_upload')
+    && !\Drupal::moduleHandler()->moduleExists('media_bulk_upload_dropzonejs')) {
+    // Enable Media upload DropzoneJs sub module.
+    \Drupal::service('module_installer')->install(['media_bulk_upload_dropzonejs'], FALSE);
+  }
+}
