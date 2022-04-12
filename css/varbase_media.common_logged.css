@@ -481,6 +481,7 @@ html[dir=rtl] form.media-form .form-item-field-source {
 .media-library-item__attributes {
   z-index: 1;
   width: 100%;
+  max-width: 100% !important;
 }
 
 div[data-drupal-selector^=edit-inline-entity-form-field-media-gallery-current] {
