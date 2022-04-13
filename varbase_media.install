@@ -533,3 +533,14 @@ function varbase_media_update_90004() {
     \Drupal::service('module_installer')->install(['media_bulk_upload_dropzonejs'], FALSE);
   }
 }
+
+/**
+ * Issue #3272289: Switch to use the Module Installer Factory.
+ *
+ * In the Varbase Media module.
+ */
+function varbase_media_update_90005() {
+  // Set the weight of the module after installation of list of modules.
+  // To make sure that any hook or event subscriber workes after all used modules.
+  ModuleInstallerFactory::setModuleWeightAfterInstallation('varbase_media');
+}
