@@ -34,13 +34,13 @@ dependencies:
   - varbase_media:entity_browser_generic_embed
   - entity_embed:entity_embed
   - focal_point:focal_point
-  - views_infinite_scroll:views_infinite_scroll
 install:
   - media_bulk_upload
   - media_bulk_upload_dropzonejs
   - media_library_edit
   - media_revisions_ui
   - views_bulk_operations
+  - views_infinite_scroll
   - views_bulk_edit
   - blazy
   - slick
