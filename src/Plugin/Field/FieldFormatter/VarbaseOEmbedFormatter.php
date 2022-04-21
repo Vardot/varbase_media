@@ -78,9 +78,7 @@ class VarbaseOEmbedFormatter extends OEmbedFormatter {
       ];
 
       // Add title attribute to oEmbed iframe for accessibility.
-      if (isset($media->name)
-         && isset($media->name->value)
-         && $media->name->value !== '') {
+      if (!empty($media->name->value)) {
         $element[$delta]['#attributes']['title'] = $media->name->value;
       }
 
