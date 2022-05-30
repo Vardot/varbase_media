@@ -99,7 +99,7 @@
       },
       "drupal/blazy": {
         "Issue #3282785: WSOD after update to 2.12: Error: Call to a member function get() on null":
-        "https://git.drupalcode.org/project/blazy/-/commit/41feec129ab1c60c90d77a99659ae8a1ec5b1855.patch"
+        "https://www.drupal.org/files/issues/2022-05-30/3282785-14.patch"
       }
     }
   }
