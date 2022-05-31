@@ -53,7 +53,7 @@
     "drupal/focal_point": "~1.0",
     "drupal/imagemagick": "~3.0",
     "drupal/imageapi_optimize": "~3.0",
-    "drupal/blazy": "2.12",
+    "drupal/blazy": "~2.0",
     "drupal/slick": "~2.0",
     "drupal/slick_views": "~2.0",
     "drupal/metatag": "^1.12",
@@ -96,10 +96,6 @@
       "drupal/webp": {
         "Issue #3153137: Using Image Widget Crop in responsive images does not refresh webp image":
         "https://www.drupal.org/files/issues/2022-01-31/webp-support-image-crop-3153137-12.patch"
-      },
-      "drupal/blazy": {
-        "Issue #3282785: WSOD after update to 2.12: Error: Call to a member function get() on null":
-        "https://www.drupal.org/files/issues/2022-05-30/3282785-14.patch"
       }
     }
   }
