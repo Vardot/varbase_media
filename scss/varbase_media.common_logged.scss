@@ -1,18 +1,13 @@
 // Varbase media common logged in users style.
 // =============================================================================
+@import "../node_modules/bootstrap/scss/functions";     // Bootstrap funcions.
+@import "../node_modules/bootstrap/scss/mixins";        // Bootstrap mixins.
+@import "../node_modules/bootstrap/scss/variables";     // Bootstrap variables.
+@import "../node_modules/bootstrap/scss/utilities"; // Bootstrap utilities.
+// -----------------------------------------------------------------------------
 
 // Grid breakpoints
-//
-// Define the minimum dimensions at which your layout will change,
-// adapting to different screen sizes, for use in media queries.
-
-$grid-breakpoints: (
-  xs: 0,
-  sm: 576px,
-  md: 768px,
-  lg: 992px,
-  xl: 1200px
-) !default;
+// $grid-breakpoints variable come's from bootstrap variables file.
 
 // Style the entity select and editor image dialog for images.
 .entity-select-dialog {
