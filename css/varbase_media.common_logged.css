@@ -295,7 +295,7 @@ html[dir=rtl] .entity-embed-dialog-step--embed > .form-item-entity {
 .entity-browser-form div#ief-dropzone-upload > div {
   margin: 0 15px 15px 15px;
   padding: 15px;
-  border: 2px dashed rgba(107, 107, 107, 0.65);
+  border: 2px dashed hsla(0deg, 0%, 42%, 0.65);
   border-radius: 20px;
 }
 .entity-browser-form div#ief-dropzone-upload > div .image-widget-data {
