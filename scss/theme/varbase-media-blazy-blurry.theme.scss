@@ -32,6 +32,7 @@
     .b-lazy {
       filter: blur(2px);
       transform: scale(1.001);
+      will-change: filter, transform;
       transition: filter .2s, transform .2s;
       opacity: 1;
     }

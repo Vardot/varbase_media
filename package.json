@@ -27,7 +27,7 @@
   "author": "Vardot",
   "dependencies": {
     "rfs": "~9",
-    "bootstrap": "~5"
+		"bootstrap": "~5"
   },
   "devDependencies": {
     "autoprefixer": "~9",
