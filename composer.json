@@ -34,7 +34,7 @@
     "vardot/entity-definition-update-manager": "~1.0",
     "vardot/module-installer-factory": "~1.0",
     "drupal/ds": "~3.0",
-    "drupal/better_exposed_filters": "~5.0",
+    "drupal/better_exposed_filters": "~6.0",
     "drupal/views_bulk_operations": "~4.0",
     "drupal/views_bulk_edit": "~2.0",
     "drupal/views_infinite_scroll": "~2.0",
