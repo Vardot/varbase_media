@@ -2,7 +2,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.media.full
+    - core.entity_view_mode.media.cover_image_ratio_1_1
     - field.field.media.video.field_media_cover_image
     - field.field.media.video.field_media_in_library
     - field.field.media.video.field_media_video_file
@@ -10,7 +10,7 @@ dependencies:
   module:
     - drimage
     - ds
-    - file
+    - layout_builder
 third_party_settings:
   ds:
     layout:
@@ -30,12 +30,14 @@ third_party_settings:
         label: ''
     regions:
       ds_content:
-        - field_media_video_file
         - field_media_cover_image
-id: media.video.full
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: media.video.cover_image_ratio_1_1
 targetEntityType: media
 bundle: video
-mode: full
+mode: cover_image_ratio_1_1
 content:
   field_media_cover_image:
     type: drimage
@@ -44,12 +46,12 @@ content:
       image_link: ''
       image_handling: aspect_ratio
       aspect_ratio:
-        width: '16'
-        height: '9'
+        width: '1'
+        height: '1'
       background:
-        position: ''
-        attachment: null
-        size: null
+        attachment: scroll
+        position: 'center center'
+        size: cover
       iwc:
         image_style: null
       image_style: ''
@@ -66,49 +68,7 @@ content:
             lb-col: false
             ow: true
             ow-el: ''
-            ow-cl: 'media-cover-image video-player-icon js-video-player-icon'
-            ow-at: ''
-            ow-def-at: true
-            ow-def-cl: true
-            fis: false
-            fis-el: ''
-            fis-cl: ''
-            fis-at: ''
-            fis-def-at: false
-            fi: false
-            fi-el: ''
-            fi-cl: ''
-            fi-at: ''
-            fi-def-at: false
-            prefix: ''
-            suffix: ''
-    weight: 1
-    region: ds_content
-  field_media_video_file:
-    type: file_video
-    label: hidden
-    settings:
-      controls: true
-      autoplay: false
-      loop: false
-      multiple_file_display_type: tags
-      muted: false
-      width: 1600
-      height: 900
-    third_party_settings:
-      ds:
-        ft:
-          id: expert
-          settings:
-            lb: ''
-            lbw: false
-            lbw-el: ''
-            lbw-cl: ''
-            lbw-at: ''
-            lb-col: false
-            ow: true
-            ow-el: ''
-            ow-cl: 'varbase-video-player ratio ratio-16x9'
+            ow-cl: 'media-cover-image video-player-icon'
             ow-at: ''
             ow-def-at: true
             ow-def-cl: true
@@ -129,6 +89,7 @@ content:
 hidden:
   created: true
   field_media_in_library: true
+  field_media_video_file: true
   langcode: true
   name: true
   search_api_excerpt: true

@@ -8,9 +8,8 @@ dependencies:
     - field.field.media.remote_video.field_media_oembed_video
     - field.field.media.remote_video.field_provider
     - media.type.remote_video
-    - responsive_image.styles.de2e_standard
   module:
-    - blazy
+    - drimage
     - ds
     - varbase_media
 third_party_settings:
@@ -21,18 +20,19 @@ third_party_settings:
       disable_css: false
       entity_classes: all_classes
       settings:
-        label: ""
+        classes:
+          layout_class: {  }
         wrappers:
           ds_content: div
         outer_wrapper: div
-        attributes: ""
-        link_attribute: ""
-        link_custom: ""
-        classes:
-          layout_class: {}
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+        label: ''
     regions:
       ds_content:
         - field_media_oembed_video
+        - thumbnail
         - field_media_cover_image
 id: media.remote_video.original
 targetEntityType: media
@@ -40,69 +40,54 @@ bundle: remote_video
 mode: original
 content:
   field_media_cover_image:
-    type: blazy
-    weight: 1
-    region: ds_content
+    type: drimage
     label: hidden
     settings:
-      responsive_image_style: de2e_standard
-      icon: ""
-      layout: ""
-      view_mode: ""
-      cache: 0
-      current_view_mode: ""
-      skin: ""
-      fx: ""
-      style: ""
-      background: false
-      box_caption: ""
-      box_caption_custom: ""
-      box_media_style: ""
-      caption: {}
-      box_style: ""
-      image_style: ""
-      media_switch: ""
-      ratio: ""
-      thumbnail_style: ""
-      _uri: ""
-      breakpoints: {}
-      sizes: ""
-      grid_header: ""
-      grid: 0
-      grid_medium: 0
-      grid_small: 0
+      image_link: ''
+      image_handling: aspect_ratio
+      aspect_ratio:
+        width: '16'
+        height: '9'
+      background:
+        attachment: scroll
+        position: 'center center'
+        size: cover
+      iwc:
+        image_style: null
+      image_style: ''
     third_party_settings:
       ds:
         ft:
           id: expert
           settings:
-            lb: ""
-            prefix: ""
-            lbw-el: ""
-            lbw-cl: ""
-            lbw-at: ""
+            lb: ''
+            lbw: false
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            lb-col: false
             ow: true
-            ow-el: ""
-            ow-cl: "media-cover-image video-player-icon js-video-player-icon"
-            ow-at: ""
+            ow-el: ''
+            ow-cl: 'media-cover-image video-player-icon js-video-player-icon'
+            ow-at: ''
             ow-def-at: true
             ow-def-cl: true
-            fis-el: ""
-            fis-cl: ""
-            fis-at: ""
-            fi-el: ""
-            fi-cl: ""
-            fi-at: ""
-            suffix: ""
-            lbw: false
-            lb-col: false
             fis: false
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
             fis-def-at: false
             fi: false
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
             fi-def-at: false
+            prefix: ''
+            suffix: ''
+    weight: 2
+    region: ds_content
   field_media_oembed_video:
     type: varbase_oembed
-    weight: 0
     label: hidden
     settings:
       max_width: 1600
@@ -112,30 +97,78 @@ content:
         ft:
           id: expert
           settings:
-            lb: ""
-            prefix: ""
-            lbw-el: ""
-            lbw-cl: ""
-            lbw-at: ""
+            lb: ''
+            lbw: false
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            lb-col: false
             ow: true
-            ow-el: ""
-            ow-cl: "varbase-video-player ratio ratio-16x9"
-            ow-at: ""
+            ow-el: ''
+            ow-cl: 'varbase-video-player ratio ratio-16x9'
+            ow-at: ''
             ow-def-at: true
             ow-def-cl: true
-            fis-el: ""
-            fis-cl: ""
-            fis-at: ""
-            fi-el: ""
-            fi-cl: ""
-            fi-at: ""
-            suffix: ""
-            lbw: false
-            lb-col: false
             fis: false
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
             fis-def-at: false
             fi: false
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
             fi-def-at: false
+            prefix: ''
+            suffix: ''
+    weight: 0
+    region: ds_content
+  thumbnail:
+    type: drimage
+    label: hidden
+    settings:
+      image_link: ''
+      image_handling: aspect_ratio
+      aspect_ratio:
+        width: '16'
+        height: '9'
+      background:
+        attachment: scroll
+        position: 'center center'
+        size: cover
+      iwc:
+        image_style: null
+      image_style: ''
+    third_party_settings:
+      ds:
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            lbw: false
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            lb-col: false
+            ow: true
+            ow-el: ''
+            ow-cl: 'media-cover-image video-player-icon js-video-player-icon'
+            ow-at: ''
+            ow-def-at: true
+            ow-def-cl: true
+            fis: false
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fis-def-at: false
+            fi: false
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            fi-def-at: false
+            prefix: ''
+            suffix: ''
+    weight: 1
     region: ds_content
 hidden:
   created: true
@@ -144,5 +177,4 @@ hidden:
   langcode: true
   name: true
   search_api_excerpt: true
-  thumbnail: true
   uid: true

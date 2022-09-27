@@ -1,0 +1,8 @@
+threshold: 100
+ratio_distortion: 60
+upscale: 100
+downscale: 3600
+lazy_offset: 100
+fallback_style: default
+proxy_cache_maximum_age: '0'
+multiplier: 1

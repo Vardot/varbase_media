@@ -6,9 +6,8 @@ dependencies:
     - field.field.media.image.field_media_image
     - field.field.media.image.field_media_in_library
     - media.type.image
-    - responsive_image.styles.d12
   module:
-    - blazy
+    - drimage
     - ds
 id: media.image.large
 targetEntityType: media
@@ -16,44 +15,30 @@ bundle: image
 mode: large
 content:
   field_media_image:
-    weight: 0
+    type: drimage
     label: hidden
     settings:
-      responsive_image_style: d12
-      icon: ""
-      layout: ""
-      view_mode: ""
-      cache: 0
-      current_view_mode: ""
-      skin: ""
-      fx: ""
-      style: ""
-      background: false
-      box_caption: ""
-      box_caption_custom: ""
-      box_media_style: ""
-      caption: {}
-      box_style: ""
-      image_style: ""
-      media_switch: ""
-      ratio: ""
-      thumbnail_style: ""
-      _uri: ""
-      breakpoints: {}
-      sizes: ""
-      grid_header: ""
-      grid: 0
-      grid_medium: 0
-      grid_small: 0
+      image_link: ''
+      image_handling: scale
+      aspect_ratio:
+        width: '1'
+        height: '1'
+      background:
+        attachment: scroll
+        position: 'center center'
+        size: cover
+      iwc:
+        image_style: null
+      image_style: ''
     third_party_settings:
       ds:
         ft:
           id: default
           settings:
-            lb: ""
+            lb: ''
             lb-col: false
-            classes: {}
-    type: blazy
+            classes: {  }
+    weight: 0
     region: content
 hidden:
   created: true

@@ -44,4 +44,6 @@ install:
   - views_bulk_edit
   - blazy
   - slick
+  - drimage
   - webp
+  - imageapi_optimize_webp

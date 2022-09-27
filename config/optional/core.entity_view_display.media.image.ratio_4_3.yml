@@ -2,7 +2,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.media.background_media
+    - core.entity_view_mode.media.ratio_4_3
     - field.field.media.image.field_media_image
     - field.field.media.image.field_media_in_library
     - media.type.image
@@ -14,26 +14,28 @@ third_party_settings:
   layout_builder:
     enabled: false
     allow_custom: false
-id: media.image.background_media
+id: media.image.ratio_4_3
 targetEntityType: media
 bundle: image
-mode: background_media
+mode: ratio_4_3
 content:
   field_media_image:
     type: drimage
     label: hidden
     settings:
       image_link: ''
-      image_handling: background
+      image_handling: iwc
       aspect_ratio:
-        width: '1'
-        height: '1'
+        width: '4'
+        height: '3'
       background:
         attachment: scroll
         position: 'center center'
         size: cover
       iwc:
-        image_style: null
+        image_style: traditional_4_3
+      image_loading:
+        attribute: lazy
       image_style: ''
     third_party_settings:
       ds:
