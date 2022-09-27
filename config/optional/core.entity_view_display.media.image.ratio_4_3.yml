@@ -24,7 +24,7 @@ content:
     label: hidden
     settings:
       image_link: ''
-      image_handling: iwc
+      image_handling: aspect_ratio
       aspect_ratio:
         width: '4'
         height: '3'
@@ -33,7 +33,7 @@ content:
         position: 'center center'
         size: cover
       iwc:
-        image_style: traditional_4_3
+        image_style: null
       image_loading:
         attribute: lazy
       image_style: ''

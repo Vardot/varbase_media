@@ -33,7 +33,7 @@ content:
         position: 'center center'
         size: cover
       iwc:
-        image_style: standard_16_9
+        image_style: null
       image_loading:
         attribute: lazy
       image_style: ''
