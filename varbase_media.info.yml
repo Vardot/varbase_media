@@ -22,6 +22,7 @@ dependencies:
   - drupal:media_library
   - drupal:breakpoint
   - drupal:responsive_image
+  - drimage:drimage
   - ds:ds
   - ds:ds_extras
   - better_exposed_filters:better_exposed_filters
@@ -44,6 +45,5 @@ install:
   - views_bulk_edit
   - blazy
   - slick
-  - drimage
   - webp
   - imageapi_optimize_webp
