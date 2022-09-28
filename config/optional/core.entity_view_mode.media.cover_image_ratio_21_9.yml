@@ -1,0 +1,10 @@
+uuid: 2bb6e13f-538c-4627-a5b0-a5bdb98b05bd
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.cover_image_ratio_21_9
+label: 'Cover Image Ratio 21:9'
+targetEntityType: media
+cache: true

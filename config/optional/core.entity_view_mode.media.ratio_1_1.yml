@@ -1,0 +1,10 @@
+uuid: 92660b7c-2025-4cc6-a7be-b0fec6e2a58a
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.ratio_1_1
+label: 'Ratio 1:1'
+targetEntityType: media
+cache: true
