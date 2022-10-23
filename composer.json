@@ -58,7 +58,7 @@
     "drupal/slick_views": "~2.0",
     "drupal/metatag": "^1.12",
     "drupal/webp": "1.0-beta6",
-    "drupal/drimage": "2.0.10",
+    "drupal/drimage": "~2.0",
     "drupal/imageapi_optimize_webp": "~2.0"
   },
   "suggest": {
@@ -98,10 +98,6 @@
       "drupal/webp": {
         "Issue #3153137: Using Image Widget Crop in responsive images does not refresh webp image":
         "https://www.drupal.org/files/issues/2022-01-31/webp-support-image-crop-3153137-12.patch"
-      },
-      "drupal/drimage": {
-        "Issue #3202501: webp support for drimage":
-        "https://www.drupal.org/files/issues/2022-09-09/webp-support-for-drimage-3202501-26.patch"
       }
     }
   }
