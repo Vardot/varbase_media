@@ -1,9 +1,10 @@
+uuid: d5b4d90c-3a6a-490c-b821-fea6c9e23cec
 langcode: en
 status: true
 dependencies:
   module:
     - media
-id: media.ratio_16_9
-label: 'Ratio 16:9'
+id: media.looping
+label: Looping
 targetEntityType: media
 cache: true

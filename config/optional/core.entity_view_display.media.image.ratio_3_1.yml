@@ -2,7 +2,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.media.cover_image_ratio_4_3
+    - core.entity_view_mode.media.ratio_3_1
     - field.field.media.image.field_media_image
     - field.field.media.image.field_media_in_library
     - media.type.image
@@ -14,10 +14,10 @@ third_party_settings:
   layout_builder:
     enabled: false
     allow_custom: false
-id: media.image.cover_image_ratio_4_3
+id: media.image.ratio_3_1
 targetEntityType: media
 bundle: image
-mode: cover_image_ratio_4_3
+mode: ratio_3_1
 content:
   field_media_image:
     type: drimage
@@ -26,16 +26,16 @@ content:
       image_link: ''
       image_handling: aspect_ratio
       aspect_ratio:
-        width: '4'
-        height: '3'
+        width: '3'
+        height: '1'
       background:
         attachment: scroll
         position: 'center center'
         size: cover
-      iwc:
-        image_style: null
       image_loading:
         attribute: lazy
+      iwc:
+        image_style: null
       image_style: ''
     third_party_settings:
       ds:

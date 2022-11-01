@@ -1,9 +1,10 @@
+uuid: 38b0c717-6f22-4179-92e1-025bd01b8e13
 langcode: en
 status: true
 dependencies:
   module:
     - media
-id: media.ratio_16_9
-label: 'Ratio 16:9'
+id: media.autoplay
+label: Autoplay
 targetEntityType: media
 cache: true

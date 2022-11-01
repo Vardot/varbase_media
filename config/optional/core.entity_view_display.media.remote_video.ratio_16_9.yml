@@ -12,7 +12,6 @@ dependencies:
     - drimage
     - ds
     - layout_builder
-    - varbase_media
 third_party_settings:
   ds:
     layout:
@@ -32,7 +31,7 @@ third_party_settings:
         label: ''
     regions:
       ds_content:
-        - field_media_oembed_video
+        - thumbnail
         - field_media_cover_image
   layout_builder:
     enabled: false
@@ -55,6 +54,8 @@ content:
         attachment: scroll
         position: 'center center'
         size: cover
+      image_loading:
+        attribute: lazy
       iwc:
         image_style: null
       image_style: ''
@@ -71,7 +72,7 @@ content:
             lb-col: false
             ow: true
             ow-el: ''
-            ow-cl: 'media-cover-image video-player-icon js-video-player-icon'
+            ow-cl: 'media-cover-image video-player-icon'
             ow-at: ''
             ow-def-at: true
             ow-def-cl: true
@@ -89,12 +90,24 @@ content:
             suffix: ''
     weight: 1
     region: ds_content
-  field_media_oembed_video:
-    type: varbase_oembed
+  thumbnail:
+    type: drimage
     label: hidden
     settings:
-      max_width: 1600
-      max_height: 900
+      image_link: ''
+      image_handling: aspect_ratio
+      aspect_ratio:
+        width: '16'
+        height: '9'
+      background:
+        position: ''
+        attachment: null
+        size: null
+      image_loading:
+        attribute: lazy
+      iwc:
+        image_style: null
+      image_style: ''
     third_party_settings:
       ds:
         ft:
@@ -108,7 +121,7 @@ content:
             lb-col: false
             ow: true
             ow-el: ''
-            ow-cl: 'varbase-video-player ratio ratio-16x9'
+            ow-cl: 'media-cover-image video-player-icon'
             ow-at: ''
             ow-def-at: true
             ow-def-cl: true
@@ -129,9 +142,9 @@ content:
 hidden:
   created: true
   field_media_in_library: true
+  field_media_oembed_video: true
   field_provider: true
   langcode: true
   name: true
   search_api_excerpt: true
-  thumbnail: true
   uid: true

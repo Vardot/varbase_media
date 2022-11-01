@@ -1,0 +1,99 @@
+uuid: 655db2e7-5754-4e2d-b742-ee2e20d83e36
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.autoplay
+    - field.field.media.video.field_media_cover_image
+    - field.field.media.video.field_media_in_library
+    - field.field.media.video.field_media_video_file
+    - media.type.video
+  module:
+    - blazy
+    - ds
+    - file
+    - layout_builder
+third_party_settings:
+  ds:
+    layout:
+      id: ds_1col
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        classes:
+          layout_class: {  }
+        wrappers:
+          ds_content: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+        label: ''
+    regions:
+      ds_content:
+        - field_media_video_file
+  layout_builder:
+    enabled: false
+    allow_custom: false
+_core:
+  default_config_hash: 1z8j9g0eHiQFXKuj16BmDJKZcJ4WYCj-mnr8rYe7G1c
+id: media.video.autoplay
+targetEntityType: media
+bundle: video
+mode: autoplay
+content:
+  field_media_video_file:
+    type: file_video
+    label: hidden
+    settings:
+      controls: true
+      autoplay: true
+      loop: false
+      multiple_file_display_type: tags
+      playsinline: true
+      muted: false
+      width: 1600
+      height: 900
+    third_party_settings:
+      ds:
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            lbw: false
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            lb-col: false
+            ow: true
+            ow-el: ''
+            ow-cl: 'varbase-video-player ratio ratio-16x9'
+            ow-at: ''
+            ow-def-at: true
+            ow-def-cl: true
+            fis: false
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fis-def-at: false
+            fi: false
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            fi-def-at: false
+            prefix: ''
+            suffix: ''
+      blazy:
+        blazy: false
+    weight: 0
+    region: ds_content
+hidden:
+  created: true
+  field_media_cover_image: true
+  field_media_in_library: true
+  langcode: true
+  name: true
+  search_api_excerpt: true
+  thumbnail: true
+  uid: true

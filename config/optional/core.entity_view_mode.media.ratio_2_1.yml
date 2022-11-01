@@ -3,7 +3,7 @@ status: true
 dependencies:
   module:
     - media
-id: media.ratio_16_9
-label: 'Ratio 16:9'
+id: media.ratio_2_1
+label: 'Ratio 2:1'
 targetEntityType: media
 cache: true
