@@ -20,7 +20,7 @@ use Vardot\Installer\ModuleInstallerFactory;
  */
 function varbase_media_install() {
 
-  // Processer for install: in varbase_media.info.yml file.
+  // Processor for install: in varbase_media.info.yml file.
   // --------------------------------------------------------------------------.
   ModuleInstallerFactory::installList('varbase_media');
 
@@ -28,12 +28,10 @@ function varbase_media_install() {
   ModuleInstallerFactory::importConfigsFromScanedDirectory('varbase_media', '/^.*(settings.yml)$/i');
   ModuleInstallerFactory::importConfigsFromScanedDirectory('varbase_media', '/^entity_browser_enhanced.widgets.*\\.(yml)$/i');
 
-  // Managed Varbase Media Library configurations.
-  _varbase_media_managed_media_library_configs();
 
   $module_path = Drupal::service('module_handler')->getModule('varbase_media')->getPath();
 
-  // Load Media types icons for the media libraray table view page.
+  // Load Media types icons for the media library table view page.
   $source = $module_path . '/images/icons';
   $destination = \Drupal::config('media.settings')->get('icon_base_uri');
   \Drupal::service('file_system')->prepareDirectory($destination, FileSystemInterface::CREATE_DIRECTORY | FileSystemInterface::MODIFY_PERMISSIONS);
@@ -66,16 +64,11 @@ function varbase_media_install() {
 
     foreach ($embed_buttons as $embed_button_id => $embed_button_info) {
       $target_destination = NULL;
-      if (version_compare(Drupal::VERSION, '8.7.0', '>=')) {
-        try {
-          $target_destination = Drupal::service('file_system')->copy($embed_button_info['source'], $embed_button_info['destination']);
-        }
-        catch (FileException $e) {
-          $target_destination = FALSE;
-        }
+      try {
+        $target_destination = Drupal::service('file_system')->copy($embed_button_info['source'], $embed_button_info['destination']);
       }
-      else {
-        $target_destination = call_user_func('file_unmanaged_copy', $embed_button_info['source'], $embed_button_info['destination']);
+      catch (FileException $e) {
+        $target_destination = FALSE;
       }
 
       if ($target_destination) {
@@ -122,56 +115,18 @@ function varbase_media_requirements($phase) {
 }
 
 /**
- * Managed Varbase Media Library configurations.
- *
- * Fix [Media Library] and the [Media Grid and Media Table]
- * admin pages to work with Drupal ^8.8.x and ^8.7.x .
- */
-function _varbase_media_managed_media_library_configs() {
-  $module_path = Drupal::service('module_handler')->getModule('varbase_media')->getPath();
-  $managed_config_path = DRUPAL_ROOT . '/' . $module_path . '/config';
-
-  if (version_compare(Drupal::VERSION, '8.8.0', 'lt') === TRUE) {
-    $managed_config_path = $managed_config_path . '/managed/lt80800';
-  }
-  else {
-    // Use the latest managed configs from the managed latest directory.
-    $managed_config_path = $managed_config_path . '/managed/latest';
-  }
-
-  // Ovarride the media view.
-  $media_config_path = $managed_config_path . '/views.view.media.yml';
-  if (file_exists($media_config_path)) {
-    $media_config_content = file_get_contents($media_config_path);
-    $media_config_data = (array) Yaml::parse($media_config_content);
-    $media_config_factory = \Drupal::configFactory()->getEditable('views.view.media');
-    $media_config_factory->setData($media_config_data)->save(TRUE);
-  }
-
-  // Ovarride the media library view.
-  $media_library_config_path = $managed_config_path . '/views.view.media_library.yml';
-  if (file_exists($media_library_config_path)) {
-    $media_library_config_content = file_get_contents($media_library_config_path);
-    $media_library_config_data = (array) Yaml::parse($media_library_config_content);
-    $media_library_config_factory = \Drupal::configFactory()->getEditable('views.view.media_library');
-    $media_library_config_factory->setData($media_library_config_data)->save(TRUE);
-  }
-
-}
-
-/**
  * Issue #3098789: Fix [Media Library] and the [Media Grid and Media Table].
  *
  * Admin pages to work with Drupal ^8.8.x and ^8.7.x .
  */
 function varbase_media_update_8701() {
-  _varbase_media_managed_media_library_configs();
+  // Not needing to manage Drupal 8 any more in the Varbase 10.0.x branch
 }
 
 /**
  * Issue #3103229: Fix icons for [Embed buttons] for the CKEditor.
  *
- * After the change of Embed API as they had droped icon_uuid and change of
+ * After the change of Embed API as they had dropped icon_uuid and change of
  * config schema.
  */
 function varbase_media_update_8702() {
