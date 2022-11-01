@@ -13,8 +13,8 @@ dependencies:
     - layout_builder
 third_party_settings:
   layout_builder:
-    allow_custom: false
     enabled: false
+    allow_custom: false
 id: media.video.background_media
 targetEntityType: media
 bundle: video
@@ -22,13 +22,13 @@ mode: background_media
 content:
   field_media_video_file:
     type: file_video
-    weight: 0
     label: hidden
     settings:
       controls: true
       autoplay: true
       loop: true
       multiple_file_display_type: tags
+      playsinline: false
       muted: true
       width: 1600
       height: 900
@@ -37,7 +37,8 @@ content:
         ft:
           id: reset
           settings:
-            lb: ""
+            lb: ''
+    weight: 0
     region: content
 hidden:
   created: true

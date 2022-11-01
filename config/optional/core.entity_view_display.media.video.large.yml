@@ -43,14 +43,16 @@ content:
     label: hidden
     settings:
       image_link: ''
-      image_handling: scale
+      image_handling: aspect_ratio
       aspect_ratio:
-        width: '1'
-        height: '1'
+        width: '16'
+        height: '9'
       background:
         attachment: scroll
         position: 'center center'
         size: cover
+      image_loading:
+        attribute: lazy
       iwc:
         image_style: null
       image_style: ''
@@ -93,6 +95,7 @@ content:
       autoplay: false
       loop: false
       multiple_file_display_type: tags
+      playsinline: false
       muted: false
       width: 1400
       height: 788

@@ -54,6 +54,8 @@ content:
       iwc:
         image_style: null
       image_style: ''
+      image_loading:
+        attribute: lazy
     third_party_settings:
       ds:
         ft:
@@ -138,6 +140,8 @@ content:
       iwc:
         image_style: null
       image_style: ''
+      image_loading:
+        attribute: lazy
     third_party_settings:
       ds:
         ft:

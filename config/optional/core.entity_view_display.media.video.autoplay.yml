@@ -1,4 +1,3 @@
-uuid: 655db2e7-5754-4e2d-b742-ee2e20d83e36
 langcode: en
 status: true
 dependencies:
@@ -36,8 +35,6 @@ third_party_settings:
   layout_builder:
     enabled: false
     allow_custom: false
-_core:
-  default_config_hash: 1z8j9g0eHiQFXKuj16BmDJKZcJ4WYCj-mnr8rYe7G1c
 id: media.video.autoplay
 targetEntityType: media
 bundle: video

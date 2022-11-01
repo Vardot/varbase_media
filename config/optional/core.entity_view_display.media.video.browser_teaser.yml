@@ -29,8 +29,8 @@ third_party_settings:
         label: ''
     regions:
       ds_content:
-        - field_media_cover_image
         - thumbnail
+        - field_media_cover_image
         - name
 id: media.video.browser_teaser
 targetEntityType: media
@@ -39,7 +39,7 @@ mode: browser_teaser
 content:
   field_media_cover_image:
     type: drimage
-    label: above
+    label: hidden
     settings:
       image_link: ''
       image_handling: aspect_ratio
@@ -53,6 +53,8 @@ content:
       iwc:
         image_style: null
       image_style: ''
+      image_loading:
+        attribute: lazy
     third_party_settings:
       ds:
         ft:
@@ -94,7 +96,7 @@ content:
     region: ds_content
   thumbnail:
     type: drimage
-    label: above
+    label: hidden
     settings:
       image_link: ''
       image_handling: aspect_ratio
@@ -108,6 +110,8 @@ content:
       iwc:
         image_style: null
       image_style: ''
+      image_loading:
+        attribute: lazy
     third_party_settings:
       ds:
         ft:

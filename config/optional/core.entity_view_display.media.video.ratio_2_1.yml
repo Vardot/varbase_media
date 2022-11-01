@@ -8,10 +8,8 @@ dependencies:
     - field.field.media.video.field_media_video_file
     - media.type.video
   module:
-    - blazy
     - drimage
     - ds
-    - file
     - layout_builder
 third_party_settings:
   ds:
@@ -32,7 +30,7 @@ third_party_settings:
         label: ''
     regions:
       ds_content:
-        - field_media_video_file
+        - thumbnail
         - field_media_cover_image
   layout_builder:
     enabled: false
@@ -52,9 +50,9 @@ content:
         width: '2'
         height: '1'
       background:
-        attachment: scroll
-        position: 'center center'
-        size: cover
+        position: ''
+        attachment: null
+        size: null
       image_loading:
         attribute: lazy
       iwc:
@@ -90,49 +88,6 @@ content:
             prefix: ''
             suffix: ''
     weight: 1
-    region: ds_content
-    type: file_video
-    label: hidden
-    settings:
-      controls: true
-      autoplay: false
-      loop: false
-      multiple_file_display_type: tags
-      muted: false
-      width: 1800
-      height: 900
-    third_party_settings:
-      ds:
-        ft:
-          id: expert
-          settings:
-            lb: ''
-            lbw: false
-            lbw-el: ''
-            lbw-cl: ''
-            lbw-at: ''
-            lb-col: false
-            ow: true
-            ow-el: ''
-            ow-cl: 'varbase-video-player ratio ratio-16x9'
-            ow-at: ''
-            ow-def-at: true
-            ow-def-cl: true
-            fis: false
-            fis-el: ''
-            fis-cl: ''
-            fis-at: ''
-            fis-def-at: false
-            fi: false
-            fi-el: ''
-            fi-cl: ''
-            fi-at: ''
-            fi-def-at: false
-            prefix: ''
-            suffix: ''
-      blazy:
-        blazy: false
-    weight: 0
     region: ds_content
   thumbnail:
     type: drimage

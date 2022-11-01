@@ -53,11 +53,11 @@ content:
         attachment: scroll
         position: 'center center'
         size: cover
+      image_loading:
+        attribute: lazy
       iwc:
         image_style: null
       image_style: ''
-      image_loading:
-        attribute: lazy
     third_party_settings:
       ds:
         ft:
@@ -71,7 +71,7 @@ content:
             lb-col: false
             ow: true
             ow-el: ''
-            ow-cl: 'media-cover-image video-player-icon js-video-player-icon'
+            ow-cl: 'media-cover-image video-player-icon'
             ow-at: ''
             ow-def-at: true
             ow-def-cl: true

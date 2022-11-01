@@ -49,6 +49,8 @@ content:
         attachment: scroll
         position: 'center center'
         size: cover
+      image_loading:
+        attribute: lazy
       iwc:
         image_style: null
       image_style: ''
@@ -91,6 +93,7 @@ content:
       autoplay: false
       loop: false
       multiple_file_display_type: tags
+      playsinline: false
       muted: false
       width: 1600
       height: 900

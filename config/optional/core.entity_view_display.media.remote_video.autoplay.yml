@@ -1,4 +1,3 @@
-uuid: 2a2d69aa-68e0-45ef-9a01-043fea733fc0
 langcode: en
 status: true
 dependencies:
@@ -10,7 +9,6 @@ dependencies:
     - field.field.media.remote_video.field_provider
     - media.type.remote_video
   module:
-    - drimage
     - ds
     - layout_builder
     - varbase_media
@@ -34,67 +32,14 @@ third_party_settings:
     regions:
       ds_content:
         - field_media_oembed_video
-        - thumbnail
-        - field_media_cover_image
   layout_builder:
     enabled: false
     allow_custom: false
-_core:
-  default_config_hash: mcCvfv8mgMkPgcshq1eYfDPMjxPeXdWtGYc28aCJlTU
 id: media.remote_video.autoplay
 targetEntityType: media
 bundle: remote_video
 mode: autoplay
 content:
-  field_media_cover_image:
-    type: drimage
-    label: hidden
-    settings:
-      image_link: ''
-      image_handling: aspect_ratio
-      aspect_ratio:
-        width: '16'
-        height: '9'
-      background:
-        attachment: scroll
-        position: 'center center'
-        size: cover
-      iwc:
-        image_style: null
-      image_style: ''
-      image_loading:
-        attribute: lazy
-    third_party_settings:
-      ds:
-        ft:
-          id: expert
-          settings:
-            lb: ''
-            lbw: false
-            lbw-el: ''
-            lbw-cl: ''
-            lbw-at: ''
-            lb-col: false
-            ow: true
-            ow-el: ''
-            ow-cl: 'media-cover-image video-player-icon js-video-player-icon'
-            ow-at: ''
-            ow-def-at: true
-            ow-def-cl: true
-            fis: false
-            fis-el: ''
-            fis-cl: ''
-            fis-at: ''
-            fis-def-at: false
-            fi: false
-            fi-el: ''
-            fi-cl: ''
-            fi-at: ''
-            fi-def-at: false
-            prefix: ''
-            suffix: ''
-    weight: 2
-    region: ds_content
   field_media_oembed_video:
     type: varbase_oembed
     label: hidden
@@ -132,60 +77,13 @@ content:
             suffix: ''
     weight: 0
     region: ds_content
-  thumbnail:
-    type: drimage
-    label: hidden
-    settings:
-      image_link: ''
-      image_handling: aspect_ratio
-      aspect_ratio:
-        width: '16'
-        height: '9'
-      background:
-        attachment: scroll
-        position: 'center center'
-        size: cover
-      iwc:
-        image_style: null
-      image_style: ''
-      image_loading:
-        attribute: lazy
-    third_party_settings:
-      ds:
-        ft:
-          id: expert
-          settings:
-            lb: ''
-            lbw: false
-            lbw-el: ''
-            lbw-cl: ''
-            lbw-at: ''
-            lb-col: false
-            ow: true
-            ow-el: ''
-            ow-cl: 'media-cover-image video-player-icon js-video-player-icon'
-            ow-at: ''
-            ow-def-at: true
-            ow-def-cl: true
-            fis: false
-            fis-el: ''
-            fis-cl: ''
-            fis-at: ''
-            fis-def-at: false
-            fi: false
-            fi-el: ''
-            fi-cl: ''
-            fi-at: ''
-            fi-def-at: false
-            prefix: ''
-            suffix: ''
-    weight: 1
-    region: ds_content
 hidden:
   created: true
+  field_media_cover_image: true
   field_media_in_library: true
   field_provider: true
   langcode: true
   name: true
   search_api_excerpt: true
+  thumbnail: true
   uid: true

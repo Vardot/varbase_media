@@ -12,7 +12,6 @@ dependencies:
     - drimage
     - ds
     - layout_builder
-    - varbase_media
 third_party_settings:
   ds:
     layout:
@@ -32,7 +31,6 @@ third_party_settings:
         label: ''
     regions:
       ds_content:
-        - field_media_oembed_video
         - thumbnail
         - field_media_cover_image
   layout_builder:
@@ -50,17 +48,17 @@ content:
       image_link: ''
       image_handling: aspect_ratio
       aspect_ratio:
-        width: '16'
-        height: '9'
+        width: '2'
+        height: '1'
       background:
         attachment: scroll
         position: 'center center'
         size: cover
+      image_loading:
+        attribute: lazy
       iwc:
         image_style: null
       image_style: ''
-      image_loading:
-        attribute: lazy
     third_party_settings:
       ds:
         ft:
@@ -90,7 +88,7 @@ content:
             fi-def-at: false
             prefix: ''
             suffix: ''
-    weight: 2
+    weight: 1
     region: ds_content
   thumbnail:
     type: drimage
@@ -139,7 +137,7 @@ content:
             fi-def-at: false
             prefix: ''
             suffix: ''
-    weight: 1
+    weight: 0
     region: ds_content
 hidden:
   created: true
