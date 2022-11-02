@@ -43,6 +43,9 @@ function varbase_media_install() {
     }
   }
 
+  // Import custom changes over media, media browser, and media library views. 
+  ModuleInstallerFactory::importConfigsFromScanedDirectory('varbase_media', '/^views.view.*\\.(yml)$/i');
+
   // Configure Entity Embed buttons.
   ModuleInstallerFactory::importConfigsFromScanedDirectory('varbase_media', '/^embed.button.*\\.(yml)$/i');
 
