@@ -8,6 +8,7 @@ dependencies:
     - field.field.media.video.field_media_video_file
     - media.type.video
   module:
+    - blazy
     - ds
     - file
     - layout_builder
@@ -28,16 +29,20 @@ content:
       autoplay: true
       loop: true
       multiple_file_display_type: tags
-      playsinline: false
+      playsinline: true
       muted: true
       width: 1600
       height: 900
     third_party_settings:
       ds:
         ft:
-          id: reset
+          id: default
           settings:
             lb: ''
+            lb-col: false
+            classes: {  }
+      blazy:
+        blazy: false
     weight: 0
     region: content
 hidden:

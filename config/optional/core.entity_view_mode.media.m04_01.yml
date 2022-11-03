@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.m04_01
+label: 'Media 4:1'
+targetEntityType: media
+cache: true

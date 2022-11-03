@@ -20,15 +20,17 @@ content:
     label: hidden
     settings:
       image_style: field_preview
-      image_link: ""
+      image_link: ''
+      image_loading:
+        attribute: lazy
     third_party_settings:
       ds:
         ft:
           id: default
           settings:
-            lb: ""
+            lb: ''
             lb-col: false
-            classes: {}
+            classes: {  }
     type: image
     region: content
   name:
@@ -43,9 +45,9 @@ content:
         ft:
           id: default
           settings:
-            lb: ""
+            lb: ''
             lb-col: false
-            classes: {}
+            classes: {  }
 hidden:
   created: true
   field_media_in_library: true

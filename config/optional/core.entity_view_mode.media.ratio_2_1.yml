@@ -1,9 +1,0 @@
-langcode: en
-status: true
-dependencies:
-  module:
-    - media
-id: media.ratio_2_1
-label: 'Ratio 2:1'
-targetEntityType: media
-cache: true

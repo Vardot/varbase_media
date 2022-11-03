@@ -6,10 +6,11 @@ dependencies:
     - field.field.media.video.field_media_cover_image
     - field.field.media.video.field_media_in_library
     - field.field.media.video.field_media_video_file
+    - image.style.medium
     - media.type.video
   module:
-    - drimage
     - ds
+    - image
 third_party_settings:
   ds:
     layout:
@@ -38,21 +39,11 @@ bundle: video
 mode: browser_teaser
 content:
   field_media_cover_image:
-    type: drimage
+    type: image
     label: hidden
     settings:
       image_link: ''
-      image_handling: aspect_ratio
-      aspect_ratio:
-        width: '1'
-        height: '1'
-      background:
-        attachment: scroll
-        position: 'center center'
-        size: cover
-      iwc:
-        image_style: null
-      image_style: ''
+      image_style: medium
       image_loading:
         attribute: lazy
     third_party_settings:
@@ -95,21 +86,11 @@ content:
     weight: 2
     region: ds_content
   thumbnail:
-    type: drimage
+    type: image
     label: hidden
     settings:
       image_link: ''
-      image_handling: aspect_ratio
-      aspect_ratio:
-        width: '1'
-        height: '1'
-      background:
-        attachment: scroll
-        position: 'center center'
-        size: cover
-      iwc:
-        image_style: null
-      image_style: ''
+      image_style: medium
       image_loading:
         attribute: lazy
     third_party_settings:

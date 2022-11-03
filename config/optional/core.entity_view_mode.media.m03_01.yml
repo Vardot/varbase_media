@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.m03_01
+label: 'Media 3:1'
+targetEntityType: media
+cache: true

@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.i21_09
+label: 'Image 21:9'
+targetEntityType: media
+cache: true

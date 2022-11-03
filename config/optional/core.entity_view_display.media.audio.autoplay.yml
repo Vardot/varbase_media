@@ -1,4 +1,3 @@
-uuid: ec6f500a-3758-417f-ac0c-eaf85b5a6665
 langcode: en
 status: true
 dependencies:
@@ -15,8 +14,6 @@ third_party_settings:
   layout_builder:
     enabled: false
     allow_custom: false
-_core:
-  default_config_hash: QBezIyx7sl1cs7UCV-TnX85UHr4WuupjXU3lx3K5YCQ
 id: media.audio.autoplay
 targetEntityType: media
 bundle: audio

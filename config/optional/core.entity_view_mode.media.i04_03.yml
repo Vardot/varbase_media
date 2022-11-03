@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.i04_03
+label: 'Image 4:3'
+targetEntityType: media
+cache: true

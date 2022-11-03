@@ -1,4 +1,3 @@
-uuid: 9dd08c6e-50a9-4c1b-ade8-1b1980887cc7
 langcode: en
 status: true
 dependencies:
@@ -15,8 +14,6 @@ third_party_settings:
   layout_builder:
     enabled: false
     allow_custom: false
-_core:
-  default_config_hash: QBezIyx7sl1cs7UCV-TnX85UHr4WuupjXU3lx3K5YCQ
 id: media.audio.looping
 targetEntityType: media
 bundle: audio

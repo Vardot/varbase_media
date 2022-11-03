@@ -99,7 +99,7 @@ content:
       autoplay: false
       loop: true
       multiple_file_display_type: tags
-      playsinline: false
+      playsinline: true
       muted: false
       width: 1600
       height: 900

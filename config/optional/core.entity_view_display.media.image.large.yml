@@ -27,17 +27,40 @@ content:
         attachment: scroll
         position: 'center center'
         size: cover
+      image_loading:
+        attribute: lazy
       iwc:
         image_style: null
       image_style: ''
     third_party_settings:
       ds:
         ft:
-          id: default
+          id: expert
           settings:
             lb: ''
+            lbw: false
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
             lb-col: false
-            classes: {  }
+            ow: true
+            ow-el: ''
+            ow-cl: w-100
+            ow-at: ''
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fis-def-at: false
+            fi: false
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            fi-def-at: false
+            prefix: ''
+            suffix: ''
     weight: 0
     region: content
 hidden:

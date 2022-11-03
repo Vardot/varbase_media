@@ -7,10 +7,11 @@ dependencies:
     - field.field.media.remote_video.field_media_in_library
     - field.field.media.remote_video.field_media_oembed_video
     - field.field.media.remote_video.field_provider
+    - image.style.medium
     - media.type.remote_video
   module:
-    - drimage
     - ds
+    - image
 third_party_settings:
   ds:
     layout:
@@ -30,8 +31,8 @@ third_party_settings:
         label: ''
     regions:
       ds_content:
-        - field_media_cover_image
         - thumbnail
+        - field_media_cover_image
         - name
 id: media.remote_video.browser_teaser
 targetEntityType: media
@@ -39,21 +40,13 @@ bundle: remote_video
 mode: browser_teaser
 content:
   field_media_cover_image:
-    type: drimage
+    type: image
     label: hidden
     settings:
       image_link: ''
-      image_handling: aspect_ratio
-      aspect_ratio:
-        width: '1'
-        height: '1'
-      background:
-        attachment: scroll
-        position: 'center center'
-        size: cover
-      iwc:
-        image_style: null
-      image_style: ''
+      image_style: medium
+      image_loading:
+        attribute: lazy
     third_party_settings:
       ds:
         ft:
@@ -101,21 +94,13 @@ content:
     weight: 2
     region: ds_content
   thumbnail:
-    type: drimage
+    type: image
     label: hidden
     settings:
       image_link: ''
-      image_handling: aspect_ratio
-      aspect_ratio:
-        width: '1'
-        height: '1'
-      background:
-        attachment: scroll
-        position: 'center center'
-        size: cover
-      iwc:
-        image_style: null
-      image_style: ''
+      image_style: medium
+      image_loading:
+        attribute: lazy
     third_party_settings:
       ds:
         ft:

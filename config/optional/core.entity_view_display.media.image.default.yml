@@ -18,7 +18,7 @@ content:
     label: hidden
     settings:
       image_link: ''
-      image_handling: aspect_ratio
+      image_handling: scale
       aspect_ratio:
         width: '1'
         height: '1'
@@ -26,10 +26,10 @@ content:
         attachment: scroll
         position: 'center center'
         size: cover
-      iwc:
-        image_style: null
       image_loading:
         attribute: lazy
+      iwc:
+        image_style: null
       image_style: ''
     third_party_settings:
       ds:

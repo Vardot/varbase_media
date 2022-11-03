@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.autoloop
+label: Autoloop
+targetEntityType: media
+cache: true

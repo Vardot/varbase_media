@@ -29,9 +29,11 @@ content:
         width: '1'
         height: '1'
       background:
-        attachment: scroll
-        position: 'center center'
+        position: ''
         size: cover
+        attachment: null
+      image_loading:
+        attribute: lazy
       iwc:
         image_style: null
       image_style: ''

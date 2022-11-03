@@ -7,6 +7,7 @@ dependencies:
     - field.field.media.video.field_media_video_file
     - media.type.video
   module:
+    - blazy
     - drimage
     - ds
     - file
@@ -93,7 +94,7 @@ content:
       autoplay: false
       loop: false
       multiple_file_display_type: tags
-      playsinline: false
+      playsinline: true
       muted: false
       width: 1600
       height: 900
@@ -126,6 +127,8 @@ content:
             fi-def-at: false
             prefix: ''
             suffix: ''
+      blazy:
+        blazy: false
     weight: 0
     region: ds_content
 hidden:

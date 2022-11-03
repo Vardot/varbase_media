@@ -1,4 +1,3 @@
-
 langcode: en
 status: true
 dependencies:
@@ -96,13 +95,11 @@ content:
       autoplay: false
       loop: false
       multiple_file_display_type: tags
-      playsinline: false
+      playsinline: true
       muted: false
       width: 700
       height: 394
     third_party_settings:
-      blazy:
-        blazy: true
       ds:
         ft:
           id: expert
@@ -131,6 +128,8 @@ content:
             fi-def-at: false
             prefix: ''
             suffix: ''
+      blazy:
+        blazy: false
     weight: 0
     region: ds_content
 hidden:

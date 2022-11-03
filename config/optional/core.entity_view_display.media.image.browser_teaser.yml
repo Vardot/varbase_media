@@ -5,39 +5,42 @@ dependencies:
     - core.entity_view_mode.media.browser_teaser
     - field.field.media.image.field_media_image
     - field.field.media.image.field_media_in_library
-    - image.style.d03_traditional
+    - image.style.medium
     - media.type.image
   module:
     - ds
+    - image
 id: media.image.browser_teaser
 targetEntityType: media
 bundle: image
 mode: browser_teaser
 content:
   field_media_image:
-    weight: 0
+    type: image
     label: hidden
     settings:
-      image_style: d03_traditional
-      image_link: ""
+      image_link: ''
+      image_style: medium
+      image_loading:
+        attribute: lazy
     third_party_settings:
       ds:
         ft:
           id: default
           settings:
-            lb: ""
+            lb: ''
             lb-col: false
-            classes: {}
-    type: image
+            classes: {  }
+    weight: 0
     region: content
   name:
     type: string
-    weight: 1
-    region: content
     label: hidden
     settings:
       link_to_entity: false
-    third_party_settings: {}
+    third_party_settings: {  }
+    weight: 1
+    region: content
 hidden:
   created: true
   field_media_in_library: true

@@ -14,14 +14,16 @@ dependencies:
 third_party_settings:
   ds:
     layout:
-      id: layout_onecol
-      library: layout_discovery/onecol
+      id: ds_1col
+      library: null
       disable_css: false
       entity_classes: all_classes
       settings:
+        wrappers:
+          ds_content: div
         label: ''
     regions:
-      content:
+      ds_content:
         - thumbnail
         - field_media_cover_image
         - name
@@ -68,7 +70,7 @@ content:
             prefix: ''
             suffix: ''
     weight: 1
-    region: content
+    region: ds_content
   name:
     type: string
     label: hidden
@@ -104,7 +106,7 @@ content:
             prefix: ''
             suffix: ''
     weight: 2
-    region: content
+    region: ds_content
   thumbnail:
     type: image
     label: hidden
@@ -143,7 +145,7 @@ content:
             prefix: ''
             suffix: ''
     weight: 0
-    region: content
+    region: ds_content
 hidden:
   created: true
   field_media_in_library: true
