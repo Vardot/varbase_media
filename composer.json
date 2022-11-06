@@ -50,7 +50,7 @@
     "drupal/media_library_edit": "~3.0",
     "drupal/media_revisions_ui": "~2.0",
     "drupal/crop": "~2.0",
-    "drupal/focal_point": "~1.0",
+    "drupal/focal_point": "~2.0",
     "drupal/imagemagick": "~3.0",
     "drupal/imageapi_optimize": "~4.0",
     "drupal/blazy": "~2.0",
