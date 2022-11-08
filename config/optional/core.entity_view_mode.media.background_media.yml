@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.background_media
+label: "Background media"
+targetEntityType: media
+cache: true
