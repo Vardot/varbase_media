@@ -1,9 +1,0 @@
-langcode: en
-status: true
-dependencies:
-  module:
-    - media
-id: media.i03_01
-label: 'Image 3:1'
-targetEntityType: media
-cache: true

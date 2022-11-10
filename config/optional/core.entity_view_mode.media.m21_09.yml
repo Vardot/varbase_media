@@ -1,9 +1,0 @@
-langcode: en
-status: true
-dependencies:
-  module:
-    - media
-id: media.m21_09
-label: 'Media 21:9'
-targetEntityType: media
-cache: true

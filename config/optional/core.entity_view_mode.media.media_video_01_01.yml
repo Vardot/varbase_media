@@ -1,0 +1,10 @@
+uuid: 08ab0672-1593-4213-bf7a-5b43381c665f
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.media_video_01_01
+label: 'Media Video 1:1'
+targetEntityType: media
+cache: true

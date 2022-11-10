@@ -1,0 +1,57 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.media_04_03
+    - field.field.media.image.field_media_image
+    - field.field.media.image.field_media_in_library
+    - media.type.image
+  module:
+    - drimage
+    - ds
+    - layout_builder
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: media.image.media_04_03
+targetEntityType: media
+bundle: image
+mode: media_04_03
+content:
+  field_media_image:
+    type: drimage
+    label: hidden
+    settings:
+      image_link: ''
+      image_handling: aspect_ratio
+      aspect_ratio:
+        width: '4'
+        height: '3'
+      background:
+        attachment: scroll
+        position: 'center center'
+        size: cover
+      image_loading:
+        attribute: lazy
+      iwc:
+        image_style: null
+      image_style: ''
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    weight: 0
+    region: content
+hidden:
+  created: true
+  field_media_in_library: true
+  langcode: true
+  name: true
+  search_api_excerpt: true
+  thumbnail: true
+  uid: true

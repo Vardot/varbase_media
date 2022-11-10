@@ -1,9 +1,0 @@
-langcode: en
-status: true
-dependencies:
-  module:
-    - media
-id: media.i01_01
-label: 'Image 1:1'
-targetEntityType: media
-cache: true

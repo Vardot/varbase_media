@@ -1,9 +1,0 @@
-langcode: en
-status: true
-dependencies:
-  module:
-    - media
-id: media.m16_09
-label: 'Media 16:9'
-targetEntityType: media
-cache: true

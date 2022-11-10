@@ -1,0 +1,10 @@
+uuid: b912cc50-c45c-45d7-bee1-c0a42e80b31e
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.media_video_02_01
+label: 'Media Video 2:1'
+targetEntityType: media
+cache: true

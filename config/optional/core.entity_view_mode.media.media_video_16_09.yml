@@ -1,0 +1,10 @@
+uuid: 56b885ca-086c-4828-bca5-1a8f5fba34b1
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.media_video_16_09
+label: 'Media Video 16:9'
+targetEntityType: media
+cache: true

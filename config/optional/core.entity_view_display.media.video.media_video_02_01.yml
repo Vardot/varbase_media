@@ -1,0 +1,146 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.media_video_02_01
+    - field.field.media.video.field_media_cover_image
+    - field.field.media.video.field_media_in_library
+    - field.field.media.video.field_media_video_file
+    - media.type.video
+  module:
+    - blazy
+    - drimage
+    - ds
+    - file
+    - layout_builder
+third_party_settings:
+  ds:
+    layout:
+      id: ds_1col
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        classes:
+          layout_class: {  }
+        wrappers:
+          ds_content: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+        label: ''
+    regions:
+      ds_content:
+        - field_media_video_file
+        - field_media_cover_image
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: media.video.media_video_02_01
+targetEntityType: media
+bundle: video
+mode: media_video_02_01
+content:
+  field_media_cover_image:
+    type: drimage
+    label: hidden
+    settings:
+      image_link: ''
+      image_handling: aspect_ratio
+      aspect_ratio:
+        width: '2'
+        height: '1'
+      background:
+        attachment: scroll
+        position: 'center center'
+        size: cover
+      image_loading:
+        attribute: lazy
+      iwc:
+        image_style: null
+      image_style: ''
+    third_party_settings:
+      ds:
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            lbw: false
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            lb-col: false
+            ow: true
+            ow-el: ''
+            ow-cl: 'media-cover-image video-player-icon'
+            ow-at: ''
+            ow-def-at: true
+            ow-def-cl: true
+            fis: false
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fis-def-at: false
+            fi: false
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            fi-def-at: false
+            prefix: ''
+            suffix: ''
+    weight: 1
+    region: ds_content
+  field_media_video_file:
+    type: file_video
+    label: hidden
+    settings:
+      controls: true
+      autoplay: false
+      loop: false
+      multiple_file_display_type: tags
+      playsinline: true
+      muted: false
+      width: 1800
+      height: 900
+    third_party_settings:
+      ds:
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            lbw: false
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            lb-col: false
+            ow: true
+            ow-el: ''
+            ow-cl: 'varbase-video-player ratio ratio-2x1'
+            ow-at: ''
+            ow-def-at: true
+            ow-def-cl: true
+            fis: false
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fis-def-at: false
+            fi: false
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            fi-def-at: false
+            prefix: ''
+            suffix: ''
+      blazy:
+        blazy: false
+    weight: 0
+    region: ds_content
+hidden:
+  created: true
+  field_media_in_library: true
+  langcode: true
+  name: true
+  search_api_excerpt: true
+  thumbnail: true
+  uid: true

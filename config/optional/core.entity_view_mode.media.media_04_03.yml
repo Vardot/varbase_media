@@ -1,0 +1,10 @@
+uuid: 616fed80-e24f-4239-9be4-309c8aadebab
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.media_04_03
+label: 'Media 4:3'
+targetEntityType: media
+cache: true

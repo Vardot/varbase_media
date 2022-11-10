@@ -1,0 +1,10 @@
+uuid: 5cf63135-5c76-4589-8ea9-120df079be18
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.media_21_09
+label: 'Media 21:9'
+targetEntityType: media
+cache: true
