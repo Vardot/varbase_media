@@ -5,7 +5,7 @@ dependencies:
     - core.entity_view_mode.media.browser_teaser
     - field.field.media.gallery.field_media_gallery
     - field.field.media.gallery.field_media_in_library
-    - image.style.d01_square
+    - image.style.thumbnail
     - media.type.gallery
   module:
     - ds
@@ -13,13 +13,22 @@ dependencies:
 third_party_settings:
   ds:
     layout:
-      id: layout_onecol
-      library: layout_discovery/onecol
+      id: ds_1col
+      library: null
       disable_css: false
       entity_classes: all_classes
-      settings: {}
+      settings:
+        classes:
+          layout_class: {  }
+        wrappers:
+          ds_content: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+        label: ''
     regions:
-      content:
+      ds_content:
         - field_media_gallery
         - name
 id: media.gallery.browser_teaser
@@ -29,46 +38,46 @@ mode: browser_teaser
 content:
   field_media_gallery:
     type: media_thumbnail
-    weight: 0
-    region: content
     label: hidden
     settings:
-      image_style: d01_square
-      image_link: ""
+      image_link: ''
+      image_style: thumbnail
+      image_loading:
+        attribute: lazy
     third_party_settings:
       ds:
-        ds_limit: "4"
+        ds_limit: '4'
         ft:
           id: expert
           settings:
-            lb: ""
-            prefix: ""
-            lbw-el: ""
-            lbw-cl: ""
-            lbw-at: ""
-            ow: true
-            ow-el: ""
-            ow-cl: gallery-thumbnail
-            ow-at: ""
-            fis: true
-            fis-el: ""
-            fis-cl: field--name-thumbnail
-            fis-at: ""
-            fi-el: ""
-            fi-cl: ""
-            fi-at: ""
-            suffix: ""
+            lb: ''
             lbw: false
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
             lb-col: false
+            ow: true
+            ow-el: ''
+            ow-cl: gallery-thumbnail
+            ow-at: ''
             ow-def-at: false
             ow-def-cl: false
+            fis: true
+            fis-el: ''
+            fis-cl: field--name-thumbnail
+            fis-at: ''
             fis-def-at: false
             fi: false
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
             fi-def-at: false
+            prefix: ''
+            suffix: ''
+    weight: 0
+    region: ds_content
   name:
     type: string
-    weight: 1
-    region: content
     label: hidden
     settings:
       link_to_entity: false
@@ -77,9 +86,11 @@ content:
         ft:
           id: default
           settings:
-            lb: ""
+            lb: ''
             lb-col: false
-            classes: {}
+            classes: {  }
+    weight: 1
+    region: ds_content
 hidden:
   created: true
   field_media_in_library: true

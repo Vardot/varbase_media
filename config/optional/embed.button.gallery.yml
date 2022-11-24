@@ -1,3 +1,4 @@
+uuid: null
 langcode: en
 status: true
 dependencies:
@@ -15,12 +16,15 @@ type_settings:
   bundles:
     - gallery
   display_plugins:
-    - "view_mode:media.full"
+    - 'view_mode:media.full'
+  entity_browser: ''
+  entity_browser_settings:
+    display_review: true
   inline_entity_form: true
   inline_entity_form_settings:
     entity_form_display: editor
     display_review: false
-  entity_browser: ""
-  entity_browser_settings:
-    display_review: true
+icon:
+  uri: 'public://embed-gallery.png'
+  data: iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAAEEfUpiAAAABGdBTUEAALGPC/xhBQAAAYRpQ0NQSUNDIHByb2ZpbGUAACiRfZE9SMNAHMVfW6VVKgp2EBHJUJ0siIo4ahWKUCHUCq06mFz6BU0akhQXR8G14ODHYtXBxVlXB1dBEPwAcXF1UnSREv+XFFrEeHDcj3f3HnfvAH+9zFSzYxxQNctIJeJCJrsqBF8RQj+60IdhiZn6nCgm4Tm+7uHj612MZ3mf+3P0KDmTAT6BeJbphkW8QTy9aemc94kjrCgpxOfEYwZdkPiR67LLb5wLDvt5ZsRIp+aJI8RCoY3lNmZFQyWeIo4qqkb5/ozLCuctzmq5ypr35C8M57SVZa7THEICi1iCCAEyqiihDAsxWjVSTKRoP+7hH3T8IrlkcpXAyLGAClRIjh/8D353a+YnJ9ykcBzofLHtjxEguAs0arb9fWzbjRMg8AxcaS1/pQ7MfJJea2nRI6B3G7i4bmnyHnC5Aww86ZIhOVKApj+fB97P6JuyQP8t0L3m9tbcx+kDkKaukjfAwSEwWqDsdY93h9p7+/dMs78fNJhyjvdzlkUAAAAGYktHRAAAAAAAAPlDu38AAAAJcEhZcwAADdcAAA3XAUIom3gAAAAHdElNRQfjCBMJEgq5KNJ+AAADf0lEQVRYw8WXTWgkRRTHf9XdO+k4mXSS2fQjusQPWEQPoi4Mgsc1IIo3wZN4CR7Xg2KWBU8RQcWLIPEmyyIeFPHjGtyDBw+CCnrzoIgoPZMeAskuJjPdby/VQ9np+cqO7h+K6ap69ep9vxqowDl34tlfFZEfAUyxEMcxxhgqsVPFY4AAYG5uThuNBr7v3zxxbRmew1eBg/IIgD1g3RK+UJwUkU+TJKm7gqqIHHAabFasbQ/V00E20NvCvb9mD6vLoSEiC0ADeAfIC+s/U+bt+/5clmWfuSKoVVM9z1MRURFRQI1jmANLOECapg1jffEt0JnAJPfYMUDB4GngGLg4hsGjwE/2+yU3CDfLgTQE266NhzlCp/CyFo66D4iBlp23rOG+6/V6b3W73a/t+t2juO2UJVhfX192CUTkUEQ0juOCRqvySkVkF3iqpNYJ2jRNqWLwKv8njBXv+wnpLwD+7bgtq6wzFlcnlPgq8CXweVmCZAoJJioJUxnRWAkeAv4CekPoF4BDW1IAoqCC6HXg/REqNKwKN0aqICK/2qrCJLW7BZwBHgfuBVq9Xu8LoG/3Wk6inXDjs8BZa4cmUAfOdrvd68B1uwdAHMcdY8zFJKl2WAKsAJecAxvO94tFsYyiaBe4DIRmWEQWTfD4+Jj9/X3iOP7Xbf1+/+c0TVteyaVNz/O2RORG0UFrtRpxHB+d0D0IzlOR4ysi8jdwNLaWqdbb7Xa9HAc3kyS5MkUg9grLX/uPykUGPDeO6Jx1wOaML9+uKh/DAvmOIRjSXV4G/rhN3ktWwd+c1vcm8MY4AbAvr/tn4IIrDp9sUgu4mLdSnwZP2jR7z8nTDeAuh2arKgh3nO6wYvcuzSAIM6eTXLZ8w+A0qq2trV3I8/xtY0xfVV9LkuSXWQbh2C6W5/k3wKKqAjwy7s00aR2Yahhj1BgzkiYIgmx1dfWxUS7wgD9tgBTjQ6Dt9CeAV0o0RlWNqpryejFE5JNms3nked4PInIYhqGZxgWeTZ8lO2+6aRlF0fkwDK8BS1mWfbS3t/du8bciiqIHwjD8qhTt9SiKWFxc3FLVhU6n03ZbWBlPAA8WB4EPgI+B3eXl5edrtdqG8yoZtEdVPczz/Hff9x+u2C93sl632z3T7/fnzZj4WAHSOI7bxphFIJxRBf4nTdNwYgF83595D8jzHFWdv9O9iFvMER3r/h9hygAAAABJRU5ErkJggg==
 icon_uuid: 8c288b2b-e69b-439a-a4fa-fe2c582d2ef4

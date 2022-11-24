@@ -8,34 +8,51 @@ dependencies:
     - media.type.file
   module:
     - file
+    - scheduler_content_moderation_integration
 id: media.file.bulk_upload
 targetEntityType: media
 bundle: file
 mode: bulk_upload
 content:
   field_media_file:
-    settings:
-      progress_indicator: throbber
-    third_party_settings: {}
     type: file_generic
     weight: 0
     region: content
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
   field_media_in_library:
     type: boolean_checkbox
     weight: 1
     region: content
     settings:
       display_label: true
-    third_party_settings: {}
+    third_party_settings: {  }
+  publish_state:
+    type: scheduler_moderation
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   status:
     type: boolean_checkbox
-    settings:
-      display_label: true
     weight: 2
     region: content
-    third_party_settings: {}
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  unpublish_state:
+    type: scheduler_moderation
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   created: true
+  langcode: true
   name: true
   path: true
+  publish_on: true
+  scheduler_settings: true
   uid: true
+  unpublish_on: true

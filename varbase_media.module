@@ -115,42 +115,6 @@ function varbase_media_preprocess_field(&$variables) {
     }
   }
 
-  // Add the Varbase Media Blazy Blurry behaviour.
-  $use_blazy_blurry = \Drupal::config('varbase_media.settings')->get('use_blazy_blurry');
-  if (isset($use_blazy_blurry) && $use_blazy_blurry === TRUE) {
-
-    if (!empty($variables['items'])) {
-      foreach ($variables['items'] as &$item) {
-        if (!empty($item['content']['#theme'])
-          && $item['content']['#theme'] === 'blazy') {
-
-          $entity = $variables['element']['#object'];
-          $view_mode = $variables['element']['#view_mode'];
-          $field_name = $variables['element']['#field_name'];
-
-          $entity_display = EntityViewDisplay::collectRenderDisplay($entity, $view_mode);
-          $field_display = $entity_display->getComponent($field_name);
-
-          $build_item = $item['content']['#build']['item'];
-          $value = $build_item->getValue();
-          $file = File::load($value['target_id']);
-          $value['_attributes']['uri'] = $file->getFileUri();
-
-          if (isset($item['content']['#build'])
-            && isset($item['content']['#build']['settings'])
-            && isset($item['content']['#build']['settings']['responsive_image_style'])) {
-            $value['_attributes']['responsive_image_style'] = $item['content']['#build']['settings']['responsive_image_style'];
-          }
-
-          if (!empty($item['content']['#image_style'])) {
-            $value['_attributes']['image_style'] = $item['content']['#image_style'];
-          }
-
-          $build_item->setValue($value);
-        }
-      }
-    }
-  }
 }
 
 /**
@@ -439,17 +403,6 @@ function varbase_media_entity_view_alter(array &$build, EntityInterface $entity,
       $build['#attached']['library'][] = 'varbase_media/common_logged';
     }
 
-    if (Drupal::service('module_handler')->moduleExists('blazy')) {
-      // Attach the Blazy load library.
-      $build['#attached']['library'][] = 'blazy/load';
-
-      // Add the Varbase Media Blazy Blurry behaviour.
-      $use_blazy_blurry = \Drupal::config('varbase_media.settings')->get('use_blazy_blurry');
-      if (isset($use_blazy_blurry) && $use_blazy_blurry === TRUE) {
-        $build['#attached']['library'][] = 'varbase_media/blazy_blurry';
-      }
-    }
-
     if (isset($build['field_media_cover_image'])
       && isset($build['field_media_cover_image']['#items'])) {
 
@@ -542,12 +495,6 @@ function varbase_media_form_alter(&$form, &$form_state, $form_id) {
 
     // Attach the varbase media common library.
     $form['#attached']['library'][] = 'varbase_media/common';
-
-    // Add the Varbase Media Blazy Blurry behaviour.
-    $use_blazy_blurry = \Drupal::config('varbase_media.settings')->get('use_blazy_blurry');
-    if (isset($use_blazy_blurry) && $use_blazy_blurry === TRUE) {
-      $form['#attached']['library'][] = 'varbase_media/blazy_blurry';
-    }
 
     if (!(\Drupal::currentUser()->isAnonymous())) {
       // Attached the varbase media common logged in users library.
@@ -808,80 +755,13 @@ function varbase_media_entity_embed_alter(array &$build, EntityInterface $entity
 }
 
 /**
- * Implements hook_preprocess_image().
- */
-function varbase_media_preprocess_image(&$variables) {
-
-  // Add the Varbase Media Blazy Blurry behaviour.
-  $use_blazy_blurry = \Drupal::config('varbase_media.settings')->get('use_blazy_blurry');
-  if (isset($use_blazy_blurry) && $use_blazy_blurry === TRUE) {
-
-    if (!empty($variables['attributes']['class'])
-      && !empty($variables['attributes']['uri'])) {
-
-      $uri = $variables['attributes']['uri'];
-      $current_uri_with_style = $uri;
-
-      if (!empty($variables['attributes']['responsive_image_style'])) {
-        $responsive_image_style = ResponsiveImageStyle::load($variables['attributes']['responsive_image_style']);
-        // Create Uri from the fallback image style.
-        $fallback_image_style_name = $responsive_image_style->getFallbackImageStyle();
-        $fallback_image_style = ImageStyle::load($fallback_image_style_name);
-
-        // Set up derivative file information.
-        $current_uri_with_style = $fallback_image_style->buildUri($uri);
-
-        // Create responsive image style derivative if necessary.
-        if (!file_exists($current_uri_with_style)) {
-          $fallback_image_style->createDerivative($uri, $current_uri_with_style);
-        }
-      }
-      elseif (!empty($variables['attributes']['image_style'])) {
-        $image_style = ImageStyle::load($variables['attributes']['image_style']);
-
-        // Set up derivative file information.
-        $current_uri_with_style = $image_style->buildUri($uri);
-
-        // Create image style derivative if necessary.
-        if (!file_exists($current_uri_with_style)) {
-          $image_style->createDerivative($uri, $current_uri_with_style);
-        }
-      }
-
-      $image_style_blazy_blurry = ImageStyle::load('blazy_blurry');
-      // Set up derivative file information.
-      $blazy_blurry_image = $image_style_blazy_blurry->buildUri($current_uri_with_style);
-
-      // Create Blazy Blurry derivative if necessary.
-      if (!file_exists($blazy_blurry_image)) {
-        $image_style_blazy_blurry->createDerivative($current_uri_with_style, $blazy_blurry_image);
-      }
-
-      if (file_exists($blazy_blurry_image)) {
-
-        // Encode the image in base64 to speed up loading times.
-        $file_type = mime_content_type($blazy_blurry_image);
-        $blazy_blurry_image_base64 = 'data:' . $file_type . ';base64,' . base64_encode(file_get_contents($blazy_blurry_image));
-
-        // Update the placeholder URI.
-        $variables['attributes']['src'] = $blazy_blurry_image_base64;
-
-        unset($variables['attributes']['responsive_image_style']);
-        unset($variables['attributes']['image_style']);
-        unset($variables['attributes']['uri']);
-      }
-    }
-  }
-}
-
-/**
  * Implements hook_oembed_resource_url_alter().
  */
 function varbase_media_oembed_resource_url_alter(array &$parsed_url, Provider $provider) {
   // Process arguments for vimeo videos to be included in oEmbed.
   if ($provider->getName() == 'Vimeo') {
     $url = $parsed_url['query']['url'];
-    // Use '/&' as a seporator between arguments.
+    // Use '/&' as a separator between arguments.
     $url = str_replace('&', '/&', $url);
     $url = str_replace('?', '/&', $url);
     $parsed_url['query']['url'] = $url;
@@ -894,11 +774,5 @@ function varbase_media_oembed_resource_url_alter(array &$parsed_url, Provider $p
 function varbase_media_library_info_alter(array &$libraries, $module) {
   if ($module === 'media_library' && isset($libraries['widget'])) {
     $libraries['widget']['dependencies'][] = 'varbase_media/media_library_enhancements';
-  }
-  elseif ($module == 'blazy' && isset($libraries['loading'])) {
-    $use_blazy_blurry = \Drupal::config('varbase_media.settings')->get('use_blazy_blurry');
-    if (isset($use_blazy_blurry) && $use_blazy_blurry === TRUE) {
-      unset($libraries['loading']['css']['component']['css/components/blazy.loading.css']);
-    }
   }
 }

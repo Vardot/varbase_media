@@ -1,3 +1,4 @@
+uuid: null
 langcode: en
 status: true
 dependencies:
@@ -15,7 +16,7 @@ dependencies:
   module:
     - entity_embed
     - media
-label: "Media Library"
+label: 'Media Library'
 id: media
 type_id: entity
 type_settings:
@@ -27,15 +28,18 @@ type_settings:
     - remote_video
     - video
   display_plugins:
-    - "view_mode:media.large"
-    - "view_mode:media.medium"
-    - "view_mode:media.original"
-    - "view_mode:media.small"
-  inline_entity_form: false
-  inline_entity_form_settings:
-    entity_form_display: default
-    display_review: flase
+    - 'view_mode:media.large'
+    - 'view_mode:media.medium'
+    - 'view_mode:media.original'
+    - 'view_mode:media.small'
   entity_browser: editor_media_browser
   entity_browser_settings:
     display_review: false
+  inline_entity_form: false
+  inline_entity_form_settings:
+    entity_form_display: default
+    display_review: true
+icon:
+  uri: 'public://embed-media.png'
+  data: iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAQAAADZc7J/AAACM0lEQVR42mNgoAYwuW/wRv8DIWjwzuSBuzhWA7T/6P4weUAI6n/Q/uMui9UArX8Whwm706FF66+7NHYD/lochbA8mJ2inRI8WLGpsu8kaIC7vMltrf9a/83PuHOSZYD1WpB2EHSoJcsAswswA2yWk2WAQw3UgH8ufmQZwMBgN8XwpeFrh2aEnLuwqxmSARJQUQ5XO/tWq80YBjAweLC5cyAbbnFQ97tTGtSAP+4SbrqOxVbbDV9q/dX6r/MLiwGowK4f5CWdn46lDAwO9Vr/jJ7q/IKFk9Z/vS8YBrhLO0citDvFaf2BKbadZzcRoRWHAU7RBm+0/lvu92AGG6ag/wFZufZvfAYcZmBwytL5CY3EFQwMHkymV9E1wOLI8LXVTsdC85OIMPhjftx2htY/hCK7aTYrsWj9a37avtvFBRLMVlu1f0MN0P2u/QeHbShQ95s7NyKErHbq/IZnZ2K0a/3X/oOckJAMMLtgehM31Pui9d/kPohldsFdFKsB+IHFIa3/bkqY4sQbcETrv5sOpQboYjEAEQukGeCmazvPapt9p/lpnZ/EhwHcAKdo3a8YKRE7cJd3yrFvdYo1u6j1D2aAuygosRNlgIsPIifo/IIZ4OKHkrBwG+DBZvIAoRBhgJsqLL+AoMFbnAa4GoIKDLgBvxFhYDsLOcfg9r8EIqi0/ut/cBdGKhtbTR7ofzS579CCNwht5yMMsNqJYYEwwcjzYLJZZPhS/6Pha8u9OMpi6gAAtanBp45Lz24AAAAASUVORK5CYII=
 icon_uuid: 0c8d8f34-e57a-46e7-a0f3-3da1c1d631f6

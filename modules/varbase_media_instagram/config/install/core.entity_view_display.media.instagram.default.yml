@@ -6,6 +6,7 @@ dependencies:
     - field.field.media.instagram.field_media_instagram
     - media.type.instagram
   module:
+    - empty_fields
     - media_entity_instagram
 id: media.instagram.default
 targetEntityType: media
@@ -13,14 +14,15 @@ bundle: instagram
 mode: default
 content:
   field_media_instagram:
-    weight: 0
+    type: instagram_embed
     label: hidden
     settings:
       max_width: 0
+      hidecaption: false
     third_party_settings:
       empty_fields:
-        handler: ""
-    type: instagram_embed
+        handler: ''
+    weight: 0
     region: content
 hidden:
   created: true

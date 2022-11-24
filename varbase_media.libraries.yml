@@ -53,11 +53,6 @@ vimeo_player:
   version: VERSION
   js:
     //player.vimeo.com/api/player.js: { type: external, minified: true }
-blazy_blurry:
-  version: VERSION
-  css:
-    theme:
-      css/theme/varbase-media-blazy-blurry.theme.css: {}
 media_library_enhancements:
   version: VERSION
   js:

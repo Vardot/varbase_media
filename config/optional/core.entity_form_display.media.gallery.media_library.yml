@@ -8,7 +8,11 @@ dependencies:
     - field.field.media.gallery.field_media_in_library
     - media.type.gallery
   module:
+    - advanced_text_formatter
     - entity_browser
+    - length_indicator
+    - maxlength
+    - scheduler_content_moderation_integration
 id: media.gallery.media_library
 targetEntityType: media
 bundle: gallery
@@ -21,32 +25,58 @@ content:
     settings:
       entity_browser: multiple_media_browser
       field_widget_display: rendered_entity
-      field_widget_display_settings:
-        view_mode: field_preview
       field_widget_edit: true
       field_widget_remove: true
-      open: true
-      selection_mode: selection_edit
       field_widget_replace: false
-    third_party_settings: {}
+      open: true
+      field_widget_display_settings:
+        view_mode: field_preview
+      selection_mode: selection_edit
+    third_party_settings: {  }
   field_media_in_library:
     type: boolean_checkbox
     weight: 2
     region: content
     settings:
       display_label: true
-    third_party_settings: {}
+    third_party_settings: {  }
   name:
     type: string_textfield
     weight: 0
     region: content
     settings:
       size: 60
-      placeholder: ""
-    third_party_settings: {}
+      placeholder: ''
+    third_party_settings:
+      length_indicator:
+        indicator: false
+        indicator_opt:
+          optimin: 10
+          optimax: 15
+          tolerance: 5
+      maxlength:
+        maxlength_js: null
+        maxlength_js_label: 'Content limited to @limit characters, remaining: <strong>@remaining</strong>'
+      advanced_text_formatter:
+        show_token_tree: 0
+  publish_state:
+    type: scheduler_moderation
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  unpublish_state:
+    type: scheduler_moderation
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   created: true
   langcode: true
   path: true
+  publish_on: true
+  scheduler_settings: true
   status: true
   uid: true
+  unpublish_on: true

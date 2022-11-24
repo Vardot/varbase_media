@@ -3,6 +3,7 @@ status: true
 dependencies:
   config:
     - core.entity_form_mode.media.editor
+    - field.field.media.remote_video.feeds_item
     - field.field.media.remote_video.field_media_cover_image
     - field.field.media.remote_video.field_media_in_library
     - field.field.media.remote_video.field_media_oembed_video
@@ -10,6 +11,7 @@ dependencies:
     - media.type.remote_video
   module:
     - media
+    - scheduler_content_moderation_integration
 id: media.remote_video.editor
 targetEntityType: media
 bundle: remote_video
@@ -18,19 +20,35 @@ content:
   field_media_oembed_video:
     type: oembed_textfield
     weight: 0
+    region: content
     settings:
       size: 60
-      placeholder: ""
-    third_party_settings: {}
+      placeholder: ''
+    third_party_settings: {  }
+  publish_state:
+    type: scheduler_moderation
+    weight: 30
     region: content
+    settings: {  }
+    third_party_settings: {  }
+  unpublish_state:
+    type: scheduler_moderation
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   created: true
+  feeds_item: true
   field_media_cover_image: true
   field_media_in_library: true
-  langcode: true
   field_provider: true
+  langcode: true
   name: true
   path: true
   preview: true
+  publish_on: true
+  scheduler_settings: true
   status: true
   uid: true
+  unpublish_on: true

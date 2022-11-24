@@ -3,6 +3,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.media.media_16_09
+    - field.field.media.remote_video.feeds_item
     - field.field.media.remote_video.field_media_cover_image
     - field.field.media.remote_video.field_media_in_library
     - field.field.media.remote_video.field_media_oembed_video
@@ -141,6 +142,7 @@ content:
     region: ds_content
 hidden:
   created: true
+  feeds_item: true
   field_media_in_library: true
   field_media_oembed_video: true
   field_provider: true

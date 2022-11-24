@@ -17,28 +17,30 @@ mode: field_preview
 content:
   name:
     type: string
-    weight: 1
-    region: content
     label: hidden
     settings:
       link_to_entity: false
-    third_party_settings: {}
+    third_party_settings: {  }
+    weight: 1
+    region: content
   thumbnail:
     type: image
-    weight: 0
-    region: content
     label: hidden
     settings:
+      image_link: ''
       image_style: field_preview
-      image_link: ""
+      image_loading:
+        attribute: lazy
     third_party_settings:
       ds:
         ft:
           id: default
           settings:
-            lb: ""
+            lb: ''
             lb-col: false
-            classes: {}
+            classes: {  }
+    weight: 0
+    region: content
 hidden:
   created: true
   field_media_in_library: true

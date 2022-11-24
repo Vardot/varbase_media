@@ -2,6 +2,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.media.remote_video.feeds_item
     - field.field.media.remote_video.field_media_cover_image
     - field.field.media.remote_video.field_media_in_library
     - field.field.media.remote_video.field_media_oembed_video
@@ -125,6 +126,7 @@ content:
     region: ds_content
 hidden:
   created: true
+  feeds_item: true
   field_media_in_library: true
   field_provider: true
   langcode: true

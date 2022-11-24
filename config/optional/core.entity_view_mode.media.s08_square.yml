@@ -1,9 +1,0 @@
-langcode: en
-status: true
-dependencies:
-  module:
-    - media
-id: media.s08_square
-label: "Size 08 square 1:1"
-targetEntityType: media
-cache: true

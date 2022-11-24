@@ -21,7 +21,6 @@ dependencies:
   - drupal:media
   - drupal:media_library
   - drupal:breakpoint
-  - drupal:responsive_image
   - drimage:drimage
   - ds:ds
   - ds:ds_extras

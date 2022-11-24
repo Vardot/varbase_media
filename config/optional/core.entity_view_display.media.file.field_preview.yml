@@ -8,6 +8,7 @@ dependencies:
     - image.style.field_preview
     - media.type.file
   module:
+    - ds
     - image
 id: media.file.field_preview
 targetEntityType: media
@@ -15,25 +16,35 @@ bundle: file
 mode: field_preview
 content:
   name:
-    label: hidden
     type: string
-    weight: 1
+    label: hidden
     settings:
       link_to_entity: false
-    third_party_settings: {}
+    third_party_settings: {  }
+    weight: 1
     region: content
   thumbnail:
     type: image
-    weight: 0
     label: hidden
     settings:
+      image_link: ''
       image_style: field_preview
-      image_link: ""
-    third_party_settings: {}
+      image_loading:
+        attribute: lazy
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    weight: 0
     region: content
 hidden:
   created: true
   field_media_file: true
   field_media_in_library: true
   langcode: true
+  search_api_excerpt: true
   uid: true

@@ -8,23 +8,39 @@ dependencies:
     - media.type.file
   module:
     - file
+    - scheduler_content_moderation_integration
 id: media.file.simplified
 targetEntityType: media
 bundle: file
 mode: simplified
 content:
   field_media_file:
-    settings:
-      progress_indicator: throbber
-    third_party_settings: {}
     type: file_generic
     weight: 0
     region: content
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+  publish_state:
+    type: scheduler_moderation
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  unpublish_state:
+    type: scheduler_moderation
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   created: true
   field_media_in_library: true
   langcode: true
   name: true
   path: true
+  publish_on: true
+  scheduler_settings: true
   status: true
   uid: true
+  unpublish_on: true
