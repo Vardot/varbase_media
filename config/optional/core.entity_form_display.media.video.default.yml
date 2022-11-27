@@ -13,7 +13,6 @@ dependencies:
     - focal_point
     - length_indicator
     - maxlength
-    - scheduler_content_moderation_integration
 id: media.video.default
 targetEntityType: media
 bundle: video

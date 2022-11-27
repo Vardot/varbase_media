@@ -8,7 +8,6 @@ dependencies:
     - media.type.instagram
   module:
     - media
-    - scheduler_content_moderation_integration
 id: media.instagram.simplified
 targetEntityType: media
 bundle: instagram

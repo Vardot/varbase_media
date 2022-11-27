@@ -8,11 +8,6 @@ dependencies:
     - media.type.audio
   module:
     - file
-    - layout_builder
-third_party_settings:
-  layout_builder:
-    allow_custom: false
-    enabled: false
 id: media.audio.original
 targetEntityType: media
 bundle: audio

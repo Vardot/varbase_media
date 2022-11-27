@@ -7,7 +7,6 @@ dependencies:
     - media.type.file
   module:
     - file
-    - scheduler_content_moderation_integration
 id: media.file.default
 targetEntityType: media
 bundle: file

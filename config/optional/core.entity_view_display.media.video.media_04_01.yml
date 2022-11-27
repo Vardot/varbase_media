@@ -10,7 +10,6 @@ dependencies:
   module:
     - drimage
     - ds
-    - layout_builder
 third_party_settings:
   ds:
     layout:
@@ -31,10 +30,6 @@ third_party_settings:
     regions:
       ds_content:
         - thumbnail
-        - field_media_cover_image
-  layout_builder:
-    enabled: false
-    allow_custom: false
 id: media.video.media_04_01
 targetEntityType: media
 bundle: video

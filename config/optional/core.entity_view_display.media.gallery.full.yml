@@ -6,7 +6,6 @@ dependencies:
     - field.field.media.gallery.field_media_gallery
     - field.field.media.gallery.field_media_in_library
     - media.type.gallery
-    - responsive_image.styles.de2e_standard
   module:
     - ds
     - slick
@@ -45,7 +44,7 @@ content:
       box_media_style: ''
       loading: ''
       preload: false
-      responsive_image_style: de2e_standard
+      responsive_image_style: ''
       box_style: ''
       image_style: ''
       media_switch: ''

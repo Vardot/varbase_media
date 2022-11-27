@@ -9,7 +9,6 @@ dependencies:
     - media.type.image
   module:
     - focal_point
-    - scheduler_content_moderation_integration
 id: media.image.entity_browser
 targetEntityType: media
 bundle: image

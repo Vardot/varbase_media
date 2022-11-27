@@ -6,15 +6,9 @@ dependencies:
     - field.field.media.gallery.field_media_gallery
     - field.field.media.gallery.field_media_in_library
     - media.type.gallery
-    - responsive_image.styles.de2e_standard
   module:
     - ds
-    - layout_builder
     - slick
-third_party_settings:
-  layout_builder:
-    allow_custom: false
-    enabled: false
 id: media.gallery.original
 targetEntityType: media
 bundle: gallery
@@ -32,13 +26,13 @@ content:
       skin: classic
       skin_thumbnail: ''
       image_style: ''
-      responsive_image_style: de2e_standard
+      responsive_image_style: ''
       thumbnail_effect: ''
       thumbnail_position: ''
       media_switch: ''
       thumbnail_style: ''
       ratio: ''
-      view_mode: se2e_standard
+      view_mode: media_video_16_09
       image: ''
       title: ''
       link: ''

@@ -11,7 +11,6 @@ dependencies:
     - file
     - length_indicator
     - maxlength
-    - scheduler_content_moderation_integration
 id: media.file.entity_browser
 targetEntityType: media
 bundle: file

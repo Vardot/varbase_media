@@ -12,7 +12,6 @@ dependencies:
     - focal_point
     - length_indicator
     - maxlength
-    - scheduler_content_moderation_integration
 id: media.image.media_library
 targetEntityType: media
 bundle: image

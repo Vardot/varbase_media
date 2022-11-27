@@ -13,7 +13,6 @@ dependencies:
   module:
     - focal_point
     - media
-    - scheduler_content_moderation_integration
 id: media.remote_video.media_library
 targetEntityType: media
 bundle: remote_video

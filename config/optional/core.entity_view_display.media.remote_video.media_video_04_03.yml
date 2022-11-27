@@ -3,7 +3,6 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.media.media_video_04_03
-    - field.field.media.remote_video.feeds_item
     - field.field.media.remote_video.field_media_cover_image
     - field.field.media.remote_video.field_media_in_library
     - field.field.media.remote_video.field_media_oembed_video
@@ -12,7 +11,6 @@ dependencies:
   module:
     - drimage
     - ds
-    - layout_builder
     - varbase_media
 third_party_settings:
   ds:
@@ -35,9 +33,6 @@ third_party_settings:
       ds_content:
         - field_media_oembed_video
         - field_media_cover_image
-  layout_builder:
-    enabled: false
-    allow_custom: false
 id: media.remote_video.media_video_04_03
 targetEntityType: media
 bundle: remote_video

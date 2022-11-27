@@ -10,7 +10,6 @@ dependencies:
     - advanced_text_formatter
     - length_indicator
     - maxlength
-    - scheduler_content_moderation_integration
 id: media.tweet.media_library
 targetEntityType: media
 bundle: tweet

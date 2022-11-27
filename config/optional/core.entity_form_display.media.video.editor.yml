@@ -9,7 +9,6 @@ dependencies:
     - media.type.video
   module:
     - file
-    - scheduler_content_moderation_integration
 id: media.video.editor
 targetEntityType: media
 bundle: video

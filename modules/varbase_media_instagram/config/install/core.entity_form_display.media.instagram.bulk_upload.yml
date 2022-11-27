@@ -6,8 +6,6 @@ dependencies:
     - field.field.media.instagram.field_media_in_library
     - field.field.media.instagram.field_media_instagram
     - media.type.instagram
-  module:
-    - scheduler_content_moderation_integration
 id: media.instagram.bulk_upload
 targetEntityType: media
 bundle: instagram

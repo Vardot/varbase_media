@@ -7,7 +7,6 @@ dependencies:
     - media.type.audio
   module:
     - file
-    - scheduler_content_moderation_integration
 id: media.audio.default
 targetEntityType: media
 bundle: audio

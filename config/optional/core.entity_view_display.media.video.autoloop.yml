@@ -8,10 +8,8 @@ dependencies:
     - field.field.media.video.field_media_video_file
     - media.type.video
   module:
-    - blazy
     - ds
     - file
-    - layout_builder
 third_party_settings:
   ds:
     layout:
@@ -32,9 +30,6 @@ third_party_settings:
     regions:
       ds_content:
         - field_media_video_file
-  layout_builder:
-    enabled: false
-    allow_custom: false
 id: media.video.autoloop
 targetEntityType: media
 bundle: video

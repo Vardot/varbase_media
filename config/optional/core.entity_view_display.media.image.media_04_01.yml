@@ -9,11 +9,6 @@ dependencies:
   module:
     - drimage
     - ds
-    - layout_builder
-third_party_settings:
-  layout_builder:
-    enabled: false
-    allow_custom: false
 id: media.image.media_04_01
 targetEntityType: media
 bundle: image

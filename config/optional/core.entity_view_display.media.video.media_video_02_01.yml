@@ -8,11 +8,9 @@ dependencies:
     - field.field.media.video.field_media_video_file
     - media.type.video
   module:
-    - blazy
     - drimage
     - ds
     - file
-    - layout_builder
 third_party_settings:
   ds:
     layout:
@@ -34,9 +32,6 @@ third_party_settings:
       ds_content:
         - field_media_video_file
         - field_media_cover_image
-  layout_builder:
-    enabled: false
-    allow_custom: false
 id: media.video.media_video_02_01
 targetEntityType: media
 bundle: video

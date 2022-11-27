@@ -8,14 +8,8 @@ dependencies:
     - field.field.media.video.field_media_video_file
     - media.type.video
   module:
-    - blazy
     - ds
     - file
-    - layout_builder
-third_party_settings:
-  layout_builder:
-    enabled: false
-    allow_custom: false
 id: media.video.background_media
 targetEntityType: media
 bundle: video

@@ -9,11 +9,6 @@ dependencies:
   module:
     - ds
     - file
-    - layout_builder
-third_party_settings:
-  layout_builder:
-    enabled: false
-    allow_custom: false
 id: media.audio.looping
 targetEntityType: media
 bundle: audio

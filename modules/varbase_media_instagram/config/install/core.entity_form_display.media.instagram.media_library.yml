@@ -11,7 +11,6 @@ dependencies:
     - length_indicator
     - maxlength
     - media
-    - scheduler_content_moderation_integration
 id: media.instagram.media_library
 targetEntityType: media
 bundle: instagram
