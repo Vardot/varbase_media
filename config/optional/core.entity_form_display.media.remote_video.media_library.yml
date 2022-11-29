@@ -3,12 +3,11 @@ status: true
 dependencies:
   config:
     - core.entity_form_mode.media.media_library
-    - field.field.media.remote_video.feeds_item
     - field.field.media.remote_video.field_media_cover_image
     - field.field.media.remote_video.field_media_in_library
     - field.field.media.remote_video.field_media_oembed_video
     - field.field.media.remote_video.field_provider
-    - image.style.thumbnail
+    - image.style.field_preview
     - media.type.remote_video
   module:
     - focal_point
@@ -24,16 +23,9 @@ content:
     region: content
     settings:
       progress_indicator: throbber
-      preview_image_style: thumbnail
+      preview_image_style: field_preview
       preview_link: true
       offsets: '50,50'
-    third_party_settings: {  }
-  field_media_in_library:
-    type: boolean_checkbox
-    weight: 4
-    region: content
-    settings:
-      display_label: true
     third_party_settings: {  }
   field_media_oembed_video:
     type: oembed_textfield
@@ -56,26 +48,21 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  publish_state:
-    type: scheduler_moderation
-    weight: 5
+  status:
+    type: boolean_checkbox
+    weight: 4
     region: content
-    settings: {  }
-    third_party_settings: {  }
-  unpublish_state:
-    type: scheduler_moderation
-    weight: 6
-    region: content
-    settings: {  }
+    settings:
+      display_label: true
     third_party_settings: {  }
 hidden:
   created: true
-  feeds_item: true
+  field_media_in_library: true
   field_provider: true
   langcode: true
   path: true
   publish_on: true
-  scheduler_settings: true
-  status: true
+  publish_state: true
   uid: true
   unpublish_on: true
+  unpublish_state: true

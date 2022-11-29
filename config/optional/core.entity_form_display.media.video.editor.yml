@@ -21,18 +21,6 @@ content:
     settings:
       progress_indicator: throbber
     third_party_settings: {  }
-  publish_state:
-    type: scheduler_moderation
-    weight: 30
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  unpublish_state:
-    type: scheduler_moderation
-    weight: 30
-    region: content
-    settings: {  }
-    third_party_settings: {  }
 hidden:
   created: true
   field_media_cover_image: true
@@ -41,7 +29,9 @@ hidden:
   name: true
   path: true
   publish_on: true
+  publish_state: true
   scheduler_settings: true
   status: true
   uid: true
   unpublish_on: true
+  unpublish_state: true

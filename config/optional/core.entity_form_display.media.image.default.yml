@@ -38,12 +38,6 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  publish_state:
-    type: scheduler_moderation
-    weight: 30
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   status:
     type: boolean_checkbox
     weight: 3
@@ -51,16 +45,12 @@ content:
     settings:
       display_label: true
     third_party_settings: {  }
-  unpublish_state:
-    type: scheduler_moderation
-    weight: 30
-    region: content
-    settings: {  }
-    third_party_settings: {  }
 hidden:
   created: true
   langcode: true
   path: true
   publish_on: true
+  publish_state: true
   uid: true
   unpublish_on: true
+  unpublish_state: true

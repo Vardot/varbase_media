@@ -3,7 +3,6 @@ status: true
 dependencies:
   config:
     - core.entity_form_mode.media.editor
-    - field.field.media.remote_video.feeds_item
     - field.field.media.remote_video.field_media_cover_image
     - field.field.media.remote_video.field_media_in_library
     - field.field.media.remote_video.field_media_oembed_video
@@ -24,21 +23,8 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  publish_state:
-    type: scheduler_moderation
-    weight: 30
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  unpublish_state:
-    type: scheduler_moderation
-    weight: 30
-    region: content
-    settings: {  }
-    third_party_settings: {  }
 hidden:
   created: true
-  feeds_item: true
   field_media_cover_image: true
   field_media_in_library: true
   field_provider: true
@@ -47,7 +33,8 @@ hidden:
   path: true
   preview: true
   publish_on: true
-  scheduler_settings: true
+  publish_state: true
   status: true
   uid: true
   unpublish_on: true
+  unpublish_state: true

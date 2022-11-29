@@ -29,32 +29,16 @@ content:
         view_mode: field_preview
       selection_mode: selection_edit
     third_party_settings: {  }
-  field_media_in_library:
-    type: boolean_checkbox
-    weight: 1
-    region: content
-    settings:
-      display_label: true
-    third_party_settings: {  }
-  publish_state:
-    type: scheduler_moderation
-    weight: 2
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  unpublish_state:
-    type: scheduler_moderation
-    weight: 3
-    region: content
-    settings: {  }
-    third_party_settings: {  }
 hidden:
   created: true
+  field_media_in_library: true
   langcode: true
   name: true
   path: true
   publish_on: true
+  publish_state: true
   scheduler_settings: true
   status: true
   uid: true
   unpublish_on: true
+  unpublish_state: true

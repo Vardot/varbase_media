@@ -3,16 +3,12 @@ status: true
 dependencies:
   config:
     - core.entity_form_mode.media.entity_browser
-    - field.field.media.remote_video.feeds_item
     - field.field.media.remote_video.field_media_cover_image
     - field.field.media.remote_video.field_media_in_library
     - field.field.media.remote_video.field_media_oembed_video
     - field.field.media.remote_video.field_provider
     - media.type.remote_video
   module:
-    - advanced_text_formatter
-    - length_indicator
-    - maxlength
     - media
 id: media.remote_video.entity_browser
 targetEntityType: media
@@ -41,44 +37,21 @@ content:
     settings:
       size: 60
       placeholder: ''
-    third_party_settings:
-      length_indicator:
-        indicator: false
-        indicator_opt:
-          optimin: 10
-          optimax: 15
-          tolerance: 5
-      maxlength:
-        maxlength_js: null
-        maxlength_js_label: 'Content limited to @limit characters, remaining: <strong>@remaining</strong>'
-      advanced_text_formatter:
-        show_token_tree: 0
+    third_party_settings: {  }
   preview:
     weight: 0
     region: content
     settings: {  }
     third_party_settings: {  }
-  publish_state:
-    type: scheduler_moderation
-    weight: 30
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  unpublish_state:
-    type: scheduler_moderation
-    weight: 30
-    region: content
-    settings: {  }
-    third_party_settings: {  }
 hidden:
   created: true
-  feeds_item: true
   field_media_cover_image: true
   field_provider: true
   langcode: true
   path: true
   publish_on: true
-  scheduler_settings: true
+  publish_state: true
   status: true
   uid: true
   unpublish_on: true
+  unpublish_state: true

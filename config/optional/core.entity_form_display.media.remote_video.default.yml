@@ -2,7 +2,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.media.remote_video.feeds_item
     - field.field.media.remote_video.field_media_cover_image
     - field.field.media.remote_video.field_media_in_library
     - field.field.media.remote_video.field_media_oembed_video
@@ -10,10 +9,7 @@ dependencies:
     - image.style.field_preview
     - media.type.remote_video
   module:
-    - advanced_text_formatter
     - focal_point
-    - length_indicator
-    - maxlength
     - media
 id: media.remote_video.default
 targetEntityType: media
@@ -52,26 +48,9 @@ content:
     settings:
       size: 60
       placeholder: ''
-    third_party_settings:
-      length_indicator:
-        indicator: false
-        indicator_opt:
-          optimin: 10
-          optimax: 15
-          tolerance: 5
-      maxlength:
-        maxlength_js: null
-        maxlength_js_label: 'Content limited to @limit characters, remaining: <strong>@remaining</strong>'
-      advanced_text_formatter:
-        show_token_tree: 0
+    third_party_settings: {  }
   preview:
     weight: 0
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  publish_state:
-    type: scheduler_moderation
-    weight: 30
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -82,18 +61,13 @@ content:
     settings:
       display_label: true
     third_party_settings: {  }
-  unpublish_state:
-    type: scheduler_moderation
-    weight: 30
-    region: content
-    settings: {  }
-    third_party_settings: {  }
 hidden:
   created: true
-  feeds_item: true
   field_provider: true
   langcode: true
   path: true
   publish_on: true
+  publish_state: true
   uid: true
   unpublish_on: true
+  unpublish_state: true
