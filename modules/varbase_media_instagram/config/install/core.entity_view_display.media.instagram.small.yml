@@ -18,6 +18,9 @@ content:
     label: hidden
     settings:
       max_width: 0
+    third_party_settings:
+      empty_fields:
+        handler: ""
     type: instagram_embed
     region: content
 hidden:

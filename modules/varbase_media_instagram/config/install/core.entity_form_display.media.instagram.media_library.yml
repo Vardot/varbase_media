@@ -6,11 +6,6 @@ dependencies:
     - field.field.media.instagram.field_media_in_library
     - field.field.media.instagram.field_media_instagram
     - media.type.instagram
-  module:
-    - advanced_text_formatter
-    - length_indicator
-    - maxlength
-    - media
 id: media.instagram.media_library
 targetEntityType: media
 bundle: instagram
