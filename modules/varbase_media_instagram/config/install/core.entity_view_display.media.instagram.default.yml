@@ -13,12 +13,14 @@ bundle: instagram
 mode: default
 content:
   field_media_instagram:
-    type: instagram_embed
+    weight: 0
     label: hidden
     settings:
       max_width: 0
-      hidecaption: false
-    weight: 0
+    third_party_settings:
+      empty_fields:
+        handler: ""
+    type: instagram_embed
     region: content
 hidden:
   created: true
