@@ -6,6 +6,11 @@ dependencies:
     - field.field.media.instagram.field_media_in_library
     - field.field.media.instagram.field_media_instagram
     - media.type.instagram
+  module:
+    - advanced_text_formatter
+    - length_indicator
+    - maxlength
+    - media
 id: media.instagram.media_library
 targetEntityType: media
 bundle: instagram
@@ -50,24 +55,13 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  publish_state:
-    type: scheduler_moderation
-    weight: 30
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  unpublish_state:
-    type: scheduler_moderation
-    weight: 30
-    region: content
-    settings: {  }
-    third_party_settings: {  }
 hidden:
   created: true
-  langcode: true
   path: true
   publish_on: true
+  publish_state: true
   scheduler_settings: true
   status: true
   uid: true
   unpublish_on: true
+  unpublish_state: true

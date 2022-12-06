@@ -6,6 +6,8 @@ dependencies:
     - field.field.media.instagram.field_media_in_library
     - field.field.media.instagram.field_media_instagram
     - media.type.instagram
+  module:
+    - media
 id: media.instagram.editor
 targetEntityType: media
 bundle: instagram
@@ -13,37 +15,22 @@ mode: editor
 content:
   field_media_instagram:
     type: oembed_textfield
-    weight: 1
+    weight: 0
     region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  preview:
-    weight: 0
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  publish_state:
-    type: scheduler_moderation
-    weight: 2
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  unpublish_state:
-    type: scheduler_moderation
-    weight: 3
-    region: content
-    settings: {  }
-    third_party_settings: {  }
 hidden:
   created: true
   field_media_in_library: true
-  langcode: true
   name: true
   path: true
+  preview: true
   publish_on: true
+  publish_state: true
   scheduler_settings: true
   status: true
   uid: true
   unpublish_on: true
+  unpublish_state: true
