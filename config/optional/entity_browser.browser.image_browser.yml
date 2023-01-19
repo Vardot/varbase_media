@@ -34,7 +34,7 @@ widgets:
   9a5d8df6-c825-4c56-978a-c99c8fe9a4d3:
     settings:
       submit_text: 'Select image(s)'
-      upload_location: 'public://images/[date:custom:Y]-[date:custom:m]'
+      upload_location: 'public://[date:custom:Y]-[date:custom:m]'
       dropzone_description: 'Drop image files here to upload them'
       max_filesize: 32M
       extensions: 'jpg jpeg gif png'

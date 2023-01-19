@@ -70,7 +70,7 @@ widgets:
     settings:
       submit_text: 'Select image(s)'
       auto_select: true
-      upload_location: 'public://images/[date:custom:Y]-[date:custom:m]'
+      upload_location: 'public://[date:custom:Y]-[date:custom:m]'
       dropzone_description: 'Drop image files here to upload them'
       max_filesize: 500M
       extensions: 'jpg jpeg gif png'
