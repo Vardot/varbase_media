@@ -90,8 +90,6 @@
     "composer-exit-on-patch-failure": true,
     "patches": {
       "drupal/entity_embed": {
-        "Issue #3070343: Allow to add a Drupal core link with Link Widget for Image entities using Entity Embed Dialog in CKEditor":
-        "https://www.drupal.org/files/issues/2022-10-21/entity_embed-link_image_media_entities-3070343-27.patch",
         "Issue #2679875: Inline Entity Form integration":
         "https://www.drupal.org/files/issues/2020-04-21/2679875-13.patch"
       },
