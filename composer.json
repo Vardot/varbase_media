@@ -89,10 +89,6 @@
     "enable-patching": true,
     "composer-exit-on-patch-failure": true,
     "patches": {
-      "drupal/entity_embed": {
-        "Issue #2679875: Inline Entity Form integration":
-        "https://www.drupal.org/files/issues/2022-12-20/entity_embed-inline_entity_form_integration-2679875-17.patch"
-      },
       "drupal/webp": {
         "Issue #3153137: Using Image Widget Crop in responsive images does not refresh webp image":
         "https://www.drupal.org/files/issues/2022-01-31/webp-support-image-crop-3153137-12.patch"
