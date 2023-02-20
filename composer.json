@@ -91,7 +91,7 @@
     "patches": {
       "drupal/entity_embed": {
         "Issue #2679875: Inline Entity Form integration":
-        "https://www.drupal.org/files/issues/2020-04-21/2679875-13.patch"
+        "https://www.drupal.org/files/issues/2022-12-20/entity_embed-inline_entity_form_integration-2679875-17.patch"
       },
       "drupal/webp": {
         "Issue #3153137: Using Image Widget Crop in responsive images does not refresh webp image":
