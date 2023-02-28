@@ -31,6 +31,5 @@ permissions:
   - 'access media_browser entity browser pages'
   - 'access multiple_image_browser entity browser pages'
   - 'access multiple_media_browser entity browser pages'
-  - 'access paragraphs_library_items entity browser pages'
   - 'access video_browser entity browser pages'
   - 'use media_bulk_upload bulk upload form'
