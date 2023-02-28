@@ -18,8 +18,6 @@ use Drupal\Core\Language\LanguageInterface;
 use Drupal\image\Entity\ImageStyle;
 use Drupal\Core\Entity\Entity\EntityViewDisplay;
 use Drupal\Core\Url;
-use Drupal\file\Entity\File;
-use Drupal\responsive_image\Entity\ResponsiveImageStyle;
 use Drupal\media\OEmbed\Provider;
 use Drupal\field\Entity\FieldConfig;
 use Drupal\image\Plugin\Field\FieldType\ImageItem;
@@ -204,7 +202,7 @@ function varbase_media_form_entity_embed_dialog_alter(&$form, FormStateInterface
     $builder = \Drupal::entityTypeManager()->getViewBuilder($entity->getEntityTypeId());
 
     switch ($bundle_type) {
-      // ----------------------------------------------------------------------.
+
       case "image":
 
         // Image Media for review.
@@ -245,7 +243,6 @@ function varbase_media_form_entity_embed_dialog_alter(&$form, FormStateInterface
         $entity->save();
         break;
 
-      // ----------------------------------------------------------------------.
       case "video":
       case "remote_video":
 
@@ -278,7 +275,6 @@ function varbase_media_form_entity_embed_dialog_alter(&$form, FormStateInterface
 
         break;
 
-      // ----------------------------------------------------------------------.
       case "gallery":
 
         // Gallery Media for review.
@@ -439,7 +435,6 @@ function varbase_media_entity_view_alter(array &$build, EntityInterface $entity,
 function varbase_media_media_source_info_alter(array &$sources) {
 
   // Remote Video.
-  // --------------------------------------------------------------------------.
   $sources['oembed:video']['input_match'] = [
     'constraint' => 'oembed_resource',
     'field_types' => [

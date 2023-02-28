@@ -1,0 +1,18 @@
+<?php
+
+/**
+ * @file
+ * Contains install and update for Varbase Media Instagram module.
+ */
+
+use Vardot\Installer\ModuleInstallerFactory;
+
+/**
+ * Implements hook_install().
+ */
+function varbase_media_instagram_install() {
+
+  // Add permissions.
+  ModuleInstallerFactory::addPermissions('varbase_media_instagram');
+
+}

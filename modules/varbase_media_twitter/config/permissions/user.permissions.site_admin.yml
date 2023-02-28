@@ -1,0 +1,5 @@
+id: site_admin
+permissions:
+  - 'create tweet media'
+  - 'delete any tweet media'
+  - 'edit any tweet media'

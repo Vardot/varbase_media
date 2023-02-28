@@ -21,13 +21,11 @@ use Vardot\Installer\ModuleInstallerFactory;
 function varbase_media_install() {
 
   // Processor for install: in varbase_media.info.yml file.
-  // --------------------------------------------------------------------------.
   ModuleInstallerFactory::installList('varbase_media');
 
   ModuleInstallerFactory::importConfigsFromScanedDirectory('varbase_media', '/^field.storage.*\\.(yml)$/i');
   ModuleInstallerFactory::importConfigsFromScanedDirectory('varbase_media', '/^.*(settings.yml)$/i');
   ModuleInstallerFactory::importConfigsFromScanedDirectory('varbase_media', '/^entity_browser_enhanced.widgets.*\\.(yml)$/i');
-
 
   $module_path = Drupal::service('module_handler')->getModule('varbase_media')->getPath();
 
@@ -43,7 +41,7 @@ function varbase_media_install() {
     }
   }
 
-  // Import custom changes over media, media browser, and media library views. 
+  // Import custom changes over media, media browser, and media library views.
   ModuleInstallerFactory::importConfigsFromScanedDirectory('varbase_media', '/^views.view.*\\.(yml)$/i');
 
   // Configure Entity Embed buttons.
@@ -87,6 +85,10 @@ function varbase_media_install() {
       }
     }
   }
+
+  // Add permissions.
+  ModuleInstallerFactory::addPermissions('varbase_media');
+
 }
 
 /**
