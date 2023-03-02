@@ -42,3 +42,4 @@ install:
   - slick
   - webp
   - imageapi_optimize_webp
+  - entity_clone

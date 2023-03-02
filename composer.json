@@ -59,7 +59,8 @@
     "drupal/metatag": "^1.12",
     "drupal/webp": "1.0-beta6",
     "drupal/drimage": "~2.0",
-    "drupal/imageapi_optimize_webp": "~2.0"
+    "drupal/imageapi_optimize_webp": "~2.0",
+    "drupal/entity_clone": "~2.0"
   },
   "suggest": {
     "npm-asset/dropzone": "~5.0: Provides JavaScript library necessary for Dropzone",
