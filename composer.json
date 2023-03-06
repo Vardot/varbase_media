@@ -44,7 +44,7 @@
     "drupal/media_bulk_upload": "~3.0",
     "drupal/entity_embed": "1.x-dev",
     "drupal/inline_entity_form": "~1.0",
-    "drupal/embed": "~1.0",
+    "drupal/embed": "1.6.0",
     "drupal/media_entity_instagram": "~3.0",
     "drupal/media_entity_twitter": "~2.0",
     "drupal/media_library_edit": "~3.0",
@@ -93,6 +93,10 @@
       "drupal/webp": {
         "Issue #3153137: Using Image Widget Crop in responsive images does not refresh webp image":
         "https://www.drupal.org/files/issues/2022-01-31/webp-support-image-crop-3153137-12.patch"
+      },
+      "drupal/embed": {
+        "Issue #3309747: CKEditor 5 compatibility":
+        "docroot/modules/contrib/varbase_media/patches/embed-2023-01-30--3309747-2.diff"
       }
     }
   }
