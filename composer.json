@@ -57,7 +57,7 @@
     "drupal/slick": "~2.0",
     "drupal/slick_views": "~2.0",
     "drupal/metatag": "^1.12",
-    "drupal/webp": "1.0-beta6"
+    "drupal/webp": "1.0-beta7"
   },
   "suggest": {
     "npm-asset/dropzone": "~5.0: Provides JavaScript library necessary for Dropzone",
@@ -95,7 +95,7 @@
       },
       "drupal/webp": {
         "Issue #3153137: Using Image Widget Crop in responsive images does not refresh webp image":
-        "https://www.drupal.org/files/issues/2022-01-31/webp-support-image-crop-3153137-12.patch"
+        "https://www.drupal.org/files/issues/2022-10-31/webp-support-image-crop-3153137-34.patch"
       }
     }
   }
