@@ -1,9 +1,13 @@
 // Varbase media common logged in users style.
 // =============================================================================
-@import "../node_modules/bootstrap/scss/functions";     // Bootstrap funcions.
-@import "../node_modules/bootstrap/scss/mixins";        // Bootstrap mixins.
-@import "../node_modules/bootstrap/scss/variables";     // Bootstrap variables.
-// -----------------------------------------------------------------------------
+@import "../bootstrap-variables";                         // Override Bootstrap 5 variables.
+@import "../varbase_media-variables";                     // Varbase Media custom variables.
+@import "../varbase_media-mixins";                        // Varbase Media custom mixins.
+@import "../../node_modules/bootstrap/scss/functions";    // Bootstrap functions.
+@import "../../node_modules/bootstrap/scss/variables";    // Bootstrap variables.
+@import "../../node_modules/bootstrap/scss/maps";         // Bootstrap maps.
+@import "../../node_modules/bootstrap/scss/mixins";       // Bootstrap mixins.
+@import "../../node_modules/bootstrap/scss/utilities";    // Bootstrap utilities.
 
 // Grid breakpoints
 // $grid-breakpoints variable come's from bootstrap variables file.
@@ -189,7 +193,7 @@ body {
 
           input[id*="-edit-button"],
           button[id*="-edit-button"] {
-            background-image: url("../images/pencil-square-o.svg");
+            background-image: url("../../images/pencil-square-o.svg");
             background-repeat: no-repeat;
             background-position: left top;
             background-size: 100%;
@@ -201,7 +205,7 @@ body {
 
           input[id*="-remove-button"],
           button[id*="-remove-button"]{
-            background-image: url("../images/times-circle-o.svg");
+            background-image: url("../../images/times-circle-o.svg");
             background-repeat: no-repeat;
             background-position: left top;
             background-size: 100%;
@@ -377,7 +381,7 @@ body #edit-selected.entities-list {
 
     input[id*="-edit-button"],
     button[id*="-edit-button"] {
-      background-image: url("../images/pencil-square-o.svg");
+      background-image: url("../../images/pencil-square-o.svg");
       background-repeat: no-repeat;
       background-position: left top;
       background-size: 100%;
@@ -389,7 +393,7 @@ body #edit-selected.entities-list {
 
     input[id*="-remove-button"],
     button[id*="-remove-button"]{
-      background-image: url("../images/times-circle-o.svg");
+      background-image: url("../../images/times-circle-o.svg");
       background-repeat: no-repeat;
       background-position: left top;
       background-size: 100%;
@@ -698,7 +702,7 @@ html[dir="rtl"] form.media-form {
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      background: url(../images/play.svg) no-repeat center center;
+      background: url(../../images/play.svg) no-repeat center center;
       height: 72px;
       width: 72px;
       max-height: 55%;
@@ -849,7 +853,7 @@ details[id^="edit-field-media-gallery-"] {
           top: 50%;
           left: 50%;
           transform: translate(-50%, -50%);
-          background: url(../images/play.svg) no-repeat center center;
+          background: url(../../images/play.svg) no-repeat center center;
           height: 72px;
           width: 72px;
           max-height: 55%;

@@ -7,6 +7,9 @@ dependencies:
     - field.field.media.tweet.field_media_twitter
     - media.type.tweet
   module:
+    - advanced_text_formatter
+    - length_indicator
+    - maxlength
 id: media.tweet.bulk_upload
 targetEntityType: media
 bundle: tweet

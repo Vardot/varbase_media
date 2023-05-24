@@ -1,30 +1,33 @@
 .video-player-icon {
   position: relative;
 }
+
 .video-player-icon.js-video-player-icon {
   position: absolute;
-  z-index: 3;
   top: 0;
-  right: 0;
   left: 0;
+  right: 0;
   margin: 0;
   cursor: pointer;
+  z-index: 3;
 }
+
 .video-player-icon:after {
+  content: "";
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 72px;
-  height: 72px;
-  max-height: 55%;
-  content: "";
-  cursor: pointer;
   transform: translate(-50%, -50%);
   background: url(../../images/play.svg) no-repeat center center;
+  height: 72px;
+  width: 72px;
+  max-height: 55%;
   font-size: 15%;
+  cursor: pointer;
 }
+
 .video-player-icon:hover:after {
-  opacity: 0.75;
+  opacity: .75;
 }
 
 [dir=rtl] .video-player-icon.js-video-player-icon {
@@ -44,6 +47,7 @@
   align-items: center;
   justify-content: center;
 }
+
 .object-fit-media .varbase-video-player {
   top: 0;
   right: 0;
@@ -53,6 +57,7 @@
   width: 100%;
   height: 100%;
 }
+
 .object-fit-media .varbase-video-player > video,
 .object-fit-media .varbase-video-player > iframe {
   position: absolute;
@@ -61,6 +66,7 @@
   height: 100%;
   object-fit: cover;
 }
+
 .object-fit-media .varbase-video-player > iframe {
   min-height: 56vw !important;
   margin-top: calc(var(--bs-aspect-ratio) * -0.65) !important;

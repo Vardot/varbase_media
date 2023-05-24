@@ -3,22 +3,20 @@
  * Behaviors Varbase Video Player general scripts for videos with cover images.
  */
 
- (function ($, _, Drupal) {
+(function ($, Drupal) {
   Drupal.behaviors.varbaseVideoPlayer = {
-    attach: function () {
-      $(".js-video-player-icon").on("click", function () {
+    attach() {
+      $('.js-video-player-icon').on('click', function () {
         $(this).fadeOut(500);
 
         // Locally Hosted Video.
         if (
-          $(this)
-            .closest(".media")
-            .find(".varbase-video-player > video")
+          $(this).closest('.media').find('.varbase-video-player > video')
             .length > 0
         ) {
           $(this)
-            .closest(".media")
-            .find(".varbase-video-player > video")
+            .closest('.media')
+            .find('.varbase-video-player > video')
             .get(0)
             .play();
         }
@@ -26,31 +24,30 @@
         // Remote Youtube Video.
         if (
           $(this)
-            .closest(".media")
-            .find('.varbase-video-player > iframe[src*="youtube.com"]')
-            .length > 0
+            .closest('.media')
+            .find('.varbase-video-player > iframe[src*="youtube.com"]').length >
+          0
         ) {
           const closestYoutubeIframe = $(this)
-            .closest(".media")
+            .closest('.media')
             .find('.varbase-video-player > iframe[src*="youtube.com"]')
             .get(0).contentWindow;
-          closestYoutubeIframe.postMessage("play", "*");
+          closestYoutubeIframe.postMessage('play', '*');
         }
 
         // Remote Vimeo Video.
         if (
           $(this)
-            .closest(".media")
-            .find('.varbase-video-player > iframe[src*="vimeo.com"]'
-            ).length > 0
+            .closest('.media')
+            .find('.varbase-video-player > iframe[src*="vimeo.com"]').length > 0
         ) {
           const closestVimeoIframe = $(this)
-            .closest(".media")
+            .closest('.media')
             .find('.varbase-video-player > iframe[src*="vimeo.com"]')
             .get(0).contentWindow;
-          closestVimeoIframe.postMessage("play", "*");
+          closestVimeoIframe.postMessage('play', '*');
         }
       });
-    }
+    },
   };
-})(window.jQuery, window._, window.Drupal);
+})(window.jQuery, window.Drupal);
