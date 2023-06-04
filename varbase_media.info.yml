@@ -18,8 +18,6 @@ dependencies:
   - drupal:media_library
   - drupal:breakpoint
   - drimage:drimage
-  - ds:ds
-  - ds:ds_extras
   - better_exposed_filters:better_exposed_filters
   - crop:crop
   - dropzonejs:dropzonejs_eb_widget
@@ -31,6 +29,8 @@ dependencies:
   - entity_embed:entity_embed
   - focal_point:focal_point
 install:
+  - ds:ds
+  - ds:ds_extras
   - media_bulk_upload
   - media_bulk_upload_dropzonejs
   - media_library_edit
