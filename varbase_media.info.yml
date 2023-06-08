@@ -29,8 +29,8 @@ dependencies:
   - entity_embed:entity_embed
   - focal_point:focal_point
 install:
-  - ds:ds
-  - ds:ds_extras
+  - ds
+  - ds_extras
   - media_bulk_upload
   - media_bulk_upload_dropzonejs
   - media_library_edit
