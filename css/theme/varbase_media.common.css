@@ -1,3 +1,9 @@
+/*!
+ * Bootstrap  v5.3.0 (https://getbootstrap.com/)
+ * Copyright 2011-2023 The Bootstrap Authors
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+ */
+
 .embedded-entity.align-center img {
   display: block;
   margin-left: auto;
@@ -86,13 +92,11 @@ img.align-right {
   margin: 0 0 1rem 1rem;
 }
 
-figure.align-right,
- figure.align-left {
+figure.align-right,figure.align-left {
   display: table;
 }
 
-figure.align-right figcaption,
- figure.align-left figcaption {
+figure.align-right figcaption,figure.align-left figcaption {
   display: table-caption;
   caption-side: bottom;
   text-align: center;
@@ -103,51 +107,43 @@ figure.caption.caption-drupal-media.align-center {
   margin-left: auto;
 }
 
-.media.media--type-remote-video,
- .media.media--type-video {
+.media.media--type-remote-video,.media.media--type-video {
   width: 100%;
 }
 
-.media.media--type-remote-video.align-center figcaption,
- .media.media--type-video.align-center figcaption {
+.media.media--type-remote-video.align-center figcaption,.media.media--type-video.align-center figcaption {
   display: table-caption;
   caption-side: bottom;
   text-align: center;
 }
 
-.media.media--type-remote-video.align-right,
- .media.media--type-video.align-right {
+.media.media--type-remote-video.align-right,.media.media--type-video.align-right {
   display: table;
   margin: 0 0 1rem 1rem;
 }
 
-.media.media--type-remote-video.align-right figcaption,
- .media.media--type-video.align-right figcaption {
+.media.media--type-remote-video.align-right figcaption,.media.media--type-video.align-right figcaption {
   display: table-caption;
   caption-side: bottom;
   text-align: center;
 }
 
-.media.media--type-remote-video.align-left,
- .media.media--type-video.align-left {
+.media.media--type-remote-video.align-left,.media.media--type-video.align-left {
   display: table;
   margin: 0 1rem 1rem 0;
 }
 
-.media.media--type-remote-video.align-left figcaption,
- .media.media--type-video.align-left figcaption {
+.media.media--type-remote-video.align-left figcaption,.media.media--type-video.align-left figcaption {
   display: table-caption;
   caption-side: bottom;
   text-align: center;
 }
 
-.media.media--type-remote-video.media--view-mode-medium,
- .media.media--type-video.media--view-mode-medium {
+.media.media--type-remote-video.media--view-mode-medium,.media.media--type-video.media--view-mode-medium {
   width: 50%;
 }
 
-.media.media--type-remote-video.media--view-mode-small,
- .media.media--type-video.media--view-mode-small {
+.media.media--type-remote-video.media--view-mode-small,.media.media--type-video.media--view-mode-small {
   width: 25%;
 }
 
@@ -155,3 +151,4 @@ figure.caption.caption-drupal-media.align-center {
   width: auto;
   height: auto;
 }
+

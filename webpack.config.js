@@ -81,7 +81,7 @@ module.exports = {
                     zeroLengthNoUnit: false,
                     maxAtRuleLength: false,
                     maxSelectorLength: false,
-                    maxValueLength: false,
+                    maxValueLength: false
                   }]
                 ],
               },

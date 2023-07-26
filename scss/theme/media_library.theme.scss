@@ -1,6 +1,6 @@
-body .media-library-item--grid {
-  max-width: 200px;
+@import "../defaults";   // Global defaults.
 
+body .media-library-item--grid {
   .views-field-views-bulk-operations-bulk-form {
     position: absolute;
     z-index: 3;
@@ -8,8 +8,6 @@ body .media-library-item--grid {
 }
 
 .media-library-view {
-  min-height: 300px;
-
   &.view-display-id-widget {
     .media-library-item__name a {
       color: black;
@@ -172,7 +170,7 @@ body .media-library-item--grid {
       top: 5px;
     }
 
-    /* Style the wrappers around new media and files */
+    // Style the wrappers around new media and files.
     .media-library-upload__media,
     .media-library-upload__file {
       display: flex;

@@ -3,7 +3,7 @@ const webpackConfig = require('./webpack.config');
 const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = merge(webpackConfig, {
-  mode: 'development',
+  mode: 'production',
   devtool: false,
   optimization: {
     minimize: true,
@@ -19,7 +19,7 @@ module.exports = merge(webpackConfig, {
             indent_level: 2,
           },
         },
-        extractComments: false,
+        extractComments: true,
       })
     ],
   }
