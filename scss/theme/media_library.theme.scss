@@ -1,11 +1,12 @@
 @import "../defaults";   // Global defaults.
 
+@import "../varbase_media-variables";                       // Varbase Media variables.
+@import "../varbase_media-mixins";                          // Varbase Media mixins.
+
 body {
   .media-library-item--grid {
     max-width: 14rem !important;
     width: 14rem !important;
-    max-height: 14rem !important;
-    height: 14rem !important;
 
     .views-field-views-bulk-operations-bulk-form {
       position: absolute;

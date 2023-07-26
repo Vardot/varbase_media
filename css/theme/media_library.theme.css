@@ -1,9 +1,3 @@
-/*!
- * Bootstrap  v5.3.0 (https://getbootstrap.com/)
- * Copyright 2011-2023 The Bootstrap Authors
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
- */
-
 :root {
   --varbase-media-video-player-icon-size: 4.5rem;
   --varbase-media-video-player-icon: url(../../images/play.svg);
@@ -12,8 +6,6 @@
 body .media-library-item--grid {
   max-width: 14rem !important;
   width: 14rem !important;
-  max-height: 14rem !important;
-  height: 14rem !important;
 }
 
 body .media-library-item--grid .views-field-views-bulk-operations-bulk-form {

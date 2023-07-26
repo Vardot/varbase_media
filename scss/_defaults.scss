@@ -5,8 +5,6 @@
 @include bsBanner("");
 
 @import "bootstrap-variables";                           // Override bootstrap 5 variables.
-@import "varbase_media-variables";                       // Varbase Media variables.
-@import "varbase_media-mixins";                          // Varbase Media mixins.
 @import "../node_modules/bootstrap/scss/functions";      // Bootstrap functions.
 @import "../node_modules/bootstrap/scss/variables";      // Bootstrap variables.
 @import "../node_modules/bootstrap/scss/variables-dark"; // Bootstrap variables dark.
