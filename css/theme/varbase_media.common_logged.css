@@ -4,6 +4,11 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
 
+:root {
+  --varbase-media-video-player-icon-size: 4.5rem;
+  --varbase-media-video-player-icon: url(../../images/play.svg);
+}
+
 .entity-select-dialog #entity-embed-dialog-form .form-type-radio {
   display: block;
 }

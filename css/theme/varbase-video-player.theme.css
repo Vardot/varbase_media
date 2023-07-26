@@ -18,9 +18,9 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: url(../../images/play.svg) no-repeat center center;
-  height: 72px;
-  width: 72px;
+  background: var(--varbase-media-video-player-icon) no-repeat center center;
+  height: var(--varbase-media-video-player-icon-size);
+  width: var(--varbase-media-video-player-icon-size);
   max-height: 55%;
   font-size: 15%;
   cursor: pointer;

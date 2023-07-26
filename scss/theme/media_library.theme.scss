@@ -1,9 +1,45 @@
 @import "../defaults";   // Global defaults.
 
-body .media-library-item--grid {
-  .views-field-views-bulk-operations-bulk-form {
-    position: absolute;
-    z-index: 3;
+body {
+  .media-library-item--grid {
+    max-width: 14rem !important;
+    width: 14rem !important;
+    max-height: 14rem !important;
+    height: 14rem !important;
+
+    .views-field-views-bulk-operations-bulk-form {
+      position: absolute;
+      z-index: 3;
+    }
+
+    &.is-hover {
+      .media--view-mode-media-library {
+        .contextual {
+          display: none;
+        }
+      }
+    }
+
+  }
+
+  .media-library-widget-modal,
+  .media-library-selection {
+    .media-library-item--grid {
+      max-width: 14rem !important;
+      width: 14rem !important;
+      max-height: 14rem !important;
+      height: 14rem !important;
+    }
+  }
+
+  .media-library-item {
+    .media-library-item__preview {
+      width: 13rem !important;
+    }
+
+    .form-item {
+      margin: var(--gin-spacing-xs) !important;
+    }
   }
 }
 
