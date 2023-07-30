@@ -1,3 +1,9 @@
+@import "../defaults";   // Global defaults.
+
+// Varbase Media Video Player style.
+// =============================================================================
+@import "../varbase_media-variables";           // Varbase Media variables.
+
 .video-player-icon {
   position: relative;
 

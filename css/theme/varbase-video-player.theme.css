@@ -1,3 +1,8 @@
+:root {
+  --varbase-media-video-player-icon-size: 4.5rem;
+  --varbase-media-video-player-icon: url(../../images/play.svg);
+}
+
 .video-player-icon {
   position: relative;
 }
