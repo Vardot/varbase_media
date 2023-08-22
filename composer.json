@@ -57,7 +57,7 @@
     "drupal/slick": "~2.0",
     "drupal/slick_views": "~2.0",
     "drupal/metatag": "^1.12",
-    "drupal/webp": "1.0-beta7"
+    "drupal/webp": "~1.0"
   },
   "suggest": {
     "npm-asset/dropzone": "~5.0: Provides JavaScript library necessary for Dropzone",
@@ -92,10 +92,6 @@
         "https://www.drupal.org/files/issues/2022-10-21/entity_embed-link_image_media_entities-3070343-27.patch",
         "Issue #2679875: Inline Entity Form integration":
         "https://www.drupal.org/files/issues/2023-06-22/2679875-20.patch"
-      },
-      "drupal/webp": {
-        "Issue #3153137: Using Image Widget Crop in responsive images does not refresh webp image":
-        "https://www.drupal.org/files/issues/2022-10-31/webp-support-image-crop-3153137-34.patch"
       }
     }
   }
