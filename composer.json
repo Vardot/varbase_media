@@ -57,7 +57,7 @@
     "drupal/slick": "~2.0",
     "drupal/slick_views": "~2.0",
     "drupal/metatag": "~2.0.0",
-    "drupal/webp": "1.0-beta7",
+    "drupal/webp": "~1.0",
     "drupal/drimage": "~2.0",
     "drupal/imageapi_optimize_webp": "~2.0",
     "drupal/entity_clone": "~2.0"
@@ -90,10 +90,6 @@
     "enable-patching": true,
     "composer-exit-on-patch-failure": true,
     "patches": {
-      "drupal/webp": {
-        "Issue #3153137: Using Image Widget Crop in responsive images does not refresh webp image":
-        "https://www.drupal.org/files/issues/2022-10-31/webp-support-image-crop-3153137-34.patch"
-      },
       "drupal/embed": {
         "Issue #3309747: CKEditor 5 compatibility":
         "docroot/modules/contrib/varbase_media/patches/embed-2023-01-30--3309747-2.diff",
