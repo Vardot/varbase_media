@@ -68,7 +68,7 @@ content:
             lb-col: false
             ow: true
             ow-el: ''
-            ow-cl: 'media-cover-image video-player-icon'
+            ow-cl: 'media-cover-image video-player-icon ratio ratio-2x1'
             ow-at: ''
             ow-def-at: true
             ow-def-cl: true

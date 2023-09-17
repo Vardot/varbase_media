@@ -112,7 +112,7 @@ content:
             lb-col: false
             ow: true
             ow-el: ''
-            ow-cl: 'varbase-video-player ratio ratio-4x3 ratio-16x9-sm'
+            ow-cl: 'varbase-video-player ratio ratio-16x9'
             ow-at: ''
             ow-def-at: true
             ow-def-cl: true

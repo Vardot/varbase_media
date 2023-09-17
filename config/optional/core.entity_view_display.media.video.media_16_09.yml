@@ -67,7 +67,7 @@ content:
             lb-col: false
             ow: true
             ow-el: ''
-            ow-cl: 'media-cover-image video-player-icon'
+            ow-cl: 'media-cover-image video-player-icon ratio ratio-4x3 ratio-16x9-sm'
             ow-at: ''
             ow-def-at: true
             ow-def-cl: true
@@ -116,7 +116,7 @@ content:
             lb-col: false
             ow: true
             ow-el: ''
-            ow-cl: 'media-cover-image video-player-icon'
+            ow-cl: 'media-cover-image video-player-icon ratio ratio-4x3 ratio-16x9-sm'
             ow-at: ''
             ow-def-at: true
             ow-def-cl: true
