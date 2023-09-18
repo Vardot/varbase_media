@@ -53,9 +53,9 @@
     "drupal/focal_point": "~2.0.0",
     "drupal/imagemagick": "~3.0",
     "drupal/imageapi_optimize": "~4.0",
-    "drupal/blazy": "~2.0",
-    "drupal/slick": "~2.0",
-    "drupal/slick_views": "~2.0",
+    "drupal/blazy": "2.16.0",
+    "drupal/slick": "2.9.0",
+    "drupal/slick_views": "2.7.0",
     "drupal/metatag": "^1.12",
     "drupal/webp": "~1.0"
   },
