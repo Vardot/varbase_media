@@ -2,7 +2,7 @@ name: "Varbase Media"
 description: "Manages type of media contents and entity browsers in the site."
 type: module
 package: Varbase
-core_version_requirement: ^9 || ^10
+core_version_requirement: ~9.5.0 || ~10.1.0
 configure: varbase_media.settings
 components:
   - entity_browser_generic_embed
