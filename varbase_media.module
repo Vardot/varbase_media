@@ -786,7 +786,8 @@ function varbase_media_preprocess_media_oembed_iframe__remote_video(&$variables)
 function varbase_media_entity_embed_alter(array &$build, EntityInterface $entity, array &$context) {
 
   // Only for entity embed review inside the CKEditor.
-  if (\Drupal::routeMatch()->getRouteName() == 'entity_embed.preview') {
+  $preview_route_name = \Drupal::routeMatch()->getRouteName();
+  if ($preview_route_name == 'embed.preview' || $preview_route_name == 'entity_embed.preview') {
 
     // Switch view mode for gallery in the CKEditor to show the Browser Teaser.
     if (isset($context['data-embed-button'])
