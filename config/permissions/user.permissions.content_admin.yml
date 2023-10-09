@@ -34,4 +34,3 @@ permissions:
   - 'access multiple_media_browser entity browser pages'
   - 'access video_browser entity browser pages'
   - 'use media_bulk_upload bulk upload form'
-  - 'clone media entity'
