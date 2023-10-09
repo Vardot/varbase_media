@@ -1,0 +1,18 @@
+<?php
+
+/**
+ * @file
+ * Contains install and update for Varbase Media Twitter module.
+ */
+
+use Vardot\Installer\ModuleInstallerFactory;
+
+/**
+ * Implements hook_install().
+ */
+function varbase_media_twitter_install() {
+
+  // Add permissions.
+  ModuleInstallerFactory::addPermissions('varbase_media_twitter');
+
+}

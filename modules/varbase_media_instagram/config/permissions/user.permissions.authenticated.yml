@@ -1,0 +1,4 @@
+id: authenticated
+permissions:
+  - 'delete own instagram media'
+  - 'edit own instagram media'
