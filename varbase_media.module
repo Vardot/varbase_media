@@ -131,22 +131,38 @@ function varbase_media_preprocess_field(&$variables) {
           $entity_display = EntityViewDisplay::collectRenderDisplay($entity, $view_mode);
           $field_display = $entity_display->getComponent($field_name);
 
-          $build_item = $item['content']['#build']['item'];
-          $value = $build_item->getValue();
-          $file = File::load($value['target_id']);
-          $value['_attributes']['uri'] = $file->getFileUri();
+          if (isset($item['content']['#build'])) {
+            $value = [];
 
-          if (isset($item['content']['#build'])
-            && isset($item['content']['#build']['settings'])
-            && isset($item['content']['#build']['settings']['responsive_image_style'])) {
-            $value['_attributes']['responsive_image_style'] = $item['content']['#build']['settings']['responsive_image_style'];
+            if (isset($item['content']['#build']['item'])) {
+              $value = $item['content']['#build']['item']->getValue();
+            }
+            else {
+              $value = $item['content']['#build']['#item']->getValue();
+            }
+
+            if (isset($value['target_id']) && isset($value['_attributes'])) {
+              $file = File::load($value['target_id']);
+              $value['_attributes']['uri'] = $file->getFileUri();
+
+              if (isset($item['content']['#build'])
+                && isset($item['content']['#build']['settings'])
+                && isset($item['content']['#build']['settings']['responsive_image_style'])) {
+                $value['_attributes']['responsive_image_style'] = $item['content']['#build']['settings']['responsive_image_style'];
+              }
+
+              if (!empty($item['content']['#image_style'])) {
+                $value['_attributes']['image_style'] = $item['content']['#image_style'];
+              }
+
+              if (isset($item['content']['#build']['item'])) {
+                $item['content']['#build']['item']->setValue($value);
+              }
+              else {
+                $item['content']['#build']['#item']->setValue($value);
+              }
+            }
           }
-
-          if (!empty($item['content']['#image_style'])) {
-            $value['_attributes']['image_style'] = $item['content']['#image_style'];
-          }
-
-          $build_item->setValue($value);
         }
       }
     }
