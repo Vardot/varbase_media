@@ -44,7 +44,7 @@
     "drupal/media_bulk_upload": "~3.0",
     "drupal/entity_embed": "1.4.0",
     "drupal/inline_entity_form": "~1.0",
-    "drupal/embed": "1.6.0",
+    "drupal/embed": "~1.0",
     "drupal/media_entity_instagram": "~3.0",
     "drupal/media_entity_twitter": "~2.0",
     "drupal/media_library_edit": "~3.0",
