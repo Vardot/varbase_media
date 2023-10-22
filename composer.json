@@ -44,7 +44,7 @@
     "drupal/media_bulk_upload": "~3.0.0",
     "drupal/entity_embed": "1.4.0",
     "drupal/inline_entity_form": "~1.0",
-    "drupal/embed": "1.6.0",
+    "drupal/embed": "~1.0",
     "drupal/media_entity_instagram": "~3.0",
     "drupal/media_entity_twitter": "~2.0",
     "drupal/media_library_edit": "~3.0",
@@ -90,10 +90,6 @@
     "enable-patching": true,
     "composer-exit-on-patch-failure": true,
     "patches": {
-      "drupal/embed": {
-        "Issue #3309747: Add CKEditor 5 compatibility and keep supporting CKEditor 4":
-        "https://www.drupal.org/files/issues/2023-10-11/3309747-57.patch"
-      },
       "drupal/entity_embed": {
         "Issue #3070343: Allow to add a Drupal core link with Link Widget for Image entities using Entity Embed Dialog in CKEditor":
         "https://www.drupal.org/files/issues/2022-10-21/entity_embed-link_image_media_entities-3070343-27.patch",
