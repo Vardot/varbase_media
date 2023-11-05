@@ -602,7 +602,7 @@ display:
         - 'url.query_args:sort_by'
         - user
         - user.permissions
-      tags: { }
+      tags: {  }
   page:
     id: page
     display_title: Page
@@ -1361,7 +1361,7 @@ display:
         - 'url.query_args:sort_by'
         - user
         - user.permissions
-      tags: { }
+      tags: {  }
   widget:
     id: widget
     display_title: Widget
@@ -1682,7 +1682,7 @@ display:
         - url.query_args
         - 'url.query_args:sort_by'
         - user.permissions
-      tags: { }
+      tags: {  }
   widget_table:
     id: widget_table
     display_title: 'Widget (table)'

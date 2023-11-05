@@ -495,7 +495,7 @@ display:
         - 'url.query_args:sort_by'
         - 'url.query_args:sort_order'
         - user.permissions
-      tags: {  }
+      tags: { }
   media_browser:
     id: media_browser
     display_title: 'Media Browser'
@@ -546,6 +546,7 @@ display:
               allow_secondary: false
               secondary_label: 'Advanced options'
               secondary_open: false
+              reset_button_always_show: false
             sort:
               plugin_id: default
               advanced:
@@ -628,7 +629,9 @@ display:
       display_description: 'Shows a list of filtered media types (images and videos) only.'
       rendering_language: '***LANGUAGE_language_interface***'
       display_extenders:
-        metatag_display_extender: {  }
+        metatag_display_extender:
+          metatags: {  }
+          tokenize: false
     cache_metadata:
       max-age: -1
       contexts:
@@ -638,7 +641,7 @@ display:
         - 'url.query_args:sort_by'
         - 'url.query_args:sort_order'
         - user.permissions
-      tags: {  }
+      tags: { }
   video_browser:
     id: video_browser
     display_title: 'Video Browser'
@@ -791,6 +794,7 @@ display:
               allow_secondary: false
               secondary_label: 'Advanced options'
               secondary_open: false
+              reset_button_always_show: false
             sort:
               plugin_id: default
               advanced:
@@ -1079,7 +1083,9 @@ display:
       use_ajax: true
       display_description: ''
       display_extenders:
-        metatag_display_extender: {  }
+        metatag_display_extender:
+          metatags: {  }
+          tokenize: false
     cache_metadata:
       max-age: -1
       contexts:
@@ -1089,4 +1095,4 @@ display:
         - 'url.query_args:sort_by'
         - 'url.query_args:sort_order'
         - user.permissions
-      tags: {  }
+      tags: { }
