@@ -501,6 +501,33 @@ function varbase_media_update_90004() {
  */
 function varbase_media_update_90005() {
   // Set the weight of the module after installation of list of modules.
-  // To make sure that any hook or event subscriber workes after all used modules.
+  // To make sure that any hook or event subscriber worker after all used modules.
   ModuleInstallerFactory::setModuleWeightAfterInstallation('varbase_media');
+}
+
+/**
+ * Issue #3398691: Fix not rendered selection checkbox.
+ *
+ * for Media Library grid widget after searching.
+ */
+function varbase_media_update_90006() {
+
+  $config_factory = \Drupal::configFactory()->getEditable('views.view.media_library');
+  $config_factory->set('display.default.display_options.sorts.created.expose.field_identifier', 'created');
+  $config_factory->set('display.default.display_options.sorts.name.expose.field_identifier', 'name');
+  $config_factory->set('display.default.display_options.sorts.name_1.expose.field_identifier', 'name_1');
+
+  $config_factory->set('display.page.display_options.sorts.created.expose.field_identifier', 'created');
+  $config_factory->set('display.page.display_options.sorts.name.expose.field_identifier', 'name');
+  $config_factory->set('display.page.display_options.sorts.name_1.expose.field_identifier', 'name_1');
+
+  $config_factory->set('display.widget.display_options.sorts.created.expose.field_identifier', 'created');
+  $config_factory->set('display.widget.display_options.sorts.name.expose.field_identifier', 'name');
+  $config_factory->set('display.widget.display_options.sorts.name_1.expose.field_identifier', 'name_1');
+
+  $config_factory->set('display.widget_table.display_options.sorts.created.expose.field_identifier', 'created');
+  $config_factory->set('display.widget_table.display_options.sorts.name.expose.field_identifier', 'name');
+  $config_factory->set('display.widget_table.display_options.sorts.name_1.expose.field_identifier', 'name_1');
+
+  $config_factory->save(TRUE);
 }
