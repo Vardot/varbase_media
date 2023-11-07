@@ -94,7 +94,7 @@
         "Issue #3070343: Allow to add a Drupal core link with Link Widget for Image entities using Entity Embed Dialog in CKEditor":
         "https://www.drupal.org/files/issues/2023-11-02/entity-embed-add-link-image-entity-3070343-37.patch",
         "Issue #2679875: Inline Entity Form integration":
-        "https://www.drupal.org/files/issues/2023-06-22/2679875-20.patch"
+        "https://www.drupal.org/files/issues/2023-11-07/2679875-22.patch"
       }
     }
   }
