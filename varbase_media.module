@@ -597,7 +597,7 @@ function varbase_media_form_alter(&$form, &$form_state, $form_id) {
                   if (!empty($editor_object['hostEntityLangcode']) && $media->hasTranslation($editor_object['hostEntityLangcode'])) {
                     $media = $media->getTranslation($editor_object['hostEntityLangcode']);
                   }
-                  $alt = isset($media_embed_element['alt']) ? $media_embed_element['alt'] : $media->{$image_field_name}->alt;
+                  $alt = $media_embed_element['alt'] ?? $media->{$image_field_name}->alt;
                   $form['alt']['#default_value'] = $alt;
                   $form['alt']['#placeholder'] = $media->{$image_field_name}->alt;
                 }
