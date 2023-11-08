@@ -225,7 +225,7 @@ function entity_browser_generic_embed_preprocess_image_style(array &$variables) 
  * Implements hook_form_FORM_ID_alter().
  */
 function entity_browser_generic_embed_form_entity_embed_dialog_alter(array &$form, FormStateInterface $form_state) {
-  list ($editor, $embed_button) = $form_state->getBuildInfo()['args'];
+  [$editor, $embed_button] = $form_state->getBuildInfo()['args'];
 
   /** @var \Drupal\embed\EmbedButtonInterface $embed_button */
   if (isset($editor) && $embed_button->id() == 'media_browser') {
