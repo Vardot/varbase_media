@@ -23,12 +23,9 @@ function varbase_media_install() {
   ModuleInstallerFactory::importConfigsFromScanedDirectory('varbase_media', '/^.*(settings.yml)$/i');
   ModuleInstallerFactory::importConfigsFromScanedDirectory('varbase_media', '/^entity_browser_enhanced.widgets.*\\.(yml)$/i');
 
-  // Managed Varbase Media Library configurations.
-  _varbase_media_managed_media_library_configs();
-
   $module_path = Drupal::service('module_handler')->getModule('varbase_media')->getPath();
 
-  // Load Media types icons for the media libraray table view page.
+  // Load Media types icons for the media library table view page.
   $source = $module_path . '/images/icons';
   $destination = \Drupal::config('media.settings')->get('icon_base_uri');
   \Drupal::service('file_system')->prepareDirectory($destination, FileSystemInterface::CREATE_DIRECTORY | FileSystemInterface::MODIFY_PERMISSIONS);

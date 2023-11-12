@@ -12,18 +12,56 @@ use Drupal\field\Entity\FieldConfig;
 use Drupal\field\Entity\FieldStorageConfig;
 
 /**
+ * Managed Varbase Media Library configurations.
+ *
+ * Fix [Media Library] and the [Media Grid and Media Table]
+ * admin pages to work with Drupal ^8.8.x and ^8.7.x .
+ */
+function _varbase_media_managed_media_library_configs() {
+  $module_path = Drupal::service('module_handler')->getModule('varbase_media')->getPath();
+  $managed_config_path = DRUPAL_ROOT . '/' . $module_path . '/config';
+
+  if (version_compare(Drupal::VERSION, '8.8.0', 'lt') === TRUE) {
+    $managed_config_path = $managed_config_path . '/managed/lt80800';
+  }
+  else {
+    // Use the latest managed configs from the managed latest directory.
+    $managed_config_path = $managed_config_path . '/managed/latest';
+  }
+
+  // Override the media view.
+  $media_config_path = $managed_config_path . '/views.view.media.yml';
+  if (file_exists($media_config_path)) {
+    $media_config_content = file_get_contents($media_config_path);
+    $media_config_data = (array) Yaml::parse($media_config_content);
+    $media_config_factory = \Drupal::configFactory()->getEditable('views.view.media');
+    $media_config_factory->setData($media_config_data)->save(TRUE);
+  }
+
+  // Override the media library view.
+  $media_library_config_path = $managed_config_path . '/views.view.media_library.yml';
+  if (file_exists($media_library_config_path)) {
+    $media_library_config_content = file_get_contents($media_library_config_path);
+    $media_library_config_data = (array) Yaml::parse($media_library_config_content);
+    $media_library_config_factory = \Drupal::configFactory()->getEditable('views.view.media_library');
+    $media_library_config_factory->setData($media_library_config_data)->save(TRUE);
+  }
+
+}
+
+/**
  * Issue #3098789: Fix [Media Library] and the [Media Grid and Media Table].
  *
  * Admin pages to work with Drupal ^8.8.x and ^8.7.x .
  */
 function varbase_media_update_8701() {
-  // Not needing to manage Drupal 8 any more in the Varbase 10.0.x branch.
+  _varbase_media_managed_media_library_configs();
 }
 
 /**
  * Issue #3103229: Fix icons for [Embed buttons] for the CKEditor.
  *
- * After the change of Embed API as they had dropped icon_uuid and change of
+ * After the change of Embed API as they had droped icon_uuid and change of
  * config schema.
  */
 function varbase_media_update_8702() {
