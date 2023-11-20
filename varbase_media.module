@@ -353,14 +353,14 @@ function varbase_media_inline_entity_form_entity_form_alter(&$entity_form, &$for
     $entity_form['revision_information']['#suffix'] = '</div>';
   }
 
-  // Hide revistion.
+  // Hide revision.
   if (isset($entity_form['revision'])) {
     $entity_form['revision']['#default_value'] = TRUE;
     $entity_form['revision']['#disabled'] = TRUE;
     $entity_form['revision']['#attributes']['style'][] = 'display: none;';
   }
 
-  // Hide revistion log message.
+  // Hide revision log message.
   if (isset($entity_form['revision_log_message'])) {
     $entity_form['revision_log_message']['#disabled'] = TRUE;
     $entity_form['revision_log_message']['#attributes']['style'][] = 'display: none;';
@@ -371,9 +371,58 @@ function varbase_media_inline_entity_form_entity_form_alter(&$entity_form, &$for
  * Implements hook_theme_registry_alter().
  */
 function varbase_media_theme_registry_alter(&$theme_registry) {
-  // Varbase media path.
-  $varbase_media_path = Drupal::service('module_handler')->getModule('varbase_media')->getPath();
-  $theme_registry['entity_embed_container']['path'] = $varbase_media_path . '/templates';
+  // Varbase Media path.
+  if (isset($theme_registry['entity_embed_container'])) {
+    $varbase_media_path = Drupal::service('module_handler')->getModule('varbase_media')->getPath();
+    $theme_registry['entity_embed_container']['path'] = $varbase_media_path . '/templates';
+  }
+
+  if (isset($theme_registry['fieldset__media_library_widget'])) {
+    $varbase_media_path = Drupal::service('module_handler')->getModule('varbase_media')->getPath();
+    $theme_registry['fieldset__media_library_widget']['path'] = $varbase_media_path . '/templates';
+  }
+
+  if (isset($theme_registry['media_library_item'])) {
+    $media_library_path = Drupal::service('module_handler')->getModule('media_library')->getPath();
+    $theme_registry['media_library_item']['path'] = $media_library_path . '/templates';
+  }
+
+  if (isset($theme_registry['media_library_item__widget'])) {
+    $media_library_path = Drupal::service('module_handler')->getModule('media_library')->getPath();
+    $theme_registry['media_library_item__widget']['path'] = $media_library_path . '/templates';
+  }
+
+}
+
+/**
+ * Implements hook_preprocess_media_library_item__widget().
+ */
+function varbase_media_preprocess_media_library_item__widget(array &$variables) {
+  $variables['content']['remove_button']['#attributes']['class'][] = 'media-library-item__remove';
+  $variables['content']['remove_button']['#attributes']['class'][] = 'icon-link';
+}
+
+/**
+ * Implements hook_preprocess_media_library_item().
+ */
+function varbase_media_preprocess_media_library_item(array &$variables) {
+  $variables['attributes']['class'][] = 'media-library-item';
+  $variables['attributes']['class'][] = 'media-library-item--grid';
+  $variables['attributes']['class'][] = 'media-library-selection';
+}
+
+/**
+ * Implements hook_preprocess_fieldset__media_library_widget().
+ */
+function varbase_media_preprocess_fieldset__media_library_widget(array &$variables) {
+  $variables['attributes']['class'][] = 'media-library-widget';
+}
+
+/**
+ * Implements hook_preprocess_fieldset__media_library_widget().
+ */
+function varbase_media_preprocess_container__media_library_widget_selection(array &$variables) {
+  $variables['attributes']['class'][] = 'media-library-selection';
 }
 
 /**
