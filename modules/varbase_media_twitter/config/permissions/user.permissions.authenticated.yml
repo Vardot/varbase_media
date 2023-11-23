@@ -1,0 +1,4 @@
+id: authenticated
+permissions:
+  - 'delete own tweet media'
+  - 'edit own tweet media'

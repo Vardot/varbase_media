@@ -69,7 +69,7 @@ widgets:
   3f1b8c4f-87d5-4869-b760-63dd69eb170c:
     settings:
       media_type: image
-      upload_location: "public://images/[date:custom:Y]-[date:custom:m]"
+      upload_location: "public://[date:custom:Y]-[date:custom:m]"
       dropzone_description: "Drop image files here to upload them"
       max_filesize: 32M
       extensions: "jpg jpeg gif png"

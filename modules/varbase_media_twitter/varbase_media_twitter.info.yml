@@ -2,7 +2,7 @@ name: "Varbase Media Twitter"
 description: "Manages default config for Tweet media type."
 type: module
 package: Varbase
-core_version_requirement: ^9
+core_version_requirement: ~9
 dependencies:
   - varbase_media:varbase_media
   - media_entity_twitter:media_entity_twitter
