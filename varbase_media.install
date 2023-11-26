@@ -22,6 +22,7 @@ function varbase_media_install() {
   ModuleInstallerFactory::importConfigsFromScanedDirectory('varbase_media', '/^field.storage.*\\.(yml)$/i');
   ModuleInstallerFactory::importConfigsFromScanedDirectory('varbase_media', '/^.*(settings.yml)$/i');
   ModuleInstallerFactory::importConfigsFromScanedDirectory('varbase_media', '/^entity_browser_enhanced.widgets.*\\.(yml)$/i');
+  ModuleInstallerFactory::importConfigsFromScanedDirectory('varbase_media', '/^views.view.*\\.(yml)$/i');
 
   $module_path = Drupal::service('module_handler')->getModule('varbase_media')->getPath();
 
@@ -58,17 +59,14 @@ function varbase_media_install() {
 
     foreach ($embed_buttons as $embed_button_id => $embed_button_info) {
       $target_destination = NULL;
-      if (version_compare(Drupal::VERSION, '8.7.0', '>=')) {
-        try {
-          $target_destination = Drupal::service('file_system')->copy($embed_button_info['source'], $embed_button_info['destination']);
-        }
-        catch (FileException $e) {
-          $target_destination = FALSE;
-        }
+
+      try {
+        $target_destination = Drupal::service('file_system')->copy($embed_button_info['source'], $embed_button_info['destination']);
       }
-      else {
-        $target_destination = call_user_func('file_unmanaged_copy', $embed_button_info['source'], $embed_button_info['destination']);
+      catch (FileException $e) {
+        $target_destination = FALSE;
       }
+
 
       if ($target_destination) {
         $target_file = File::create(['uri' => $target_destination]);
