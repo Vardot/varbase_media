@@ -4,10 +4,6 @@ type: module
 package: Varbase
 core_version_requirement: ~10
 configure: varbase_media.settings
-components:
-  - entity_browser_generic_embed
-  - varbase_media_twitter
-  - varbase_media_instagram
 dependencies:
   - drupal:user
   - drupal:block
