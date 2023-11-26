@@ -22,6 +22,7 @@ function varbase_media_install() {
   ModuleInstallerFactory::importConfigsFromScanedDirectory('varbase_media', '/^field.storage.*\\.(yml)$/i');
   ModuleInstallerFactory::importConfigsFromScanedDirectory('varbase_media', '/^.*(settings.yml)$/i');
   ModuleInstallerFactory::importConfigsFromScanedDirectory('varbase_media', '/^entity_browser_enhanced.widgets.*\\.(yml)$/i');
+  ModuleInstallerFactory::importConfigsFromScanedDirectory('varbase_media', '/^views.view.*\\.(yml)$/i');
 
   $module_path = Drupal::service('module_handler')->getModule('varbase_media')->getPath();
 
