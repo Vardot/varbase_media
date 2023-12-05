@@ -11,6 +11,10 @@ use Drupal\Core\File\FileSystemInterface;
 use Drupal\Core\File\Exception\FileException;
 use Vardot\Installer\ModuleInstallerFactory;
 
+// Include all helpers and updates.
+include_once __DIR__ . '/includes/helpers.inc';
+include_once __DIR__ . '/includes/updates.inc';
+
 /**
  * Implements hook_install().
  */
@@ -67,7 +71,6 @@ function varbase_media_install() {
         $target_destination = FALSE;
       }
 
-
       if ($target_destination) {
         $target_file = File::create(['uri' => $target_destination]);
         $target_file->save();
@@ -85,34 +88,3 @@ function varbase_media_install() {
   // Add permissions.
   ModuleInstallerFactory::addPermissions('varbase_media');
 }
-
-/**
- * Implements hook_requirements().
- */
-function varbase_media_requirements($phase) {
-  $requirements = [];
-  if ($phase == 'install') {
-    $destination = \Drupal::config('media.settings')->get('icon_base_uri');
-    \Drupal::service('file_system')->prepareDirectory($destination, FileSystemInterface::CREATE_DIRECTORY | FileSystemInterface::MODIFY_PERMISSIONS);
-    $is_writable = is_writable($destination);
-    $is_directory = is_dir($destination);
-    if (!$is_writable || !$is_directory) {
-      if (!$is_directory) {
-        $error = t('The directory %directory does not exist.', ['%directory' => $destination]);
-      }
-      else {
-        $error = t('The directory %directory is not writable.', ['%directory' => $destination]);
-      }
-      $description = t('An automated attempt to create this directory failed, possibly due to a permissions problem. To proceed with the installation, either create the directory and modify its permissions manually or ensure that the installer has the permissions to create it automatically. For more information, see INSTALL.txt or the <a href=":handbook_url">online handbook</a>.', [':handbook_url' => 'https://www.drupal.org/server-permissions']);
-      if (!empty($error)) {
-        $description = $error . ' ' . $description;
-        $requirements['varbase_media']['description'] = $description;
-        $requirements['varbase_media']['severity'] = REQUIREMENT_ERROR;
-      }
-    }
-  }
-  return $requirements;
-}
-
-// Load include all updates and apply them.
-\Drupal::moduleHandler()->loadInclude('varbase_media', 'inc', 'include/updates/all');

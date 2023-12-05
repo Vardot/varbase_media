@@ -39,7 +39,7 @@ function varbase_media_update_9002() {
       'media_bulk_upload.media_bulk_config.media_bulk_upload',
     ];
 
-    // Import list of needed configs for Meida Build Upload.
+    // Import list of needed configs for Media bulk Upload.
     foreach ($media_bulk_upload_configs as $media_bulk_upload_config) {
       $media_config_path = $optional_install_path . '/' . $media_bulk_upload_config . '.yml';
 
