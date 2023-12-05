@@ -17,7 +17,7 @@ use Drupal\field\Entity\FieldStorageConfig;
  * Admin pages to work with Drupal ^8.8.x and ^8.7.x .
  */
 function varbase_media_update_8701() {
-  // Not needing to manage Drupal 8 any more in the Varbase 10.0.x branch.
+  varbase_media__managed_media_library_configs();
 }
 
 /**
@@ -79,7 +79,7 @@ function varbase_media_update_8702() {
 /**
  * Follow up fix Issue #3103229: Fix icons for [Embed buttons] for the CKEditor.
  *
- * After the change of Embed API as they had droped icon_uuid and change of
+ * After the change of Embed API as they had dropped icon_uuid and change of
  * config schema in case for optional updates or buttons were deleted.
  */
 function varbase_media_update_8703() {
@@ -140,7 +140,7 @@ function varbase_media_update_8705() {
     if (isset($entities) && is_array($entities) && count($entities) > 0) {
       // And no syncing for update process.
       if (!\Drupal::isConfigSyncing()) {
-        // Fetch the provider name and cach it in the field_provider
+        // Fetch the provider name and cache it in the field_provider
         // Not to be changed or fetched again.
         foreach ($entities as $entity) {
           try {
@@ -200,7 +200,7 @@ function varbase_media_update_8706() {
 }
 
 /**
- * Issue #3125946: Fix missing varbase media entity presave hook.
+ * Issue #3125946: Fix missing varbase media entity pre-save hook.
  *
  * For remote videos after introduced issues on update with [entityqueue]
  * latest release. Please run [ drupal update:entities ] after the update of
@@ -223,42 +223,6 @@ function varbase_media_update_8707() {
     varbase_media_update_8704();
     varbase_media_update_8705();
     varbase_media_update_8706();
-  }
-}
-
-/**
- * Helper function to rename slick_media config dependencies to slick.
- *
- * Https://git.drupalcode.org/project/slick_media/-/blob/8.x-3.x/slick_media.install.
- *
- * @param string $dependency_type
- *   The type of the dependency, such as "module" or "config".
- * @param string $dependency_id
- *   The name of the dependency to be updated.
- * @param callable $map
- *   A callback to be passed to array_map() to actually perform the config name
- *   substitution.
- */
-function _varbase_media_slick_media_fix_dependencies($dependency_type, $dependency_id, callable $map) {
-  $dependents = \Drupal::service('config.manager')
-    ->findConfigEntityDependents($dependency_type, [$dependency_id]);
-
-  $key = 'dependencies.' . $dependency_type;
-  $key2 = 'dependencies.enforced.' . $dependency_type;
-
-  foreach (array_keys($dependents) as $name) {
-    $config = \Drupal::configFactory()->getEditable($name);
-    $dependencies = $config->get($key);
-    if (is_array($dependencies)) {
-      $config->set($key, array_map($map, $dependencies));
-    }
-
-    $dependencies2 = $config->get($key2);
-    if (is_array($dependencies2)) {
-      $config->set($key2, array_map($map, $dependencies2));
-    }
-
-    $config->save();
   }
 }
 
