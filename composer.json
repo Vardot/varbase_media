@@ -60,7 +60,10 @@
     "drupal/webp": "~1",
     "drupal/drimage": "~2",
     "drupal/imageapi_optimize_webp": "~2",
-    "drupal/entity_clone": "~2"
+    "drupal/entity_clone": "~2",
+    "drupal/length_indicator": "~1",
+    "drupal/maxlength": "~2",
+    "drupal/advanced_text_formatter": "~3"
   },
   "suggest": {
     "npm-asset/dropzone": "~5.0: Provides JavaScript library necessary for Dropzone",
