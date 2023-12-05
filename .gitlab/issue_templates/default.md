@@ -1,11 +1,7 @@
 ### Problem/Motivation
 
 #### Steps to reproduce
-```
-  Given 
-   When 
-   Then 
-```
+
 
 ### Proposed resolution
 
