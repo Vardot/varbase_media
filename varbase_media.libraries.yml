@@ -57,3 +57,7 @@ media_library_enhancements:
   version: VERSION
   js:
     js/varbase-media-enhancements.js: {}
+ckeditor_drimage:
+  version: VERSION
+  js:
+    js/varbase-media-ckeditor-drimage.js: {}

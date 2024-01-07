@@ -164,15 +164,109 @@ figure {
         text-align: center;
       }
     }
-    
+
+    &.media--view-mode-large {
+      width: 100%;
+    }
+    // Responsive large video with containers that are 100% wide until a breakpoint.
+    @each $breakpoint, $container-max-width in $container-max-widths {
+      // Generate media query if needed.
+      @include media-breakpoint-up($breakpoint) {
+        &.media--view-mode-large {
+          min-width: $container-max-width;
+          max-width: $container-max-width;
+
+          .varbase-video-player {
+            video,
+            iframe {
+              min-width: $container-max-width;
+              max-width: $container-max-width;
+            }
+          }
+        }
+      }
+    }
+
+    // Responsive medium video with containers that are 50% wide until a breakpoint.
+    @each $breakpoint, $container-max-width in $container-max-widths {
+      // Generate media query if needed.
+      @include media-breakpoint-up($breakpoint) {
+        &.media--view-mode-medium {
+          min-width: math.div($container-max-width,$grid-columns) * 6;
+          max-width: math.div($container-max-width,$grid-columns) * 6;
+
+          .varbase-video-player {
+            video,
+            iframe {
+              min-width: math.div($container-max-width,$grid-columns) * 6;
+              max-width: math.div($container-max-width,$grid-columns) * 6;
+            }
+          }
+        }
+      }
+    }
+
+    // Responsive small video with containers that are 25% wide until a breakpoint.
+    @each $breakpoint, $container-max-width in $container-max-widths {
+      // Generate media query if needed.
+      @include media-breakpoint-up($breakpoint) {
+        &.media--view-mode-small {
+          min-width: math.div($container-max-width,$grid-columns) * 3;
+          max-width: math.div($container-max-width,$grid-columns) * 3;
+
+          .varbase-video-player {
+            video,
+            iframe {
+              min-width: math.div($container-max-width,$grid-columns) * 3;
+              max-width: math.div($container-max-width,$grid-columns) * 3;
+            }
+          }
+        }
+      }
+    }
+
+  }
+
+  &.media--type-image {
+
+    &.media--view-mode-large {
+      width: 100%;
+    }
+    // Responsive large image with containers that are 100% wide until a breakpoint.
+    @each $breakpoint, $container-max-width in $container-max-widths {
+      // Generate media query if needed.
+      @include media-breakpoint-up($breakpoint) {
+        &.media--view-mode-large {
+          min-width: $container-max-width;
+        }
+      }
+    }
+
     &.media--view-mode-medium {
-      width: 50%; 
+      width: 50%;
+    }
+    // Responsive medium image with containers that are 50% wide until a breakpoint.
+    @each $breakpoint, $container-max-width in $container-max-widths {
+      // Generate media query if needed.
+      @include media-breakpoint-up($breakpoint) {
+        &.media--view-mode-medium {
+          min-width: math.div($container-max-width,$grid-columns) * 6;
+        }
+      }
     }
 
     &.media--view-mode-small {
-      width: 25%; 
+      width: 25%;
     }
-
+    // Responsive small image with containers that are 25% wide until a breakpoint.
+    @each $breakpoint, $container-max-width in $container-max-widths {
+      // Generate media query if needed.
+      @include media-breakpoint-up($breakpoint) {
+        &.media--view-mode-small {
+          min-width: math.div($container-max-width,$grid-columns) * 3;
+        }
+      }
+    }
   }
 
   &.media--type-remote-video

@@ -181,10 +181,10 @@ function varbase_media_ckeditor_css_alter(array &$css, Editor $editor) {
   $varbase_media_path = Drupal::service('module_handler')->getModule('varbase_media')->getPath();
 
   // Attached the varbase media common style.
-  $css[] = $varbase_media_path . '/css/varbase_media.common.css';
+  $css[] = $varbase_media_path . '/css/theme/varbase_media.common.css';
 
   // Attached the varbase media common logged in users style.
-  $css[] = $varbase_media_path . '/css/varbase_media.common_logged.css';
+  $css[] = $varbase_media_path . '/css/theme/varbase_media.common_logged.css';
 }
 
 /**
@@ -328,14 +328,14 @@ function varbase_media_form_entity_embed_dialog_alter(&$form, FormStateInterface
       $form['revision_information']['#suffix'] = '</div>';
     }
 
-    // Hide revistion.
+    // Hide revision.
     if (isset($form['revision'])) {
       $form['revision']['#default_value'] = TRUE;
       $form['revision']['#disabled'] = TRUE;
       $form['revision']['#attributes']['style'][] = 'display: none;';
     }
 
-    // Hide revistion log message.
+    // Hide revision log message.
     if (isset($form['revision_log_message'])) {
       $form['revision_log_message']['#disabled'] = TRUE;
       $form['revision_log_message']['#attributes']['style'][] = 'display: none;';
@@ -516,14 +516,14 @@ function varbase_media_form_alter(&$form, &$form_state, $form_id) {
         $form['revision_information']['#suffix'] = '</div>';
       }
 
-      // Hide revistion.
+      // Hide revision.
       if (isset($form['revision'])) {
         $form['revision']['#default_value'] = TRUE;
         $form['revision']['#disabled'] = TRUE;
         $form['revision']['#attributes']['style'][] = 'display: none;';
       }
 
-      // Hide revistion log message.
+      // Hide revision log message.
       if (isset($form['revision_log_message'])) {
         $form['revision_log_message']['#disabled'] = TRUE;
         $form['revision_log_message']['#attributes']['style'][] = 'display: none;';
@@ -704,8 +704,16 @@ function varbase_media_oembed_resource_url_alter(array &$parsed_url, Provider $p
 /**
  * Implements hook_library_info_alter().
  */
-function varbase_media_library_info_alter(array &$libraries, $module) {
-  if ($module === 'media_library' && isset($libraries['widget'])) {
+function varbase_media_library_info_alter(&$libraries, $extension) {
+  if ($extension === 'media_library' && isset($libraries['widget'])) {
     $libraries['widget']['dependencies'][] = 'varbase_media/media_library_enhancements';
+  }
+
+  if ($extension === 'ckeditor5') {
+    $libraries['internal.drupal.ckeditor5.media']['dependencies'][] = 'drimage/drimage';
+    $libraries['internal.drupal.ckeditor5.media']['dependencies'][] = 'varbase_media/common';
+    $libraries['internal.drupal.ckeditor5.media']['dependencies'][] = 'varbase_media/common_logged';
+    $libraries['internal.drupal.ckeditor5.media']['dependencies'][] = 'varbase_media/varbase_video_player';
+    $libraries['internal.drupal.ckeditor5.media']['dependencies'][] = 'varbase_media/ckeditor_drimage';
   }
 }

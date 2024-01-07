@@ -35,7 +35,9 @@
   opacity: .75;
 }
 
-.media--type-video-embed,.media--type-remote-video,.media--type-video {
+.media--type-video-embed,
+.media--type-remote-video,
+.media--type-video {
   position: relative;
 }
 
@@ -56,7 +58,8 @@
   height: 100%;
 }
 
-.object-fit-media .varbase-video-player>video,.object-fit-media .varbase-video-player>iframe {
+.object-fit-media .varbase-video-player>video,
+.object-fit-media .varbase-video-player>iframe {
   position: absolute;
   z-index: 1;
   width: 100%;
@@ -68,4 +71,3 @@
   min-height: 56vw !important;
   margin-top: calc(var(--bs-aspect-ratio)*-0.65) !important;
 }
-
