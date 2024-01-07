@@ -237,7 +237,7 @@ figure {
       // Generate media query if needed.
       @include media-breakpoint-up($breakpoint) {
         &.media--view-mode-large {
-          min-width: $container-max-width;
+          max-width: $container-max-width;
         }
       }
     }

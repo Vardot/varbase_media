@@ -392,31 +392,31 @@ figure.caption.caption-drupal-media.align-center {
 
 @media (min-width: 576px) {
   .media.media--type-image.media--view-mode-large {
-    min-width: 540px;
+    max-width: 540px;
   }
 }
 
 @media (min-width: 768px) {
   .media.media--type-image.media--view-mode-large {
-    min-width: 720px;
+    max-width: 720px;
   }
 }
 
 @media (min-width: 992px) {
   .media.media--type-image.media--view-mode-large {
-    min-width: 960px;
+    max-width: 960px;
   }
 }
 
 @media (min-width: 1200px) {
   .media.media--type-image.media--view-mode-large {
-    min-width: 1140px;
+    max-width: 1140px;
   }
 }
 
 @media (min-width: 1400px) {
   .media.media--type-image.media--view-mode-large {
-    min-width: 1320px;
+    max-width: 1320px;
   }
 }
 
