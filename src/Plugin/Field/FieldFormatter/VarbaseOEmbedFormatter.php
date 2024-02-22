@@ -50,7 +50,7 @@ class VarbaseOEmbedFormatter extends OEmbedFormatter {
           'max_width' => $max_width,
           'max_height' => $max_height,
           'type' => "remote_video",
-          'provider' => strtolower($provider),
+          'provider' => strtolower($provider ?? ''),
           'hash' => $this->iFrameUrlHelper->getHash($value, $max_width, $max_height, $provider),
         ],
       ]);

@@ -173,7 +173,7 @@ function entity_browser_generic_embed_inject_entity_browser_count(array $element
  */
 function entity_browser_generic_embed_preprocess_image_style(array &$variables) {
   $extension = pathinfo($variables['uri'], PATHINFO_EXTENSION);
-  $extension = mb_strtolower($extension);
+  $extension = mb_strtolower($extension ?? '');
 
   // If this is an SVG and we don't know its dimensions, try to calculate them
   // through the image style's effect chain.
