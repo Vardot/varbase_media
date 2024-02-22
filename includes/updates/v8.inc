@@ -146,7 +146,7 @@ function varbase_media_update_8705() {
           try {
             $resource_url = $url_resolver->getResourceUrl(($entity->field_media_oembed_video->value));
             $resource = $resource_fetcher->fetchResource($resource_url);
-            $provider = strtolower($resource->getProvider()->getName());
+            $provider = strtolower($resource->getProvider()->getName() ?? '');
 
             if ($entity->field_provider->value != $provider) {
               $entity->set('field_provider', $provider);
