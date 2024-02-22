@@ -30,7 +30,7 @@ trait FileInputExtensionMatchTrait {
 
     if ($value instanceof FileInterface && ($field = $this->getSourceFieldDefinition($media_type))) {
       $extension = pathinfo($value->getFilename(), PATHINFO_EXTENSION);
-      $extension = strtolower($extension);
+      $extension = strtolower($extension ?? '');
 
       return in_array(
         $extension,

@@ -63,7 +63,7 @@ function varbase_media_preprocess_field(&$variables) {
           'max_width' => $max_width,
           'max_height' => $max_height,
           'type' => "remote_video",
-          'provider' => strtolower($provider),
+          'provider' => strtolower($provider ?? ''),
           'view_mode' => $view_mode,
           'hash' => $iframe_url_helper->getHash($value, $max_width, $max_height, $provider, $view_mode),
         ],
@@ -109,7 +109,7 @@ function varbase_media_preprocess_field(&$variables) {
           'max_width' => $max_width,
           'max_height' => $max_height,
           'type' => "remote_video",
-          'provider' => strtolower($provider),
+          'provider' => strtolower($provider ?? ''),
           'view_mode' => $view_mode,
           'hash' => $iframe_url_helper->getHash($value, $max_width, $max_height, $provider, $view_mode),
         ],
@@ -186,7 +186,7 @@ function varbase_media_entity_presave(EntityInterface $entity) {
       $resource_fetcher = \Drupal::service('media.oembed.resource_fetcher');
       $resource_url = $url_resolver->getResourceUrl(($entity->field_media_oembed_video->value));
       $resource = $resource_fetcher->fetchResource($resource_url);
-      $provider = strtolower($resource->getProvider()->getName());
+      $provider = strtolower($resource->getProvider()->getName() ?? '');
       if ($entity->field_provider->value != $provider) {
         $entity->set('field_provider', $provider);
       }
