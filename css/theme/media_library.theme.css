@@ -16,8 +16,7 @@ body .media-library-widget-modal .media-library-item--grid,
 body .media-library-selection .media-library-item--grid {
   max-width: 14rem !important;
   width: 14rem !important;
-  max-height: 14rem !important;
-  height: 14rem !important;
+  height: 100% !important;
 }
 
 body .media-library-item .media-library-item__preview {
