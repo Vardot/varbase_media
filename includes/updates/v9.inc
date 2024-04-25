@@ -128,3 +128,14 @@ function varbase_media_update_90006() {
 
   $config_factory->save(TRUE);
 }
+
+/**
+ * Issue #3442970: Disable no longer needed Media Revisions UI contrib module as its functionality was added to Drupal Core.
+ *
+ * Disable media revision ui as it is already provided from core.
+ */
+function varbase_media_update_90007() {
+  if (\Drupal::moduleHandler()->moduleExists('media_revisions_ui')) {
+    \Drupal::service('module_installer')->uninstall(['media_revisions_ui'], FALSE);
+  }
+}
