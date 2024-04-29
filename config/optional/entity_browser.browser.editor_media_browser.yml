@@ -47,7 +47,7 @@ widgets:
       upload_location: 'public://[date:custom:Y]-[date:custom:m]'
       dropzone_description: 'Drop image files here to upload them'
       max_filesize: 32M
-      extensions: 'jpg jpeg gif png'
+      extensions: 'jpg jpeg gif png webp'
       clientside_resize: false
       resize_width: null
       resize_height: null
