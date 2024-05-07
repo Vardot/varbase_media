@@ -18,3 +18,14 @@ function varbase_media_update_100001() {
   $recipe = Recipe::createFromDirectory($module_path . '/recipes/updates/varbase_media_update_100001');
   RecipeRunner::processRecipe($recipe);
 }
+
+ /**
+ * Issue #3394223: Fix Status Report for updates with Embed button.
+ *
+ * CKEditor5 compatibility after updating.
+ */
+function varbase_media_update_100002() {
+  $module_path = Drupal::service('module_handler')->getModule('varbase_media')->getPath();
+  $recipe = Recipe::createFromDirectory($module_path . '/recipes/updates/varbase_media_update_100002');
+  RecipeRunner::processRecipe($recipe);
+}
