@@ -15,7 +15,7 @@ dependencies:
   module:
     - entity_embed
     - media
-label: "Media Library"
+label: 'Media Library'
 id: media
 type_id: entity
 type_settings:
@@ -27,15 +27,18 @@ type_settings:
     - remote_video
     - video
   display_plugins:
-    - "view_mode:media.large"
-    - "view_mode:media.medium"
-    - "view_mode:media.original"
-    - "view_mode:media.small"
-  inline_entity_form: false
-  inline_entity_form_settings:
-    entity_form_display: default
-    display_review: flase
+    - 'view_mode:media.large'
+    - 'view_mode:media.medium'
+    - 'view_mode:media.original'
+    - 'view_mode:media.small'
   entity_browser: editor_media_browser
   entity_browser_settings:
     display_review: false
+  inline_entity_form: false
+  inline_entity_form_settings:
+    entity_form_display: default
+    display_review: true
+icon:
+  uri: 'public://embed_buttons/embed-media.svg'
+  data: PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0ibm9uZSI+CiAgPGcgaWQ9IkxheWVyXzIiIGRhdGEtbmFtZT0iTGF5ZXIgMiI+CiAgICA8ZyBpZD0iTGF5ZXJfMS0yIiBkYXRhLW5hbWU9IkxheWVyIDEiPgogICAgICA8ZyBpZD0ibWVkaWEtOSI+CiAgICAgICAgPHJlY3QgZmlsbD0ibm9uZSIgd2lkdGg9IjE2IiBoZWlnaHQ9IjE2Ii8+CiAgICAgICAgPHBhdGggZmlsbD0iIzE3MTcxNyIgZD0iTTEwLjY5LDguN2gwbC0uNDQuMTFoMGwtLjE2LDB2NC4zM0ExLjM4LDEuMzgsMCwwLDAsOS40MywxM2ExLjIyLDEuMjIsMCwwLDAtMS4yOSwxLjEzLDEuMjIsMS4yMiwwLDAsMCwxLjI5LDEuMTMsMS4yMiwxLjIyLDAsMCwwLDEuMjktMS4xM1YxMC4yN2wzLjY5LS45MXYzLjExYTEuMzgsMS4zOCwwLDAsMC0uNjgtLjE5LDEuMjIsMS4yMiwwLDAsMC0xLjI5LDEuMTMsMS4yMiwxLjIyLDAsMCwwLDEuMjksMS4xM0ExLjIyLDEuMjIsMCwwLDAsMTUsMTMuNDFWNy42M1oiLz4KICAgICAgICA8cmVjdCBmaWxsPSJub25lIiB4PSIxLjI1IiB5PSIxLjk3IiB3aWR0aD0iOS4yNSIgaGVpZ2h0PSI3LjI1Ii8+CiAgICAgICAgPHBhdGggZmlsbD0iIzE3MTcxNyIgZD0iTTEwLjEzLDIuMzV2Ni41SDEuNjNWMi4zNWg4LjVtLjc1LS43NUguODh2OGgxMHYtOFoiLz4KICAgICAgICA8cG9seWdvbiBmaWxsPSIjMTcxNzE3IiBzdHJva2U9IiMxNzE3MTciIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIiBzdHJva2Utd2lkdGg9IjAuNXB4IiBwb2ludHM9IjEuMjggOC42NCAzLjkyIDYuOCA1LjgyIDguMTIgNy45OSA1LjYgMTAuNTkgNy42MyAxMC42IDkgMS4yOCA5IDEuMjggOC42NCIvPgogICAgICAgIDxjaXJjbGUgZmlsbD0iIzE3MTcxNyIgY3g9IjMuOSIgY3k9IjQuMzQiIHI9IjAuODkiLz4KICAgICAgPC9nPgogICAgPC9nPgogIDwvZz4KPC9zdmc+Cgo=
 icon_uuid: 0c8d8f34-e57a-46e7-a0f3-3da1c1d631f6

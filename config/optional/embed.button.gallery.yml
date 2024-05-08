@@ -15,12 +15,15 @@ type_settings:
   bundles:
     - gallery
   display_plugins:
-    - "view_mode:media.full"
+    - 'view_mode:media.full'
+  entity_browser: ''
+  entity_browser_settings:
+    display_review: true
   inline_entity_form: true
   inline_entity_form_settings:
     entity_form_display: editor
     display_review: false
-  entity_browser: ""
-  entity_browser_settings:
-    display_review: true
+icon:
+  uri: 'public://embed_buttons/embed-gallery.svg'
+  data: PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJub25lIj4KICA8cmVjdCBmaWxsPSJub25lIiB3aWR0aD0iMTYiIGhlaWdodD0iMTYiLz4KICA8cmVjdCBmaWxsPSJub25lIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMC43NXB4IiB4PSIwLjgyIiB5PSIxLjAyIiB3aWR0aD0iMTAuOCIgaGVpZ2h0PSI4Ljc1Ii8+CiAgPHJlY3QgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjAuNzVweCIgeD0iMi41OCIgeT0iMy41NiIgd2lkdGg9IjEwLjgiIGhlaWdodD0iOC43NSIvPgogIDxyZWN0IGZpbGw9Im5vbmUiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIwLjc1cHgiIHg9IjQuMzQiIHk9IjYuMSIgd2lkdGg9IjEwLjgiIGhlaWdodD0iOC43NSIvPgogIDxwb2x5Z29uIGZpbGw9IiMxNzE3MTciIHN0cm9rZT0iIzE3MTcxNyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2Utd2lkdGg9IjAuNXB4IiBwb2ludHM9IjQuNzggMTMuODUgNy42MiAxMS41NiA5LjY4IDEzLjIgMTIuMDIgMTAuMDYgMTQuODMgMTIuNTkgMTQuODQgMTQuMyA0Ljc4IDE0LjMgNC43OCAxMy44NSIvPgogIDxjaXJjbGUgZmlsbD0iIzE3MTcxNyIgY3g9IjcuNDkiIGN5PSI4LjU4IiByPSIxIi8+Cjwvc3ZnPgo=
 icon_uuid: 8c288b2b-e69b-439a-a4fa-fe2c582d2ef4

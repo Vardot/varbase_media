@@ -5,10 +5,7 @@
  * Contains install and update for Varbase Media module.
  */
 
-use Drupal\file\Entity\File;
-use Drupal\embed\Entity\EmbedButton;
 use Drupal\Core\File\FileSystemInterface;
-use Drupal\Core\File\Exception\FileException;
 use Vardot\Installer\ModuleInstallerFactory;
 
 // Include all helpers and updates.
@@ -44,46 +41,6 @@ function varbase_media_install() {
 
   // Configure Entity Embed buttons.
   ModuleInstallerFactory::importConfigsFromScanedDirectory('varbase_media', '/^embed.button.*\\.(yml)$/i');
-
-  // Add Icons for Entity Embed CKEditor Media Library and Gallery.
-  if (!\Drupal::isConfigSyncing()) {
-
-    $embed_buttons = [
-      // CKEditor Embed Media Library icon for the gallery embed entity button.
-      'media' => [
-        'source' => DRUPAL_ROOT . '/' . $module_path . '/images/ckeditor/hidpi/embed-media.png',
-        'destination' => 'public://embed-media.png',
-      ],
-      // CKEditor Embed Gallery icon for the gallery embed entity button.
-      'gallery' => [
-        'source' => DRUPAL_ROOT . '/' . $module_path . '/images/ckeditor/hidpi/embed-gallery.png',
-        'destination' => 'public://embed-gallery.png',
-      ],
-    ];
-
-    foreach ($embed_buttons as $embed_button_id => $embed_button_info) {
-      $target_destination = NULL;
-
-      try {
-        $target_destination = Drupal::service('file_system')->copy($embed_button_info['source'], $embed_button_info['destination']);
-      }
-      catch (FileException $e) {
-        $target_destination = FALSE;
-      }
-
-      if ($target_destination) {
-        $target_file = File::create(['uri' => $target_destination]);
-        $target_file->save();
-
-        EmbedButton::load($embed_button_id)->set('icon', EmbedButton::convertImageToEncodedData($target_file->getFileUri()))->save();
-      }
-      else {
-        return t("Unable to copy @source to the public files directory.", [
-          '@source' => $embed_button_info['source'],
-        ]);
-      }
-    }
-  }
 
   // Add permissions.
   ModuleInstallerFactory::addPermissions('varbase_media');

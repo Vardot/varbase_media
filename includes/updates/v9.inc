@@ -8,6 +8,8 @@
 use Symfony\Component\Yaml\Yaml;
 use Drupal\Core\Config\InstallStorage;
 use Vardot\Installer\ModuleInstallerFactory;
+use Drupal\Core\Recipe\Recipe;
+use Drupal\Core\Recipe\RecipeRunner;
 
 /**
  * Issue #3192175: Add WebP module ~1.0 and enable by default.
@@ -138,4 +140,15 @@ function varbase_media_update_90007() {
   if (\Drupal::moduleHandler()->moduleExists('media_revisions_ui')) {
     \Drupal::service('module_installer')->uninstall(['media_revisions_ui'], FALSE);
   }
+}
+
+/**
+* Issue #3394223: Fix Status Report for updates with Embed button.
+*
+* CKEditor5 compatibility after updating.
+*/
+function varbase_media_update_90008() {
+  $module_path = Drupal::service('module_handler')->getModule('varbase_media')->getPath();
+  $recipe = Recipe::createFromDirectory($module_path . '/recipes/updates/varbase_media_update_90008');
+  RecipeRunner::processRecipe($recipe);
 }
