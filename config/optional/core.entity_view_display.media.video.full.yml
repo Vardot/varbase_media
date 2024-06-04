@@ -9,7 +9,7 @@ dependencies:
     - media.type.video
   module:
     - blazy
-    - drimage
+    - drimage_improved
     - ds
     - file
 third_party_settings:
@@ -39,7 +39,7 @@ bundle: video
 mode: full
 content:
   field_media_cover_image:
-    type: drimage
+    type: drimage_improved
     label: hidden
     settings:
       image_link: ''

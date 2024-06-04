@@ -17,7 +17,7 @@ dependencies:
   - drupal:media
   - drupal:media_library
   - drupal:breakpoint
-  - drimage:drimage
+  - drimage_improved:drimage_improved
   - better_exposed_filters:better_exposed_filters
   - crop:crop
   - dropzonejs:dropzonejs_eb_widget

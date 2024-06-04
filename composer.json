@@ -52,7 +52,7 @@
     "drupal/slick_views": "~2",
     "drupal/metatag": "~2",
     "drupal/webp": "~1",
-    "drupal/drimage": "~2",
+    "drupal/drimage_improved": "~1",
     "drupal/imageapi_optimize_webp": "~2",
     "drupal/entity_clone": "~2",
     "drupal/length_indicator": "~1",

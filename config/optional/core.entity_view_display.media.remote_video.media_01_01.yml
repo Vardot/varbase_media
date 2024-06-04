@@ -9,7 +9,7 @@ dependencies:
     - field.field.media.remote_video.field_provider
     - media.type.remote_video
   module:
-    - drimage
+    - drimage_improved
     - ds
 third_party_settings:
   ds:
@@ -38,7 +38,7 @@ bundle: remote_video
 mode: media_01_01
 content:
   field_media_cover_image:
-    type: drimage
+    type: drimage_improved
     label: hidden
     settings:
       image_link: ''
@@ -87,7 +87,7 @@ content:
     weight: 1
     region: ds_content
   thumbnail:
-    type: drimage
+    type: drimage_improved
     label: hidden
     settings:
       image_link: ''

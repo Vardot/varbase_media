@@ -710,7 +710,7 @@ function varbase_media_library_info_alter(&$libraries, $extension) {
   }
 
   if ($extension === 'ckeditor5') {
-    $libraries['internal.drupal.ckeditor5.media']['dependencies'][] = 'drimage/drimage';
+    $libraries['internal.drupal.ckeditor5.media']['dependencies'][] = 'drimage_improved/drimage_improved';
     $libraries['internal.drupal.ckeditor5.media']['dependencies'][] = 'varbase_media/common';
     $libraries['internal.drupal.ckeditor5.media']['dependencies'][] = 'varbase_media/common_logged';
     $libraries['internal.drupal.ckeditor5.media']['dependencies'][] = 'varbase_media/varbase_video_player';
