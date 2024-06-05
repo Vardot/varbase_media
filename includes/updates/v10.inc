@@ -29,3 +29,14 @@ function varbase_media_update_100002() {
   $recipe = Recipe::createFromDirectory($module_path . '/recipes/updates/varbase_media_update_100002');
   RecipeRunner::processRecipe($recipe);
 }
+
+ /**
+ * Issue #3451094: Switch from Drimage to Drimage Improved.
+ *
+ * In Varbase Media.
+ */
+function varbase_media_update_100003() {
+  $module_path = Drupal::service('module_handler')->getModule('varbase_media')->getPath();
+  $recipe = Recipe::createFromDirectory($module_path . '/recipes/updates/varbase_media_update_100003');
+  RecipeRunner::processRecipe($recipe);
+}

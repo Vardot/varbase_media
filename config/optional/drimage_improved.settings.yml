@@ -1,0 +1,12 @@
+threshold: 100
+ratio_distortion: 60
+upscale: 100
+downscale: 3600
+multiplier: 1
+lazy_offset: 100
+core_webp: true
+imageapi_optimize_webp: false
+automated_crop: ''
+fallback_style: default
+cache_max_age: 0
+legacy_lazyload: null

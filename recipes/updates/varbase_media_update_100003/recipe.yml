@@ -1,0 +1,9 @@
+name: varbase_media_update_100003
+description: 'Issue #3451094: Switch from Drimage to Drimage Improved in Varbase Media'
+type: update
+install:
+  - drimage_improved
+config:
+  import:
+    varbase_media:
+      - drimage_improved.settings
