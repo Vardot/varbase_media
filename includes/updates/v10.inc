@@ -31,12 +31,23 @@ function varbase_media_update_100002() {
 }
 
  /**
- * Issue #3451094: Switch from Drimage to Drimage Improved.
+ * Issue #3451094: Switch from Drimage to Drimage Improved in Varbase Media.
  *
- * In Varbase Media.
+ * Uninstall ImageAPI Optimize WebP no longer needed module.
  */
 function varbase_media_update_100003() {
-  $module_path = Drupal::service('module_handler')->getModule('varbase_media')->getPath();
-  $recipe = Recipe::createFromDirectory($module_path . '/recipes/updates/varbase_media_update_100003');
-  RecipeRunner::processRecipe($recipe);
+
+  // Only install Drimage Improved when Drimage is enable.
+  if (\Drupal::moduleHandler()->moduleExists('drimage')
+    && !\Drupal::moduleHandler()->moduleExists('drimage_improved')) {
+
+    $module_path = Drupal::service('module_handler')->getModule('varbase_media')->getPath();
+    $recipe = Recipe::createFromDirectory($module_path . '/recipes/updates/varbase_media_update_100003');
+    RecipeRunner::processRecipe($recipe);
+  }
+
+  // Uninstall ImageAPI Optimize WebP no longer needed module.
+  if (\Drupal::moduleHandler()->moduleExists('imageapi_optimize_webp')) {
+    \Drupal::service('module_installer')->uninstall(['imageapi_optimize_webp'], FALSE);
+  }
 }
