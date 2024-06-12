@@ -204,141 +204,149 @@ function varbase_media_form_entity_embed_dialog_alter(&$form, FormStateInterface
     $bundle_type = $entity->bundle();
     $builder = \Drupal::entityTypeManager()->getViewBuilder($entity->getEntityTypeId());
 
-    switch ($bundle_type) {
+    // Restrict the logic only to the media entity type.
+    if ($entity->getEntityTypeId() == "media") {
+      switch ($bundle_type) {
 
-      case "image":
+        case "image":
+          // Image Media for review.
+          $media_view_mode = $builder->view($entity, 's03');
+          $media_markup = \Drupal::service('renderer')->renderRoot($media_view_mode);
 
-        // Image Media for review.
-        $media_view_mode = $builder->view($entity, 's03');
-        $media_markup = \Drupal::service('renderer')->renderRoot($media_view_mode);
+          // Render the Embed entity.
+          $form['entity'] = [
+            '#type' => 'item',
+            '#markup' => $media_markup,
+          ];
 
-        // Render the Embed entity.
-        $form['entity'] = [
-          '#type' => 'item',
-          '#markup' => $media_markup,
-        ];
+          // Change the "data align" field from radio buttons to Select list.
+          $form['attributes']['data-align']['#type'] = 'select';
+          $form['attributes']['data-align']['#wrapper_attributes'] = '';
+          $form['attributes']['data-align']['#description'] = t('Choose the positioning of the image.');
+          $form['attributes']['data-align']['#weight'] = -10;
 
-        // Change the "data align" field from radio buttons to Select list.
-        $form['attributes']['data-align']['#type'] = 'select';
-        $form['attributes']['data-align']['#wrapper_attributes'] = '';
-        $form['attributes']['data-align']['#description'] = t('Choose the positioning of the image.');
-        $form['attributes']['data-align']['#weight'] = -10;
+          // Add description for the caption field.
+          $form['attributes']['data-caption'] += [
+            '#description' => t('A caption will be displayed under the image, to describe it in context of your content.'),
+          ];
 
-        // Add description for the caption field.
-        $form['attributes']['data-caption'] += [
-          '#description' => t('A caption will be displayed under the image, to describe it in context of your content.'),
-        ];
+          // Adding the updated alt text to the media entity.
+          if (isset($entity_element['alt'])) {
+            $entity->field_media_image->alt = $entity_element['alt'];
+          }
 
-        // Adding the updated alt text to the media entity.
-        if (isset($entity_element['alt'])) {
-          $entity->field_media_image->alt = $entity_element['alt'];
-        }
+          // Adding the updated title text to the media entity.
+          if (isset($entity_element['title'])) {
+            $entity->field_media_image->title = $entity_element['title'];
+          }
 
-        // Adding the updated title text to the media entity.
-        if (isset($entity_element['title'])) {
-          $entity->field_media_image->title = $entity_element['title'];
-        }
+          if (isset($form['attributes']['data-entity-embed-display-settings'])) {
+            $form['attributes']['data-entity-embed-display-settings']['link_url']['#description'] = t('Start typing the title of a piece of content to select it. You can also enter an <br /> internal path such as /node/add or an external URL such as http://example.com.');
+          }
 
-        if (isset($form['attributes']['data-entity-embed-display-settings'])) {
-          $form['attributes']['data-entity-embed-display-settings']['link_url']['#description'] = t('Start typing the title of a piece of content to select it. You can also enter an <br /> internal path such as /node/add or an external URL such as http://example.com.');
-        }
+          $entity->save();
+          break;
 
-        $entity->save();
-        break;
+        case "video":
+        case "remote_video":
+          // Video Media for review.
+          $media_view_mode = $builder->view($entity, 's06');
+          $media_markup = \Drupal::service('renderer')->renderRoot($media_view_mode);
 
-      case "video":
-      case "remote_video":
+          // Render the Embed entity.
+          $form['entity'] = [
+            '#type' => 'item',
+            '#markup' => $media_markup,
+          ];
 
-        // Video Media for review.
-        $media_view_mode = $builder->view($entity, 's06');
-        $media_markup = \Drupal::service('renderer')->renderRoot($media_view_mode);
+          if (isset($form['attributes']['data-align'])) {
+            unset($form['attributes']['data-align']);
+          }
 
-        // Render the Embed entity.
-        $form['entity'] = [
-          '#type' => 'item',
-          '#markup' => $media_markup,
-        ];
+          if (isset($form['attributes']['data-entity-embed-display-settings'])) {
+            unset($form['attributes']['data-entity-embed-display-settings']);
+          }
 
-        if (isset($form['attributes']['data-align'])) {
-          unset($form['attributes']['data-align']);
-        }
+          if (isset($form['attributes']['data-caption'])) {
+            unset($form['attributes']['data-caption']);
+          }
 
-        if (isset($form['attributes']['data-entity-embed-display-settings'])) {
-          unset($form['attributes']['data-entity-embed-display-settings']);
-        }
+          if (isset($form['attributes']['data-entity-embed-display'])) {
+            $form['attributes']['data-entity-embed-display']['#access'] = FALSE;
+            $form['attributes']['data-entity-embed-display']['#default_value'] = 'view_mode:media.original';
+          }
 
-        if (isset($form['attributes']['data-caption'])) {
-          unset($form['attributes']['data-caption']);
-        }
+          break;
 
-        if (isset($form['attributes']['data-entity-embed-display'])) {
-          $form['attributes']['data-entity-embed-display']['#access'] = FALSE;
-          $form['attributes']['data-entity-embed-display']['#default_value'] = 'view_mode:media.original';
-        }
+        case "gallery":
+          // Gallery Media for review.
+          $media_view_mode = $builder->view($entity, 'browser_teaser');
+          $media_markup = \Drupal::service('renderer')->renderRoot($media_view_mode);
 
-        break;
+          // Render the Embed entity.
+          $form['entity'] = [
+            '#type' => 'item',
+            '#markup' => '<div class="gallery-entity-embed-dialog-step--embed"><div class="media-library-item">' . $media_markup . '</div></div>',
+          ];
 
-      case "gallery":
+          // Render the Embed entity.
+          if (isset($form['attributes']['data-align'])) {
+            unset($form['attributes']['data-align']);
+          }
 
-        // Gallery Media for review.
-        $media_view_mode = $builder->view($entity, 'browser_teaser');
-        $media_markup = \Drupal::service('renderer')->renderRoot($media_view_mode);
+          if (isset($form['attributes']['data-entity-embed-display-settings'])) {
+            unset($form['attributes']['data-entity-embed-display-settings']);
+          }
 
-        // Render the Embed entity.
-        $form['entity'] = [
-          '#type' => 'item',
-          '#markup' => '<div class="gallery-entity-embed-dialog-step--embed"><div class="media-library-item">' . $media_markup . '</div></div>',
-        ];
+          if (isset($form['attributes']['data-caption'])) {
+            unset($form['attributes']['data-caption']);
+          }
 
-        // Render the Embed entity.
-        if (isset($form['attributes']['data-align'])) {
-          unset($form['attributes']['data-align']);
-        }
+          if (isset($form['attributes']['data-entity-embed-display'])) {
+            $form['attributes']['data-entity-embed-display']['#access'] = FALSE;
+            $form['attributes']['data-entity-embed-display']['#default_value'] = 'view_mode:media.full';
+          }
+          break;
 
-        if (isset($form['attributes']['data-entity-embed-display-settings'])) {
-          unset($form['attributes']['data-entity-embed-display-settings']);
-        }
+        default:
+          if (isset($form['attributes']['data-entity-embed-display-settings'])) {
+            unset($form['attributes']['data-entity-embed-display-settings']);
+          }
+      }
+      if (Drupal::service('module_handler')->moduleExists('blazy')) {
+        // Attach the Blazy library.
+        $form['#attached']['library'][] = 'blazy/load';
+      }
 
-        if (isset($form['attributes']['data-caption'])) {
-          unset($form['attributes']['data-caption']);
-        }
+      // No revision information or revision log message.
+      if (isset($form['revision_information'])) {
+        $form['revision_information']['#disabled'] = TRUE;
+        $form['revision_information']['#attributes']['style'][] = 'display: none;';
+        $form['revision_information']['#prefix'] = '<div style="display: none;">';
+        $form['revision_information']['#suffix'] = '</div>';
+      }
 
-        if (isset($form['attributes']['data-entity-embed-display'])) {
-          $form['attributes']['data-entity-embed-display']['#access'] = FALSE;
-          $form['attributes']['data-entity-embed-display']['#default_value'] = 'view_mode:media.full';
-        }
-        break;
+      // Hide revision.
+      if (isset($form['revision'])) {
+        $form['revision']['#default_value'] = TRUE;
+        $form['revision']['#disabled'] = TRUE;
+        $form['revision']['#attributes']['style'][] = 'display: none;';
+      }
 
-      default:
-        if (isset($form['attributes']['data-entity-embed-display-settings'])) {
-          unset($form['attributes']['data-entity-embed-display-settings']);
-        }
+      // Hide revision log message.
+      if (isset($form['revision_log_message'])) {
+        $form['revision_log_message']['#disabled'] = TRUE;
+        $form['revision_log_message']['#attributes']['style'][] = 'display: none;';
+      }
     }
-
-    if (Drupal::service('module_handler')->moduleExists('blazy')) {
-      // Attach the Blazy library.
-      $form['#attached']['library'][] = 'blazy/load';
-    }
-
-    // No revision information or revision log message.
-    if (isset($form['revision_information'])) {
-      $form['revision_information']['#disabled'] = TRUE;
-      $form['revision_information']['#attributes']['style'][] = 'display: none;';
-      $form['revision_information']['#prefix'] = '<div style="display: none;">';
-      $form['revision_information']['#suffix'] = '</div>';
-    }
-
-    // Hide revision.
-    if (isset($form['revision'])) {
-      $form['revision']['#default_value'] = TRUE;
-      $form['revision']['#disabled'] = TRUE;
-      $form['revision']['#attributes']['style'][] = 'display: none;';
-    }
-
-    // Hide revision log message.
-    if (isset($form['revision_log_message'])) {
-      $form['revision_log_message']['#disabled'] = TRUE;
-      $form['revision_log_message']['#attributes']['style'][] = 'display: none;';
+    else {
+      // Remove all media fields for other entity types like ( node, term, or user).
+      if (isset($form['attributes']['data-caption'])) {
+        unset($form['attributes']['data-caption']);
+      }
+      if (isset($form['attributes']['data-align'])) {
+        unset($form['attributes']['data-align']);
+      }
     }
   }
 }
