@@ -45,7 +45,7 @@
     "drupal/media_revisions_ui": "~2",
     "drupal/crop": "~2",
     "drupal/focal_point": "~2",
-    "drupal/imagemagick": "~3",
+    "drupal/imagemagick": "~3 || ~4",
     "drupal/imageapi_optimize": "~4",
     "drupal/blazy": "~2",
     "drupal/slick": "~2",
