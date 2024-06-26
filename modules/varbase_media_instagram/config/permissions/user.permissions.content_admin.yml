@@ -1,5 +1,0 @@
-id: content_admin
-permissions:
-  - 'create instagram media'
-  - 'delete any instagram media'
-  - 'edit any instagram media'

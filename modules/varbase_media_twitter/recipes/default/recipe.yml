@@ -1,0 +1,24 @@
+name: Varbase Media Twitter - Default
+description: A recipe to manage default installed modules, configs and permissions.
+type: install
+config:
+  actions:
+    user.role.authenticated:
+      grantPermissions:
+        - 'delete own tweet media'
+        - 'edit own tweet media'
+    user.role.editor:
+      grantPermissions:
+        - 'create tweet media'
+        - 'delete any tweet media'
+        - 'edit any tweet media'
+    user.role.content_admin:
+      grantPermissions:
+        - 'create tweet media'
+        - 'delete any tweet media'
+        - 'edit any tweet media'
+    user.role.site_admin:
+      grantPermissions:
+        - 'create tweet media'
+        - 'delete any tweet media'
+        - 'edit any tweet media'
