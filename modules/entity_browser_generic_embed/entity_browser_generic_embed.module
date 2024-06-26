@@ -139,7 +139,9 @@ function entity_browser_generic_embed_validate_upload(FileInterface $file, array
       ];
     }
   }
-  return file_validate($file, $validators);
+
+  $file_validator = \Drupal::service('file.validator');
+  return $file_validator->validate($file, $validators);
 }
 
 /**

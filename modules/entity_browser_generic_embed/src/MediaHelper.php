@@ -5,6 +5,7 @@ namespace Drupal\entity_browser_generic_embed;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\File\FileSystemInterface;
 use Drupal\file\FileInterface;
+use Drupal\Core\File\FileExists;
 use Drupal\file\Plugin\Field\FieldType\FileItem;
 use Drupal\entity_browser_generic_embed\Exception\IndeterminateBundleException;
 use Drupal\media\MediaInterface;
@@ -148,7 +149,7 @@ class MediaHelper {
    * @return \Drupal\file\FileInterface|false
    *   The final file entity (unsaved), or FALSE if an error occurred.
    */
-  public static function useFile(MediaInterface $entity, FileInterface $file, $replace = FileSystemInterface::EXISTS_RENAME) {
+  public static function useFile(MediaInterface $entity, FileInterface $file, $replace = FileExists::Rename) {
     $field = static::getSourceField($entity);
     $field->setValue($file);
 
