@@ -5,11 +5,9 @@
  * Contains install and update for Varbase Media module.
  */
 
-use Drupal\file\Entity\File;
-use Drupal\embed\Entity\EmbedButton;
 use Drupal\Core\File\FileSystemInterface;
-use Drupal\Core\File\Exception\FileException;
 use Vardot\Installer\ModuleInstallerFactory;
+use Drupal\Core\File\FileExists;
 
 // Include all helpers and updates.
 include_once __DIR__ . '/includes/helpers.inc';
@@ -38,7 +36,7 @@ function varbase_media_install() {
   $files = \Drupal::service('file_system')->scanDirectory($source, '/.*\.(svg|png|jpg|jpeg|gif)$/');
   foreach ($files as $file) {
     if (!file_exists($destination . DIRECTORY_SEPARATOR . $file->filename)) {
-      \Drupal::service('file_system')->copy($file->uri, $destination, FileSystemInterface::EXISTS_ERROR);
+      \Drupal::service('file_system')->copy($file->uri, $destination, FileExists::Error);
     }
   }
 
