@@ -8,6 +8,8 @@
 use Drupal\Core\File\FileSystemInterface;
 use Vardot\Installer\ModuleInstallerFactory;
 use Drupal\Core\File\FileExists;
+use Drupal\Core\Recipe\Recipe;
+use Drupal\Core\Recipe\RecipeRunner;
 
 // Include all helpers and updates.
 include_once __DIR__ . '/includes/helpers.inc';
@@ -46,8 +48,8 @@ function varbase_media_install() {
   // Configure Entity Embed buttons.
   ModuleInstallerFactory::importConfigsFromScanedDirectory('varbase_media', '/^embed.button.*\\.(yml)$/i');
 
-  // Add permissions.
-  ModuleInstallerFactory::addPermissions('varbase_media');
+  $default_recipe = Recipe::createFromDirectory(__DIR__ . '/recipes/default');
+  RecipeRunner::processRecipe($default_recipe);
 
 }
 

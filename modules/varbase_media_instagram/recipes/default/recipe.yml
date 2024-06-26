@@ -1,0 +1,24 @@
+name: Varbase Media Instagram - Default
+description: A recipe to manage default installed modules, configs and permissions.
+type: install
+config:
+  actions:
+    user.role.authenticated:
+      grantPermissions:
+        - 'delete own instagram media'
+        - 'edit own instagram media'
+    user.role.editor:
+      grantPermissions:
+        - 'create instagram media'
+        - 'delete any instagram media'
+        - 'edit any instagram media'
+    user.role.content_admin:
+      grantPermissions:
+        - 'create instagram media'
+        - 'delete any instagram media'
+        - 'edit any instagram media'
+    user.role.site_admin:
+      grantPermissions:
+        - 'create instagram media'
+        - 'delete any instagram media'
+        - 'edit any instagram media'
