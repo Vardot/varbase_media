@@ -125,7 +125,7 @@ function varbase_media__image_url(MediaInterface $media_entity, ?string $style_n
  * @return string
  *   The field name for the image for a media type.
  */
-function varbase_media__default_image_field_name($media_entity) {
+function varbase_media__default_image_field_name(MediaInterface $media_entity) {
 
   // Media entities with a valid field media image data it will come first.
   if (isset($media_entity->field_media_image)
