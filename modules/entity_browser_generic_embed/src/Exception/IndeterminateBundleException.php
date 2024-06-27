@@ -19,7 +19,7 @@ class IndeterminateBundleException extends \UnexpectedValueException {
    * @param \Exception|null $previous
    *   (optional) The previous exception, if any.
    */
-  public function __construct($value, $code = 0, \Exception $previous = NULL) {
+  public function __construct($value, $code = 0, ?\Exception $previous = NULL) {
     $message = sprintf(
       'Could not match any bundles to input: %s',
       $value instanceof EntityInterface ? $value->label() : var_export($value, TRUE)
