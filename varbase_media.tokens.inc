@@ -13,29 +13,26 @@ use Drupal\Core\Render\BubbleableMetadata;
 use Drupal\Core\Language\LanguageInterface;
 
 /**
- * Implements hook_token_info_alter().
+ * Implements hook_token_info().
  */
-function varbase_media_token_info_alter(&$data) {
+function varbase_media_token_info() {
 
   $data['tokens']['media']['social_large'] = [
     'name' => t('Social Large'),
     'description' => t("Social Large (1200x630) image for the selected media type."),
-    'module' => 'media',
-    'type' => 'url',
+    'needs-data' => 'media',
   ];
 
   $data['tokens']['media']['social_medium'] = [
     'name' => t('Social Medium'),
     'description' => t("Social Medium (600x315) image for the selected media type."),
-    'module' => 'media',
-    'type' => 'url',
+    'needs-data' => 'media',
   ];
 
   $data['tokens']['media']['social_small'] = [
     'name' => t('Social Small'),
     'description' => t("Social Small (280x150) image for the selected media type."),
-    'module' => 'media',
-    'type' => 'url',
+    'needs-data' => 'media',
   ];
 }
 
@@ -52,49 +49,53 @@ function varbase_media_tokens($type, $tokens, array $data, array $options, Bubbl
   }
 
   $replacements = [];
-  if ($type === 'node' && !empty($data['node'])) {{
-      $node = $data['node'];
+  if ($type === 'media') {
+    if (!empty($data['media'])) {
+      /** @var \Drupal\media\MediaInterface $media_entity */
+      $media_entity = \Drupal::service('entity.repository')->getTranslationFromContext($data['media'], $langcode, ['operation' => 'media_entity_tokens']);
 
       foreach ($tokens as $token_name => $original) {
-        // Get field name from token
-        $token = trim($original, '[]');
-        $parts = explode(':', $token);
+        switch ($token_name) {
 
-        if (count($parts) >= 3 && $parts[0] === "node" && str_starts_with($parts[1],"field_")) {
-          $field_name = $parts[1];
+          // Social Large (1200x630) image for the selected media type.
+          case 'social_large':
+            $replacements[$original] = varbase_media__image_url($media_entity, 'social_large');
+            break;
 
-          if($node->hasField('field_media') && $node->get('field_media')->isEmpty()){
-            $replacements[$original] = varbase_media__get_fallback_url();
-            return $replacements;
-          }
+          // Social Medium (600x315) image for the selected media type.
+          case 'social_medium':
+            $replacements[$original] = varbase_media__image_url($media_entity, 'social_medium');
+            break;
+
+          // Social Small (280x150) image for the selected media type.
+          case 'social_small':
+            $replacements[$original] = varbase_media__image_url($media_entity, 'social_small');
+            break;
         }
       }
     }
-  }
+    else {
+      foreach ($tokens as $token_name => $original) {
+        switch ($token_name) {
 
-  if ($type === 'media' && !empty($data['media'])) {
-    /** @var \Drupal\media\MediaInterface $media_entity */
-    $media_entity = \Drupal::service('entity.repository')->getTranslationFromContext($data['media'], $langcode, ['operation' => 'media_entity_tokens']);
+          // Social Large (1200x630) image for the selected media type.
+          case 'social_large':
+            $replacements[$original] = varbase_media__get_fallback_social_share_image_url();
+            break;
 
-    foreach ($tokens as $token_name => $original) {
-      switch ($token_name) {
+          // Social Medium (600x315) image for the selected media type.
+          case 'social_medium':
+            $replacements[$original] = varbase_media__get_fallback_social_share_image_url();
+            break;
 
-        // Social Large (1200x630) image for the selected media type.
-        case 'social_large':
-          $replacements[$original] = varbase_media__image_url($media_entity, 'social_large');
-          break;
-
-        // Social Medium (600x315) image for the selected media type.
-        case 'social_medium':
-          $replacements[$original] = varbase_media__image_url($media_entity, 'social_medium');
-          break;
-
-        // Social Small (280x150) image for the selected media type.
-        case 'social_small':
-          $replacements[$original] = varbase_media__image_url($media_entity, 'social_small');
-          break;
+          // Social Small (280x150) image for the selected media type.
+          case 'social_small':
+            $replacements[$original] = varbase_media__get_fallback_social_share_image_url();
+            break;
+        }
       }
     }
+
   }
 
   return $replacements;

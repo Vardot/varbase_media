@@ -114,7 +114,7 @@ function varbase_media__image_url(MediaInterface $media_entity, ?string $style_n
     }
   }
 
-  return varbase_media__get_fallback_url();
+  return varbase_media__get_fallback_social_share_image_url();
 }
 
 /**
@@ -145,8 +145,12 @@ function varbase_media__default_image_field_name(MediaInterface $media_entity) {
 
 }
 
-function varbase_media__get_fallback_url() {
+/**
+ * Get a url for the fullback social share image from the active theme.
+ *
+ * @return mixed
+ */
+function varbase_media__get_fallback_social_share_image_url() {
   $active_theme = \Drupal::theme()->getActiveTheme()->getPath();
-  $url = Url::fromUri('base:/' . $active_theme . '/share-image.png', ['absolute' => TRUE])->toString();
-  return $url;
+  return Url::fromUri('base:/' . $active_theme . '/share-image.png', ['absolute' => TRUE])->toString();
 }
