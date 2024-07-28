@@ -17,23 +17,29 @@ use Drupal\Core\Language\LanguageInterface;
  */
 function varbase_media_token_info() {
 
-  $data['tokens']['media']['social_large'] = [
+  $info = [];
+  $info['tokens'] = [];
+  $info['tokens']['media'] = [];
+
+  $info['tokens']['media']['social_large'] = [
     'name' => t('Social Large'),
     'description' => t("Social Large (1200x630) image for the selected media type."),
     'needs-data' => 'media',
   ];
 
-  $data['tokens']['media']['social_medium'] = [
+  $info['tokens']['media']['social_medium'] = [
     'name' => t('Social Medium'),
     'description' => t("Social Medium (600x315) image for the selected media type."),
     'needs-data' => 'media',
   ];
 
-  $data['tokens']['media']['social_small'] = [
+  $info['tokens']['media']['social_small'] = [
     'name' => t('Social Small'),
     'description' => t("Social Small (280x150) image for the selected media type."),
     'needs-data' => 'media',
   ];
+
+  return $info;
 }
 
 /**
