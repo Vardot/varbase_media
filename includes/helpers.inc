@@ -9,6 +9,7 @@
 
 use Drupal\image\Entity\ImageStyle;
 use Drupal\media\MediaInterface;
+use Drupal\Core\Url;
 
 /**
  * Managed Varbase Media Library configurations.
@@ -113,7 +114,7 @@ function varbase_media__image_url(MediaInterface $media_entity, ?string $style_n
     }
   }
 
-  return NULL;
+  return varbase_media__get_fallback_url();
 }
 
 /**
@@ -142,4 +143,10 @@ function varbase_media__default_image_field_name(MediaInterface $media_entity) {
     return 'thumbnail';
   }
 
+}
+
+function varbase_media__get_fallback_url() {
+  $active_theme = \Drupal::theme()->getActiveTheme()->getPath();
+  $url = Url::fromUri('base:/' . $active_theme . '/share-image.png', ['absolute' => TRUE])->toString();
+  return $url;
 }

@@ -52,6 +52,26 @@ function varbase_media_tokens($type, $tokens, array $data, array $options, Bubbl
   }
 
   $replacements = [];
+  if ($type === 'node' && !empty($data['node'])) {{
+      $node = $data['node'];
+
+      foreach ($tokens as $token_name => $original) {
+        // Get field name from token
+        $token = trim($original, '[]');
+        $parts = explode(':', $token);
+
+        if (count($parts) >= 3 && $parts[0] === "node" && str_starts_with($parts[1],"field_")) {
+          $field_name = $parts[1];
+
+          if($node->hasField('field_media') && $node->get('field_media')->isEmpty()){
+            $replacements[$original] = varbase_media__get_fallback_url();
+            return $replacements;
+          }
+        }
+      }
+    }
+  }
+
   if ($type === 'media' && !empty($data['media'])) {
     /** @var \Drupal\media\MediaInterface $media_entity */
     $media_entity = \Drupal::service('entity.repository')->getTranslationFromContext($data['media'], $langcode, ['operation' => 'media_entity_tokens']);
