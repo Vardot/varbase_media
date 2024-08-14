@@ -10,6 +10,7 @@
 use Drupal\image\Entity\ImageStyle;
 use Drupal\media\MediaInterface;
 use Drupal\Core\Url;
+use Drupal\node\Entity\Node;
 
 /**
  * Managed Varbase Media Library configurations.
@@ -153,4 +154,54 @@ function varbase_media__default_image_field_name(MediaInterface $media_entity) {
 function varbase_media__get_fallback_social_share_image_url() {
   $active_theme = \Drupal::theme()->getActiveTheme()->getPath();
   return Url::fromUri('base:/' . $active_theme . '/share-image.png', ['absolute' => TRUE])->toString();
+}
+
+/**
+ * Get the share image URL for a node.
+ *
+ * @param \Drupal\node\Entity\Node $node
+ *   The node entity.
+ * @param string|null $style_name
+ *   (optional) The image style to apply. Defaults to NULL.
+ * @param string|null $field_name
+ *   (optional) The specific field name to check for the share image. If not provided,
+ *   the function will check fields in a priority order.
+ *
+ * @return string
+ *   The URL of the share image, or the fallback URL if not found.
+ */
+function varbase_media__get_node_share_image_url(Node $node, ?string $style_name = NULL, ?string $field_name = NULL) {
+
+  $image_url = '';
+  // Define the field priority order.
+  $fields = ['field_media','field_image','field_video'];
+
+  // If a specific field is requested, check only that field.
+  if ($field_name) {
+    if ($node->hasField($field_name) && !$node->get($field_name)->isEmpty()) {
+      $entity = $node->get($field_name)->entity;
+      if ($entity instanceof MediaInterface) {
+        $image_url = varbase_media__image_url($entity, $style_name);
+      }
+    }
+  }
+  else {
+    // If no specific field is requested, check fields in priority order.
+    foreach ($fields as $field) {
+      if ($node->hasField($field) && !$node->get($field)->isEmpty()) {
+        $entity = $node->get($field)->entity;
+        if ($entity instanceof MediaInterface) {
+          $image_url = varbase_media__image_url($entity, $style_name);
+          break;
+        }
+      }
+    }
+  }
+
+  // Return fallback image.
+  if ($image_url === '') {
+    $image_url = varbase_media__get_fallback_social_share_image_url();
+  }
+
+  return $image_url;
 }
