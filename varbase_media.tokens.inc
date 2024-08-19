@@ -200,7 +200,7 @@ function varbase_media_tokens($type, $tokens, array $data, array $options, Bubbl
 
         // Handle the default case for 'share-image' when no specific field or style is provided.
         case 'share-image':
-          $replacements[$original] = varbase_media__get_node_share_image_url($node);
+          $replacements[$original] = varbase_media__get_node_share_image_url($node, 'social_large');
           break;
       }
     }
