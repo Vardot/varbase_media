@@ -9,7 +9,6 @@
 
 use Drupal\image\Entity\ImageStyle;
 use Drupal\media\MediaInterface;
-use Drupal\Core\Url;
 use Drupal\node\Entity\Node;
 
 /**
@@ -153,7 +152,9 @@ function varbase_media__default_image_field_name(MediaInterface $media_entity) {
  */
 function varbase_media__get_fallback_social_share_image_url() {
   $active_theme = \Drupal::theme()->getActiveTheme()->getPath();
-  return Url::fromUri('base:/' . $active_theme . '/share-image.png', ['absolute' => TRUE])->toString();
+  $origin_url = \Drupal::request()->getSchemeAndHttpHost() . \Drupal::request()->getBaseUrl();
+  $share_image_url = $origin_url . '/' . $active_theme . '/share-image.png';
+  return $share_image_url;
 }
 
 /**
@@ -170,35 +171,50 @@ function varbase_media__get_fallback_social_share_image_url() {
  * @return string
  *   The URL of the share image, or the fallback URL if not found.
  */
-function varbase_media__get_node_share_image_url(Node $node, ?string $style_name = NULL, ?string $field_name = NULL) {
+function varbase_media__get_node_share_image_url(Node $node, ?string $style_name = 'social_large', ?string $field_name = '') {
 
   $image_url = '';
-  // Define the field priority order.
-  $fields = ['field_media','field_image','field_video'];
 
-  // If a specific field is requested, check only that field.
-  if ($field_name) {
-    if ($node->hasField($field_name) && !$node->get($field_name)->isEmpty()) {
-      $entity = $node->get($field_name)->entity;
+  // When no filed name.
+  if ($field_name == '') {
+    // Check if the node has field_media and it has data.
+    if ($node->hasField('field_media') && !$node->get('field_media')->isEmpty()) {
+      $entity = $node->get('field_media')->entity;
       if ($entity instanceof MediaInterface) {
+        // Set the social share image from the field_media field.
+        $image_url = varbase_media__image_url($entity, $style_name);
+      }
+    }
+    // When no field_media check if the node has field_image and it has data.
+    elseif ($node->hasField('field_image') && !$node->get('field_image')->isEmpty()) {
+      $entity = $node->get('field_image')->entity;
+      if ($entity instanceof MediaInterface) {
+        // Set the social share image from the field_image field.
+        $image_url = varbase_media__image_url($entity, $style_name);
+      }
+    }
+    // When no field_image check if the node has field_video and it has data.
+    elseif ($node->hasField('field_video') && !$node->get('field_video')->isEmpty()) {
+      $entity = $node->get('field_video')->entity;
+      if ($entity instanceof MediaInterface) {
+        // Set the social share image from the field_video field.
         $image_url = varbase_media__image_url($entity, $style_name);
       }
     }
   }
-  else {
-    // If no specific field is requested, check fields in priority order.
-    foreach ($fields as $field) {
-      if ($node->hasField($field) && !$node->get($field)->isEmpty()) {
-        $entity = $node->get($field)->entity;
-        if ($entity instanceof MediaInterface) {
-          $image_url = varbase_media__image_url($entity, $style_name);
-          break;
-        }
+  // When the field name is provided.
+  elseif ($field_name != '') {
+    // Check if the node has the filed and it has data.
+    if ($node->hasField($field_name) && !$node->get($field_name)->isEmpty()) {
+      $entity = $node->get($field_name)->entity;
+      if ($entity instanceof MediaInterface) {
+        // Set the social share image from the field.
+        $image_url = varbase_media__image_url($entity, $style_name);
       }
     }
   }
 
-  // Return fallback image.
+  // When image url still empty, then set the fallback social share image from the default active theme.
   if ($image_url === '') {
     $image_url = varbase_media__get_fallback_social_share_image_url();
   }

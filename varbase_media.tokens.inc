@@ -51,53 +51,25 @@ function varbase_media_token_info() {
   $info['tokens']['share-image']['field_media'] = [
     'name' => t('Share Image from field_media'),
     'description' => t('The share image from field_media, if available.'),
-    'type' => 'media'
+    'type' => 'media',
   ];
 
   $info['tokens']['share-image']['field_image'] = [
     'name' => t('Share Image from field_image'),
     'description' => t('The share image from field_image, if available.'),
-    'type' => 'media'
+    'type' => 'media',
   ];
 
   $info['tokens']['share-image']['field_video'] = [
     'name' => t('Share Image from field_video'),
     'description' => t('The share image from field_video, if available.'),
-    'type' => 'media'
+    'type' => 'media',
   ];
 
   // Add share-image to node.
   $info['tokens']['node']['share-image'] = [
     'name' => t('Share Image'),
     'description' => t('The social share image for the node. Checks field_media, field_image, field_video, and falls back to the theme default image if none are found.'),
-    'type' => 'share-image'
-  ];
-
-  // Define the new 'share-image' token type.
-  $info['types']['share-image'] = [
-    'name' => t('Share Image'),
-    'description' => t('Tokens related to the share image field on nodes.'),
-    'needs-data' => 'node',
-    'nested' => TRUE,
-  ];
-
-  // Define tokens for 'share-image' type.
-  $info['tokens']['share-image']['field_image'] = [
-    'name' => t('Image'),
-    'description' => t('The image field associated with the share image.'),
-    'type' => 'image',
-  ];
-
-  $info['tokens']['share-image']['field_media'] = [
-    'name' => t('Media'),
-    'description' => t('The media field associated with the share image.'),
-    'type' => 'media',
-  ];
-
-  // Add share-image to node tokens.
-  $info['tokens']['node']['share-image'] = [
-    'name' => t('Share Image'),
-    'description' => t('Tokens related to the share image on nodes.'),
     'type' => 'share-image',
   ];
 
@@ -147,63 +119,34 @@ function varbase_media_tokens($type, $tokens, array $data, array $options, Bubbl
 
     $replacements = [];
     foreach ($tokens as $token_name => $original) {
-      switch ($token_name) {
-        // 
-        case 'share-image:field_media':
-          $replacements[$original] = varbase_media__get_node_share_image_url($node, NULL, 'field_media');
-          break;
 
-        case 'share-image:field_image':
-          $replacements[$original] = varbase_media__get_node_share_image_url($node, NULL, 'field_image');
-          break;
+      // When only using the smart [node:share-image] token.
+      if ($token_name == 'share-image') {
+        $replacements[$original] = varbase_media__get_node_share_image_url($node, 'social_large');
+      }
+      // When the the smart [node:share-image:#######:#####] has extra specific options.
+      elseif ($token_name == 'share-image:') {
 
-        case 'share-image:field_video':
-          $replacements[$original] = varbase_media__get_node_share_image_url($node, NULL, 'field_video');
-          break;
+        // Get the array of token options.
+        $token_options = explode(":", $token_name);
 
-        // Handle specific cases with styles.
-        case 'share-image:field_media:social_large':
-          $replacements[$original] = varbase_media__get_node_share_image_url($node, 'social_large', 'field_media');
-          break;
+        // Get the field name.
+        $field_name = '';
+        if (isset($token_options[1]) && $token_options[1] != '') {
+          $field_name = $token_options[1];
+        }
 
-        case 'share-image:field_image:social_large':
-          $replacements[$original] = varbase_media__get_node_share_image_url($node, 'social_large', 'field_image');
-          break;
+        // Get the social image style name.
+        $style_name = 'social_large';
+        if (isset($token_options[2]) && $token_options[2] != '') {
+          $style_name = $token_options[2];
+        }
 
-        case 'share-image:field_video:social_large':
-          $replacements[$original] = varbase_media__get_node_share_image_url($node, 'social_large', 'field_video');
-          break;
+        $replacements[$original] = varbase_media__get_node_share_image_url($node, $style_name, $field_name);
 
-        case 'share-image:field_media:social_medium':
-          $replacements[$original] = varbase_media__get_node_share_image_url($node, 'social_medium', 'field_media');
-          break;
-
-        case 'share-image:field_image:social_medium':
-          $replacements[$original] = varbase_media__get_node_share_image_url($node, 'social_medium', 'field_image');
-          break;
-
-        case 'share-image:field_video:social_medium':
-          $replacements[$original] = varbase_media__get_node_share_image_url($node, 'social_medium', 'field_video');
-          break;
-
-        case 'share-image:field_media:social_small':
-          $replacements[$original] = varbase_media__get_node_share_image_url($node, 'social_small', 'field_media');
-          break;
-
-        case 'share-image:field_image:social_small':
-          $replacements[$original] = varbase_media__get_node_share_image_url($node, 'social_small', 'field_image');
-          break;
-
-        case 'share-image:field_video:social_small':
-          $replacements[$original] = varbase_media__get_node_share_image_url($node, 'social_small', 'field_video');
-          break;
-
-        // Handle the default case for 'share-image' when no specific field or style is provided.
-        case 'share-image':
-          $replacements[$original] = varbase_media__get_node_share_image_url($node, 'social_large');
-          break;
       }
     }
   }
+
   return $replacements;
 }
