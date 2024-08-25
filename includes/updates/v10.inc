@@ -51,3 +51,32 @@ function varbase_media_update_100003() {
     \Drupal::service('module_installer')->uninstall(['imageapi_optimize_webp'], FALSE);
   }
 }
+
+/**
+ * Issue #3470160: Fix the exposed date filters widget for Media to use the default settings.
+ *
+ * With Better Exposed Filters in Drupal 10.3
+ */
+function varbase_media_update_100004() {
+
+  // Change the Media view to use "Default" plugin id with the Created date (from) and Created date (to) date filters.
+  $config_factory = \Drupal::configFactory()->getEditable('views.view.media');
+  if ($config_factory->get('display.default.display_options.exposed_form.options.bef.filter.created.plugin_id') != 'default') {
+    $config_factory->set('display.default.display_options.exposed_form.options.bef.filter.created.plugin_id', 'default');
+  }
+  if ($config_factory->get('display.default.display_options.exposed_form.options.bef.filter.created_1.plugin_id') != 'default') {
+    $config_factory->set('display.default.display_options.exposed_form.options.bef.filter.created_1.plugin_id', 'default');
+  }
+  $config_factory->save(TRUE);
+
+  // Change the Media Library view to use "Default" plugin id with the Created date (from) and Created date (to) date filters.
+  $config_factory = \Drupal::configFactory()->getEditable('views.view.media_library');
+  if ($config_factory->get('display.default.display_options.exposed_form.options.bef.filter.created.plugin_id') != 'default') {
+    $config_factory->set('display.default.display_options.exposed_form.options.bef.filter.created.plugin_id', 'default');
+  }
+  if ($config_factory->get('display.default.display_options.exposed_form.options.bef.filter.created_1.plugin_id') != 'default') {
+    $config_factory->set('display.default.display_options.exposed_form.options.bef.filter.created_1.plugin_id', 'default');
+  }
+  $config_factory->save(TRUE);
+
+}
