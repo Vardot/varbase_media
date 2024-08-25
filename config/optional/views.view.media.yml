@@ -792,6 +792,7 @@ display:
         type: full
         options:
           offset: 0
+          pagination_heading_level: h4
           items_per_page: 50
           total_pages: null
           id: 0
@@ -832,6 +833,7 @@ display:
               allow_secondary: false
               secondary_label: 'Advanced options'
               secondary_open: false
+              reset_button_always_show: false
             pager:
               plugin_id: default
               advanced:
@@ -843,13 +845,16 @@ display:
                   sort_options: false
                   rewrite:
                     filter_rewrite_values: ''
+                    filter_rewrite_values_key: false
                   collapsible: false
+                  collapsible_disable_automatic_open: false
                   is_secondary: false
               name:
                 plugin_id: default
                 advanced:
                   placeholder_text: ''
                   collapsible: false
+                  collapsible_disable_automatic_open: false
                   is_secondary: false
               bundle:
                 plugin_id: default
@@ -857,7 +862,9 @@ display:
                   sort_options: false
                   rewrite:
                     filter_rewrite_values: ''
+                    filter_rewrite_values_key: false
                   collapsible: false
+                  collapsible_disable_automatic_open: false
                   is_secondary: false
               langcode:
                 plugin_id: default
@@ -865,19 +872,21 @@ display:
                   sort_options: false
                   rewrite:
                     filter_rewrite_values: ''
+                    filter_rewrite_values_key: false
                   collapsible: false
+                  collapsible_disable_automatic_open: false
                   is_secondary: false
               created:
-                plugin_id: bef_datepicker
+                plugin_id: default
                 advanced:
-                  placeholder_text: ''
                   collapsible: false
+                  collapsible_disable_automatic_open: false
                   is_secondary: false
               created_1:
-                plugin_id: bef_datepicker
+                plugin_id: default
                 advanced:
-                  placeholder_text: ''
                   collapsible: false
+                  collapsible_disable_automatic_open: false
                   is_secondary: false
               uid:
                 plugin_id: default
@@ -885,7 +894,9 @@ display:
                   placeholder_text: ''
                   rewrite:
                     filter_rewrite_values: ''
+                    filter_rewrite_values_key: false
                   collapsible: false
+                  collapsible_disable_automatic_open: false
                   is_secondary: false
             status:
               bef_format: default
@@ -1541,7 +1552,6 @@ display:
             context_key: target_bundles
             fallback: all
             multiple: or
-          default_argument_skip_url: false
           summary_options:
             base_path: ''
             count: true
@@ -2157,7 +2167,9 @@ display:
           required: false
       display_description: ''
       display_extenders:
-        metatag_display_extender: {  }
+        metatag_display_extender:
+          metatags: {  }
+          tokenize: false
       path: admin/content/media
       menu:
         type: tab
