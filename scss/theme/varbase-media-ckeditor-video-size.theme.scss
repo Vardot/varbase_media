@@ -1,0 +1,43 @@
+
+.ck-widget {
+  .media {
+
+    &.media--type-remote-video,
+    &.media--type-video {
+
+      &.media--view-mode-large {
+        min-width: 100%;
+        max-width: 100%;
+
+        .varbase-video-player {
+
+          video,
+          iframe {
+            min-width: 100%;
+            max-width: 100%;
+            height: 100%;
+            position: relative;
+          }
+
+
+
+          &:before {
+            padding-top: 0rem;
+          }
+        }
+      }
+    }
+
+    &.media--type-remote-video {
+      &.media--view-mode-large {
+
+        .varbase-video-player {
+          iframe {
+            aspect-ratio: auto 1400 / 788;
+            width: 100rem;
+          }
+        }
+      }
+    }
+  }
+}

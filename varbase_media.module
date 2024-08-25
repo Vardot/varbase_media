@@ -723,5 +723,6 @@ function varbase_media_library_info_alter(&$libraries, $extension) {
     $libraries['internal.drupal.ckeditor5.media']['dependencies'][] = 'varbase_media/common_logged';
     $libraries['internal.drupal.ckeditor5.media']['dependencies'][] = 'varbase_media/varbase_video_player';
     $libraries['internal.drupal.ckeditor5.media']['dependencies'][] = 'varbase_media/ckeditor_drimage';
+    $libraries['internal.drupal.ckeditor5.media']['dependencies'][] = 'varbase_media/ckeditor_video_size';
   }
 }
