@@ -61,8 +61,3 @@ ckeditor_drimage:
   version: VERSION
   js:
     js/varbase-media-ckeditor-drimage.js: {}
-ckeditor_video_size:
-  version: VERSION
-  css:
-    theme:
-      css/theme/varbase-media-ckeditor-video-size.theme.css: {}

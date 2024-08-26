@@ -16,7 +16,6 @@ module.exports = {
     'theme/varbase_media.common_logged': ['./scss/theme/varbase_media.common_logged.scss'],
     'theme/media_library.theme': ['./scss/theme/media_library.theme.scss'],
     'theme/varbase-video-player.theme': ['./scss/theme/varbase-video-player.theme.scss'],
-    'theme/varbase-media-ckeditor-video-size.theme': ['./scss/theme/varbase-media-ckeditor-video-size.theme.scss'],
   },
   output: {
     path: path.resolve(__dirname, 'css'),
