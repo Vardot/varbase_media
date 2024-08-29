@@ -1,0 +1,17 @@
+name: varbase_media_update_100005
+description: 'Issue #3470979: Grant Access to Entity Usage Statistics for Site Admins and Editorial Team'
+type: update
+config:
+  actions:
+    user.role.editor:
+      grantPermissions:
+        - 'access entity usage statistics'
+    user.role.content_admin:
+      grantPermissions:
+        - 'access entity usage statistics'
+    user.role.seo_admin:
+      grantPermissions:
+        - 'access entity usage statistics'
+    user.role.site_admin:
+      grantPermissions:
+        - 'access entity usage statistics'

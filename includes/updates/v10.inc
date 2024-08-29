@@ -80,3 +80,14 @@ function varbase_media_update_100004() {
   $config_factory->save(TRUE);
 
 }
+
+/**
+ * Issue #3470979: Grant Access to Entity Usage Statistics.
+ *
+ * For Site Admins and Editorial Team.
+ */
+function varbase_media_update_100005() {
+  $module_path = Drupal::service('module_handler')->getModule('varbase_media')->getPath();
+  $recipe = Recipe::createFromDirectory($module_path . '/recipes/updates/varbase_media_update_100005');
+  RecipeRunner::processRecipe($recipe);
+}

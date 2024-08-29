@@ -59,6 +59,7 @@ config:
         - 'access multiple_media_browser entity browser pages'
         - 'access video_browser entity browser pages'
         - 'use media_bulk_upload bulk upload form'
+        - 'access entity usage statistics'
     user.role.content_admin:
       grantPermissions:
         - 'create audio media'
@@ -96,6 +97,7 @@ config:
         - 'access video_browser entity browser pages'
         - 'use media_bulk_upload bulk upload form'
         - 'clone media entity'
+        - 'access entity usage statistics'
     user.role.seo_admin:
       grantPermissions:
         - 'view all media revisions'
@@ -110,6 +112,7 @@ config:
         - 'access multiple_media_browser entity browser pages'
         - 'access video_browser entity browser pages'
         - 'use media_bulk_upload bulk upload form'
+        - 'access entity usage statistics'
     user.role.site_admin:
       grantPermissions:
         - 'create audio media'
@@ -147,3 +150,4 @@ config:
         - 'access video_browser entity browser pages'
         - 'use media_bulk_upload bulk upload form'
         - 'clone media entity'
+        - 'access entity usage statistics'
