@@ -47,7 +47,7 @@
     "drupal/focal_point": "~2",
     "drupal/imagemagick": "~3 || ~4",
     "drupal/imageapi_optimize": "~4",
-    "drupal/blazy": "~2",
+    "drupal/blazy": "~2 || ~3",
     "drupal/slick": "~2",
     "drupal/slick_views": "~2",
     "drupal/metatag": "~2",
