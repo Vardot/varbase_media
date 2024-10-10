@@ -149,7 +149,6 @@ figure.caption.caption-drupal-media.align-center {
 @media (min-width: 576px) {
   .media.media--type-remote-video.media--view-mode-large,
 .media.media--type-video.media--view-mode-large {
-    min-width: 540px;
     max-width: 540px;
   }
 
@@ -157,7 +156,6 @@ figure.caption.caption-drupal-media.align-center {
 .media.media--type-remote-video.media--view-mode-large .varbase-video-player iframe,
 .media.media--type-video.media--view-mode-large .varbase-video-player video,
 .media.media--type-video.media--view-mode-large .varbase-video-player iframe {
-    min-width: 540px;
     max-width: 540px;
   }
 }
@@ -165,7 +163,6 @@ figure.caption.caption-drupal-media.align-center {
 @media (min-width: 768px) {
   .media.media--type-remote-video.media--view-mode-large,
 .media.media--type-video.media--view-mode-large {
-    min-width: 720px;
     max-width: 720px;
   }
 
@@ -173,7 +170,6 @@ figure.caption.caption-drupal-media.align-center {
 .media.media--type-remote-video.media--view-mode-large .varbase-video-player iframe,
 .media.media--type-video.media--view-mode-large .varbase-video-player video,
 .media.media--type-video.media--view-mode-large .varbase-video-player iframe {
-    min-width: 720px;
     max-width: 720px;
   }
 }
@@ -181,7 +177,6 @@ figure.caption.caption-drupal-media.align-center {
 @media (min-width: 992px) {
   .media.media--type-remote-video.media--view-mode-large,
 .media.media--type-video.media--view-mode-large {
-    min-width: 960px;
     max-width: 960px;
   }
 
@@ -189,7 +184,6 @@ figure.caption.caption-drupal-media.align-center {
 .media.media--type-remote-video.media--view-mode-large .varbase-video-player iframe,
 .media.media--type-video.media--view-mode-large .varbase-video-player video,
 .media.media--type-video.media--view-mode-large .varbase-video-player iframe {
-    min-width: 960px;
     max-width: 960px;
   }
 }
@@ -197,7 +191,6 @@ figure.caption.caption-drupal-media.align-center {
 @media (min-width: 1200px) {
   .media.media--type-remote-video.media--view-mode-large,
 .media.media--type-video.media--view-mode-large {
-    min-width: 1140px;
     max-width: 1140px;
   }
 
@@ -205,7 +198,6 @@ figure.caption.caption-drupal-media.align-center {
 .media.media--type-remote-video.media--view-mode-large .varbase-video-player iframe,
 .media.media--type-video.media--view-mode-large .varbase-video-player video,
 .media.media--type-video.media--view-mode-large .varbase-video-player iframe {
-    min-width: 1140px;
     max-width: 1140px;
   }
 }
@@ -213,7 +205,6 @@ figure.caption.caption-drupal-media.align-center {
 @media (min-width: 1400px) {
   .media.media--type-remote-video.media--view-mode-large,
 .media.media--type-video.media--view-mode-large {
-    min-width: 1320px;
     max-width: 1320px;
   }
 
@@ -221,7 +212,6 @@ figure.caption.caption-drupal-media.align-center {
 .media.media--type-remote-video.media--view-mode-large .varbase-video-player iframe,
 .media.media--type-video.media--view-mode-large .varbase-video-player video,
 .media.media--type-video.media--view-mode-large .varbase-video-player iframe {
-    min-width: 1320px;
     max-width: 1320px;
   }
 }
@@ -384,6 +374,34 @@ figure.caption.caption-drupal-media.align-center {
     min-width: 330px;
     max-width: 330px;
   }
+}
+
+.media.media--type-image.align-center figcaption {
+  display: table-caption;
+  caption-side: bottom;
+  text-align: center;
+}
+
+.media.media--type-image.align-right {
+  display: table;
+  margin: 0 0 1rem 1rem;
+}
+
+.media.media--type-image.align-right figcaption {
+  display: table-caption;
+  caption-side: bottom;
+  text-align: center;
+}
+
+.media.media--type-image.align-left {
+  display: table;
+  margin: 0 1rem 1rem 0;
+}
+
+.media.media--type-image.align-left figcaption {
+  display: table-caption;
+  caption-side: bottom;
+  text-align: center;
 }
 
 .media.media--type-image.media--view-mode-large {

@@ -58,3 +58,7 @@
 .ck-widget .media.media--type-video.media--view-mode-large .varbase-video-player:before {
   padding-top: 0rem;
 }
+
+.ck .drupal-media {
+  z-index: 1;
+}

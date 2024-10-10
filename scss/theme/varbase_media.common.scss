@@ -173,13 +173,11 @@ figure {
       // Generate media query if needed.
       @include media-breakpoint-up($breakpoint) {
         &.media--view-mode-large {
-          min-width: $container-max-width;
           max-width: $container-max-width;
 
           .varbase-video-player {
             video,
             iframe {
-              min-width: $container-max-width;
               max-width: $container-max-width;
             }
           }
@@ -228,6 +226,37 @@ figure {
   }
 
   &.media--type-image {
+
+    &.align-center {
+
+      figcaption {
+        display: table-caption;
+        caption-side: bottom;
+        text-align: center;
+      }
+    }
+
+    &.align-right {
+      display:table;
+      margin: 0 0 1rem 1rem;
+
+      figcaption {
+        display: table-caption;
+        caption-side: bottom;
+        text-align: center;
+      }
+    }
+
+    &.align-left {
+      display:table;
+      margin: 0 1rem 1rem 0;
+
+      figcaption {
+        display: table-caption;
+        caption-side: bottom;
+        text-align: center;
+      }
+    }
 
     &.media--view-mode-large {
       width: 100%;

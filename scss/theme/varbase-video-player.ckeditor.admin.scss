@@ -1,4 +1,4 @@
-
+// Manager the look and feel of Varbase Video Player while working with the CKEditor.
 .ck-widget {
   .media {
 
@@ -68,5 +68,11 @@
         }
       }
     }
+  }
+}
+
+.ck {
+  .drupal-media {
+    z-index: 1;
   }
 }
