@@ -335,7 +335,7 @@ html[dir=rtl] .entity-embed-dialog-step--embed>.form-item-entity {
 }
 
 .entity-browser-form div#ief-dropzone-upload>div {
-  border: 2px dashed rgba(107, 107, 107, .65);
+  border: 2px dashed hsla(0, 0%, 42%, .65);
   border-radius: 20px;
   padding: 15px;
   margin: 0 15px 15px 15px;
