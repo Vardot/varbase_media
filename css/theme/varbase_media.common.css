@@ -251,7 +251,3 @@ figure.align-left,
   width: auto;
   height: auto;
 }
-
-figure .media.media--type-image {
-  width: fit-content !important;
-}
