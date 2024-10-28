@@ -4,7 +4,6 @@ figure figcaption,
 .media figcaption,
 .embedded-entity figcaption {
   display: block;
-  text-align: center;
 }
 
 picture.align-center,
@@ -25,6 +24,14 @@ figure.align-center>*,
   margin-inline: auto auto;
 }
 
+picture.align-center figcaption,
+img.align-center figcaption,
+figure.align-center figcaption,
+.media.align-center figcaption,
+.embedded-entity.align-center figcaption {
+  text-align: center;
+}
+
 picture.align-right,
 img.align-right,
 figure.align-right,
@@ -34,6 +41,14 @@ figure.align-right,
   margin-inline: 1em 0;
 }
 
+picture.align-right figcaption,
+img.align-right figcaption,
+figure.align-right figcaption,
+.media.align-right figcaption,
+.embedded-entity.align-right figcaption {
+  text-align: center;
+}
+
 picture.align-left,
 img.align-left,
 figure.align-left,
@@ -41,6 +56,31 @@ figure.align-left,
 .embedded-entity.align-left {
   margin-block: 0 .5em;
   margin-inline: 0 1em;
+}
+
+picture.align-left figcaption,
+img.align-left figcaption,
+figure.align-left figcaption,
+.media.align-left figcaption,
+.embedded-entity.align-left figcaption {
+  text-align: center;
+}
+
+figure.figure-resized .media.media--type-image {
+  width: 100% !important;
+}
+
+figure.figure-resized.align-right .media--type-image.media-embed-resized,
+figure.figure-resized.align-right figcaption,
+figure.figure-resized.align-left .media--type-image.media-embed-resized,
+figure.figure-resized.align-left figcaption,
+figure.figure-resized.align-center .media--type-image.media-embed-resized,
+figure.figure-resized.align-center figcaption {
+  width: 100% !important;
+}
+
+figure.figure-resized.align-center {
+  display: block;
 }
 
 .media.media--type-remote-video,
@@ -244,6 +284,22 @@ figure.align-left,
 .media.media--type-image.media-embed-resized.media--view-mode-small.align-left {
     width: 100% !important;
     min-width: 100% !important;
+    margin-inline: 0 !important;
+  }
+
+  .media.media--type-image figure.align-center,
+.media.media--type-image figure.align-right,
+.media.media--type-image figure.align-left {
+    width: 100% !important;
+    min-width: 100% !important;
+  }
+
+  .media.media--type-image figure.align-center .media-embed-resized,
+.media.media--type-image figure.align-right .media-embed-resized,
+.media.media--type-image figure.align-left .media-embed-resized {
+    width: 100% !important;
+    min-width: 100% !important;
+    margin-inline: 0 !important;
   }
 }
 

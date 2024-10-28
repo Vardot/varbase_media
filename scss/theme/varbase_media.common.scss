@@ -11,7 +11,6 @@ figure,
 
   figcaption {
     display: block;
-    text-align: center;
   }
 
   &.align-center {
@@ -22,16 +21,50 @@ figure,
     > * {
       margin-inline: auto auto;
     }
+
+    figcaption {
+      text-align: center;
+    }
   }
 
   &.align-right {
     margin-block: 0 0.5em;
     margin-inline: 1em 0;
+
+    figcaption {
+      text-align: center;
+    }
   }
 
   &.align-left {
     margin-block: 0 0.5em;
     margin-inline: 0 1em;
+
+    figcaption {
+      text-align: center;
+    }
+  }
+}
+
+figure {
+  &.figure-resized {
+    .media.media--type-image {
+      width: 100% !important;
+    }
+
+    &.align-right,
+    &.align-left,
+    &.align-center {
+
+      .media--type-image.media-embed-resized,
+      figcaption {
+        width: 100% !important;
+      }
+    }
+
+    &.align-center {
+      display: block;
+    }
   }
 }
 
@@ -105,12 +138,28 @@ figure,
         &.media--view-mode-small {
           width: 100% !important;
           min-width: 100% !important;
-  
+
           &.align-center,
           &.align-right,
           &.align-left {
             width: 100% !important;
             min-width: 100% !important;
+            margin-inline: 0 !important;
+          }
+        }
+      }
+
+      figure {
+        &.align-center,
+        &.align-right,
+        &.align-left {
+          width: 100% !important;
+          min-width: 100% !important;
+
+          .media-embed-resized {
+            width: 100% !important;
+            min-width: 100% !important;
+            margin-inline: 0 !important;
           }
         }
       }
