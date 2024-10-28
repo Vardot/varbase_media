@@ -15,34 +15,22 @@ figure,
 
   &.align-center {
     width: 100%;
-    margin-block: 0.5em 0.5em;
+    margin-block: 0.5rem 0.5rem;
     margin-inline: auto auto;
 
     > * {
       margin-inline: auto auto;
     }
-
-    figcaption {
-      text-align: center;
-    }
   }
 
   &.align-right {
-    margin-block: 0 0.5em;
-    margin-inline: 1em 0;
-
-    figcaption {
-      text-align: center;
-    }
+    margin-block: 0 0.5rem;
+    margin-inline: 1rem 0;
   }
 
   &.align-left {
-    margin-block: 0 0.5em;
-    margin-inline: 0 1em;
-
-    figcaption {
-      text-align: center;
-    }
+    margin-block: 0 0.5rem;
+    margin-inline: 0 1rem;
   }
 }
 

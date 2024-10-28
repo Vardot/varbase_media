@@ -12,7 +12,7 @@ figure.align-center,
 .media.align-center,
 .embedded-entity.align-center {
   width: 100%;
-  margin-block: .5em .5em;
+  margin-block: .5rem .5rem;
   margin-inline: auto auto;
 }
 
@@ -24,29 +24,13 @@ figure.align-center>*,
   margin-inline: auto auto;
 }
 
-picture.align-center figcaption,
-img.align-center figcaption,
-figure.align-center figcaption,
-.media.align-center figcaption,
-.embedded-entity.align-center figcaption {
-  text-align: center;
-}
-
 picture.align-right,
 img.align-right,
 figure.align-right,
 .media.align-right,
 .embedded-entity.align-right {
-  margin-block: 0 .5em;
-  margin-inline: 1em 0;
-}
-
-picture.align-right figcaption,
-img.align-right figcaption,
-figure.align-right figcaption,
-.media.align-right figcaption,
-.embedded-entity.align-right figcaption {
-  text-align: center;
+  margin-block: 0 .5rem;
+  margin-inline: 1rem 0;
 }
 
 picture.align-left,
@@ -54,16 +38,8 @@ img.align-left,
 figure.align-left,
 .media.align-left,
 .embedded-entity.align-left {
-  margin-block: 0 .5em;
-  margin-inline: 0 1em;
-}
-
-picture.align-left figcaption,
-img.align-left figcaption,
-figure.align-left figcaption,
-.media.align-left figcaption,
-.embedded-entity.align-left figcaption {
-  text-align: center;
+  margin-block: 0 .5rem;
+  margin-inline: 0 1rem;
 }
 
 figure.figure-resized .media.media--type-image {
