@@ -34,6 +34,20 @@ figure,
   }
 }
 
+[dir="rtl"] picture,
+[dir="rtl"] img,
+[dir="rtl"] figure,
+[dir="rtl"] .media,
+[dir="rtl"] .embedded-entity {
+  &.align-right {
+    margin-inline: 0 1rem !important;
+  }
+
+  &.align-left {
+    margin-inline: 1rem 0 !important;
+  }
+}
+
 figure {
   &.figure-resized {
     .media.media--type-image {
