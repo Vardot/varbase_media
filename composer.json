@@ -39,7 +39,7 @@
     "drupal/entity_embed": "~1",
     "drupal/inline_entity_form": "~2",
     "drupal/embed": "~1",
-    "drupal/media_entity_instagram": "~3",
+    "drupal/media_entity_instagram": "~4",
     "drupal/media_entity_twitter": "~2",
     "drupal/media_library_edit": "~3",
     "drupal/media_revisions_ui": "~2",
