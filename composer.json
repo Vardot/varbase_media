@@ -37,7 +37,7 @@
     "drupal/dropzonejs": "~2",
     "drupal/media_bulk_upload": "~3",
     "drupal/entity_embed": "~1",
-    "drupal/inline_entity_form": "~2",
+    "drupal/inline_entity_form": "~3",
     "drupal/embed": "~1",
     "drupal/media_entity_instagram": "~4",
     "drupal/media_entity_twitter": "~2",
