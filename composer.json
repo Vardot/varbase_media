@@ -42,7 +42,6 @@
     "drupal/media_entity_instagram": "~4",
     "drupal/media_entity_twitter": "~2",
     "drupal/media_library_edit": "~3",
-    "drupal/media_revisions_ui": "~2",
     "drupal/crop": "~2",
     "drupal/focal_point": "~2",
     "drupal/imagemagick": "~4",
