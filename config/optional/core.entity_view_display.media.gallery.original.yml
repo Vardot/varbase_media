@@ -58,22 +58,7 @@ content:
         field_media_cover_image: '0'
         field_media_oembed_video: '0'
         field_media_video_file: '0'
-      breakpoints:
-        xs:
-          image_style: ''
-          width: ''
-        sm:
-          image_style: ''
-          width: ''
-        md:
-          image_style: ''
-          width: ''
-        lg:
-          image_style: ''
-          width: ''
-        xl:
-          image_style: ''
-          width: ''
+      breakpoints: {}
       thumbnail: ''
       skin_arrows: ''
       skin_dots: ''
