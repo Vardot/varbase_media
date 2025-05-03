@@ -35,7 +35,7 @@
     "drupal/entity_browser": "~2",
     "drupal/entity_browser_enhanced": "~2",
     "drupal/dropzonejs": "~2",
-    "vardot/media_bulk_upload": "~3",
+    "drupal/media_bulk_upload": "~3",
     "drupal/entity_embed": "~1",
     "drupal/inline_entity_form": "~3",
     "drupal/embed": "~1",
