@@ -3,10 +3,10 @@
  * Behaviors Varbase Video Player general scripts for videos with cover images.
  */
 
-(function ($, Drupal) {
+(function varbaseVideoPlayer($, Drupal) {
   Drupal.behaviors.varbaseVideoPlayer = {
     attach() {
-      $('.js-video-player-icon').on('click', function () {
+      $('.js-video-player-icon').on('click', function onVideoIconClick() {
         $(this).fadeOut(500);
 
         // Locally Hosted Video.

@@ -31,3 +31,6 @@ ehthumbs.db
 .bash_history
 .bashrc
 errors.log
+
+# Ignore yarn cache
+.yarn/

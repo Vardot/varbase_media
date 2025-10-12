@@ -5,53 +5,50 @@
 
 ((Drupal) => {
   Drupal.behaviors.varbaseMediaCKEditorDrimage = {
-    attach: function (context) {
-
-      var timer;
+    attach() {
+      let timer;
       clearTimeout(timer);
       timer = setTimeout(Drupal.drimage_improved.init, 5, document);
 
-      addEventListener('mouseenter', function () {
+      window.addEventListener('mouseenter', () => {
         clearTimeout(timer);
         timer = setTimeout(Drupal.drimage_improved.init, 100);
       });
 
-      addEventListener('focus', function () {
+      window.addEventListener('focus', () => {
         clearTimeout(timer);
         timer = setTimeout(Drupal.drimage_improved.init, 100);
       });
 
-      addEventListener('click', function () {
+      window.addEventListener('click', () => {
         clearTimeout(timer);
         timer = setTimeout(Drupal.drimage_improved.init, 100);
       });
 
-      addEventListener('mouseleave', function () {
+      window.addEventListener('mouseleave', () => {
         clearTimeout(timer);
         timer = setTimeout(Drupal.drimage_improved.init, 100);
       });
 
-      addEventListener('mouseover', function () {
+      window.addEventListener('mouseover', () => {
         clearTimeout(timer);
         timer = setTimeout(Drupal.drimage_improved.init, 100);
       });
 
-      addEventListener('blur', function () {
+      window.addEventListener('blur', () => {
         clearTimeout(timer);
         timer = setTimeout(Drupal.drimage_improved.init, 100);
       });
 
-      addEventListener('keyup', function () {
+      window.addEventListener('keyup', () => {
         clearTimeout(timer);
         timer = setTimeout(Drupal.drimage_improved.init, 100);
       });
 
-      addEventListener('toggle', function () {
+      window.addEventListener('toggle', () => {
         clearTimeout(timer);
         timer = setTimeout(Drupal.drimage_improved.init, 100);
       });
-
-    }
+    },
   };
-
 })(Drupal);

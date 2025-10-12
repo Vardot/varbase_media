@@ -148,7 +148,8 @@ function varbase_media__default_image_field_name(MediaInterface $media_entity) {
 /**
  * Get a url for the fullback social share image from the active theme.
  *
- * @return mixed
+ * @return string
+ *   The URL of the fallback social share image.
  */
 function varbase_media__get_fallback_social_share_image_url() {
   $active_theme = \Drupal::theme()->getActiveTheme()->getPath();
