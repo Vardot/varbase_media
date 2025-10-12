@@ -2,21 +2,22 @@
   "name": "varbase_media",
   "description": "Manages type of media contents and entity browsers in the site.",
   "private": true,
-  "license": "GPL-2.0",
+  "license": "GPL-2.0-or-later",
   "main": "gulpfile.js",
   "engines": {
-    "yarn": ">= 1.6",
-    "node": ">= 18.0"
+    "yarn": ">= 4.9.3",
+    "node": ">= 20.0"
   },
   "scripts": {
     "theme:init": "gulp",
-    "theme:build": "gulp compile",
+    "theme:build": "gulp compile && stylelint \"**/*.css\" --fix",
     "theme:watch": "gulp watch",
     "phpcs": "phpcs --standard=./.phpcs.xml .",
     "phpcbf": "phpcbf --standard=./.phpcs.xml .",
-    "lint:yaml": "node ./node_modules/eslint/bin/eslint.js --config=.eslintrc.json --ext .yml .",
-    "lint:js": "node ./node_modules/eslint/bin/eslint.js --config=.eslintrc.json --ext .js .",
-    "lint:css": "npx stylelint --config=.stylelintrc.json ."
+    "lint:yaml": "node ./node_modules/eslint/bin/eslint.js --ext .yml .",
+    "lint:js": "node ./node_modules/eslint/bin/eslint.js .",
+    "lint:css": "stylelint \"**/*.css\"",
+    "spellcheck": "cspell lint ."
   },
   "keywords": [
     "Drupal",
@@ -25,18 +26,17 @@
     "Bootstrap"
   ],
   "author": "Vardot",
-  "dependencies": {
-    "rfs": "~9"
-  },
   "devDependencies": {
-    "autoprefixer": "~9",
+    "rfs": "~9",
     "@babel/core": "~7",
     "@babel/preset-env": "~7",
     "@babel/register": "^7.7.7",
+    "autoprefixer": "~9",
     "browser-sync": "~2",
     "chalk": "~2",
     "chokidar": "~3",
     "cross-env": "~5",
+    "cspell": "^8.16.1",
     "del": "~3",
     "dotenv-safe": "~5",
     "eslint": "^8.9.0",
@@ -46,11 +46,8 @@
     "eslint-plugin-jquery": "^1.5.1",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-yml": "^0.14.0",
-    "farbtastic": "https://github.com/mattfarina/farbtastic/archive/1.3u.tar.gz",
     "glob": "~7",
     "glob-watcher": "~5",
-    "joyride": "https://github.com/zurb/joyride/archive/refs/heads/v2.1.tar.gz",
-    "sass": "~1",
     "gulp": "~4",
     "gulp-autoprefixer": "~8",
     "gulp-clean-css": "~4",
@@ -60,11 +57,11 @@
     "gulp-html-replace": "~1",
     "gulp-postcss": "~8",
     "gulp-rename": "~2",
+    "gulp-rtlcss": "~1",
     "gulp-sass": "~5",
     "gulp-scss-lint": "~1",
     "gulp-sourcemaps": "~3",
     "gulp-uglify": "~3",
-    "gulp-rtlcss": "~1",
     "merge-stream": "~2",
     "minimatch": "~5",
     "minimist": "~1",
@@ -78,12 +75,14 @@
     "postcss-url": "^8.0.0",
     "prettier": "^2.1.2",
     "raw-loader": "^4.0.2",
+    "sass": "~1",
     "shepherd.js": "^9.0.0",
     "sortablejs": "^1.13.0",
     "stylelint": "^14.0.1",
     "stylelint-checkstyle-formatter": "^0.1.2",
     "stylelint-config-standard": "^23.0.0",
     "stylelint-order": "^5.0.0",
+    "stylelint-prettier": "^3.0.0",
     "tabbable": "^5.2.0",
     "terser": "^5.14.2",
     "terser-webpack-plugin": "^5.2.0",
@@ -131,5 +130,6 @@
     "last 1 UCAndroid version",
     "last 1 Samsung version",
     "Firefox ESR"
-  ]
+  ],
+  "packageManager": "yarn@4.9.3"
 }

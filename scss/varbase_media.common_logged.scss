@@ -1,6 +1,8 @@
 // Varbase media common logged in users style.
 // =============================================================================
 
+@use "sass:map";
+
 // Grid breakpoints
 //
 // Define the minimum dimensions at which your layout will change,
@@ -246,7 +248,7 @@ body {
   }
 }
 
-@media screen and (min-width: map-get($grid-breakpoints, "sm")) {
+@media screen and (min-width: map.get($grid-breakpoints, "sm")) {
 
   body {
     .views-view-grid {
@@ -263,7 +265,7 @@ body {
   }
 }
 
-@media screen and (min-width: map-get($grid-breakpoints, "md")) {
+@media screen and (min-width: map.get($grid-breakpoints, "md")) {
 
   body {
     .views-view-grid {
@@ -280,7 +282,7 @@ body {
   }
 }
 
-@media screen and (min-width: map-get($grid-breakpoints, "lg")) {
+@media screen and (min-width: map.get($grid-breakpoints, "lg")) {
 
   body {
     .views-view-grid {
@@ -297,7 +299,7 @@ body {
   }
 }
 
-@media screen and (min-width: map-get($grid-breakpoints, "xl")) {
+@media screen and (min-width: map.get($grid-breakpoints, "xl")) {
 
   body {
     .views-view-grid {
@@ -488,7 +490,7 @@ html[dir="rtl"] .entity-embed-dialog-step--embed {
     }
   }
 
-  @media screen and (min-width: map-get($grid-breakpoints, "sm")) {
+  @media screen and (min-width: map.get($grid-breakpoints, "sm")) {
     .entity-browser-generic-embed div {
       .varbase-video-player {
         float: left;
@@ -507,7 +509,7 @@ html[dir="rtl"] .entity-embed-dialog-step--embed {
     }
   }
 
-  @media screen and (min-width: map-get($grid-breakpoints, "md")) {
+  @media screen and (min-width: map.get($grid-breakpoints, "md")) {
     .entity-browser-generic-embed div {
       .varbase-video-player {
         float: left;

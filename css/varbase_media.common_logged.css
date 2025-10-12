@@ -1,11 +1,11 @@
 .entity-select-dialog #entity-embed-dialog-form .form-type-radio {
   display: block;
 }
-.entity-select-dialog #entity-embed-dialog-form .form-type-radio label:after {
+.entity-select-dialog #entity-embed-dialog-form .form-type-radio label::after {
   content: "";
 }
-.entity-select-dialog #entity-embed-dialog-form .radio input[type=radio],
-.entity-select-dialog #entity-embed-dialog-form .checkbox input[type=radio] {
+.entity-select-dialog #entity-embed-dialog-form .radio input[type="radio"],
+.entity-select-dialog #entity-embed-dialog-form .checkbox input[type="radio"] {
   margin-right: 5px;
 }
 .entity-select-dialog #entity-embed-dialog-form .input-group .select-wrapper:first-child .form-control:first-child {
@@ -21,11 +21,11 @@
 .editor-image-dialog #editor-image-dialog-form .form-type-radio {
   display: block;
 }
-.editor-image-dialog #editor-image-dialog-form .form-type-radio label:after {
+.editor-image-dialog #editor-image-dialog-form .form-type-radio label::after {
   content: "";
 }
-.editor-image-dialog #editor-image-dialog-form .radio input[type=radio],
-.editor-image-dialog #editor-image-dialog-form .checkbox input[type=radio] {
+.editor-image-dialog #editor-image-dialog-form .radio input[type="radio"],
+.editor-image-dialog #editor-image-dialog-form .checkbox input[type="radio"] {
   margin-right: 5px;
 }
 .editor-image-dialog #editor-image-dialog-form .input-group .select-wrapper:first-child .form-control:first-child {
@@ -107,8 +107,8 @@ body .form-wrapper.field--widget-entity-browser-entity-reference .entities-list 
   background-color: transparent;
   font-size: 0;
 }
-body .form-wrapper.field--widget-entity-browser-entity-reference .entities-list .item-container input[id*=-edit-button],
-body .form-wrapper.field--widget-entity-browser-entity-reference .entities-list .item-container button[id*=-edit-button] {
+body .form-wrapper.field--widget-entity-browser-entity-reference .entities-list .item-container input[id*="-edit-button"],
+body .form-wrapper.field--widget-entity-browser-entity-reference .entities-list .item-container button[id*="-edit-button"] {
   right: auto;
   left: 0;
   filter: invert(100%) !important;
@@ -117,8 +117,8 @@ body .form-wrapper.field--widget-entity-browser-entity-reference .entities-list 
   background-position: left top;
   background-size: 100%;
 }
-body .form-wrapper.field--widget-entity-browser-entity-reference .entities-list .item-container input[id*=-remove-button],
-body .form-wrapper.field--widget-entity-browser-entity-reference .entities-list .item-container button[id*=-remove-button] {
+body .form-wrapper.field--widget-entity-browser-entity-reference .entities-list .item-container input[id*="-remove-button"],
+body .form-wrapper.field--widget-entity-browser-entity-reference .entities-list .item-container button[id*="-remove-button"] {
   right: 0;
   left: auto;
   filter: invert(75%) !important;
@@ -235,8 +235,8 @@ body #edit-selected.entities-list .item-container button {
   background-color: transparent;
   font-size: 0;
 }
-body #edit-selected.entities-list .item-container input[id*=-edit-button],
-body #edit-selected.entities-list .item-container button[id*=-edit-button] {
+body #edit-selected.entities-list .item-container input[id*="-edit-button"],
+body #edit-selected.entities-list .item-container button[id*="-edit-button"] {
   right: auto;
   left: 0;
   filter: invert(100%) !important;
@@ -245,8 +245,8 @@ body #edit-selected.entities-list .item-container button[id*=-edit-button] {
   background-position: left top;
   background-size: 100%;
 }
-body #edit-selected.entities-list .item-container input[id*=-remove-button],
-body #edit-selected.entities-list .item-container button[id*=-remove-button] {
+body #edit-selected.entities-list .item-container input[id*="-remove-button"],
+body #edit-selected.entities-list .item-container button[id*="-remove-button"] {
   right: 0;
   left: auto;
   filter: invert(75%) !important;
@@ -271,11 +271,11 @@ body #edit-selected.entities-list .video-player-icon {
   position: initial;
 }
 
-html[dir=rtl] body #edit-selected.entities-list .item-container input[id*=-edit-button] {
+html[dir="rtl"] body #edit-selected.entities-list .item-container input[id*="-edit-button"] {
   right: 0;
   left: auto;
 }
-html[dir=rtl] body #edit-selected.entities-list .item-container input[id*=-remove-button] {
+html[dir="rtl"] body #edit-selected.entities-list .item-container input[id*="-remove-button"] {
   right: auto;
   left: 0;
 }
@@ -288,14 +288,14 @@ html[dir=rtl] body #edit-selected.entities-list .item-container input[id*=-remov
   width: 200px;
 }
 
-html[dir=rtl] .entity-embed-dialog-step--embed > .form-item-entity {
+html[dir="rtl"] .entity-embed-dialog-step--embed > .form-item-entity {
   float: left;
 }
 
 .entity-browser-form div#ief-dropzone-upload > div {
   margin: 0 15px 15px 15px;
   padding: 15px;
-  border: 2px dashed rgba(107, 107, 107, 0.65);
+  border: 2px dashed hsla(0, 0%, 42%, 0.65);
   border-radius: 20px;
 }
 .entity-browser-form div#ief-dropzone-upload > div .image-widget-data {
@@ -324,7 +324,7 @@ html[dir=rtl] .entity-embed-dialog-step--embed > .form-item-entity {
   .entity-browser-form .entity-browser-generic-embed div .varbase-video-player iframe {
     height: 300px;
   }
-  .entity-browser-form .entity-browser-generic-embed div div[data-drupal-selector*=edit-preview] {
+  .entity-browser-form .entity-browser-generic-embed div div[data-drupal-selector*="edit-preview"] {
     float: right;
     width: 42%;
   }
@@ -338,7 +338,7 @@ html[dir=rtl] .entity-embed-dialog-step--embed > .form-item-entity {
   .entity-browser-form .entity-browser-generic-embed div .varbase-video-player iframe {
     height: 300px;
   }
-  .entity-browser-form .entity-browser-generic-embed div div[data-drupal-selector*=edit-preview] {
+  .entity-browser-form .entity-browser-generic-embed div div[data-drupal-selector*="edit-preview"] {
     float: right;
     width: 42%;
   }
@@ -365,7 +365,7 @@ form.media-image-edit-form > .field--type-image .field--widget-image-image > div
 form.media-image-edit-form > .field--type-image .field--widget-image-image > div > div > .image-widget > .image-widget-data {
   float: none;
 }
-form.media-image-edit-form > .field--type-image .field--widget-image-image > div > div > .image-widget:after {
+form.media-image-edit-form > .field--type-image .field--widget-image-image > div > div > .image-widget::after {
   display: none;
 }
 form.media-image-edit-form > .field--type-image .field--widget-image-image > div > div > .image-widget > .file {
@@ -383,10 +383,10 @@ form.media-image-edit-form > .field--type-image .field--widget-image-image > div
   display: none;
 }
 
-html[dir=rtl] form.media-image-edit-form > .field--type-image .field--widget-image-image > div > div > .image-widget .image-preview {
+html[dir="rtl"] form.media-image-edit-form > .field--type-image .field--widget-image-image > div > div > .image-widget .image-preview {
   float: left;
 }
-html[dir=rtl] form.media-image-edit-form > .field--type-image .field--widget-image-image > div > div > .image-widget > .button {
+html[dir="rtl"] form.media-image-edit-form > .field--type-image .field--widget-image-image > div > div > .image-widget > .button {
   float: left;
   margin-left: 4%;
 }
@@ -396,13 +396,13 @@ form.media-form .form-item-field-source {
   margin-right: 1.3rem;
 }
 
-html[dir=rtl] form.media-form .form-item-field-source {
+html[dir="rtl"] form.media-form .form-item-field-source {
   float: right;
   margin-right: auto;
   margin-left: 1.5rem;
 }
 
-[class^=entity-browser-] .field--name-revision-log-message {
+[class^="entity-browser-"] .field--name-revision-log-message {
   display: none;
 }
 
@@ -457,7 +457,7 @@ html[dir=rtl] form.media-form .form-item-field-source {
   height: 150px;
   background-color: #000;
 }
-.media--view-mode-field-preview .video-player-icon:after {
+.media--view-mode-field-preview .video-player-icon::after {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -470,10 +470,10 @@ html[dir=rtl] form.media-form .form-item-field-source {
   background: url(../images/play.svg) no-repeat center center;
   font-size: 15%;
 }
-.media--view-mode-field-preview .video-player-icon:hover:after {
+.media--view-mode-field-preview .video-player-icon:hover::after {
   opacity: 0.75;
 }
-.media--view-mode-field-preview [dir=rtl] .video-player-icon.js-video-player-icon {
+.media--view-mode-field-preview [dir="rtl"] .video-player-icon.js-video-player-icon {
   right: 0;
   left: auto;
 }
@@ -484,14 +484,14 @@ html[dir=rtl] form.media-form .form-item-field-source {
   max-width: 100% !important;
 }
 
-div[data-drupal-selector^=edit-inline-entity-form-field-media-gallery-current] {
+div[data-drupal-selector^="edit-inline-entity-form-field-media-gallery-current"] {
   display: none;
 }
 
-details[id^=edit-field-media-gallery-] summary {
+details[id^="edit-field-media-gallery-"] summary {
   display: none;
 }
-details[id^=edit-field-media-gallery-] .details-wrapper {
+details[id^="edit-field-media-gallery-"] .details-wrapper {
   margin-top: 0;
 }
 
@@ -507,48 +507,48 @@ details[id^=edit-field-media-gallery-] .details-wrapper {
 .cke_widget_drupalmedia drupal-media .caption {
   width: 100%;
 }
-.cke_widget_drupalmedia drupal-media[data-view-mode=original] {
+.cke_widget_drupalmedia drupal-media[data-view-mode="original"] {
   width: 100%;
 }
-.cke_widget_drupalmedia drupal-media[data-view-mode=original][data-align=center] {
+.cke_widget_drupalmedia drupal-media[data-view-mode="original"][data-align="center"] {
   margin-right: 0;
   margin-left: 0;
 }
-.cke_widget_drupalmedia drupal-media[data-view-mode=large] {
+.cke_widget_drupalmedia drupal-media[data-view-mode="large"] {
   width: 100%;
 }
-.cke_widget_drupalmedia drupal-media[data-view-mode=large][data-align=center] {
+.cke_widget_drupalmedia drupal-media[data-view-mode="large"][data-align="center"] {
   margin-right: 0;
   margin-left: 0;
 }
-.cke_widget_drupalmedia drupal-media[data-view-mode=medium] {
+.cke_widget_drupalmedia drupal-media[data-view-mode="medium"] {
   width: 50%;
 }
-.cke_widget_drupalmedia drupal-media[data-view-mode=medium][data-align=center] {
+.cke_widget_drupalmedia drupal-media[data-view-mode="medium"][data-align="center"] {
   margin-right: 25%;
   margin-left: 25%;
 }
-.cke_widget_drupalmedia drupal-media[data-view-mode=small] {
+.cke_widget_drupalmedia drupal-media[data-view-mode="small"] {
   width: 25%;
 }
-.cke_widget_drupalmedia drupal-media[data-view-mode=small][data-align=center] {
+.cke_widget_drupalmedia drupal-media[data-view-mode="small"][data-align="center"] {
   margin-right: 32%;
   margin-left: 32%;
 }
-.cke_widget_drupalmedia drupal-media[data-align=left] {
+.cke_widget_drupalmedia drupal-media[data-align="left"] {
   display: inline-block;
   float: left;
   margin: 0 1rem 1rem 0;
 }
-.cke_widget_drupalmedia drupal-media[data-align=left] figcaption {
+.cke_widget_drupalmedia drupal-media[data-align="left"] figcaption {
   text-align: center;
 }
-.cke_widget_drupalmedia drupal-media[data-align=right] {
+.cke_widget_drupalmedia drupal-media[data-align="right"] {
   display: inline-block;
   float: right;
   margin: 0 0 1rem 1rem;
 }
-.cke_widget_drupalmedia drupal-media[data-align=right] figcaption {
+.cke_widget_drupalmedia drupal-media[data-align="right"] figcaption {
   text-align: center;
 }
 .cke_widget_drupalmedia drupal-media .media-library-item__edit {
@@ -583,8 +583,8 @@ details[id^=edit-field-media-gallery-] .details-wrapper {
   margin: 0;
   cursor: pointer;
 }
-.cke_widget_drupalmedia drupal-media .media.media--type-remote-video .video-player-icon:after,
-.cke_widget_drupalmedia drupal-media .media.media--type-video .video-player-icon:after {
+.cke_widget_drupalmedia drupal-media .media.media--type-remote-video .video-player-icon::after,
+.cke_widget_drupalmedia drupal-media .media.media--type-video .video-player-icon::after {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -597,8 +597,8 @@ details[id^=edit-field-media-gallery-] .details-wrapper {
   background: url(../images/play.svg) no-repeat center center;
   font-size: 15%;
 }
-.cke_widget_drupalmedia drupal-media .media.media--type-remote-video .video-player-icon:hover:after,
-.cke_widget_drupalmedia drupal-media .media.media--type-video .video-player-icon:hover:after {
+.cke_widget_drupalmedia drupal-media .media.media--type-remote-video .video-player-icon:hover::after,
+.cke_widget_drupalmedia drupal-media .media.media--type-video .video-player-icon:hover::after {
   opacity: 0.75;
 }
 @media screen and (min-width: 761rem) {

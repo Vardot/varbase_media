@@ -6,7 +6,7 @@ use Drupal\Core\Routing\RouteSubscriberBase;
 use Symfony\Component\Routing\RouteCollection;
 
 /**
- * Varbase Media Builk Upload dynamic route events.
+ * Varbase Media Bulk Upload dynamic route events.
  */
 class VarbaseMediaBulkUploadRouteSubscriber extends RouteSubscriberBase {
 

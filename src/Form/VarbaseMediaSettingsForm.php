@@ -97,7 +97,7 @@ class VarbaseMediaSettingsForm extends ConfigFormBase {
       $module_path = $this->moduleHandler->getModule('varbase_media')->getPath();
       $optional_install_path = $module_path . '/' . InstallStorage::CONFIG_OPTIONAL_DIRECTORY;
 
-      $image_style_config_path = $optional_install_path . '/' . 'image.style.blazy_blurry.yml';
+      $image_style_config_path = $optional_install_path . '/image.style.blazy_blurry.yml';
       $image_style_config_content = file_get_contents($image_style_config_path);
       $image_style_config_data = (array) Yaml::parse($image_style_config_content);
       $image_style_config_factory = $this->configFactory->getEditable('image.style.blazy_blurry');

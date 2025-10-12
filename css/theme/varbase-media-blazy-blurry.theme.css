@@ -11,7 +11,6 @@
   overflow: hidden;
   max-width: 100%;
   height: auto;
-  -webkit-backface-visibility: inherit;
   backface-visibility: inherit;
 }
 .blazy.field--type-image .media--loading::before,
@@ -45,7 +44,6 @@
 
 .media--loading {
   overflow: hidden;
-  -webkit-backface-visibility: inherit;
   backface-visibility: inherit;
 }
 .media--loading::before {

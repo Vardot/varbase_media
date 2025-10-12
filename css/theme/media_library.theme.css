@@ -35,7 +35,6 @@ body .media-library-item--grid .views-field-views-bulk-operations-bulk-form {
   vertical-align: top;
   border: 1px solid #dbdbdb;
   background: #fff;
-  /* Style the wrappers around new media and files */
 }
 .media-library-view .media-library-item:not(.media-library-item--grid) .field--name-thumbnail {
   overflow: hidden;
@@ -45,7 +44,6 @@ body .media-library-item--grid .views-field-views-bulk-operations-bulk-form {
 .media-library-view .media-library-item:not(.media-library-item--grid) .field--name-thumbnail img {
   height: 180px;
   object-fit: contain;
-
   object-position: center center;
 }
 .media-library-view .media-library-item:not(.media-library-item--grid).is-hover,
@@ -139,6 +137,9 @@ body .media-library-item--grid .views-field-views-bulk-operations-bulk-form {
   position: absolute;
   top: 5px;
   right: 5px;
+}
+.media-library-view .media-library-item:not(.media-library-item--grid) {
+  /* Style the wrappers around new media and files */
 }
 .media-library-view .media-library-item:not(.media-library-item--grid) .media-library-upload__media,
 .media-library-view .media-library-item:not(.media-library-item--grid) .media-library-upload__file {
