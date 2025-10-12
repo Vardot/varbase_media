@@ -1,0 +1,8 @@
+# Compiled CSS files (generated from SCSS)
+css/**/*.css
+
+# Node modules
+node_modules/
+
+# Vendor files
+vendor/

@@ -81,7 +81,7 @@ class EmbedCode extends EntityFormProxy {
     // Get list of allowed media type bundles.
     $allowedBundles = $this->getAllowedBundles($form_state);
 
-    // If the target have  a list of allowd bundles.
+    // If the target have  a list of allowed bundles.
     if (isset($allowedBundles) && is_array($allowedBundles) && count($allowedBundles) > 0) {
 
       foreach ($mediaTypes as $mediaType) {

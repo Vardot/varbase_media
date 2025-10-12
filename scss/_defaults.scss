@@ -1,9 +1,6 @@
 // Global Defaults
 // -----------------------------------------------------------------------------
 
-@import "../node_modules/bootstrap/scss/mixins/banner";
-@include bsBanner("");
-
 @import "bootstrap-variables";                           // Override bootstrap 5 variables.
 @import "../node_modules/bootstrap/scss/functions";      // Bootstrap functions.
 @import "../node_modules/bootstrap/scss/variables";      // Bootstrap variables.

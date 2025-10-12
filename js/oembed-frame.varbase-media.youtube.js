@@ -9,7 +9,7 @@ function ready(fn) {
   } else if (document.addEventListener) {
     document.addEventListener('DOMContentLoaded', fn);
   } else {
-    document.attachEvent('onreadystatechange', function () {
+    document.attachEvent('onreadystatechange', function checkReadyState() {
       if (document.readyState !== 'loading') fn();
     });
   }
@@ -20,12 +20,15 @@ tag.src = '//www.youtube.com/player_api';
 const firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-ready(function () {
+ready(function initYouTubePlayer() {
   const mediaIframe = document.querySelector('iframe');
   mediaIframe.setAttribute('id', 'media-oembed-iframe');
 
-  let playerConfgured = false;
-  let youtubePlayer;
+  let playerConfigured = false;
+
+  function onPlayerReady(event) {
+    event.target.playVideo();
+  }
 
   function actionProcessor(evt) {
     // Manage Youtube video.
@@ -35,7 +38,7 @@ ready(function () {
       );
 
       if (youtubeIframe !== undefined && youtubeIframe.src !== undefined) {
-        if (!playerConfgured) {
+        if (!playerConfigured) {
           let youtubeURL = String(youtubeIframe.src);
           youtubeURL = youtubeURL.replace(/autoplay=0/gi, 'autoplay=1');
           youtubeURL = youtubeURL.replace(/controls=0/gi, 'controls=1');
@@ -43,19 +46,16 @@ ready(function () {
           youtubeIframe.src = youtubeURL;
           youtubeURL = undefined;
 
-          youtubePlayer = new window.YT.Player(youtubeIframe.id, {
+          // eslint-disable-next-line no-unused-vars
+          const youtubePlayer = new window.YT.Player(youtubeIframe.id, {
             events: {
               onReady: onPlayerReady,
             },
           });
 
-          playerConfgured = true;
+          playerConfigured = true;
         }
       }
-    }
-
-    function onPlayerReady(event) {
-      event.target.playVideo();
     }
   }
 
