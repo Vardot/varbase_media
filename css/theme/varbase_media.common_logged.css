@@ -123,7 +123,7 @@ body .form-wrapper.field--widget-entity-browser-entity-reference .entities-list 
 }
 
 body .form-wrapper.field--widget-entity-browser-entity-reference .entities-list .item-container input[id*=-edit-button],body .form-wrapper.field--widget-entity-browser-entity-reference .entities-list .item-container button[id*=-edit-button] {
-  background-image: url("..//[object%20Module]");
+  background-image: url("../../images/pencil-square-o.svg");
   background-repeat: no-repeat;
   background-position: left top;
   background-size: 100%;
@@ -133,7 +133,7 @@ body .form-wrapper.field--widget-entity-browser-entity-reference .entities-list 
 }
 
 body .form-wrapper.field--widget-entity-browser-entity-reference .entities-list .item-container input[id*=-remove-button],body .form-wrapper.field--widget-entity-browser-entity-reference .entities-list .item-container button[id*=-remove-button] {
-  background-image: url("..//[object%20Module]");
+  background-image: url("../../images/times-circle-o.svg");
   background-repeat: no-repeat;
   background-position: left top;
   background-size: 100%;
@@ -265,7 +265,7 @@ body #edit-selected.entities-list .item-container input,body #edit-selected.enti
 }
 
 body #edit-selected.entities-list .item-container input[id*=-edit-button],body #edit-selected.entities-list .item-container button[id*=-edit-button] {
-  background-image: url("..//[object%20Module]");
+  background-image: url("../../images/pencil-square-o.svg");
   background-repeat: no-repeat;
   background-position: left top;
   background-size: 100%;
@@ -275,7 +275,7 @@ body #edit-selected.entities-list .item-container input[id*=-edit-button],body #
 }
 
 body #edit-selected.entities-list .item-container input[id*=-remove-button],body #edit-selected.entities-list .item-container button[id*=-remove-button] {
-  background-image: url("..//[object%20Module]");
+  background-image: url("../../images/times-circle-o.svg");
   background-repeat: no-repeat;
   background-position: left top;
   background-size: 100%;
@@ -516,7 +516,7 @@ html[dir=rtl] form.media-form .form-item-field-source {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: url("..//[object%20Module]") no-repeat center center;
+  background: url(../../images/play.svg) no-repeat center center;
   height: 72px;
   width: 72px;
   max-height: 55%;
@@ -660,7 +660,7 @@ details[id^=edit-field-media-gallery-] .details-wrapper {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: url("..//[object%20Module]") no-repeat center center;
+  background: url(../../images/play.svg) no-repeat center center;
   height: 72px;
   width: 72px;
   max-height: 55%;

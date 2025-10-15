@@ -36,8 +36,10 @@ module.exports = {
         use: [{
             loader: 'file-loader',
             options: {
-              name: '[path][name].[ext]', //?[contenthash]
-              outputPath: '../../'
+              name: '[name].[ext]',
+              outputPath: '../../images',
+              publicPath: '../../images',
+              esModule: false,  // Fix [object Module] issue by disabling ES6 modules
             },
           },
           {
@@ -59,15 +61,7 @@ module.exports = {
             options: {
               sourceMap: isDev,
               importLoaders: 2,
-              url: {
-                filter: (url) => {
-                  // Don't handle sprite svg
-                  if (url.includes('sprite.svg')) {
-                    return false;
-                  }
-                  return true;
-                },
-              },
+              url: false,  // Disable URL processing to keep paths as-is from SCSS
             },
           },
           {
