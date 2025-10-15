@@ -3,10 +3,14 @@ const isDev = (process.env.NODE_ENV !== 'production');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const autoprefixer = require('autoprefixer');
+const perfectionist = require('postcss-perfectionist');
 const RemoveEmptyScriptsPlugin = require('webpack-remove-empty-scripts');
 
 module.exports = {
   mode: 'production',
+  optimization: {
+    minimize: false,  // Disable CSS minification to output readable format
+  },
   entry: {
     // ################################################
     // SCSS
@@ -71,7 +75,18 @@ module.exports = {
             options: {
               sourceMap: isDev,
               postcssOptions: {
-                plugins: [autoprefixer()],
+                plugins: [
+                  autoprefixer(),
+                  perfectionist({
+                    format: 'expanded',
+                    indentSize: 2,
+                    trimLeadingZero: true,
+                    trimTrailingZeros: true,
+                    maxAtRuleLength: false,
+                    maxSelectorLength: false,
+                    maxValueLength: false,
+                  }),
+                ],
               },
             },
           },
@@ -80,6 +95,7 @@ module.exports = {
             options: {
               sourceMap: isDev,
               sassOptions: {
+                outputStyle: 'expanded',  // Output readable CSS format
                 quietDeps: true,  // Suppress deprecation warnings from dependencies
                 silenceDeprecations: ['import', 'global-builtin', 'color-functions', 'slash-div'],  // Silence specific deprecations
               },
