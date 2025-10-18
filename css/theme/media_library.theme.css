@@ -31,7 +31,10 @@ body .media-library-item--grid .views-field-views-bulk-operations-bulk-form {
   justify-content: center;
   width: 180px;
   margin: 16px 16px 2px 2px;
-  transition: border-color 0.2s, color 0.2s, background 0.2s;
+  transition:
+    border-color 0.2s,
+    color 0.2s,
+    background 0.2s;
   vertical-align: top;
   border: 1px solid #dbdbdb;
   background: #fff;
