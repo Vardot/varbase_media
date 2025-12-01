@@ -516,6 +516,11 @@ function varbase_media_form_alter(&$form, &$form_state, $form_id) {
 
     // Only for media entity type.
     if ($entity_type == 'media') {
+      // Attach AI button inline library for media edit and add forms.
+      if ((str_contains($form_id, 'edit_form') || str_contains($form_id, 'add_form')) && \Drupal::moduleHandler()->moduleExists('ai_image_alt_text')) {
+        $form['#attached']['library'][] = 'varbase_media/ai_image_alt_text_inline_button';
+      }
+
       // No revision information or revision log message.
       if (isset($form['revision_information'])) {
         $form['revision_information']['#disabled'] = TRUE;
@@ -543,6 +548,16 @@ function varbase_media_form_alter(&$form, &$form_state, $form_id) {
       || $form_id == 'entity_browser_media_browser_form'
       || $form_id == 'entity_browser_editor_media_browser_form') {
     $form['#attached']['library'][] = 'varbase_media/auto_fill_media_data';
+    if (\Drupal::moduleHandler()->moduleExists('ai_image_alt_text')) {
+      $form['#attached']['library'][] = 'varbase_media/ai_button_inline';
+    }
+  }
+
+  // Also attach to media library forms and inline entity forms.
+  if ((str_contains($form_id, 'media_library') ||
+      str_contains($form_id, 'inline_entity_form') ||
+      str_contains($form_id, 'media_image')) && \Drupal::moduleHandler()->moduleExists('ai_image_alt_text')) {
+    $form['#attached']['library'][] = 'varbase_media/ai_image_alt_text_inline_button';
   }
 
   if ($form_id === "entity_browser_widgets_config_form") {
@@ -613,6 +628,16 @@ function varbase_media_form_alter(&$form, &$form_state, $form_id) {
     $form['#submit'][] = '_varbase_media_bulk_upload_form_submit_handler';
   }
 
+}
+
+/**
+ * Implements hook_field_widget_single_element_form_alter().
+ */
+function varbase_media_field_widget_single_element_form_alter(&$element, FormStateInterface $form_state, $context) {
+  // Attach AI button inline library to media image field widgets.
+  if (isset($context['items']) && $context['items']->getFieldDefinition()->getType() == 'image' && \Drupal::moduleHandler()->moduleExists('ai_image_alt_text')) {
+    $element['#attached']['library'][] = 'varbase_media/ai_image_alt_text_inline_button';
+  }
 }
 
 /**

@@ -58,3 +58,13 @@ ckeditor_varbase_video_player:
   css:
     theme:
       css/theme/varbase-video-player.ckeditor.admin.css: {}
+ai_image_alt_text_inline_button:
+  version: VERSION
+  css:
+    theme:
+      css/theme/ai-image-alt-text.inline-button.admin.css: {}
+  js:
+    js/ai-image-alt-text.inline-button.js: {}
+  dependencies:
+    - core/drupal
+    - core/once

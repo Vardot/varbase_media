@@ -21,6 +21,7 @@ module.exports = {
     'theme/media_library.theme': ['./scss/theme/media_library.theme.scss'],
     'theme/varbase-video-player.theme': ['./scss/theme/varbase-video-player.theme.scss'],
     'theme/varbase-video-player.ckeditor.admin': ['./scss/theme/varbase-video-player.ckeditor.admin.scss'],
+    'theme/ai-image-alt-text.inline-button.admin': ['./scss/theme/ai-image-alt-text.inline-button.admin.scss']
   },
   output: {
     path: path.resolve(__dirname, 'css'),
