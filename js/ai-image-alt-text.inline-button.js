@@ -201,9 +201,6 @@
             }
           };
 
-          // Listen for manual input events.
-          altInput.addEventListener('input', copyAltToTitle);
-
           // Listen for AI button clicks and check when AI generation completes.
           aiButton.addEventListener('click', function handleAiButtonClick() {
             // Check for alt text value change every 500ms for up to 30 seconds.
