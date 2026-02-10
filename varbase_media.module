@@ -57,6 +57,20 @@ function varbase_media_preprocess_field(&$variables) {
       $main_property = $item->getFieldDefinition()->getFieldStorageDefinition()->getMainPropertyName();
       $value = $item->{$main_property};
       $provider = $entity->field_provider->value;
+
+      // Get langcode from media entity itself.
+      $langcode = $entity->language()->getId();
+
+      // If no lang for the media entity, get current lang as 1st fallback.
+      if (empty($langcode) || $langcode == 'und') {
+        $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
+      }
+
+      // If no data, use "en" as 2nd fallback option.
+      if (empty($langcode) || $langcode == 'und') {
+        $langcode = 'en';
+      }
+
       $url = Url::fromRoute('media.oembed_iframe', [], [
         'query' => [
           'url' => $value,
@@ -65,6 +79,7 @@ function varbase_media_preprocess_field(&$variables) {
           'type' => "remote_video",
           'provider' => strtolower($provider ?? ''),
           'view_mode' => $view_mode,
+          'langcode' => $langcode,
           'hash' => $iframe_url_helper->getHash($value, $max_width, $max_height, $provider, $view_mode),
         ],
       ]);
@@ -98,6 +113,19 @@ function varbase_media_preprocess_field(&$variables) {
       $main_property = $item->getFieldDefinition()->getFieldStorageDefinition()->getMainPropertyName();
       $value = $item->{$main_property};
 
+      // Get langcode from media entity itself.
+      $langcode = $entity->language()->getId();
+
+      // If no lang for the media entity, get current lang as 1st fallback.
+      if (empty($langcode) || $langcode == 'und') {
+        $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
+      }
+
+      // If no data, use "en" as 2nd fallback option.
+      if (empty($langcode) || $langcode == 'und') {
+        $langcode = 'en';
+      }
+
       // Fallback option for oembed old way, In case of change back to oembed
       // fetch resource way.
       $resource_url = $url_resolver->getResourceUrl($value, $max_width, $max_height);
@@ -111,6 +139,7 @@ function varbase_media_preprocess_field(&$variables) {
           'type' => "remote_video",
           'provider' => strtolower($provider ?? ''),
           'view_mode' => $view_mode,
+          'langcode' => $langcode,
           'hash' => $iframe_url_helper->getHash($value, $max_width, $max_height, $provider, $view_mode),
         ],
       ]);
@@ -203,8 +232,14 @@ function varbase_media_preprocess_media_oembed_iframe(&$variables) {
   $variables['type'] = $query->get('type');
   $variables['provider'] = $query->get('provider');
   $variables['view_mode'] = $query->get('view_mode');
+  $variables['langcode'] = $query->get('langcode');
   $variables['base_path'] = base_path();
   $variables['varbase_media_path'] = \Drupal::service('module_handler')->getModule('varbase_media')->getPath();
+
+  // Add media title from resource if available.
+  if (!empty($variables['resource']) && !empty($variables['resource']->getTitle())) {
+    $variables['media_title'] = $variables['resource']->getTitle();
+  }
 }
 
 /**
@@ -735,8 +770,14 @@ function varbase_media_preprocess_media_oembed_iframe__remote_video(&$variables)
   $variables['type'] = $query->get('type');
   $variables['provider'] = $query->get('provider');
   $variables['view_mode'] = $query->get('view_mode');
+  $variables['langcode'] = $query->get('langcode');
   $variables['base_path'] = base_path();
   $variables['varbase_media_path'] = \Drupal::service('module_handler')->getModule('varbase_media')->getPath();
+
+  // Add media title from resource if available.
+  if (!empty($variables['resource']) && !empty($variables['resource']->getTitle())) {
+    $variables['media_title'] = $variables['resource']->getTitle();
+  }
 }
 
 /**
