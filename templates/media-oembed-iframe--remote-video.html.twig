@@ -7,10 +7,11 @@
  */
 #}
 <!DOCTYPE html>
-<html>
+<html lang="{{ langcode and langcode != 'und' ? langcode : 'en' }}">
   <head>
     <css-placeholder token="{{ placeholder_token }}">
     <script src="{{ base_path }}{{ varbase_media_path }}/js/oembed-frame.varbase-media.{{ provider }}.js"></script> 
+    <title>{{ media_title ?: 'Media title' }}</title>
   </head>
   <body style="margin: 0;">
     {{ media|raw }}
