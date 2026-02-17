@@ -1,5 +1,0 @@
-name: varbase_media_update_100002
-description: 'Issue #3394223: Fix Status Report for updates with Embed button CKEditor5 compatibility after updating'
-type: update
-recipes:
-  - varbase_media_update_90008

@@ -1,45 +1,6 @@
 name: Varbase Media
-description: Manages type of media contents and entity browsers in the site.
+description: Manages media types, oEmbed rendering, and video player behaviors for the site.
 type: module
 package: Varbase
 core_version_requirement: ~11.3.0
-configure: varbase_media.settings
-dependencies:
-  - drupal:user
-  - drupal:block
-  - drupal:node
-  - drupal:taxonomy
-  - drupal:block_content
-  - drupal:views
-  - drupal:path
-  - drupal:file
-  - drupal:image
-  - drupal:media
-  - drupal:media_library
-  - drupal:breakpoint
-  - drimage_improved:drimage_improved
-  - better_exposed_filters:better_exposed_filters
-  - crop:crop
-  - dropzonejs:dropzonejs_eb_widget
-  - embed:embed
-  - entity_browser:entity_browser
-  - entity_browser_enhanced:entity_browser_enhanced
-  - entity_browser:entity_browser_entity_form
-  - varbase_media:entity_browser_generic_embed
-  - entity_embed:entity_embed
-  - focal_point:focal_point
-install:
-  - ds
-  - ds_extras
-  - media_bulk_upload
-  - media_bulk_upload_dropzonejs
-  - media_library_edit
-  - views_bulk_operations
-  - views_infinite_scroll
-  - views_bulk_edit
-  - blazy
-  - slick
-  - webp
-  - entity_clone
-  - length_indicator
-  - maxlength
+

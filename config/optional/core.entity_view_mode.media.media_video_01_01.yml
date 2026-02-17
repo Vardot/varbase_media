@@ -1,9 +1,0 @@
-langcode: en
-status: true
-dependencies:
-  module:
-    - media
-id: media.media_video_01_01
-label: 'Media Video 1:1'
-targetEntityType: media
-cache: true

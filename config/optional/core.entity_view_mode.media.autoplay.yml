@@ -1,9 +1,0 @@
-langcode: en
-status: true
-dependencies:
-  module:
-    - media
-id: media.autoplay
-label: Autoplay
-targetEntityType: media
-cache: true

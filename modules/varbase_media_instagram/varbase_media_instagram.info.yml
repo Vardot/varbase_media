@@ -1,9 +1,0 @@
-name: Varbase Media Instagram
-description: Manages default config for Instagram media type.
-type: module
-package: Varbase
-core_version_requirement: ~11.3.0
-dependencies:
-  - varbase_media:varbase_media
-  - media_entity_instagram:media_entity_instagram
-  - varbase_media:entity_browser_generic_embed

@@ -1,37 +1,3 @@
-common:
-  version: VERSION
-  css:
-    theme:
-      css/theme/varbase_media.common.css: {}
-  dependencies:
-    - system/base
-    - core/drupal
-    - core/drupalSettings
-    - core/jquery
-    - core/once
-common_logged:
-  version: VERSION
-  css:
-    theme:
-      css/theme/media_library.theme.css: {}
-      css/theme/varbase_media.common_logged.css: {}
-  dependencies:
-    - system/base
-    - core/drupal
-    - core/drupalSettings
-    - core/jquery
-    - core/once
-    - varbase_media/auto_fill_media_data
-auto_fill_media_data:
-  version: VERSION
-  js:
-    js/auto-fill-media-data.js: {}
-  dependencies:
-    - system/base
-    - core/drupal
-    - core/drupalSettings
-    - core/jquery
-    - core/once
 varbase_video_player:
   version: VERSION
   css:
@@ -45,10 +11,6 @@ varbase_video_player:
     - core/drupalSettings
     - core/jquery
     - core/once
-media_library_enhancements:
-  version: VERSION
-  js:
-    js/varbase-media-enhancements.js: {}
 ckeditor_drimage:
   version: VERSION
   js:
@@ -58,13 +20,3 @@ ckeditor_varbase_video_player:
   css:
     theme:
       css/theme/varbase-video-player.ckeditor.admin.css: {}
-ai_image_alt_text_inline_button:
-  version: VERSION
-  css:
-    theme:
-      css/theme/ai-image-alt-text.inline-button.admin.css: {}
-  js:
-    js/ai-image-alt-text.inline-button.js: {}
-  dependencies:
-    - core/drupal
-    - core/once

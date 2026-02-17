@@ -16,12 +16,8 @@ module.exports = {
     // SCSS
     // ################################################
     // Theme
-    'theme/varbase_media.common': ['./scss/theme/varbase_media.common.scss'],
-    'theme/varbase_media.common_logged': ['./scss/theme/varbase_media.common_logged.scss'],
-    'theme/media_library.theme': ['./scss/theme/media_library.theme.scss'],
     'theme/varbase-video-player.theme': ['./scss/theme/varbase-video-player.theme.scss'],
-    'theme/varbase-video-player.ckeditor.admin': ['./scss/theme/varbase-video-player.ckeditor.admin.scss'],
-    'theme/ai-image-alt-text.inline-button.admin': ['./scss/theme/ai-image-alt-text.inline-button.admin.scss']
+    'theme/varbase-video-player.ckeditor.admin': ['./scss/theme/varbase-video-player.ckeditor.admin.scss']
   },
   output: {
     path: path.resolve(__dirname, 'css'),

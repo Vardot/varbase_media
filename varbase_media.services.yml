@@ -1,5 +1,0 @@
-services:
-  varbase_media.media_bulk_upload_route_subscriber:
-    class: Drupal\varbase_media\Routing\VarbaseMediaBulkUploadRouteSubscriber
-    tags:
-      - { name: event_subscriber }
