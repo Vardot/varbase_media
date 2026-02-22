@@ -10,42 +10,25 @@
         $(this).fadeOut(500);
 
         // Locally Hosted Video.
-        if (
-          $(this).closest('.media').find('.varbase-video-player > video')
-            .length > 0
-        ) {
-          $(this)
-            .closest('.media')
-            .find('.varbase-video-player > video')
-            .get(0)
-            .play();
+        // Use descendant selector (not direct child >) to work with Drupal's
+        // standard field template wrapper divs.
+        const $video = $(this)
+          .closest('.media')
+          .find('.varbase-video-player video');
+
+        if ($video.length > 0) {
+          $video.get(0).play();
         }
 
-        // Remote Youtube Video.
-        if (
-          $(this)
-            .closest('.media')
-            .find('.varbase-video-player > iframe[src*="youtube.com"]').length >
-          0
-        ) {
-          const closestYoutubeIframe = $(this)
-            .closest('.media')
-            .find('.varbase-video-player > iframe[src*="youtube.com"]')
-            .get(0).contentWindow;
-          closestYoutubeIframe.postMessage('play', '*');
-        }
+        // Remote Video (YouTube, Vimeo, etc.) via Drupal oembed iframe.
+        // The iframe src is the Drupal oembed route (/media/oembed?url=...).
+        // The oembed-frame JS inside the iframe listens for postMessage('play').
+        const $iframe = $(this)
+          .closest('.media')
+          .find('.varbase-video-player iframe');
 
-        // Remote Vimeo Video.
-        if (
-          $(this)
-            .closest('.media')
-            .find('.varbase-video-player > iframe[src*="vimeo.com"]').length > 0
-        ) {
-          const closestVimeoIframe = $(this)
-            .closest('.media')
-            .find('.varbase-video-player > iframe[src*="vimeo.com"]')
-            .get(0).contentWindow;
-          closestVimeoIframe.postMessage('play', '*');
+        if ($iframe.length > 0) {
+          $iframe.get(0).contentWindow.postMessage('play', '*');
         }
       });
     },

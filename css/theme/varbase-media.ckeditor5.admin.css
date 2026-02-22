@@ -1,0 +1,27 @@
+.ck-style-dropdown .ck-style-grid .ck-disabled {
+  display: none !important;
+}
+
+.ck-editor figure.ck-widget_with-resizer .media {
+  min-width: auto !important;
+}
+
+.ck-editor figure.ck-widget_with-resizer:has(.media--view-mode-large) {
+  width: 100%;
+}
+
+.ck-editor figure.ck-widget_with-resizer:has(.media--view-mode-medium) {
+  width: 50%;
+}
+
+.ck-editor figure.ck-widget_with-resizer:has(.media--view-mode-small) {
+  width: 25%;
+}
+
+.ck-toolbar__items .ck-resize-image-button.ck-disabled {
+  display: none;
+}
+
+.ck-toolbar__items:has(.ck-resize-image-button:not(.ck-disabled)) .ck-dropdown__button[data-cke-tooltip-text="View mode"] {
+  display: none;
+}

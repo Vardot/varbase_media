@@ -1,3 +1,38 @@
+common:
+  version: VERSION
+  css:
+    theme:
+      css/theme/varbase_media.common.css: {}
+  dependencies:
+    - system/base
+    - core/drupal
+    - core/drupalSettings
+    - core/jquery
+    - core/once
+common_logged:
+  version: VERSION
+  css:
+    theme:
+      css/theme/media_library.theme.css: {}
+      css/theme/varbase_media.common_logged.css: {}
+  dependencies:
+    - system/base
+    - core/drupal
+    - core/drupalSettings
+    - core/jquery
+    - core/once
+ckeditor5:
+  css:
+    theme:
+      css/theme/varbase-media.ckeditor5.admin.css: {}
+ckeditor5_media_resize:
+  js:
+    js/varbase-media.ckeditor5.media-image.admin.js: {}
+    js/varbase-media.ckeditor5.media-dropdown.admin.js: {}
+  dependencies:
+    - core/drupal
+    - core/once
+    - core/jquery
 varbase_video_player:
   version: VERSION
   css:
@@ -11,6 +46,10 @@ varbase_video_player:
     - core/drupalSettings
     - core/jquery
     - core/once
+media_library_enhancements:
+  version: VERSION
+  js:
+    js/varbase-media-enhancements.js: {}
 ckeditor_drimage:
   version: VERSION
   js:
