@@ -332,18 +332,6 @@ class VarbaseMediaHooks {
       $theme_registry['entity_embed_container']['path'] = $varbase_media_path . '/templates';
     }
 
-    if (isset($theme_registry['fieldset__media_library_widget'])) {
-      $theme_registry['fieldset__media_library_widget']['path'] = $varbase_media_path . '/templates';
-    }
-  }
-
-  /**
-   * Implements hook_preprocess_media_library_item__widget().
-   */
-  #[Hook('preprocess_media_library_item__widget')]
-  public function preprocessMediaLibraryItemWidget(array &$variables): void {
-    $variables['content']['remove_button']['#attributes']['class'][] = 'media-library-item__remove';
-    $variables['content']['remove_button']['#attributes']['class'][] = 'icon-link';
   }
 
   /**
@@ -356,22 +344,6 @@ class VarbaseMediaHooks {
   }
 
   /**
-   * Implements hook_preprocess_fieldset__media_library_widget().
-   */
-  #[Hook('preprocess_fieldset__media_library_widget')]
-  public function preprocessFieldsetMediaLibraryWidget(array &$variables): void {
-    $variables['attributes']['class'][] = 'media-library-widget';
-  }
-
-  /**
-   * Implements hook_preprocess_container__media_library_widget_selection().
-   */
-  #[Hook('preprocess_container__media_library_widget_selection')]
-  public function preprocessContainerMediaLibraryWidgetSelection(array &$variables): void {
-    $variables['attributes']['class'][] = 'media-library-selection';
-  }
-
-  /**
    * Implements hook_preprocess_entity_embed_container().
    */
   #[Hook('preprocess_entity_embed_container')]
@@ -379,32 +351,6 @@ class VarbaseMediaHooks {
     $variables['url'] = isset($variables['element']['#context']['data-entity-embed-display-settings']['link_url'])
       ? UrlHelper::filterBadProtocol($variables['element']['#context']['data-entity-embed-display-settings']['link_url'])
       : '';
-  }
-
-  /**
-   * Implements hook_entity_embed_alter().
-   */
-  #[Hook('entity_embed_alter')]
-  public function entityEmbedAlter(array &$build, EntityInterface $entity, array &$context): void {
-    // Only for entity embed review inside the CKEditor.
-    $preview_route_name = \Drupal::routeMatch()->getRouteName();
-    if ($preview_route_name == 'embed.preview' || $preview_route_name == 'entity_embed.preview') {
-
-      // Switch view mode for gallery in the CKEditor to show the Browser Teaser.
-      if (isset($context['data-embed-button'])
-          && $context['data-embed-button'] == 'gallery') {
-
-        // Remove the contextual links.
-        if (isset($build['#contextual_links'])) {
-          unset($build['#contextual_links']);
-        }
-
-        if ($build['#context']['data-entity-embed-display'] == 'view_mode:media.full') {
-          $build['#context']['data-entity-embed-display'] = 'view_mode:media.browser_teaser';
-          $build['entity']['#view_mode'] = 'browser_teaser';
-        }
-      }
-    }
   }
 
   /**
