@@ -3,4 +3,5 @@ description: Manages media types, oEmbed rendering, and video player behaviors f
 type: module
 package: Varbase
 core_version_requirement: ~11.3.0
-
+dependencies:
+  - drimage_improved:drimage_improved
