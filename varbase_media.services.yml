@@ -3,9 +3,6 @@ services:
     autowire: true
     autoconfigure: true
 
-  Drupal\varbase_media\MediaViewModesList:
-    public: true
-
   Drupal\varbase_media\Twig\VarbaseMediaTwigExtension:
     tags:
       - { name: twig.extension }
