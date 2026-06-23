@@ -10,6 +10,7 @@ use Drupal\Core\Entity\Entity\EntityViewDisplay;
 use Drupal\Core\Entity\EntityFormInterface;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Hook\Attribute\Hook;
+use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\Core\Url;
 use Drupal\media\OEmbed\Provider;
 use Drupal\varbase_media\Plugin\Filter\VarbaseFilterResizeMedia;
@@ -19,6 +20,8 @@ use Drupal\views\ViewExecutable;
  * Hook implementations for varbase_media.
  */
 class VarbaseMediaHooks {
+
+  use StringTranslationTrait;
 
   /**
    * Implements hook_preprocess_field().
@@ -74,7 +77,7 @@ class VarbaseMediaHooks {
           'max_width' => $max_width,
           'max_height' => $max_height,
           'type' => "remote_video",
-          'provider' => strtolower($provider ?? ''),
+          'provider' => strtolower($provider),
           'view_mode' => $view_mode,
           'langcode' => $langcode,
           'hash' => $iframe_url_helper->getHash($value, $max_width, $max_height, $provider, $view_mode),
@@ -387,17 +390,17 @@ class VarbaseMediaHooks {
       $settings['editor']['formats']['full_html']['editorSettings']['config']['drupalMedia']['resizeOptions'][] = [
         'name' => 'resizeMediaImage:100',
         'value' => 100,
-        'label' => t('Large'),
+        'label' => $this->t('Large'),
       ];
       $settings['editor']['formats']['full_html']['editorSettings']['config']['drupalMedia']['resizeOptions'][] = [
         'name' => 'resizeMediaImage:50',
         'value' => 50,
-        'label' => t('Medium'),
+        'label' => $this->t('Medium'),
       ];
       $settings['editor']['formats']['full_html']['editorSettings']['config']['drupalMedia']['resizeOptions'][] = [
         'name' => 'resizeMediaImage:25',
         'value' => 25,
-        'label' => t('Small'),
+        'label' => $this->t('Small'),
       ];
     }
   }
@@ -413,7 +416,7 @@ class VarbaseMediaHooks {
    */
   #[Hook('preprocess_image')]
   public function preprocessImage(array &$variables): void {
-    // width and height are already in $variables['attributes'] at this point.
+    // Width and height are already in $variables['attributes'] at this point.
     // Removing the standalone variables prevents them from being picked up as
     // SDC component props (which have a different schema than HTML attributes).
     unset($variables['width'], $variables['height']);

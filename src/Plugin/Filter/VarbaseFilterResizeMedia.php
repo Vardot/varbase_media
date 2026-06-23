@@ -78,6 +78,7 @@ class VarbaseFilterResizeMedia extends FilterResizeMedia {
    * Applies width, class and data attributes to passed media DOMNodes.
    */
   private function processMediaDom(bool $processing_in_editor, \DOMNode $node, bool $apply_image_styles, array $ckeditor5_plugin_config) : void {
+    $width = '';
     if (!$processing_in_editor) {
       [
         $width,

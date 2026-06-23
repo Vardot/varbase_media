@@ -152,6 +152,10 @@
     "usort",
     "xlink",
     "Scaned",
-    "popperjs"
+    "popperjs",
+    "phar",
+    "phpstan",
+    "upcasted",
+    "vartheme"
   ]
 }

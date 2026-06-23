@@ -1,6 +1,9 @@
 [![Varbase](https://raw.githubusercontent.com/Vardot/varbase/11.0.x/images/varbase-logo.png)](https://www.drupal.org/project/varbase)
 
 # Varbase Media
+[![pipeline status](https://git.drupalcode.org/project/varbase_media/badges/11.0.x/pipeline.svg)](https://git.drupalcode.org/project/varbase_media/-/pipelines)
+[![Varbase Media](https://img.shields.io/badge/Varbase%20Media-11.0.0--alpha2-0d6efc?labelColor=001d38&style=flat-square)](https://git.drupalcode.org/project/varbase_media/-/pipelines?ref=11.0.0-alpha2)
+[![Automated Functional Testing](https://git.drupalcode.org/project/varbase_project/badges/11.0.x/pipeline.svg)](https://git.drupalcode.org/project/varbase_project/-/pipelines)
 ---
 
 CONTENTS OF THIS FILE
