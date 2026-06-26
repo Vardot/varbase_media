@@ -3,3 +3,18 @@ services:
     class: Drupal\varbase_media\Routing\VarbaseMediaBulkUploadRouteSubscriber
     tags:
       - { name: event_subscriber }
+  Drupal\varbase_media\Hook\VarbaseMediaHooks:
+    class: Drupal\varbase_media\Hook\VarbaseMediaHooks
+    arguments:
+      - '@media.oembed.iframe_url_helper'
+      - '@media.oembed.resource_fetcher'
+      - '@media.oembed.url_resolver'
+      - '@language_manager'
+      - '@config.factory'
+      - '@request_stack'
+      - '@module_handler'
+      - '@entity_type.manager'
+      - '@renderer'
+      - '@current_user'
+      - '@entity.repository'
+      - '@current_route_match'

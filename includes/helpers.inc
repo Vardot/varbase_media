@@ -9,6 +9,7 @@
 
 use Drupal\image\Entity\ImageStyle;
 use Drupal\media\MediaInterface;
+use Symfony\Component\Yaml\Yaml;
 
 /**
  * Managed Varbase Media Library configurations.

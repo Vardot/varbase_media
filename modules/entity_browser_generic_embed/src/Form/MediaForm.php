@@ -5,12 +5,15 @@ namespace Drupal\entity_browser_generic_embed\Form;
 use Drupal\Component\Utility\NestedArray;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\entity_browser_generic_embed\MediaHelper;
+use Drupal\Core\Security\TrustedCallbackInterface;
 use Drupal\media\MediaForm as BaseMediaForm;
 
 /**
  * Adds dynamic preview support to the media entity form.
+ *
+ * @phpstan-ignore-next-line
  */
-class MediaForm extends BaseMediaForm {
+class MediaForm extends BaseMediaForm implements TrustedCallbackInterface {
 
   use BulkCreationEntityFormTrait;
 
@@ -98,6 +101,13 @@ class MediaForm extends BaseMediaForm {
     $handler->copyFormValuesToEntity($entity, $form, $form_state);
 
     return MediaHelper::getSourceField($entity)->view('default');
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public static function trustedCallbacks() {
+    return ['renderPreview'];
   }
 
 }

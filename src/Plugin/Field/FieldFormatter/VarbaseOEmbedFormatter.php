@@ -22,6 +22,8 @@ use Drupal\media\Plugin\Field\FieldFormatter\OEmbedFormatter;
  *     "string_long",
  *   },
  * )
+ *
+ * @phpstan-ignore-next-line
  */
 class VarbaseOEmbedFormatter extends OEmbedFormatter {
 

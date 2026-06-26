@@ -45,6 +45,7 @@ class VarbaseMediaGallery extends MediaSourceBase implements MediaSourceEntityCo
             '1 media item, created on @date',
             '@count media items, created on @date',
             [
+              // @phpstan-ignore-next-line
               '@date' => \Drupal::service('date.formatter')
                 ->format($media->getCreatedTime(), 'custom', DateTimeItemInterface::DATETIME_STORAGE_FORMAT),
             ]);

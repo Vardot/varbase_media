@@ -6,6 +6,8 @@ use Drupal\media\MediaTypeInterface;
 use Drupal\entity_browser_generic_embed\InputMatchInterface;
 use Drupal\media\Plugin\media\Source\OEmbed as DrupalCoreOEmbed;
 use Drupal\media\Plugin\Validation\Constraint\OEmbedResourceConstraint;
+use Drupal\media\OEmbed\ProviderException;
+use Drupal\media\OEmbed\ResourceException;
 
 /**
  * Input-matching version of the Varbase Media Remote Video media source.
@@ -70,6 +72,22 @@ class VarbaseMediaRemoteVideo extends DrupalCoreOEmbed implements InputMatchInte
     return is_scalar($value) || (is_object($value) && method_exists($value, '__toString'))
       ? (string) $value
       : NULL;
+  }
+
+  /**
+   * Logs an oEmbed exception encountered while validating a URL.
+   *
+   * @param \Exception $exception
+   *   The exception that was thrown.
+   * @param string $message
+   *   The message describing the failure.
+   */
+  protected function handleException(\Exception $exception, string $message): void {
+    // @phpstan-ignore-next-line
+    \Drupal::logger('varbase_media')->warning('@message @error', [
+      '@message' => $message,
+      '@error' => $exception->getMessage(),
+    ]);
   }
 
 }

@@ -17,7 +17,7 @@ trait ValidationConstraintMatchTrait {
    *   The typed data manager.
    */
   private function typedDataManager() {
-    return @($this->typedDataManager ?: \Drupal::typedDataManager());
+    return \Drupal::typedDataManager();
   }
 
   /**

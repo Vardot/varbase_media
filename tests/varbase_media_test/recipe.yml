@@ -1,0 +1,26 @@
+name: 'Varbase Media Test'
+description: 'Grants the Varbase Media permissions for the automated tests on a Standard profile site (Varbase Media is enabled by the CI before running this recipe).'
+type: 'Testing'
+config:
+  actions:
+    user.role.anonymous:
+      grantPermissions:
+        - 'view media'
+    user.role.authenticated:
+      grantPermissions:
+        - 'delete own audio media'
+        - 'delete own file media'
+        - 'delete own gallery media'
+        - 'delete own image media'
+        - 'delete own remote_video media'
+        - 'delete own video media'
+        - 'edit own audio media'
+        - 'edit own file media'
+        - 'edit own gallery media'
+        - 'edit own image media'
+        - 'edit own remote_video media'
+        - 'edit own video media'
+        - 'delete media'
+        - 'update media'
+        - 'view media'
+        - 'view own unpublished media'
