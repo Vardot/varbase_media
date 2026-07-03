@@ -164,7 +164,12 @@ class MediaHelper {
       return $file;
     }
     else {
-      $file = file_move($file, $destination, $replace);
+      try {
+        $file = \Drupal::service('file.repository')->move($file, $destination, $replace);
+      }
+      catch (\Exception $e) {
+        return FALSE;
+      }
 
       if ($file) {
         $field->setValue($file);

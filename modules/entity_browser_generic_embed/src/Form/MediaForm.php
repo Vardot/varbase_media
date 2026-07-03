@@ -4,6 +4,7 @@ namespace Drupal\entity_browser_generic_embed\Form;
 
 use Drupal\Component\Utility\NestedArray;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Security\Attribute\TrustedCallback;
 use Drupal\entity_browser_generic_embed\MediaHelper;
 use Drupal\media\MediaForm as BaseMediaForm;
 
@@ -75,6 +76,7 @@ class MediaForm extends BaseMediaForm {
    * @return array
    *   The renderable preview element.
    */
+  #[TrustedCallback]
   public function renderPreview(array $element) {
     $entity = $this->getEntity();
     return $element + MediaHelper::getSourceField($entity)->view('default');

@@ -7,6 +7,7 @@
  * Add custom needed helper functions.
  */
 
+use Drupal\Component\Serialization\Yaml;
 use Drupal\image\Entity\ImageStyle;
 use Drupal\media\MediaInterface;
 use Drupal\node\Entity\Node;
@@ -33,7 +34,7 @@ function varbase_media__managed_media_library_configs() {
   $media_config_path = $managed_config_path . '/views.view.media.yml';
   if (file_exists($media_config_path)) {
     $media_config_content = file_get_contents($media_config_path);
-    $media_config_data = (array) Yaml::parse($media_config_content);
+    $media_config_data = (array) Yaml::decode($media_config_content);
     $media_config_factory = \Drupal::configFactory()->getEditable('views.view.media');
     $media_config_factory->setData($media_config_data)->save(TRUE);
   }
@@ -42,7 +43,7 @@ function varbase_media__managed_media_library_configs() {
   $media_library_config_path = $managed_config_path . '/views.view.media_library.yml';
   if (file_exists($media_library_config_path)) {
     $media_library_config_content = file_get_contents($media_library_config_path);
-    $media_library_config_data = (array) Yaml::parse($media_library_config_content);
+    $media_library_config_data = (array) Yaml::decode($media_library_config_content);
     $media_library_config_factory = \Drupal::configFactory()->getEditable('views.view.media_library');
     $media_library_config_factory->setData($media_library_config_data)->save(TRUE);
   }

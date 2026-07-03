@@ -92,8 +92,7 @@ function varbase_media_update_8703() {
 function varbase_media_update_8704() {
   // When Remote Video media type is active.
   $media_bundle_ids = \Drupal::service('entity_type.bundle.info')->getBundleInfo('media');
-  if (isset($media_bundle_ids)
-    && is_array($media_bundle_ids)
+  if (is_array($media_bundle_ids)
     && count($media_bundle_ids) > 0
     && isset($media_bundle_ids['remote_video'])) {
 
@@ -127,8 +126,7 @@ function varbase_media_update_8704() {
 function varbase_media_update_8705() {
   // When the Remote Video media type is active.
   $media_bundle_ids = \Drupal::service('entity_type.bundle.info')->getBundleInfo('media');
-  if (isset($media_bundle_ids)
-    && is_array($media_bundle_ids)
+  if (is_array($media_bundle_ids)
     && count($media_bundle_ids) > 0
     && isset($media_bundle_ids['remote_video'])) {
 
@@ -137,7 +135,7 @@ function varbase_media_update_8705() {
     $entities = \Drupal::entityTypeManager()->getStorage('media')->loadByProperties(['bundle' => 'remote_video']);
 
     // When we do have remote video media entities.
-    if (isset($entities) && is_array($entities) && count($entities) > 0) {
+    if (is_array($entities) && count($entities) > 0) {
       // And no syncing for update process.
       if (!\Drupal::isConfigSyncing()) {
         // Fetch the provider name and cache it in the field_provider
@@ -168,16 +166,14 @@ function varbase_media_update_8705() {
 function varbase_media_update_8706() {
   // When the Remote Video media type is active.
   $media_bundle_ids = \Drupal::service('entity_type.bundle.info')->getBundleInfo('media');
-  if (isset($media_bundle_ids)
-    && is_array($media_bundle_ids)
+  if (is_array($media_bundle_ids)
     && count($media_bundle_ids) > 0
     && isset($media_bundle_ids['remote_video'])) {
 
     $storage = \Drupal::entityTypeManager()->getStorage('entity_view_display');
     $media_view_modes = \Drupal::service('entity_display.repository')->getViewModes('media');
 
-    if (isset($media_view_modes)
-      && is_array($media_view_modes)
+    if (is_array($media_view_modes)
       && count($media_view_modes) > 0) {
 
       $media_view_modes['default'] = 'default';
@@ -209,8 +205,7 @@ function varbase_media_update_8706() {
 function varbase_media_update_8707() {
   // When the Remote Video media type is active.
   $media_bundle_ids = \Drupal::service('entity_type.bundle.info')->getBundleInfo('media');
-  if (isset($media_bundle_ids)
-    && is_array($media_bundle_ids)
+  if (is_array($media_bundle_ids)
     && count($media_bundle_ids) > 0
     && isset($media_bundle_ids['remote_video'])) {
 

@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+id: content_admin
+label: 'Content Administrator'
+weight: -9
+is_admin: false
+permissions: {  }

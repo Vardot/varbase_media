@@ -16,7 +16,7 @@ trait BulkCreationEntityFormTrait {
    * {@inheritdoc}
    */
   public function save(array $form, FormStateInterface $form_state) {
-    parent::save($form, $form_state);
+    $return = parent::save($form, $form_state);
 
     $query = $this->getRequest()->query;
 
@@ -52,6 +52,8 @@ trait BulkCreationEntityFormTrait {
         }
       }
     }
+
+    return $return;
   }
 
 }

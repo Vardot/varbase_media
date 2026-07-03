@@ -34,3 +34,7 @@ errors.log
 
 # Ignore yarn cache
 .yarn/
+
+# Ignore gitlab-ci-local runner artifacts.
+.gitlab-ci-local/
+yarn.lock

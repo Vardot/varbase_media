@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+id: seo_admin
+label: 'SEO Administrator'
+weight: -7
+is_admin: false
+permissions: {  }

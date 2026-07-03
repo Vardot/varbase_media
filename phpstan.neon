@@ -1,0 +1,25 @@
+parameters:
+  level: 0
+  fileExtensions:
+    - php
+    - module
+    - inc
+    - install
+    - theme
+    - profile
+  reportUnmatchedIgnoredErrors: false
+  ignoreErrors:
+    # new static() is a best practice in Drupal, so we cannot fix that.
+    - '#^Unsafe usage of new static#'
+    # Two Varbase Media plugins deliberately extend Drupal core media classes
+    # that core marks @internal. They are the documented extension points
+    # Varbase Media builds on (a media entity form with a dynamic preview, and
+    # an oEmbed field formatter), so the @internal-extends warning is expected
+    # and accepted here. This is a targeted rule exception, not a generated
+    # phpstan baseline of the project's errors.
+    -
+      message: '#extends @internal class Drupal\\media\\MediaForm\.#'
+      path: modules/entity_browser_generic_embed/src/Form/MediaForm.php
+    -
+      message: '#extends @internal class Drupal\\media\\Plugin\\Field\\FieldFormatter\\OEmbedFormatter\.#'
+      path: src/Plugin/Field/FieldFormatter/VarbaseOEmbedFormatter.php

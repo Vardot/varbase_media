@@ -54,20 +54,20 @@ function varbase_media_preprocess_field(&$variables) {
       $main_property = $item->getFieldDefinition()->getFieldStorageDefinition()->getMainPropertyName();
       $value = $item->{$main_property};
       $provider = $entity->field_provider->value;
-      
+
       // Get langcode from media entity itself.
       $langcode = $entity->language()->getId();
-      
+
       // If no lang for the media entity, get current lang as 1st fallback.
       if (empty($langcode) || $langcode == 'und') {
         $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
       }
-      
+
       // If no data, use "en" as 2nd fallback option.
       if (empty($langcode) || $langcode == 'und') {
         $langcode = 'en';
       }
-      
+
       $url = Url::fromRoute('media.oembed_iframe', [], [
         'query' => [
           'url' => $value,
@@ -112,12 +112,12 @@ function varbase_media_preprocess_field(&$variables) {
 
       // Get langcode from media entity itself.
       $langcode = $entity->language()->getId();
-      
+
       // If no lang for the media entity, get current lang as 1st fallback.
       if (empty($langcode) || $langcode == 'und') {
         $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
       }
-      
+
       // If no data, use "en" as 2nd fallback option.
       if (empty($langcode) || $langcode == 'und') {
         $langcode = 'en';
@@ -180,7 +180,7 @@ function varbase_media_preprocess_media_oembed_iframe(&$variables) {
   $variables['langcode'] = $query->get('langcode');
   $variables['base_path'] = base_path();
   $variables['varbase_media_path'] = \Drupal::service('module_handler')->getModule('varbase_media')->getPath();
-  
+
   // Add media title from resource if available.
   if (!empty($variables['resource']) && !empty($variables['resource']->getTitle())) {
     $variables['media_title'] = $variables['resource']->getTitle();
@@ -726,7 +726,7 @@ function varbase_media_preprocess_media_oembed_iframe__remote_video(&$variables)
   $variables['langcode'] = $query->get('langcode');
   $variables['base_path'] = base_path();
   $variables['varbase_media_path'] = \Drupal::service('module_handler')->getModule('varbase_media')->getPath();
-  
+
   // Add media title from resource if available.
   if (!empty($variables['resource']) && !empty($variables['resource']->getTitle())) {
     $variables['media_title'] = $variables['resource']->getTitle();

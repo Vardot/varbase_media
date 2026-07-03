@@ -9,7 +9,6 @@ use Drupal\Core\Installer\InstallerKernel;
 use Drupal\Core\Entity\Display\EntityFormDisplayInterface;
 use Drupal\Core\Field\FieldStorageDefinitionInterface;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\ckeditor\Ajax\AddStyleSheetCommand;
 use Drupal\file\FileInterface;
 use Drupal\image\Entity\ImageStyle;
 use Drupal\image\Plugin\Field\FieldType\ImageItem;
@@ -244,7 +243,6 @@ function entity_browser_generic_embed_form_entity_embed_dialog_alter(array &$for
  */
 function entity_browser_generic_embed_ajax_render_alter(array &$data) {
   $route = \Drupal::routeMatch()->getRouteName();
-  $query = \Drupal::request()->query;
 
   if ($route == 'entity_embed.dialog') {
     foreach ($data as &$command) {
@@ -253,25 +251,6 @@ function entity_browser_generic_embed_ajax_render_alter(array &$data) {
         $libraries = array_diff($libraries, ['entity_browser/iframe']);
         $command['settings']['ajaxPageState']['libraries'] = implode(',', $libraries);
       }
-    }
-  }
-  elseif ($route == 'embed.preview' && $query->has('editor')) {
-    $style_sheets = [];
-
-    foreach ($data as $command) {
-      // Any CSS being added should be replicated in the editor.
-      if ($command['command'] == 'add_css') {
-        $matched = [];
-        // Assume (perhaps naively) that all the style sheets are embedded as
-        // <link /> tags.
-        preg_match_all('/href="([^"]+)"/', $command['data'], $matched);
-        $style_sheets = array_merge($style_sheets, $matched[1]);
-      }
-    }
-
-    if ($style_sheets) {
-      $command = new AddStyleSheetCommand($query->get('editor'), $style_sheets);
-      $data[] = $command->render();
     }
   }
 }

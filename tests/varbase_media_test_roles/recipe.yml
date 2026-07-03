@@ -1,0 +1,5 @@
+name: 'Varbase Media Test Roles'
+description: 'Creates the Varbase user roles (site_admin, content_admin, editor, seo_admin) that the Varbase Media default recipe grants media permissions to. On a full Varbase site these roles are provided by the Varbase profile; the Varbase Media automated tests run on the Drupal Standard profile, so this helper recipe creates minimal role entities from its own config/ directory before the Varbase Media module is installed.'
+type: 'Testing'
+install:
+  - user

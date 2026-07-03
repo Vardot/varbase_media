@@ -1,0 +1,16 @@
+{
+  "css": {
+    "drupal page heading": "h1",
+    "drupal status messages": ".messages--status",
+    "drupal error messages": ".messages--error",
+    "drupal access denied heading": "h1:has-text('Access denied')",
+    "admin content view": ".view-content",
+    "admin media view": ".view-media",
+    "admin config page": ".admin-list, .layout-container",
+    "media add list": ".media-library-add-form, .admin-list, ul.admin-list",
+    "media image form": "form.media-image-form, form[id^='media-image-add-form']",
+    "media name field": "#edit-name-0-value",
+    "save button": "#edit-submit"
+  },
+  "xpath": {}
+}

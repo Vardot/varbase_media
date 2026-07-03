@@ -1,0 +1,5 @@
+name: 'Varbase Media Test'
+description: 'Provisions a site for the Varbase Media automated browser tests: installs Varbase Media together with its media stack (media, entity browsers, DS, Blazy, Slick, Focal Point, Crop, Dropzone, ...). It does NOT apply the shipped Varbase Media - Default recipe, whose config actions grant permissions to the Varbase editorial roles (editor, content_admin, seo_admin, site_admin) that only exist on a full Varbase profile, not on the Standard test profile. The login, administration-pages and add-media scenarios only need Varbase Media enabled; the Webmaster super-admin (uid 1) reaches every media and admin route.'
+type: 'Testing'
+install:
+  - varbase_media
