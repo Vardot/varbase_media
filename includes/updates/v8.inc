@@ -10,6 +10,7 @@ use Drupal\embed\Entity\EmbedButton;
 use Drupal\Core\File\Exception\FileException;
 use Drupal\field\Entity\FieldConfig;
 use Drupal\field\Entity\FieldStorageConfig;
+use Drupal\varbase_media\Hook\VarbaseMediaHooks;
 
 /**
  * Issue #3098789: Fix [Media Library] and the [Media Grid and Media Table].
@@ -17,7 +18,7 @@ use Drupal\field\Entity\FieldStorageConfig;
  * Admin pages to work with Drupal ^8.8.x and ^8.7.x .
  */
 function varbase_media_update_8701() {
-  varbase_media__managed_media_library_configs();
+  \Drupal::service(VarbaseMediaHooks::class)->managedMediaLibraryConfigs();
 }
 
 /**
