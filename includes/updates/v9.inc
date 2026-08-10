@@ -5,7 +5,7 @@
  * Contains varbase_media_update_9###(s) hook updates.
  */
 
-use Symfony\Component\Yaml\Yaml;
+use Drupal\Component\Serialization\Yaml;
 use Drupal\Core\Config\InstallStorage;
 use Vardot\Installer\ModuleInstallerFactory;
 use Drupal\Core\Recipe\Recipe;
@@ -47,7 +47,7 @@ function varbase_media_update_9002() {
 
       if (file_exists($media_config_path)) {
         $media_config_content = file_get_contents($media_config_path);
-        $media_config_data = (array) Yaml::parse($media_config_content);
+        $media_config_data = (array) Yaml::decode($media_config_content);
         $media_config_factory = \Drupal::configFactory()->getEditable($media_bulk_upload_config);
         $media_config_factory->setData($media_config_data)->save(TRUE);
       }

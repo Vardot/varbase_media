@@ -8,7 +8,7 @@ use Drupal\Core\Config\InstallStorage;
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Config\TypedConfigManagerInterface;
 use Drupal\Core\Extension\ModuleHandlerInterface;
-use Symfony\Component\Yaml\Yaml;
+use Drupal\Component\Serialization\Yaml;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
@@ -103,7 +103,7 @@ class VarbaseMediaSettingsForm extends ConfigFormBase {
 
       $image_style_config_path = $optional_install_path . '/image.style.blazy_blurry.yml';
       $image_style_config_content = file_get_contents($image_style_config_path);
-      $image_style_config_data = (array) Yaml::parse($image_style_config_content);
+      $image_style_config_data = (array) Yaml::decode($image_style_config_content);
       $image_style_config_factory = $this->configFactory->getEditable('image.style.blazy_blurry');
       $image_style_config_factory->setData($image_style_config_data)->save(TRUE);
     }
