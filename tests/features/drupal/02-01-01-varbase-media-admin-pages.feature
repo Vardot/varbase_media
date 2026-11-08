@@ -9,7 +9,7 @@ Feature: Varbase Media - administration pages
     Then I should see "Add media"
     And I should not see "Page not found"
     When I open the administration page "/admin/content/media/bulk-upload/media_bulk_upload"
-    Then I should see "Multiple upload"
+    Then I should see "Media bulk upload"
     And I should not see "Page not found"
     When I open the administration page "/admin/config/varbase/varbase-media"
     Then I should not see "Page not found"
