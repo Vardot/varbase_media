@@ -10,6 +10,9 @@ variables:
   IGNORE_PROJECT_DRUPAL_CORE_VERSION: "1"
   COMPOSER_ALLOW_SUPERUSER: "1"
   COMPOSER_MEMORY_LIMIT: "-1"
+  # No yarn.lock is committed; Yarn 4 defaults to immutable installs on CI and
+  # would refuse to create one.
+  YARN_ENABLE_IMMUTABLE_INSTALLS: "false"
 workflow:
   rules:
     - if: $CI_PIPELINE_SOURCE == "merge_request_event"
@@ -55,7 +58,7 @@ phpstan:
 
 cspell:
   stage: validate
-  image: public.ecr.aws/docker/library/node:20
+  image: public.ecr.aws/docker/library/node:24
   before_script:
     - npm install -g cspell
   script:
@@ -64,7 +67,7 @@ cspell:
 
 eslint:
   stage: validate
-  image: public.ecr.aws/docker/library/node:20
+  image: public.ecr.aws/docker/library/node:24
   before_script:
     - if [ ! -f package.json ]; then echo "no package.json"; exit 0; fi
     - corepack enable && yarn install --mode=skip-build || true
@@ -75,7 +78,7 @@ eslint:
 
 stylelint:
   stage: validate
-  image: public.ecr.aws/docker/library/node:20
+  image: public.ecr.aws/docker/library/node:24
   before_script:
     - if [ ! -f package.json ]; then echo "no package.json"; exit 0; fi
     - corepack enable && yarn install --mode=skip-build || true

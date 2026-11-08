@@ -4,8 +4,8 @@
   "private": true,
   "license": "GPL-2.0-or-later",
   "engines": {
-    "yarn": ">= 4.9.3",
-    "node": ">= 20.0"
+    "yarn": ">= 4.18.1",
+    "node": ">= 24.0"
   },
   "scripts": {
     "theme:build": "webpack --progress --config webpack.config.build.js",
@@ -72,5 +72,5 @@
     "last 1 Samsung version",
     "Firefox ESR"
   ],
-  "packageManager": "yarn@4.9.3"
+  "packageManager": "yarn@4.18.1"
 }
