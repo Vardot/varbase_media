@@ -155,13 +155,13 @@ class VarbaseMediaHooks {
         $url = Url::fromRoute('media.oembed_iframe', [], [
           'query' => [
             'url' => $value,
-            'max_width' => $max_width,
-            'max_height' => $max_height,
+            'max_width' => (int) $max_width,
+            'max_height' => (int) $max_height,
             'type' => "remote_video",
             'provider' => strtolower($provider ?? ''),
             'view_mode' => $view_mode,
             'langcode' => $langcode,
-            'hash' => $iframe_url_helper->getHash($value, $max_width, $max_height, $provider, $view_mode),
+            'hash' => $iframe_url_helper->getHash($value, (int) $max_width, (int) $max_height, $provider, $view_mode),
           ],
         ]);
 
@@ -215,13 +215,13 @@ class VarbaseMediaHooks {
         $url = Url::fromRoute('media.oembed_iframe', [], [
           'query' => [
             'url' => $value,
-            'max_width' => $max_width,
-            'max_height' => $max_height,
+            'max_width' => (int) $max_width,
+            'max_height' => (int) $max_height,
             'type' => "remote_video",
             'provider' => strtolower($provider ?? ''),
             'view_mode' => $view_mode,
             'langcode' => $langcode,
-            'hash' => $iframe_url_helper->getHash($value, $max_width, $max_height, $provider, $view_mode),
+            'hash' => $iframe_url_helper->getHash($value, (int) $max_width, (int) $max_height, $provider, $view_mode),
           ],
         ]);
 
